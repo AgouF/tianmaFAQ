@@ -456,54 +456,6 @@ function collectArticles(nodes: PageNode[]): { title: string; link: string }[] {
   return result
 }
 
-// Long-tail keyword suffixes for SEO variant pages
-const KEYWORD_SUFFIXES_ZH = ['2026', '推荐', '免费', '教程', '下载']
-const LONGTAIL_DIR = join(DOCS_DIR, 'keywords')
-
-// Generate long-tail keyword variant pages that link to the main article
-function generateLongTailPages() {
-  mkdirSync(LONGTAIL_DIR, { recursive: true })
-  syncedPaths.add(LONGTAIL_DIR)
-
-  let count = 0
-  for (const article of allArticles) {
-    // Only generate for Chinese articles (not English)
-    if (!hasChinese(article.title)) continue
-
-    for (const suffix of KEYWORD_SUFFIXES_ZH) {
-      const variantTitle = `${article.title} ${suffix}`
-      const slug = `${article.link.split('/').pop()}-${slugify(suffix) || suffix}`
-      const filePath = join(LONGTAIL_DIR, `${slug}.md`)
-      syncedPaths.add(filePath)
-
-      const description = `${variantTitle} - 查看详细解答`
-      const content = [
-        '---',
-        `title: "${variantTitle.replace(/"/g, '\\"')}"`,
-        `description: "${description.replace(/"/g, '\\"')}"`,
-        '---',
-        '',
-        `# ${variantTitle}`,
-        '',
-        `::: tip`,
-        `本页面将引导您查看完整文章内容。`,
-        `:::`,
-        '',
-        `查看完整内容请前往：[${article.title}](${article.link})`,
-        '',
-        `<RelatedCards :items='${JSON.stringify([{ title: article.title, link: article.link }]).replace(/'/g, '&#39;')}' />`,
-        ''
-      ].join('\n')
-
-      const existing = existsSync(filePath) ? readFileSync(filePath, 'utf-8') : null
-      if (existing !== content) {
-        writeFileSync(filePath, content, 'utf-8')
-        count++
-      }
-    }
-  }
-  console.log(`Generated ${count} long-tail keyword pages`)
-}
 
 // Generate a /search page listing all articles for Google indexing
 function generateSearchPage() {
@@ -747,9 +699,6 @@ async function main() {
   // Append related articles to each page
   appendRelatedArticles()
 
-  // Generate long-tail keyword variant pages for SEO
-  generateLongTailPages()
-
   // Generate search page for Google indexing
   generateSearchPage()
 
@@ -807,7 +756,7 @@ async function main() {
 
 // Remove docs content that no longer exists in Notion
 function cleanupDocs() {
-  const keep = new Set(['index.md', '.vitepress', 'public', 'en', 'keywords', 'search'])
+  const keep = new Set(['index.md', '.vitepress', 'public', 'en', 'search'])
 
   const entries = readdirSync(DOCS_DIR)
   for (const entry of entries) {

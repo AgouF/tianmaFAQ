@@ -1,6 +1,5 @@
 <template>
   <div v-if="items && items.length" class="related-cards-section">
-    <hr class="related-divider" />
     <h2 class="related-title">{{ lang === 'zh-CN' ? '相关文章' : 'Related Articles' }}</h2>
     <div class="related-cards-grid">
       <a
@@ -33,12 +32,6 @@ const props = defineProps({
 <style scoped>
 .related-cards-section {
   margin-top: 2rem;
-}
-
-.related-divider {
-  border: none;
-  border-top: 1px solid var(--vp-c-divider);
-  margin: 2rem 0 1.5rem;
 }
 
 .related-title {

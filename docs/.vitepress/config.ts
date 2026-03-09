@@ -26,8 +26,7 @@ export default defineConfig({
       return items.map(item => ({
         ...item,
         changefreq: 'weekly',
-        priority: item.url.includes('keywords/') ? 0.4 :
-                  item.url === '' || item.url === 'en/' ? 1.0 :
+        priority: item.url === '' || item.url === 'en/' ? 1.0 :
                   item.url.includes('search') ? 0.6 : 0.8,
       }))
     }
