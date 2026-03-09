@@ -1,10 +1,17 @@
 import { Client } from '@notionhq/client'
 import { NotionToMarkdown } from 'notion-to-md'
-import { mkdirSync, writeFileSync, readFileSync, existsSync, readdirSync, rmSync, statSync } from 'fs'
+import { mkdirSync, writeFileSync, readFileSync, existsSync, readdirSync, rmSync, statSync, createWriteStream } from 'fs'
 import { join, resolve } from 'path'
+import { createHash } from 'crypto'
+import { pipeline } from 'stream/promises'
+import { Readable } from 'stream'
 
 const DOCS_DIR = resolve(import.meta.dirname, '..', 'docs')
 const VITEPRESS_DIR = join(DOCS_DIR, '.vitepress')
+const IMAGES_DIR = join(DOCS_DIR, 'public', 'images')
+
+// Ensure images directory exists
+mkdirSync(IMAGES_DIR, { recursive: true })
 
 let notion: Client
 let n2m: NotionToMarkdown
@@ -71,6 +78,59 @@ async function scanPages(parentId: string, dir: string, urlPath: string, depth: 
   return nodes
 }
 
+// Download image to local public/images/ and return local path
+async function downloadImage(url: string): Promise<string> {
+  try {
+    const hash = createHash('md5').update(url).digest('hex').slice(0, 12)
+    const ext = url.match(/\.(png|jpg|jpeg|gif|webp|svg|bmp|ico)/i)?.[1] || 'png'
+    const filename = `${hash}.${ext}`
+    const filePath = join(IMAGES_DIR, filename)
+
+    if (existsSync(filePath)) return `/images/${filename}`
+
+    const res = await fetch(url)
+    if (!res.ok || !res.body) return url
+
+    await pipeline(Readable.fromWeb(res.body as any), createWriteStream(filePath))
+    console.log(`  Downloaded: ${filename}`)
+    return `/images/${filename}`
+  } catch {
+    return url // Fallback to original URL on error
+  }
+}
+
+// Replace image URLs in markdown with local paths
+async function localizeImages(content: string): Promise<string> {
+  const imgRegex = /!\[([^\]]*)\]\((https?:\/\/[^)]+)\)/g
+  const matches = [...content.matchAll(imgRegex)]
+  if (matches.length === 0) return content
+
+  let result = content
+  for (const match of matches) {
+    const [full, alt, url] = match
+    // Only download Notion-hosted images (S3 URLs that expire)
+    if (url.includes('amazonaws.com') || url.includes('notion.so') || url.includes('notion-static.com')) {
+      const localPath = await downloadImage(url)
+      result = result.replace(full, `![${alt}](${localPath})`)
+    }
+  }
+  return result
+}
+
+// Extract first ~120 chars of plain text for SEO description
+function extractDescription(mdContent: string): string {
+  return mdContent
+    .replace(/^#.*$/gm, '')           // Remove headings
+    .replace(/!\[[^\]]*\]\([^)]*\)/g, '') // Remove images
+    .replace(/<[^>]+>/g, '')           // Remove HTML
+    .replace(/\[([^\]]*)\]\([^)]*\)/g, '$1') // Links → text
+    .replace(/[*_~`>]/g, '')           // Remove formatting
+    .replace(/\n+/g, ' ')             // Collapse newlines
+    .trim()
+    .slice(0, 120)
+    || '天马品牌常见问题解答'
+}
+
 // Replace Notion page links with VitePress internal links
 function replaceNotionLinks(content: string): string {
   // Match Notion URLs: https://www.notion.so/Page-Title-<id> or https://notion.so/<id>
@@ -107,9 +167,15 @@ async function generatePages(nodes: PageNode[]): Promise<SidebarItem[]> {
       // Replace Notion page links with internal VitePress links
       mdContent = replaceNotionLinks(mdContent)
 
+      // Download Notion images to local storage
+      mdContent = await localizeImages(mdContent)
+
+      const description = extractDescription(mdContent)
+
       const fileContent = [
         '---',
         `title: "${node.title.replace(/"/g, '\\"')}"`,
+        `description: "${description.replace(/"/g, '\\"')}"`,
         `lastUpdated: ${new Date(pageInfo.last_edited_time).getTime()}`,
         '---',
         '',

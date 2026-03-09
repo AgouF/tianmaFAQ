@@ -60,10 +60,14 @@ function loadSidebar() {
 
 export default defineConfig({
   title: 'FAQ',
-  description: '常见问题解答',
+  description: '天马品牌常见问题解答 - 快速找到您需要的答案',
   lang: 'zh-CN',
 
   lastUpdated: true,
+
+  sitemap: {
+    hostname: 'https://tianma.xin',
+  },
 
   markdown: {
     // Enable features useful for Notion content
@@ -81,7 +85,27 @@ export default defineConfig({
 
   head: [
     ['link', { rel: 'icon', href: '/logo.svg', type: 'image/svg+xml' }],
+    ['meta', { property: 'og:type', content: 'website' }],
+    ['meta', { property: 'og:site_name', content: '天马品牌 FAQ' }],
+    ['meta', { property: 'og:image', content: 'https://tianma.xin/logo.png' }],
+    ['meta', { name: 'twitter:card', content: 'summary' }],
+    ['meta', { name: 'twitter:image', content: 'https://tianma.xin/logo.png' }],
   ],
+
+  transformHead({ pageData }) {
+    const head: any[] = []
+    const title = pageData.frontmatter.title || pageData.title
+    const description = pageData.frontmatter.description || pageData.description || '天马品牌常见问题解答'
+    const url = `https://tianma.xin/${pageData.relativePath.replace(/\.md$/, '.html')}`
+
+    head.push(['meta', { property: 'og:title', content: title }])
+    head.push(['meta', { property: 'og:description', content: description }])
+    head.push(['meta', { property: 'og:url', content: url }])
+    head.push(['meta', { name: 'twitter:title', content: title }])
+    head.push(['meta', { name: 'twitter:description', content: description }])
+
+    return head
+  },
 
   themeConfig: {
     logo: '/logo.png',
