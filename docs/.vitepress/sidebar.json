@@ -12,5 +12,15 @@
         "link": "/目录/关于xxxcdn的使用法发"
       }
     ]
+  },
+  {
+    "text": "目录2",
+    "collapsed": true,
+    "items": [
+      {
+        "text": "内容1",
+        "link": "/目录2/内容1"
+      }
+    ]
   }
 ]
