@@ -1,6 +1,6 @@
 import { Client } from '@notionhq/client'
 import { NotionToMarkdown } from 'notion-to-md'
-import { mkdirSync, writeFileSync, readFileSync, existsSync } from 'fs'
+import { mkdirSync, writeFileSync, readFileSync, existsSync, readdirSync, rmSync, statSync } from 'fs'
 import { join, resolve } from 'path'
 
 const DOCS_DIR = resolve(import.meta.dirname, '..', 'docs')
@@ -9,6 +9,7 @@ const VITEPRESS_DIR = join(DOCS_DIR, '.vitepress')
 let notion: Client
 let n2m: NotionToMarkdown
 let totalArticles = 0
+const syncedPaths = new Set<string>() // Track all files/dirs created by sync
 
 // Convert page title to URL-friendly slug
 function toSlug(title: string): string {
@@ -45,6 +46,7 @@ async function traversePages(parentId: string, dir: string, urlPath: string, dep
       // This is a folder/category - recurse deeper
       const subDir = join(dir, slug)
       mkdirSync(subDir, { recursive: true })
+      syncedPaths.add(subDir)
 
       const indent = '  '.repeat(depth)
       console.log(`${indent}[Folder] ${title}`)
@@ -74,6 +76,7 @@ async function traversePages(parentId: string, dir: string, urlPath: string, dep
       ].join('\n')
 
       const filePath = join(dir, `${slug}.md`)
+      syncedPaths.add(filePath)
       const existing = existsSync(filePath) ? readFileSync(filePath, 'utf-8') : null
 
       const indent = '  '.repeat(depth)
@@ -110,6 +113,9 @@ async function main() {
   // Start recursive traversal from root page
   const sidebar = await traversePages(rootPageId, DOCS_DIR, '', 0)
 
+  // Clean up files/folders not in current Notion tree
+  cleanupDocs()
+
   // Generate index.md from top-level categories
   generateHomepage(sidebar)
 
@@ -127,6 +133,56 @@ async function main() {
   }
 
   console.log(`\nSync complete: ${totalArticles} articles`)
+}
+
+// Remove docs content that no longer exists in Notion
+function cleanupDocs() {
+  const keep = new Set(['index.md', '.vitepress', 'public'])
+
+  const entries = readdirSync(DOCS_DIR)
+  for (const entry of entries) {
+    if (keep.has(entry)) continue
+
+    const fullPath = join(DOCS_DIR, entry)
+    const stat = statSync(fullPath)
+
+    if (stat.isDirectory()) {
+      if (!syncedPaths.has(fullPath)) {
+        rmSync(fullPath, { recursive: true })
+        console.log(`Deleted: ${entry}/`)
+      } else {
+        // Recurse into synced directories to clean stale files
+        cleanupDir(fullPath)
+      }
+    } else if (entry.endsWith('.md')) {
+      if (!syncedPaths.has(fullPath)) {
+        rmSync(fullPath)
+        console.log(`Deleted: ${entry}`)
+      }
+    }
+  }
+}
+
+function cleanupDir(dir: string) {
+  const entries = readdirSync(dir)
+  for (const entry of entries) {
+    const fullPath = join(dir, entry)
+    const stat = statSync(fullPath)
+
+    if (stat.isDirectory()) {
+      if (!syncedPaths.has(fullPath)) {
+        rmSync(fullPath, { recursive: true })
+        console.log(`Deleted: ${fullPath.replace(DOCS_DIR + '/', '')}/`)
+      } else {
+        cleanupDir(fullPath)
+      }
+    } else if (entry.endsWith('.md')) {
+      if (!syncedPaths.has(fullPath)) {
+        rmSync(fullPath)
+        console.log(`Deleted: ${fullPath.replace(DOCS_DIR + '/', '')}`)
+      }
+    }
+  }
 }
 
 // Find the first article link in a sidebar tree
