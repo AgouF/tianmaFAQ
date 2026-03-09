@@ -17,41 +17,55 @@ mkdirSync(EN_DIR, { recursive: true })
 
 const DEEPSEEK_KEY = process.env.DEEPSEEK_API_KEY || ''
 
-// Translate text using DeepSeek API
+// Check if text contains Chinese characters
+function hasChinese(text: string): boolean {
+  return /[\u4e00-\u9fff]/.test(text)
+}
+
+// Translate text using DeepSeek API (with retry)
 async function translateToEnglish(text: string): Promise<string> {
   if (!DEEPSEEK_KEY || !text.trim()) return text
+  // Skip if already English
+  if (!hasChinese(text)) return text
 
-  try {
-    const res = await fetch('https://api.deepseek.com/chat/completions', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${DEEPSEEK_KEY}`,
-      },
-      body: JSON.stringify({
-        model: 'deepseek-chat',
-        messages: [
-          {
-            role: 'system',
-            content: 'You are a translator. Translate the following Chinese markdown content to English. Keep all markdown formatting, HTML tags, links, and code blocks unchanged. Only translate the Chinese text. Do not add any explanation, just output the translated content directly.'
-          },
-          { role: 'user', content: text }
-        ],
-        temperature: 0.3,
-      }),
-    })
+  for (let attempt = 0; attempt < 3; attempt++) {
+    try {
+      const res = await fetch('https://api.deepseek.com/chat/completions', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${DEEPSEEK_KEY}`,
+        },
+        body: JSON.stringify({
+          model: 'deepseek-chat',
+          messages: [
+            {
+              role: 'system',
+              content: 'Translate Chinese to English. Output ONLY the English translation. Keep markdown formatting, HTML tags, and links unchanged. Never output Chinese characters.'
+            },
+            { role: 'user', content: text }
+          ],
+          temperature: 0.1,
+        }),
+      })
 
-    if (!res.ok) {
-      console.error(`  Translation API error: ${res.status}`)
-      return text
+      if (!res.ok) {
+        console.error(`  Translation API error: ${res.status} (attempt ${attempt + 1})`)
+        continue
+      }
+
+      const data = await res.json() as any
+      const result = data.choices?.[0]?.message?.content?.trim() || ''
+      if (!result) continue
+      const inputChinese = (text.match(/[\u4e00-\u9fff]/g) || []).length
+      const resultChinese = (result.match(/[\u4e00-\u9fff]/g) || []).length
+      if (resultChinese < inputChinese || !hasChinese(result)) return result
+      console.log(`  Translation incomplete, retrying... (attempt ${attempt + 1})`)
+    } catch (err) {
+      console.error(`  Translation failed (attempt ${attempt + 1}):`, err)
     }
-
-    const data = await res.json() as any
-    return data.choices?.[0]?.message?.content || text
-  } catch (err) {
-    console.error(`  Translation failed:`, err)
-    return text
   }
+  return text // All retries failed
 }
 
 // Translate a sidebar tree (titles only)

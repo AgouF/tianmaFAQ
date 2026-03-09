@@ -1,5 +1,5 @@
 ---
-title: "Test it out"
+title: "Test it out."
 description: "Haha Ahahahahahaha Ahahahahahaha"
 lastUpdated: 1773073140000
 ---

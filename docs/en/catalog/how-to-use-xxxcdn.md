@@ -1,5 +1,5 @@
 ---
-title: "关于XXXCDN的使用方法"
+title: "Regarding the usage of XXXCDN"
 description: "天马品牌常见问题解答"
 lastUpdated: 1773068100000
 ---

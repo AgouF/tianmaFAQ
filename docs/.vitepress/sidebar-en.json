@@ -4,11 +4,11 @@
     "collapsed": true,
     "items": [
       {
-        "text": "How to Use XXVPN",
+        "text": "Regarding the usage of XXVPN",
         "link": "/en/catalog/how-to-use-xxvpn"
       },
       {
-        "text": "关于XXXCDN的使用方法",
+        "text": "Regarding the usage of XXXCDN",
         "link": "/en/catalog/how-to-use-xxxcdn"
       }
     ]
@@ -18,7 +18,7 @@
     "collapsed": true,
     "items": [
       {
-        "text": "Nested Directory 333",
+        "text": "Table of Contents Nested 333",
         "link": "/en/catalog-2/directory-nesting-333"
       },
       {
@@ -26,7 +26,7 @@
         "collapsed": true,
         "items": [
           {
-            "text": "Test it out",
+            "text": "Test it out.",
             "link": "/en/catalog-2/directory-nesting-222/test"
           }
         ]
