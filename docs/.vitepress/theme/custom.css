@@ -1,0 +1,131 @@
+/* Brand colors */
+:root {
+  --vp-c-brand-1: #5b6cf0;
+  --vp-c-brand-2: #4a5ce0;
+  --vp-c-brand-3: #3a4cd0;
+  --vp-c-brand-soft: rgba(91, 108, 240, 0.12);
+
+  /* Hero gradient */
+  --vp-home-hero-name-color: transparent;
+  --vp-home-hero-name-background: linear-gradient(135deg, #5b6cf0 0%, #8b5cf6 50%, #d946ef 100%);
+  --vp-home-hero-image-background-image: linear-gradient(135deg, rgba(91, 108, 240, 0.2) 0%, rgba(139, 92, 246, 0.2) 50%, rgba(217, 70, 239, 0.2) 100%);
+  --vp-home-hero-image-filter: blur(56px);
+}
+
+.dark {
+  --vp-c-brand-1: #7c8cf8;
+  --vp-c-brand-2: #6b7cf0;
+  --vp-c-brand-3: #5b6cf0;
+  --vp-c-brand-soft: rgba(124, 140, 248, 0.16);
+}
+
+/* Feature cards */
+.VPFeatures .VPFeature {
+  border-radius: 12px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.VPFeatures .VPFeature:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+}
+
+.dark .VPFeatures .VPFeature:hover {
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+}
+
+/* Feature icons */
+.VPFeature .icon {
+  font-size: 28px;
+  margin-bottom: 8px;
+}
+
+/* Sidebar styling */
+.VPSidebar .group .title {
+  font-weight: 600;
+}
+
+/* Content page styling for FAQ */
+.vp-doc h1 {
+  background: linear-gradient(135deg, #5b6cf0, #8b5cf6);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Better spacing for FAQ content */
+.vp-doc .header-anchor {
+  transition: opacity 0.2s ease;
+}
+
+/* Custom container styling */
+.vp-doc .custom-block {
+  border-radius: 8px;
+}
+
+/* Hero section enhancements */
+.VPHero .text {
+  font-size: 48px !important;
+  line-height: 1.2 !important;
+}
+
+.VPHero .tagline {
+  font-size: 20px !important;
+  opacity: 0.8;
+}
+
+/* Action button styling */
+.VPButton.brand {
+  border-radius: 8px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.VPButton.brand:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(91, 108, 240, 0.3);
+}
+
+.VPButton.alt {
+  border-radius: 8px;
+}
+
+/* Full-page background logo watermark */
+.VPHome {
+  position: relative;
+}
+
+.VPHome::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 70%;
+  transform: translate(-50%, -50%);
+  width: 800px;
+  height: 1200px;
+  background: url('/logo.png') center / contain no-repeat;
+  opacity: 1;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.dark .VPHome::before {
+  opacity: 1;
+}
+
+/* Ensure content stays above watermark */
+.VPHome .VPHero,
+.VPHome .VPFeatures {
+  position: relative;
+  z-index: 1;
+}
+
+/* Navbar logo sizing */
+.VPNavBarTitle .logo {
+  height: 28px;
+  width: auto;
+}

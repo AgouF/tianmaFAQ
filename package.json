@@ -1,0 +1,21 @@
+{
+  "name": "faq-site",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "docs:dev": "vitepress dev docs",
+    "docs:build": "vitepress build docs",
+    "docs:preview": "vitepress preview docs",
+    "sync": "tsx scripts/sync-notion.ts"
+  },
+  "devDependencies": {
+    "vitepress": "^1.6.3",
+    "tsx": "^4.19.0",
+    "typescript": "^5.7.0"
+  },
+  "dependencies": {
+    "@notionhq/client": "^2.2.15",
+    "notion-to-md": "^3.1.1"
+  }
+}
