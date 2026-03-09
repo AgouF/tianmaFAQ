@@ -6,7 +6,8 @@ import { resolve } from 'path'
 function loadSidebar() {
   const sidebarPath = resolve(__dirname, 'sidebar.json')
   if (existsSync(sidebarPath)) {
-    return JSON.parse(readFileSync(sidebarPath, 'utf-8'))
+    const data = JSON.parse(readFileSync(sidebarPath, 'utf-8'))
+    if (Array.isArray(data) && data.length > 0) return data
   }
   // Default sidebar for development
   return [

@@ -100,8 +100,10 @@ async function main() {
     entries.push({ id: page.id, title, category, subcategory, slug, order })
   }
 
-  // Generate sidebar.json
-  generateSidebar(entries)
+  // Generate sidebar.json only if there are entries
+  if (entries.length > 0) {
+    generateSidebar(entries)
+  }
 
   console.log(`\nSync complete: ${entries.length} entries`)
 }
