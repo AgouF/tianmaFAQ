@@ -5,11 +5,11 @@
     "items": [
       {
         "text": "关于XXVPN的使用方法",
-        "link": "/目录/关于xxvpn的使用方法"
+        "link": "/catalog/how-to-use-xxvpn"
       },
       {
         "text": "关于XXXCDN的使用法发",
-        "link": "/目录/关于xxxcdn的使用法发"
+        "link": "/catalog/how-to-use-xxxcdn"
       }
     ]
   },
@@ -19,7 +19,7 @@
     "items": [
       {
         "text": "目录嵌套333",
-        "link": "/目录2/目录嵌套333"
+        "link": "/catalog-2/directory-nesting-333"
       },
       {
         "text": "目录嵌套222",
@@ -27,7 +27,7 @@
         "items": [
           {
             "text": "测试一下",
-            "link": "/目录2/目录嵌套222/测试一下"
+            "link": "/catalog-2/directory-nesting-222/test"
           }
         ]
       }

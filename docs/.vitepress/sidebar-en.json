@@ -5,11 +5,11 @@
     "items": [
       {
         "text": "How to Use XXVPN",
-        "link": "/en/目录/关于xxvpn的使用方法"
+        "link": "/en/catalog/how-to-use-xxvpn"
       },
       {
         "text": "关于XXXCDN的使用方法",
-        "link": "/en/目录/关于xxxcdn的使用法发"
+        "link": "/en/catalog/how-to-use-xxxcdn"
       }
     ]
   },
@@ -19,7 +19,7 @@
     "items": [
       {
         "text": "Nested Directory 333",
-        "link": "/en/目录2/目录嵌套333"
+        "link": "/en/catalog-2/directory-nesting-333"
       },
       {
         "text": "Nested Directory 222",
@@ -27,7 +27,7 @@
         "items": [
           {
             "text": "Test it out",
-            "link": "/en/目录2/目录嵌套222/测试一下"
+            "link": "/en/catalog-2/directory-nesting-222/test"
           }
         ]
       }

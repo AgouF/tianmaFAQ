@@ -8,15 +8,15 @@ hero:
   actions:
     - theme: brand
       text: Browse All Questions
-      link: /en/目录/关于xxvpn的使用方法
+      link: /en/catalog/how-to-use-xxvpn
 
 features:
   - title: Table of Contents
     details: 2 articles
-    link: /en/目录/关于xxvpn的使用方法
+    link: /en/catalog/how-to-use-xxvpn
     linkText: View details
   - title: Table of Contents 2
     details: 2 articles
-    link: /en/目录2/目录嵌套333
+    link: /en/catalog-2/directory-nesting-333
     linkText: View details
 ---

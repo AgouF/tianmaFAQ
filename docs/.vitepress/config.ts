@@ -14,8 +14,10 @@ function loadSidebar(filename = 'sidebar.json') {
 
 export default defineConfig({
   title: 'FAQ',
+  titleTemplate: ':title - 天马品牌',
   description: '天马品牌常见问题解答 - 快速找到您需要的答案',
 
+  cleanUrls: true,
   lastUpdated: true,
 
   sitemap: {
@@ -31,6 +33,7 @@ export default defineConfig({
       label: 'English',
       lang: 'en',
       title: 'FAQ',
+      titleTemplate: ':title - Tianma Brand',
       description: 'Tianma Brand FAQ - Find answers quickly',
       themeConfig: {
         nav: [
@@ -73,14 +76,12 @@ export default defineConfig({
   },
 
   markdown: {
-    // Enable features useful for Notion content
     image: { lazyLoading: true },
     math: true,
-    container: undefined, // Keep default tip/warning/danger/info containers
+    container: undefined,
   },
 
   transformPageData(pageData) {
-    // Use frontmatter lastUpdated (from Notion) if available
     if (pageData.frontmatter.lastUpdated) {
       pageData.lastUpdated = pageData.frontmatter.lastUpdated
     }
@@ -99,13 +100,35 @@ export default defineConfig({
     const head: any[] = []
     const title = pageData.frontmatter.title || pageData.title
     const description = pageData.frontmatter.description || pageData.description || '天马品牌常见问题解答'
-    const url = `https://tianma.xin/${pageData.relativePath.replace(/\.md$/, '.html')}`
+    const pagePath = pageData.relativePath.replace(/\.md$/, '').replace(/\/index$/, '/')
+    const url = `https://tianma.xin/${pagePath}`
 
+    // Canonical URL
+    head.push(['link', { rel: 'canonical', href: url }])
+
+    // Open Graph
     head.push(['meta', { property: 'og:title', content: title }])
     head.push(['meta', { property: 'og:description', content: description }])
     head.push(['meta', { property: 'og:url', content: url }])
     head.push(['meta', { name: 'twitter:title', content: title }])
     head.push(['meta', { name: 'twitter:description', content: description }])
+
+    // FAQ structured data (Schema.org) for article pages
+    if (title && pageData.relativePath !== 'index.md' && !pageData.relativePath.startsWith('en/')) {
+      const faqSchema = {
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        'mainEntity': [{
+          '@type': 'Question',
+          'name': title,
+          'acceptedAnswer': {
+            '@type': 'Answer',
+            'text': description
+          }
+        }]
+      }
+      head.push(['script', { type: 'application/ld+json' }, JSON.stringify(faqSchema)])
+    }
 
     return head
   },
@@ -129,13 +152,11 @@ export default defineConfig({
               const result: string[] = []
               const words = text.split(/[\s\-_]+/)
               for (const word of words) {
-                // Split CJK characters individually
                 const parts = word.split(/([\u4e00-\u9fff\u3400-\u4dbf])/)
                 for (const part of parts) {
                   const trimmed = part.trim().toLowerCase()
                   if (!trimmed) continue
                   result.push(trimmed)
-                  // Generate suffixes for Latin words so "VPN" matches "XXVPN"
                   if (/^[a-z0-9]{3,}$/.test(trimmed)) {
                     for (let i = 1; i < trimmed.length - 1; i++) {
                       result.push(trimmed.slice(i))

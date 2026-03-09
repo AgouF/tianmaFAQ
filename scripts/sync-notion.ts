@@ -74,13 +74,81 @@ let totalArticles = 0
 const syncedPaths = new Set<string>() // Track all files/dirs created by sync
 const pageIdToPath = new Map<string, string>() // Notion page ID → VitePress URL path
 
-// Convert page title to URL-friendly slug
-function toSlug(title: string): string {
-  return title
+// Slug cache: maps Notion page ID → English slug (persisted to file)
+const SLUG_CACHE_PATH = join(VITEPRESS_DIR, 'slug-cache.json')
+let slugCache: Record<string, string> = {}
+
+function loadSlugCache() {
+  if (existsSync(SLUG_CACHE_PATH)) {
+    slugCache = JSON.parse(readFileSync(SLUG_CACHE_PATH, 'utf-8'))
+  }
+}
+
+function saveSlugCache() {
+  writeFileSync(SLUG_CACHE_PATH, JSON.stringify(slugCache, null, 2), 'utf-8')
+}
+
+// Convert title to URL-friendly English slug
+function slugify(text: string): string {
+  return text
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-|-$/g, '')
+    || 'untitled'
+}
+
+// Get English slug for a page (cached, translated via DeepSeek)
+async function toSlug(pageId: string, title: string): Promise<string> {
+  // If already cached, use it
+  if (slugCache[pageId]) return slugCache[pageId]
+
+  // If title is already English/numbers only, just slugify
+  if (/^[a-z0-9\s\-_]+$/i.test(title)) {
+    const slug = slugify(title)
+    slugCache[pageId] = slug
+    return slug
+  }
+
+  // Translate Chinese title to English slug via DeepSeek
+  if (DEEPSEEK_KEY) {
+    try {
+      const res = await fetch('https://api.deepseek.com/chat/completions', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${DEEPSEEK_KEY}`,
+        },
+        body: JSON.stringify({
+          model: 'deepseek-chat',
+          messages: [
+            {
+              role: 'system',
+              content: 'Translate the following Chinese title to a short English URL slug (lowercase, hyphens, no special characters). Only output the slug, nothing else. Example: "如何重置密码" → "how-to-reset-password"'
+            },
+            { role: 'user', content: title }
+          ],
+          temperature: 0,
+        }),
+      })
+      if (res.ok) {
+        const data = await res.json() as any
+        const translated = data.choices?.[0]?.message?.content?.trim() || ''
+        if (translated && /^[a-z0-9-]+$/.test(translated)) {
+          slugCache[pageId] = translated
+          return translated
+        }
+      }
+    } catch {}
+  }
+
+  // Fallback: slugify original title (keeps Chinese in URL)
+  const slug = title
     .toLowerCase()
     .replace(/[^a-z0-9\u4e00-\u9fff]+/g, '-')
     .replace(/^-|-$/g, '')
     || 'untitled'
+  slugCache[pageId] = slug
+  return slug
 }
 
 interface SidebarItem {
@@ -111,7 +179,7 @@ async function scanPages(parentId: string, dir: string, urlPath: string, depth: 
 
   for (const child of childPages) {
     const title = child.child_page.title
-    const slug = toSlug(title)
+    const slug = await toSlug(child.id, title)
 
     const subChildren = await notion.blocks.children.list({ block_id: child.id, page_size: 100 })
     const subPages = subChildren.results.filter((b: any) => b.type === 'child_page') as any[]
@@ -270,6 +338,9 @@ async function main() {
 
   notion = new Client({ auth: notionToken })
   n2m = new NotionToMarkdown({ notionClient: notion })
+
+  // Load slug cache for stable English URLs
+  loadSlugCache()
 
   // Custom transformers: Notion blocks → VitePress-friendly markdown
 
@@ -460,12 +531,15 @@ async function main() {
     console.log('\nSkipping English translation (no DEEPSEEK_API_KEY)')
   }
 
+  // Save slug cache for next run
+  saveSlugCache()
+
   console.log(`\nSync complete: ${totalArticles} articles`)
 }
 
 // Remove docs content that no longer exists in Notion
 function cleanupDocs() {
-  const keep = new Set(['index.md', '.vitepress', 'public'])
+  const keep = new Set(['index.md', '.vitepress', 'public', 'en'])
 
   const entries = readdirSync(DOCS_DIR)
   for (const entry of entries) {
