@@ -10,6 +10,7 @@ let notion: Client
 let n2m: NotionToMarkdown
 let totalArticles = 0
 const syncedPaths = new Set<string>() // Track all files/dirs created by sync
+const pageIdToPath = new Map<string, string>() // Notion page ID → VitePress URL path
 
 // Convert page title to URL-friendly slug
 function toSlug(title: string): string {
@@ -27,71 +28,110 @@ interface SidebarItem {
   items?: SidebarItem[]
 }
 
-// Recursively traverse pages: if a page has child pages, it's a folder; otherwise it's an article
-async function traversePages(parentId: string, dir: string, urlPath: string, depth: number): Promise<SidebarItem[]> {
+// Stored page info for second pass
+interface PageNode {
+  id: string
+  title: string
+  slug: string
+  dir: string
+  urlPath: string
+  depth: number
+  isFolder: boolean
+  children: PageNode[]
+}
+
+// Pass 1: Scan page tree, build ID→path mapping and tree structure
+async function scanPages(parentId: string, dir: string, urlPath: string, depth: number): Promise<PageNode[]> {
   const children = await notion.blocks.children.list({ block_id: parentId, page_size: 100 })
   const childPages = children.results.filter((b: any) => b.type === 'child_page') as any[]
 
-  const items: SidebarItem[] = []
+  const nodes: PageNode[] = []
 
   for (const child of childPages) {
     const title = child.child_page.title
     const slug = toSlug(title)
 
-    // Check if this page has sub-pages
     const subChildren = await notion.blocks.children.list({ block_id: child.id, page_size: 100 })
     const subPages = subChildren.results.filter((b: any) => b.type === 'child_page') as any[]
 
     if (subPages.length > 0) {
-      // This is a folder/category - recurse deeper
       const subDir = join(dir, slug)
+      const subNodes = await scanPages(child.id, subDir, `${urlPath}/${slug}`, depth + 1)
+      nodes.push({ id: child.id, title, slug, dir, urlPath, depth, isFolder: true, children: subNodes })
+    } else {
+      // Register page ID → VitePress path mapping
+      const pageUrl = `${urlPath}/${slug}`
+      const cleanId = child.id.replace(/-/g, '')
+      pageIdToPath.set(child.id, pageUrl)
+      pageIdToPath.set(cleanId, pageUrl)
+      nodes.push({ id: child.id, title, slug, dir, urlPath, depth, isFolder: false, children: [] })
+    }
+  }
+
+  return nodes
+}
+
+// Replace Notion page links with VitePress internal links
+function replaceNotionLinks(content: string): string {
+  // Match Notion URLs: https://www.notion.so/Page-Title-<id> or https://notion.so/<id>
+  return content.replace(
+    /https?:\/\/(?:www\.)?notion\.so\/(?:[^\/\s]*\/)?(?:[^\s)]*?)?([a-f0-9]{32})(?:[?\s)#]|$)/g,
+    (match, id) => {
+      const path = pageIdToPath.get(id)
+      if (path) return match.replace(/https?:\/\/(?:www\.)?notion\.so\/[^\s)#]*/, path)
+      return match
+    }
+  )
+}
+
+// Pass 2: Generate markdown files and sidebar
+async function generatePages(nodes: PageNode[]): Promise<SidebarItem[]> {
+  const items: SidebarItem[] = []
+
+  for (const node of nodes) {
+    if (node.isFolder) {
+      const subDir = join(node.dir, node.slug)
       mkdirSync(subDir, { recursive: true })
       syncedPaths.add(subDir)
 
-      const indent = '  '.repeat(depth)
-      console.log(`${indent}[Folder] ${title}`)
+      const indent = '  '.repeat(node.depth)
+      console.log(`${indent}[Folder] ${node.title}`)
 
-      const subItems = await traversePages(child.id, subDir, `${urlPath}/${slug}`, depth + 1)
-
-      items.push({
-        text: title,
-        collapsed: true,
-        items: subItems
-      })
+      const subItems = await generatePages(node.children)
+      items.push({ text: node.title, collapsed: true, items: subItems })
     } else {
-      // This is an article - write markdown
-      const pageInfo = await notion.pages.retrieve({ page_id: child.id }) as any
-      const mdBlocks = await n2m.pageToMarkdown(child.id)
-      const mdContent = n2m.toMarkdownString(mdBlocks)
+      const pageInfo = await notion.pages.retrieve({ page_id: node.id }) as any
+      const mdBlocks = await n2m.pageToMarkdown(node.id)
+      let mdContent = n2m.toMarkdownString(mdBlocks).parent || ''
+
+      // Replace Notion page links with internal VitePress links
+      mdContent = replaceNotionLinks(mdContent)
 
       const fileContent = [
         '---',
-        `title: "${title.replace(/"/g, '\\"')}"`,
+        `title: "${node.title.replace(/"/g, '\\"')}"`,
         `lastUpdated: ${new Date(pageInfo.last_edited_time).getTime()}`,
         '---',
         '',
-        `# ${title}`,
+        `# ${node.title}`,
         '',
-        mdContent.parent || ''
+        mdContent
       ].join('\n')
 
-      const filePath = join(dir, `${slug}.md`)
+      const filePath = join(node.dir, `${node.slug}.md`)
       syncedPaths.add(filePath)
       const existing = existsSync(filePath) ? readFileSync(filePath, 'utf-8') : null
 
-      const indent = '  '.repeat(depth)
+      const indent = '  '.repeat(node.depth)
       if (existing !== fileContent) {
         writeFileSync(filePath, fileContent, 'utf-8')
-        console.log(`${indent}Updated: ${urlPath}/${slug}.md`)
+        console.log(`${indent}Updated: ${node.urlPath}/${node.slug}.md`)
       } else {
-        console.log(`${indent}Unchanged: ${urlPath}/${slug}.md`)
+        console.log(`${indent}Unchanged: ${node.urlPath}/${node.slug}.md`)
       }
 
       totalArticles++
-      items.push({
-        text: title,
-        link: `${urlPath}/${slug}`
-      })
+      items.push({ text: node.title, link: `${node.urlPath}/${node.slug}` })
     }
   }
 
@@ -220,8 +260,13 @@ async function main() {
     return n2m.toMarkdownString(children).parent || ''
   })
 
-  // Start recursive traversal from root page
-  const sidebar = await traversePages(rootPageId, DOCS_DIR, '', 0)
+  // Pass 1: Scan tree and build page ID → path mapping
+  console.log('Scanning page tree...\n')
+  const pageTree = await scanPages(rootPageId, DOCS_DIR, '', 0)
+  console.log(`Mapped ${pageIdToPath.size} pages\n`)
+
+  // Pass 2: Generate markdown with correct internal links
+  const sidebar = await generatePages(pageTree)
 
   // Clean up files/folders not in current Notion tree
   cleanupDocs()
