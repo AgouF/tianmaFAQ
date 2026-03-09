@@ -2,71 +2,74 @@ import { defineConfig } from 'vitepress'
 import { existsSync, readFileSync } from 'fs'
 import { resolve } from 'path'
 
-// Load auto-generated sidebar from sync script, fallback to default
-function loadSidebar() {
-  const sidebarPath = resolve(__dirname, 'sidebar.json')
+// Load auto-generated sidebar from sync script
+function loadSidebar(filename = 'sidebar.json') {
+  const sidebarPath = resolve(__dirname, filename)
   if (existsSync(sidebarPath)) {
     const data = JSON.parse(readFileSync(sidebarPath, 'utf-8'))
     if (Array.isArray(data) && data.length > 0) return data
   }
-  // Default sidebar for development
-  return [
-    {
-      text: '👤 账户相关',
-      collapsed: true,
-      items: [
-        { text: '如何重置密码', link: '/account/reset-password' },
-        { text: '如何更换绑定邮箱', link: '/account/change-email' }
-      ]
-    },
-    {
-      text: '💳 支付相关',
-      collapsed: true,
-      items: [
-        { text: '账单周期说明', link: '/payment/billing-cycle' },
-        { text: '如何申请退款', link: '/payment/refund' }
-      ]
-    },
-    {
-      text: '🔧 技术支持',
-      collapsed: true,
-      items: [
-        { text: 'API 接入指南', link: '/technical/api-guide' }
-      ]
-    },
-    {
-      text: '📦 产品功能',
-      collapsed: true,
-      items: [
-        { text: '功能总览', link: '/product/feature-overview' }
-      ]
-    },
-    {
-      text: '📋 政策条款',
-      collapsed: true,
-      items: [
-        { text: '服务条款', link: '/policy/terms-of-service' }
-      ]
-    },
-    {
-      text: '💬 联系我们',
-      collapsed: true,
-      items: [
-        { text: '联系方式', link: '/contact' }
-      ]
-    }
-  ]
+  return []
 }
 
 export default defineConfig({
   title: 'FAQ',
   description: '天马品牌常见问题解答 - 快速找到您需要的答案',
-  lang: 'zh-CN',
 
   lastUpdated: true,
 
   sitemap: {
     hostname: 'https://tianma.xin',
+  },
+
+  locales: {
+    root: {
+      label: '中文',
+      lang: 'zh-CN',
+    },
+    en: {
+      label: 'English',
+      lang: 'en',
+      title: 'FAQ',
+      description: 'Tianma Brand FAQ - Find answers quickly',
+      themeConfig: {
+        nav: [
+          { text: 'Home', link: '/en/' },
+        ],
+        sidebar: loadSidebar('sidebar-en.json'),
+        search: {
+          provider: 'local',
+          options: {
+            translations: {
+              button: { buttonText: 'Search', buttonAriaLabel: 'Search' },
+              modal: {
+                noResultsText: 'No results found',
+                resetButtonTitle: 'Clear search',
+                footer: { selectText: 'Select', navigateText: 'Navigate', closeText: 'Close' }
+              }
+            }
+          }
+        },
+        editLink: {
+          pattern: 'https://github.com/AgouF/tianmaFAQ/edit/main/docs/:path',
+          text: 'Edit this page on GitHub'
+        },
+        lastUpdated: {
+          text: 'Last updated',
+        },
+        outline: {
+          label: 'On this page'
+        },
+        docFooter: {
+          prev: 'Previous',
+          next: 'Next'
+        },
+        footer: {
+          message: 'Released under the MIT License',
+          copyright: 'Copyright © 2026-present <a href="https://t.me/tianma" target="_blank">@tianma</a>'
+        }
+      }
+    }
   },
 
   markdown: {

@@ -7,11 +7,66 @@ import { pipeline } from 'stream/promises'
 import { Readable } from 'stream'
 
 const DOCS_DIR = resolve(import.meta.dirname, '..', 'docs')
+const EN_DIR = join(DOCS_DIR, 'en')
 const VITEPRESS_DIR = join(DOCS_DIR, '.vitepress')
 const IMAGES_DIR = join(DOCS_DIR, 'public', 'images')
 
-// Ensure images directory exists
+// Ensure directories exist
 mkdirSync(IMAGES_DIR, { recursive: true })
+mkdirSync(EN_DIR, { recursive: true })
+
+const DEEPSEEK_KEY = process.env.DEEPSEEK_API_KEY || ''
+
+// Translate text using DeepSeek API
+async function translateToEnglish(text: string): Promise<string> {
+  if (!DEEPSEEK_KEY || !text.trim()) return text
+
+  try {
+    const res = await fetch('https://api.deepseek.com/chat/completions', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${DEEPSEEK_KEY}`,
+      },
+      body: JSON.stringify({
+        model: 'deepseek-chat',
+        messages: [
+          {
+            role: 'system',
+            content: 'You are a translator. Translate the following Chinese markdown content to English. Keep all markdown formatting, HTML tags, links, and code blocks unchanged. Only translate the Chinese text. Do not add any explanation, just output the translated content directly.'
+          },
+          { role: 'user', content: text }
+        ],
+        temperature: 0.3,
+      }),
+    })
+
+    if (!res.ok) {
+      console.error(`  Translation API error: ${res.status}`)
+      return text
+    }
+
+    const data = await res.json() as any
+    return data.choices?.[0]?.message?.content || text
+  } catch (err) {
+    console.error(`  Translation failed:`, err)
+    return text
+  }
+}
+
+// Translate a sidebar tree (titles only)
+async function translateSidebar(items: SidebarItem[], prefix: string): Promise<SidebarItem[]> {
+  const result: SidebarItem[] = []
+  for (const item of items) {
+    const translatedText = await translateToEnglish(item.text)
+    const newItem: SidebarItem = { text: translatedText }
+    if (item.link) newItem.link = `/en${item.link}`
+    if (item.collapsed !== undefined) newItem.collapsed = item.collapsed
+    if (item.items) newItem.items = await translateSidebar(item.items, prefix)
+    result.push(newItem)
+  }
+  return result
+}
 
 let notion: Client
 let n2m: NotionToMarkdown
@@ -381,6 +436,30 @@ async function main() {
     }
   }
 
+  // Generate English translations
+  if (DEEPSEEK_KEY) {
+    console.log('\n--- Translating to English ---\n')
+    await generateEnglishPages(pageTree)
+    cleanupDir(EN_DIR)
+
+    // Translate sidebar
+    const enSidebar = await translateSidebar(sidebar, '/en')
+    if (enSidebar.length > 0) {
+      const enSidebarPath = join(VITEPRESS_DIR, 'sidebar-en.json')
+      const enSidebarContent = JSON.stringify(enSidebar, null, 2)
+      const existing = existsSync(enSidebarPath) ? readFileSync(enSidebarPath, 'utf-8') : null
+      if (existing !== enSidebarContent) {
+        writeFileSync(enSidebarPath, enSidebarContent, 'utf-8')
+        console.log('\nWritten: .vitepress/sidebar-en.json')
+      }
+    }
+
+    // Generate English homepage
+    generateEnglishHomepage(enSidebar)
+  } else {
+    console.log('\nSkipping English translation (no DEEPSEEK_API_KEY)')
+  }
+
   console.log(`\nSync complete: ${totalArticles} articles`)
 }
 
@@ -491,6 +570,101 @@ ${features}
     console.log('\nWritten: index.md')
   } else {
     console.log('\nUnchanged: index.md')
+  }
+}
+
+// Generate translated English markdown files
+async function generateEnglishPages(nodes: PageNode[]) {
+  for (const node of nodes) {
+    if (node.isFolder) {
+      const enSubDir = join(EN_DIR, node.slug)
+      mkdirSync(enSubDir, { recursive: true })
+      syncedPaths.add(enSubDir)
+      await generateEnglishPages(node.children)
+    } else {
+      // Read the Chinese markdown file
+      const zhPath = join(node.dir, `${node.slug}.md`)
+      if (!existsSync(zhPath)) continue
+
+      const zhContent = readFileSync(zhPath, 'utf-8')
+
+      // Extract frontmatter and body
+      const fmMatch = zhContent.match(/^---\n([\s\S]*?)\n---\n([\s\S]*)$/)
+      if (!fmMatch) continue
+
+      const body = fmMatch[2]
+      const lastUpdatedMatch = fmMatch[1].match(/lastUpdated: (\d+)/)
+      const lastUpdated = lastUpdatedMatch?.[1] || Date.now().toString()
+
+      // Translate title and body
+      const indent = '  '.repeat(node.depth)
+      console.log(`${indent}Translating: ${node.title}`)
+
+      const enTitle = await translateToEnglish(node.title)
+      const enBody = await translateToEnglish(body)
+      const enDescription = extractDescription(enBody)
+
+      const enContent = [
+        '---',
+        `title: "${enTitle.replace(/"/g, '\\"')}"`,
+        `description: "${enDescription.replace(/"/g, '\\"')}"`,
+        `lastUpdated: ${lastUpdated}`,
+        '---',
+        '',
+        enBody
+      ].join('\n')
+
+      // Write to en/ directory mirroring the Chinese structure
+      const enDir = node.dir.replace(DOCS_DIR, EN_DIR)
+      mkdirSync(enDir, { recursive: true })
+      const enPath = join(enDir, `${node.slug}.md`)
+      syncedPaths.add(enPath)
+
+      const existing = existsSync(enPath) ? readFileSync(enPath, 'utf-8') : null
+      if (existing !== enContent) {
+        writeFileSync(enPath, enContent, 'utf-8')
+        console.log(`${indent}  Written: en/${node.slug}.md`)
+      } else {
+        console.log(`${indent}  Unchanged: en/${node.slug}.md`)
+      }
+    }
+  }
+}
+
+function generateEnglishHomepage(sidebar: SidebarItem[]) {
+  const features = sidebar.map(cat => {
+    const link = findFirstLink(cat) || '#'
+    const count = countArticles(cat)
+    return `  - title: ${cat.text}
+    details: ${count} articles
+    link: ${link}
+    linkText: View details`
+  }).join('\n')
+
+  const firstLink = sidebar.length > 0 ? findFirstLink(sidebar[0]) || '#' : '#'
+
+  const content = `---
+layout: home
+
+hero:
+  name: "Tianma Brand"
+  text: "FAQ"
+  tagline: Quickly find the answers you need
+  actions:
+    - theme: brand
+      text: Browse All Questions
+      link: ${firstLink}
+
+features:
+${features}
+---
+`
+
+  const indexPath = join(EN_DIR, 'index.md')
+  const existing = existsSync(indexPath) ? readFileSync(indexPath, 'utf-8') : null
+  if (existing !== content) {
+    writeFileSync(indexPath, content, 'utf-8')
+    console.log('\nWritten: en/index.md')
   }
 }
 
