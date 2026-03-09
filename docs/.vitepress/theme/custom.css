@@ -133,7 +133,11 @@ html {
 }
 
 .vp-doc a[href^="/more-info/"]:hover {
-  color: var(--vp-c-brand-2);
+  color: var(--vp-c-brand-3);
+  background: var(--vp-c-brand-soft);
+  border-radius: 4px;
+  padding: 1px 4px;
+  margin: -1px -4px;
 }
 
 .vp-doc a[href^="/more-info/"]::after {
