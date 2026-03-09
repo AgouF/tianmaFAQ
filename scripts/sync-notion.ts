@@ -163,6 +163,63 @@ async function main() {
     return url ? `<video controls src="${url}"></video>` : ''
   })
 
+  // Toggle → HTML details/summary (collapsible)
+  n2m.setCustomTransformer('toggle', async (block: any) => {
+    const text = block.toggle.rich_text?.map((t: any) => t.plain_text).join('') || ''
+    const children = await n2m.pageToMarkdown(block.id)
+    const childContent = n2m.toMarkdownString(children).parent || ''
+    return `<details>\n<summary>${text}</summary>\n\n${childContent.trim()}\n\n</details>`
+  })
+
+  // Audio → HTML audio player
+  n2m.setCustomTransformer('audio', async (block: any) => {
+    const url = block.audio?.external?.url || block.audio?.file?.url || ''
+    return url ? `<audio controls src="${url}"></audio>` : ''
+  })
+
+  // File attachment → download link
+  n2m.setCustomTransformer('file', async (block: any) => {
+    const url = block.file?.external?.url || block.file?.file?.url || ''
+    const caption = block.file?.caption?.map((t: any) => t.plain_text).join('') || '下载文件'
+    return url ? `[📎 ${caption}](${url})` : ''
+  })
+
+  // Embed → iframe
+  n2m.setCustomTransformer('embed', async (block: any) => {
+    const url = block.embed?.url || ''
+    return url ? `<iframe src="${url}" width="100%" height="500" frameborder="0" allowfullscreen></iframe>` : ''
+  })
+
+  // Link preview → regular link
+  n2m.setCustomTransformer('link_preview', async (block: any) => {
+    const url = block.link_preview?.url || ''
+    return url ? `[${url}](${url})` : ''
+  })
+
+  // PDF → embedded viewer
+  n2m.setCustomTransformer('pdf', async (block: any) => {
+    const url = block.pdf?.external?.url || block.pdf?.file?.url || ''
+    return url ? `<iframe src="${url}" width="100%" height="600" frameborder="0"></iframe>` : ''
+  })
+
+  // Column list → render children sequentially (CSS can't replicate columns in MD)
+  n2m.setCustomTransformer('column_list', async (block: any) => {
+    const children = await n2m.pageToMarkdown(block.id)
+    return n2m.toMarkdownString(children).parent || ''
+  })
+
+  // Column → render content
+  n2m.setCustomTransformer('column', async (block: any) => {
+    const children = await n2m.pageToMarkdown(block.id)
+    return n2m.toMarkdownString(children).parent || ''
+  })
+
+  // Synced block → render original content
+  n2m.setCustomTransformer('synced_block', async (block: any) => {
+    const children = await n2m.pageToMarkdown(block.id)
+    return n2m.toMarkdownString(children).parent || ''
+  })
+
   // Start recursive traversal from root page
   const sidebar = await traversePages(rootPageId, DOCS_DIR, '', 0)
 

@@ -10,6 +10,7 @@
     "sync": "tsx scripts/sync-notion.ts"
   },
   "devDependencies": {
+    "markdown-it-mathjax3": "^4.3.2",
     "nodejs-jieba": "^0.0.2",
     "tsx": "^4.19.0",
     "typescript": "^5.7.0",
