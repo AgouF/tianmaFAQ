@@ -92,14 +92,21 @@ export default defineConfig({
         miniSearch: {
           options: {
             tokenize: (text: string) => {
-              // Split by CJK characters individually + standard word boundaries
               const result: string[] = []
               const words = text.split(/[\s\-_]+/)
               for (const word of words) {
                 // Split CJK characters individually
                 const parts = word.split(/([\u4e00-\u9fff\u3400-\u4dbf])/)
                 for (const part of parts) {
-                  if (part.trim()) result.push(part.toLowerCase())
+                  const trimmed = part.trim().toLowerCase()
+                  if (!trimmed) continue
+                  result.push(trimmed)
+                  // Generate suffixes for Latin words so "VPN" matches "XXVPN"
+                  if (/^[a-z0-9]{3,}$/.test(trimmed)) {
+                    for (let i = 1; i < trimmed.length - 1; i++) {
+                      result.push(trimmed.slice(i))
+                    }
+                  }
                 }
               }
               return result
