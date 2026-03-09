@@ -232,7 +232,7 @@ async function main() {
     const tweetMatch = url.match(/^https?:\/\/(x\.com|twitter\.com)\/\w+\/status\/(\d+)/)
     if (tweetMatch) {
       const tweetUrl = url.replace('x.com', 'twitter.com')
-      return `<iframe src="https://platform.twitter.com/embed/Tweet.html?url=${encodeURIComponent(tweetUrl)}" width="100%" height="300" style="border:0;border-radius:12px;" allowfullscreen></iframe>`
+      return `<iframe src="https://twitframe.com/show?url=${encodeURIComponent(tweetUrl)}" width="100%" height="300" style="border:0;border-radius:12px;" allowfullscreen></iframe>`
     }
     // YouTube embed
     const ytMatch = url.match(/(?:youtube\.com\/watch\?v=|youtu\.be\/)([\w-]+)/)
@@ -249,7 +249,7 @@ async function main() {
     const tweetMatch = url.match(/^https?:\/\/(x\.com|twitter\.com)\/\w+\/status\/(\d+)/)
     if (tweetMatch) {
       const tweetUrl = url.replace('x.com', 'twitter.com')
-      return `<iframe src="https://platform.twitter.com/embed/Tweet.html?url=${encodeURIComponent(tweetUrl)}" width="100%" height="300" style="border:0;border-radius:12px;" allowfullscreen></iframe>`
+      return `<iframe src="https://twitframe.com/show?url=${encodeURIComponent(tweetUrl)}" width="100%" height="300" style="border:0;border-radius:12px;" allowfullscreen></iframe>`
     }
     return `[${url}](${url})`
   })
@@ -262,7 +262,7 @@ async function main() {
     const tweetMatch = url.match(/^https?:\/\/(x\.com|twitter\.com)\/\w+\/status\/(\d+)/)
     if (tweetMatch) {
       const tweetUrl = url.replace('x.com', 'twitter.com')
-      return `<iframe src="https://platform.twitter.com/embed/Tweet.html?url=${encodeURIComponent(tweetUrl)}" width="100%" height="300" style="border:0;border-radius:12px;" allowfullscreen></iframe>`
+      return `<iframe src="https://twitframe.com/show?url=${encodeURIComponent(tweetUrl)}" width="100%" height="300" style="border:0;border-radius:12px;" allowfullscreen></iframe>`
     }
     return `[${caption}](${url})`
   })
