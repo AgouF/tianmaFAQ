@@ -1,6 +1,7 @@
 import DefaultTheme from 'vitepress/theme'
 import { h } from 'vue'
 import TweetCard from './TweetCard.vue'
+import RelatedCards from './RelatedCards.vue'
 import BackToTop from './BackToTop.vue'
 import ReadingTime from './ReadingTime.vue'
 import NotFound from './NotFound.vue'
@@ -17,5 +18,6 @@ export default {
   },
   enhanceApp({ app }) {
     app.component('TweetCard', TweetCard)
+    app.component('RelatedCards', RelatedCards)
   }
 }

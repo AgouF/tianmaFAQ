@@ -6,8 +6,4 @@ lastUpdated: 1773068100000
 
 # Regarding the Usage of XXXCDN
 
----
-
-## Related Articles
-
-- [How to Use XXVPN](/catalog/how-to-use-xxvpn)
+<RelatedCards :items='[{"title":"How to Use XXVPN","link":"/catalog/how-to-use-xxvpn"}]' />

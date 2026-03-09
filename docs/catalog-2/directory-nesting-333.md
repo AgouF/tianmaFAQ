@@ -12,8 +12,4 @@ lastUpdated: 1773068700000
 
 
 
----
-
-## 相关文章
-
-- [测试一下](/catalog-2/directory-nesting-222/test)
+<RelatedCards :items='[{"title":"测试一下","link":"/catalog-2/directory-nesting-222/test"}]' />

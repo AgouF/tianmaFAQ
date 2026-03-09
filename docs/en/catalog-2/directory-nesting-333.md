@@ -8,8 +8,4 @@ lastUpdated: 1773068700000
 
 About XXXXXX
 
----
-
-## Related Articles
-
-- [Test it out](/catalog-2/directory-nesting-222/test)
+<RelatedCards :items='[{"title":"Test it out","link":"/catalog-2/directory-nesting-222/test"}]' />

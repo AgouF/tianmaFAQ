@@ -6,8 +6,4 @@ lastUpdated: 1773066780000
 
 # How to Use XXVPN
 
----
-
-## Related Articles
-
-- [How to Use XXXCDN](/catalog/how-to-use-xxxcdn)
+<RelatedCards :items='[{"title":"How to Use XXXCDN","link":"/catalog/how-to-use-xxxcdn"}]' />

@@ -24,8 +24,4 @@ lastUpdated: 1773073140000
 
 
 
----
-
-## 相关文章
-
-- [目录嵌套333](/catalog-2/directory-nesting-333)
+<RelatedCards :items='[{"title":"目录嵌套333","link":"/catalog-2/directory-nesting-333"}]' />

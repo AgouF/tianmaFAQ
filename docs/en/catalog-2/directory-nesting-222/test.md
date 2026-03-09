@@ -23,8 +23,4 @@ Ahahahahahaha
 
 
 
----
-
-## Related Articles
-
-- [Directory Nesting 333](/catalog-2/directory-nesting-333)
+<RelatedCards :items='[{"title":"Directory Nesting 333","link":"/catalog-2/directory-nesting-333"}]' />

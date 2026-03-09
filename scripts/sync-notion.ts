@@ -375,7 +375,7 @@ async function generatePages(nodes: PageNode[], categoryName = ''): Promise<Side
   return items
 }
 
-// Append related articles to each markdown file
+// Append related articles to each markdown file (as RelatedCards component)
 function appendRelatedArticles() {
   for (const article of allArticles) {
     // Find related: same category, excluding self
@@ -385,16 +385,19 @@ function appendRelatedArticles() {
 
     if (related.length === 0) continue
 
-    const relatedMd = '\n\n---\n\n## 相关文章\n\n' +
-      related.map(r => `- [${r.title}](${r.link})`).join('\n') + '\n'
+    const items = related.map(r => ({ title: r.title, link: r.link }))
+    const itemsJson = JSON.stringify(items).replace(/'/g, '&#39;')
+    const relatedMd = `\n\n<RelatedCards :items='${itemsJson}' />\n`
 
     // Find the file path from the link
     const filePath = join(DOCS_DIR, article.link.slice(1) + '.md')
     if (!existsSync(filePath)) continue
 
     const content = readFileSync(filePath, 'utf-8')
-    // Remove old related section if exists, then append new
-    const cleaned = content.replace(/\n\n---\n\n## 相关文章\n[\s\S]*$/, '')
+    // Remove old related section (both old plain-link format and new component format)
+    const cleaned = content
+      .replace(/\n\n---\n\n## 相关文章\n[\s\S]*$/, '')
+      .replace(/\n\n<RelatedCards :items='[\s\S]*?' \/>\n?$/, '')
     writeFileSync(filePath, cleaned + relatedMd, 'utf-8')
   }
 }
@@ -451,6 +454,133 @@ function collectArticles(nodes: PageNode[]): { title: string; link: string }[] {
     }
   }
   return result
+}
+
+// Long-tail keyword suffixes for SEO variant pages
+const KEYWORD_SUFFIXES_ZH = ['2026', '推荐', '免费', '教程', '下载']
+const LONGTAIL_DIR = join(DOCS_DIR, 'keywords')
+
+// Generate long-tail keyword variant pages that link to the main article
+function generateLongTailPages() {
+  mkdirSync(LONGTAIL_DIR, { recursive: true })
+  syncedPaths.add(LONGTAIL_DIR)
+
+  let count = 0
+  for (const article of allArticles) {
+    // Only generate for Chinese articles (not English)
+    if (!hasChinese(article.title)) continue
+
+    for (const suffix of KEYWORD_SUFFIXES_ZH) {
+      const variantTitle = `${article.title} ${suffix}`
+      const slug = `${article.link.split('/').pop()}-${slugify(suffix) || suffix}`
+      const filePath = join(LONGTAIL_DIR, `${slug}.md`)
+      syncedPaths.add(filePath)
+
+      const description = `${variantTitle} - 查看详细解答`
+      const content = [
+        '---',
+        `title: "${variantTitle.replace(/"/g, '\\"')}"`,
+        `description: "${description.replace(/"/g, '\\"')}"`,
+        '---',
+        '',
+        `# ${variantTitle}`,
+        '',
+        `::: tip`,
+        `本页面将引导您查看完整文章内容。`,
+        `:::`,
+        '',
+        `查看完整内容请前往：[${article.title}](${article.link})`,
+        '',
+        `<RelatedCards :items='${JSON.stringify([{ title: article.title, link: article.link }]).replace(/'/g, '&#39;')}' />`,
+        ''
+      ].join('\n')
+
+      const existing = existsSync(filePath) ? readFileSync(filePath, 'utf-8') : null
+      if (existing !== content) {
+        writeFileSync(filePath, content, 'utf-8')
+        count++
+      }
+    }
+  }
+  console.log(`Generated ${count} long-tail keyword pages`)
+}
+
+// Generate a /search page listing all articles for Google indexing
+function generateSearchPage() {
+  // Group articles by category
+  const grouped = new Map<string, ArticleInfo[]>()
+  for (const article of allArticles) {
+    const cat = article.category || '其他'
+    if (!grouped.has(cat)) grouped.set(cat, [])
+    grouped.get(cat)!.push(article)
+  }
+
+  const sections = [...grouped.entries()].map(([cat, articles]) => {
+    const list = articles.map(a => `- [${a.title}](${a.link})`).join('\n')
+    return `## ${cat}\n\n${list}`
+  }).join('\n\n')
+
+  const content = [
+    '---',
+    'title: "全部文章 - 搜索"',
+    'description: "天马品牌所有常见问题文章列表，方便搜索和查找"',
+    '---',
+    '',
+    '# 全部文章',
+    '',
+    `共 ${allArticles.length} 篇文章，涵盖所有常见问题分类。`,
+    '',
+    sections,
+    ''
+  ].join('\n')
+
+  const searchDir = join(DOCS_DIR, 'search')
+  mkdirSync(searchDir, { recursive: true })
+  syncedPaths.add(searchDir)
+
+  const filePath = join(searchDir, 'index.md')
+  syncedPaths.add(filePath)
+
+  const existing = existsSync(filePath) ? readFileSync(filePath, 'utf-8') : null
+  if (existing !== content) {
+    writeFileSync(filePath, content, 'utf-8')
+    console.log('Written: search/index.md')
+  } else {
+    console.log('Unchanged: search/index.md')
+  }
+
+  // Also generate English search page
+  const enSections = [...grouped.entries()].map(([cat, articles]) => {
+    const list = articles.map(a => `- [${a.title}](/en${a.link})`).join('\n')
+    return `## ${cat}\n\n${list}`
+  }).join('\n\n')
+
+  const enContent = [
+    '---',
+    'title: "All Articles - Search"',
+    'description: "Complete list of all Tianma Brand FAQ articles"',
+    '---',
+    '',
+    '# All Articles',
+    '',
+    `${allArticles.length} articles covering all FAQ categories.`,
+    '',
+    enSections,
+    ''
+  ].join('\n')
+
+  const enSearchDir = join(EN_DIR, 'search')
+  mkdirSync(enSearchDir, { recursive: true })
+  syncedPaths.add(enSearchDir)
+
+  const enFilePath = join(enSearchDir, 'index.md')
+  syncedPaths.add(enFilePath)
+
+  const existingEn = existsSync(enFilePath) ? readFileSync(enFilePath, 'utf-8') : null
+  if (existingEn !== enContent) {
+    writeFileSync(enFilePath, enContent, 'utf-8')
+    console.log('Written: en/search/index.md')
+  }
 }
 
 async function main() {
@@ -617,6 +747,12 @@ async function main() {
   // Append related articles to each page
   appendRelatedArticles()
 
+  // Generate long-tail keyword variant pages for SEO
+  generateLongTailPages()
+
+  // Generate search page for Google indexing
+  generateSearchPage()
+
   // Generate category index pages
   generateCategoryIndexes(pageTree)
 
@@ -671,7 +807,7 @@ async function main() {
 
 // Remove docs content that no longer exists in Notion
 function cleanupDocs() {
-  const keep = new Set(['index.md', '.vitepress', 'public', 'en'])
+  const keep = new Set(['index.md', '.vitepress', 'public', 'en', 'keywords', 'search'])
 
   const entries = readdirSync(DOCS_DIR)
   for (const entry of entries) {

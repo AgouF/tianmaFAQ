@@ -9,8 +9,4 @@ lastUpdated: 1773066780000
 
 
 
----
-
-## 相关文章
-
-- [关于XXXCDN的使用法发](/catalog/how-to-use-xxxcdn)
+<RelatedCards :items='[{"title":"关于XXXCDN的使用法发","link":"/catalog/how-to-use-xxxcdn"}]' />

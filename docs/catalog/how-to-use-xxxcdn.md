@@ -9,8 +9,4 @@ lastUpdated: 1773068100000
 
 
 
----
-
-## 相关文章
-
-- [关于XXVPN的使用方法](/catalog/how-to-use-xxvpn)
+<RelatedCards :items='[{"title":"关于XXVPN的使用方法","link":"/catalog/how-to-use-xxvpn"}]' />
