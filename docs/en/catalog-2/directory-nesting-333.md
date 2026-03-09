@@ -8,4 +8,4 @@ lastUpdated: 1773068700000
 
 About XXXXXX
 
-<RelatedCards :items='[{"title":"Test","link":"/catalog-2/directory-nesting-222/test"},{"title":"Is VPN Safe","link":"/more-info/vpn-security"},{"title":"VPN Recommendations","link":"/more-info/vpn-recommendation"}]' />
+<RelatedCards :items='[{"title":"Test","link":"/catalog-2/directory-nesting-222/test"},{"title":"Is VPN Safe","link":"/more-info/vpn-security"},{"title":"VPN Recommendation","link":"/more-info/vpn-recommendation"}]' />
