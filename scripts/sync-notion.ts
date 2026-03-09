@@ -228,9 +228,11 @@ async function main() {
   n2m.setCustomTransformer('embed', async (block: any) => {
     const url = block.embed?.url || ''
     if (!url) return ''
-    // X/Twitter embed
-    if (/^https?:\/\/(x\.com|twitter\.com)\/\w+\/status\/\d+/.test(url)) {
-      return `<blockquote class="twitter-tweet"><a href="${url}"></a></blockquote>`
+    // X/Twitter embed via publish.twitter.com iframe
+    const tweetMatch = url.match(/^https?:\/\/(x\.com|twitter\.com)\/\w+\/status\/(\d+)/)
+    if (tweetMatch) {
+      const tweetUrl = url.replace('x.com', 'twitter.com')
+      return `<iframe src="https://platform.twitter.com/embed/Tweet.html?url=${encodeURIComponent(tweetUrl)}" width="100%" height="300" style="border:0;border-radius:12px;" allowfullscreen></iframe>`
     }
     // YouTube embed
     const ytMatch = url.match(/(?:youtube\.com\/watch\?v=|youtu\.be\/)([\w-]+)/)
@@ -244,8 +246,10 @@ async function main() {
   n2m.setCustomTransformer('link_preview', async (block: any) => {
     const url = block.link_preview?.url || ''
     if (!url) return ''
-    if (/^https?:\/\/(x\.com|twitter\.com)\/\w+\/status\/\d+/.test(url)) {
-      return `<blockquote class="twitter-tweet"><a href="${url}"></a></blockquote>`
+    const tweetMatch = url.match(/^https?:\/\/(x\.com|twitter\.com)\/\w+\/status\/(\d+)/)
+    if (tweetMatch) {
+      const tweetUrl = url.replace('x.com', 'twitter.com')
+      return `<iframe src="https://platform.twitter.com/embed/Tweet.html?url=${encodeURIComponent(tweetUrl)}" width="100%" height="300" style="border:0;border-radius:12px;" allowfullscreen></iframe>`
     }
     return `[${url}](${url})`
   })
@@ -255,8 +259,10 @@ async function main() {
     const url = block.bookmark?.url || ''
     if (!url) return ''
     const caption = block.bookmark?.caption?.map((t: any) => t.plain_text).join('') || url
-    if (/^https?:\/\/(x\.com|twitter\.com)\/\w+\/status\/\d+/.test(url)) {
-      return `<blockquote class="twitter-tweet"><a href="${url}"></a></blockquote>`
+    const tweetMatch = url.match(/^https?:\/\/(x\.com|twitter\.com)\/\w+\/status\/(\d+)/)
+    if (tweetMatch) {
+      const tweetUrl = url.replace('x.com', 'twitter.com')
+      return `<iframe src="https://platform.twitter.com/embed/Tweet.html?url=${encodeURIComponent(tweetUrl)}" width="100%" height="300" style="border:0;border-radius:12px;" allowfullscreen></iframe>`
     }
     return `[${caption}](${url})`
   })

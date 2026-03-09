@@ -81,7 +81,6 @@ export default defineConfig({
 
   head: [
     ['link', { rel: 'icon', href: '/logo.svg', type: 'image/svg+xml' }],
-    ['script', { async: '', src: 'https://platform.twitter.com/widgets.js', charset: 'utf-8' }]
   ],
 
   themeConfig: {
