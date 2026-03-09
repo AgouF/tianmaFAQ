@@ -651,7 +651,7 @@ ${features}
 async function generateEnglishPages(nodes: PageNode[]) {
   for (const node of nodes) {
     if (node.isFolder) {
-      const enSubDir = join(EN_DIR, node.slug)
+      const enSubDir = join(node.dir, node.slug).replace(DOCS_DIR, EN_DIR)
       mkdirSync(enSubDir, { recursive: true })
       syncedPaths.add(enSubDir)
       await generateEnglishPages(node.children)
