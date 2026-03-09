@@ -5,6 +5,7 @@ import { join, resolve } from 'path'
 import { createHash } from 'crypto'
 import { pipeline } from 'stream/promises'
 import { Readable } from 'stream'
+import sharp from 'sharp'
 
 const DOCS_DIR = resolve(import.meta.dirname, '..', 'docs')
 const EN_DIR = join(DOCS_DIR, 'en')
@@ -215,12 +216,16 @@ async function scanPages(parentId: string, dir: string, urlPath: string, depth: 
   return nodes
 }
 
-// Download image to local public/images/ and return local path
+// Download image to local public/images/ and convert to WebP
 async function downloadImage(url: string): Promise<string> {
   try {
     const hash = createHash('md5').update(url).digest('hex').slice(0, 12)
-    const ext = url.match(/\.(png|jpg|jpeg|gif|webp|svg|bmp|ico)/i)?.[1] || 'png'
-    const filename = `${hash}.${ext}`
+    const origExt = url.match(/\.(png|jpg|jpeg|gif|webp|svg|bmp|ico)/i)?.[1]?.toLowerCase() || 'png'
+
+    // SVG/GIF: keep original format; others: convert to WebP
+    const keepOriginal = ['svg', 'gif', 'ico'].includes(origExt)
+    const outExt = keepOriginal ? origExt : 'webp'
+    const filename = `${hash}.${outExt}`
     const filePath = join(IMAGES_DIR, filename)
 
     if (existsSync(filePath)) return `/images/${filename}`
@@ -228,11 +233,17 @@ async function downloadImage(url: string): Promise<string> {
     const res = await fetch(url)
     if (!res.ok || !res.body) return url
 
-    await pipeline(Readable.fromWeb(res.body as any), createWriteStream(filePath))
+    const buffer = Buffer.from(await res.arrayBuffer())
+
+    if (keepOriginal) {
+      writeFileSync(filePath, buffer)
+    } else {
+      await sharp(buffer).webp({ quality: 80 }).toFile(filePath)
+    }
     console.log(`  Downloaded: ${filename}`)
     return `/images/${filename}`
   } catch {
-    return url // Fallback to original URL on error
+    return url
   }
 }
 
@@ -268,6 +279,14 @@ function extractDescription(mdContent: string): string {
     || '天马品牌常见问题解答'
 }
 
+// Calculate reading time in minutes (Chinese: ~400 chars/min, English: ~200 words/min)
+function readingTime(text: string): number {
+  const plain = text.replace(/<[^>]+>/g, '').replace(/[#*`\[\]()!]/g, '')
+  const chinese = (plain.match(/[\u4e00-\u9fff]/g) || []).length
+  const words = plain.replace(/[\u4e00-\u9fff]/g, '').split(/\s+/).filter(Boolean).length
+  return Math.max(1, Math.ceil(chinese / 400 + words / 200))
+}
+
 // Replace Notion page links with VitePress internal links
 function replaceNotionLinks(content: string): string {
   // Match Notion URLs: https://www.notion.so/Page-Title-<id> or https://notion.so/<id>
@@ -281,8 +300,16 @@ function replaceNotionLinks(content: string): string {
   )
 }
 
+// Collected article info for related articles
+interface ArticleInfo {
+  title: string
+  link: string
+  category: string // Top-level folder name
+}
+const allArticles: ArticleInfo[] = []
+
 // Pass 2: Generate markdown files and sidebar
-async function generatePages(nodes: PageNode[]): Promise<SidebarItem[]> {
+async function generatePages(nodes: PageNode[], categoryName = ''): Promise<SidebarItem[]> {
   const items: SidebarItem[] = []
 
   for (const node of nodes) {
@@ -294,7 +321,8 @@ async function generatePages(nodes: PageNode[]): Promise<SidebarItem[]> {
       const indent = '  '.repeat(node.depth)
       console.log(`${indent}[Folder] ${node.title}`)
 
-      const subItems = await generatePages(node.children)
+      const cat = categoryName || node.title
+      const subItems = await generatePages(node.children, cat)
       items.push({ text: node.title, collapsed: true, items: subItems })
     } else {
       const pageInfo = await notion.pages.retrieve({ page_id: node.id }) as any
@@ -304,15 +332,21 @@ async function generatePages(nodes: PageNode[]): Promise<SidebarItem[]> {
       // Replace Notion page links with internal VitePress links
       mdContent = replaceNotionLinks(mdContent)
 
-      // Download Notion images to local storage
+      // Download Notion images to local storage (with WebP conversion)
       mdContent = await localizeImages(mdContent)
 
       const description = extractDescription(mdContent)
+      const minutes = readingTime(mdContent)
+      const link = `${node.urlPath}/${node.slug}`
+
+      // Collect for related articles
+      allArticles.push({ title: node.title, link, category: categoryName })
 
       const fileContent = [
         '---',
         `title: "${node.title.replace(/"/g, '\\"')}"`,
         `description: "${description.replace(/"/g, '\\"')}"`,
+        `readingTime: ${minutes}`,
         `lastUpdated: ${new Date(pageInfo.last_edited_time).getTime()}`,
         '---',
         '',
@@ -334,11 +368,89 @@ async function generatePages(nodes: PageNode[]): Promise<SidebarItem[]> {
       }
 
       totalArticles++
-      items.push({ text: node.title, link: `${node.urlPath}/${node.slug}` })
+      items.push({ text: node.title, link })
     }
   }
 
   return items
+}
+
+// Append related articles to each markdown file
+function appendRelatedArticles() {
+  for (const article of allArticles) {
+    // Find related: same category, excluding self
+    const related = allArticles
+      .filter(a => a.category === article.category && a.link !== article.link)
+      .slice(0, 5)
+
+    if (related.length === 0) continue
+
+    const relatedMd = '\n\n---\n\n## 相关文章\n\n' +
+      related.map(r => `- [${r.title}](${r.link})`).join('\n') + '\n'
+
+    // Find the file path from the link
+    const filePath = join(DOCS_DIR, article.link.slice(1) + '.md')
+    if (!existsSync(filePath)) continue
+
+    const content = readFileSync(filePath, 'utf-8')
+    // Remove old related section if exists, then append new
+    const cleaned = content.replace(/\n\n---\n\n## 相关文章\n[\s\S]*$/, '')
+    writeFileSync(filePath, cleaned + relatedMd, 'utf-8')
+  }
+}
+
+// Generate category index pages (topic pages)
+function generateCategoryIndexes(nodes: PageNode[]) {
+  for (const node of nodes) {
+    if (!node.isFolder) continue
+
+    const dirPath = join(node.dir, node.slug)
+    const indexPath = join(dirPath, 'index.md')
+
+    // Collect all articles under this folder
+    const articles = collectArticles(node.children)
+    if (articles.length === 0) continue
+
+    const articleList = articles
+      .map(a => `- [${a.title}](${a.link})`)
+      .join('\n')
+
+    const content = [
+      '---',
+      `title: "${node.title.replace(/"/g, '\\"')}"`,
+      `description: "${node.title} - 共 ${articles.length} 篇文章"`,
+      '---',
+      '',
+      `# ${node.title}`,
+      '',
+      `共 ${articles.length} 篇文章`,
+      '',
+      articleList,
+      ''
+    ].join('\n')
+
+    syncedPaths.add(indexPath)
+    const existing = existsSync(indexPath) ? readFileSync(indexPath, 'utf-8') : null
+    if (existing !== content) {
+      writeFileSync(indexPath, content, 'utf-8')
+      console.log(`Written: ${node.slug}/index.md`)
+    }
+
+    // Recurse into sub-folders
+    generateCategoryIndexes(node.children)
+  }
+}
+
+function collectArticles(nodes: PageNode[]): { title: string; link: string }[] {
+  const result: { title: string; link: string }[] = []
+  for (const node of nodes) {
+    if (node.isFolder) {
+      result.push(...collectArticles(node.children))
+    } else {
+      result.push({ title: node.title, link: `${node.urlPath}/${node.slug}` })
+    }
+  }
+  return result
 }
 
 async function main() {
@@ -501,6 +613,12 @@ async function main() {
 
   // Pass 2: Generate markdown with correct internal links
   const sidebar = await generatePages(pageTree)
+
+  // Append related articles to each page
+  appendRelatedArticles()
+
+  // Generate category index pages
+  generateCategoryIndexes(pageTree)
 
   // Clean up files/folders not in current Notion tree
   cleanupDocs()

@@ -113,21 +113,49 @@ export default defineConfig({
     head.push(['meta', { name: 'twitter:title', content: title }])
     head.push(['meta', { name: 'twitter:description', content: description }])
 
-    // FAQ structured data (Schema.org) for article pages
-    if (title && pageData.relativePath !== 'index.md' && !pageData.relativePath.startsWith('en/')) {
-      const faqSchema = {
-        '@context': 'https://schema.org',
-        '@type': 'FAQPage',
-        'mainEntity': [{
-          '@type': 'Question',
-          'name': title,
-          'acceptedAnswer': {
-            '@type': 'Answer',
-            'text': description
-          }
-        }]
+    // Structured data for article pages (not homepage, not en/)
+    if (title && pageData.relativePath !== 'index.md' && !pageData.relativePath.endsWith('/index.md')) {
+      const isEn = pageData.relativePath.startsWith('en/')
+
+      // FAQ Schema
+      if (!isEn) {
+        const faqSchema = {
+          '@context': 'https://schema.org',
+          '@type': 'FAQPage',
+          'mainEntity': [{
+            '@type': 'Question',
+            'name': title,
+            'acceptedAnswer': {
+              '@type': 'Answer',
+              'text': description
+            }
+          }]
+        }
+        head.push(['script', { type: 'application/ld+json' }, JSON.stringify(faqSchema)])
       }
-      head.push(['script', { type: 'application/ld+json' }, JSON.stringify(faqSchema)])
+
+      // Breadcrumb Schema
+      const parts = pagePath.split('/').filter(Boolean)
+      if (parts.length > 0) {
+        const breadcrumbItems = [
+          { '@type': 'ListItem', position: 1, name: isEn ? 'Home' : '首页', item: `https://tianma.xin${isEn ? '/en' : ''}` }
+        ]
+        for (let i = 0; i < parts.length; i++) {
+          const isLast = i === parts.length - 1
+          const entry: any = {
+            '@type': 'ListItem',
+            position: i + 2,
+            name: isLast ? title : decodeURIComponent(parts[i]),
+          }
+          if (!isLast) entry.item = `https://tianma.xin/${parts.slice(0, i + 1).join('/')}`
+          breadcrumbItems.push(entry)
+        }
+        head.push(['script', { type: 'application/ld+json' }, JSON.stringify({
+          '@context': 'https://schema.org',
+          '@type': 'BreadcrumbList',
+          'itemListElement': breadcrumbItems
+        })])
+      }
     }
 
     return head
