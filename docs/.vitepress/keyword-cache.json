@@ -1,0 +1,58 @@
+{
+  "/catalog/how-to-use-xxvpn": {
+    "contentHash": "b253ed55df313fa8ca67f9792fb6e1be",
+    "keywords": [
+      {
+        "keyword": "VPN怎么使用",
+        "slug": "how-to-use-vpn"
+      },
+      {
+        "keyword": "VPN设置教程",
+        "slug": "vpn-setup-tutorial"
+      }
+    ]
+  },
+  "/catalog/how-to-use-xxxcdn": {
+    "contentHash": "bb347d32b4689a7283148d297005f728",
+    "keywords": [
+      {
+        "keyword": "CDN怎么使用",
+        "slug": "cdn-how-to-use"
+      },
+      {
+        "keyword": "CDN推荐教程",
+        "slug": "cdn-recommendation-tutorial"
+      }
+    ]
+  },
+  "/catalog-2/directory-nesting-333": {
+    "contentHash": "7e699dac7fa9855f705ce2fcb2fa1ae8",
+    "keywords": [
+      {
+        "keyword": "VPN安全吗",
+        "slug": "vpn-security"
+      },
+      {
+        "keyword": "VPN推荐",
+        "slug": "vpn-recommendation"
+      }
+    ]
+  },
+  "/catalog-2/directory-nesting-222/test": {
+    "contentHash": "1512ec0cc2cdcb60c99e722ef18086c5",
+    "keywords": [
+      {
+        "keyword": "测试一下",
+        "slug": "test-it-out"
+      },
+      {
+        "keyword": "哈哈",
+        "slug": "haha"
+      },
+      {
+        "keyword": "啊哈哈哈",
+        "slug": "ahahaha"
+      }
+    ]
+  }
+}

@@ -11,6 +11,8 @@ const DOCS_DIR = resolve(import.meta.dirname, '..', 'docs')
 const EN_DIR = join(DOCS_DIR, 'en')
 const VITEPRESS_DIR = join(DOCS_DIR, '.vitepress')
 const IMAGES_DIR = join(DOCS_DIR, 'public', 'images')
+const MORE_INFO_DIR = join(DOCS_DIR, 'more-info')
+const MORE_INFO_EN_DIR = join(EN_DIR, 'more-info')
 
 // Ensure directories exist
 mkdirSync(IMAGES_DIR, { recursive: true })
@@ -308,6 +310,26 @@ interface ArticleInfo {
 }
 const allArticles: ArticleInfo[] = []
 
+// Keyword cache: avoid re-extracting/regenerating when content hasn't changed
+const KEYWORD_CACHE_PATH = join(VITEPRESS_DIR, 'keyword-cache.json')
+interface KeywordInfo { keyword: string; slug: string }
+interface KeywordCacheEntry { contentHash: string; keywords: KeywordInfo[] }
+let keywordCache: Record<string, KeywordCacheEntry> = {}
+
+function loadKeywordCache() {
+  if (existsSync(KEYWORD_CACHE_PATH)) {
+    keywordCache = JSON.parse(readFileSync(KEYWORD_CACHE_PATH, 'utf-8'))
+  }
+}
+function saveKeywordCache() {
+  writeFileSync(KEYWORD_CACHE_PATH, JSON.stringify(keywordCache, null, 2), 'utf-8')
+}
+
+// Map: original article link → its keyword articles (for RelatedCards)
+const articleKeywordMap = new Map<string, { title: string; link: string }[]>()
+// All generated keyword articles (for sidebar)
+const allKeywordArticles: { title: string; link: string; slug: string }[] = []
+
 // Pass 2: Generate markdown files and sidebar
 async function generatePages(nodes: PageNode[], categoryName = ''): Promise<SidebarItem[]> {
   const items: SidebarItem[] = []
@@ -376,25 +398,28 @@ async function generatePages(nodes: PageNode[], categoryName = ''): Promise<Side
 }
 
 // Append related articles to each markdown file (as RelatedCards component)
+// Includes both same-category articles and AI-generated keyword articles
 function appendRelatedArticles() {
   for (const article of allArticles) {
-    // Find related: same category, excluding self
-    const related = allArticles
+    // Same category articles
+    const categoryRelated = allArticles
       .filter(a => a.category === article.category && a.link !== article.link)
       .slice(0, 5)
+      .map(r => ({ title: r.title, link: r.link }))
 
-    if (related.length === 0) continue
+    // AI keyword articles for this article
+    const keywordRelated = articleKeywordMap.get(article.link) || []
 
-    const items = related.map(r => ({ title: r.title, link: r.link }))
-    const itemsJson = JSON.stringify(items).replace(/'/g, '&#39;')
+    const allRelated = [...categoryRelated, ...keywordRelated]
+    if (allRelated.length === 0) continue
+
+    const itemsJson = JSON.stringify(allRelated).replace(/'/g, '&#39;')
     const relatedMd = `\n\n<RelatedCards :items='${itemsJson}' />\n`
 
-    // Find the file path from the link
     const filePath = join(DOCS_DIR, article.link.slice(1) + '.md')
     if (!existsSync(filePath)) continue
 
     const content = readFileSync(filePath, 'utf-8')
-    // Remove old related section (both old plain-link format and new component format)
     const cleaned = content
       .replace(/\n\n---\n\n## 相关文章\n[\s\S]*$/, '')
       .replace(/\n\n<RelatedCards :items='[\s\S]*?' \/>\n?$/, '')
@@ -456,6 +481,258 @@ function collectArticles(nodes: PageNode[]): { title: string; link: string }[] {
   return result
 }
 
+
+// Determine keyword count based on article character length
+function keywordCount(text: string): number {
+  const len = text.replace(/---\n[\s\S]*?\n---\n/, '').length
+  if (len < 200) return 2
+  if (len < 500) return 3
+  if (len < 1000) return 5
+  return 8
+}
+
+// Extract long-tail keywords from article via DeepSeek
+async function extractKeywords(title: string, content: string, count: number): Promise<KeywordInfo[]> {
+  if (!DEEPSEEK_KEY) return []
+  try {
+    const res = await fetch('https://api.deepseek.com/chat/completions', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${DEEPSEEK_KEY}` },
+      body: JSON.stringify({
+        model: 'deepseek-chat',
+        messages: [
+          {
+            role: 'system',
+            content: `You are an SEO expert. Extract exactly ${count} long-tail keyword phrases from the given FAQ article. Rules:
+- Keywords should be natural Chinese search queries (2-10 characters)
+- Include question-type keywords (e.g. "VPN安全吗", "VPN怎么用")
+- Include recommendation/tutorial keywords (e.g. "VPN推荐", "免费VPN")
+- Do NOT repeat the original title exactly
+- Output ONLY a JSON array: [{"keyword":"中文关键词","slug":"english-slug"}]
+- slug must be lowercase, hyphen-separated, no special characters`
+          },
+          { role: 'user', content: `Title: ${title}\n\nContent:\n${content.slice(0, 2000)}` }
+        ],
+        temperature: 0.3,
+      }),
+    })
+    if (!res.ok) return []
+    const data = await res.json() as any
+    const text = data.choices?.[0]?.message?.content?.trim() || ''
+    const jsonStr = text.replace(/```json?\n?/g, '').replace(/```/g, '').trim()
+    const parsed = JSON.parse(jsonStr)
+    if (Array.isArray(parsed)) {
+      return parsed.filter((k: any) => k.keyword && k.slug && /^[a-z0-9-]+$/.test(k.slug)).slice(0, count)
+    }
+  } catch (err) {
+    console.error(`  Keyword extraction failed:`, err)
+  }
+  return []
+}
+
+// Generate AI article content for a keyword via DeepSeek
+async function generateKeywordArticle(keyword: string, originalTitle: string, originalLink: string): Promise<string> {
+  if (!DEEPSEEK_KEY) return ''
+  try {
+    const res = await fetch('https://api.deepseek.com/chat/completions', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${DEEPSEEK_KEY}` },
+      body: JSON.stringify({
+        model: 'deepseek-chat',
+        messages: [
+          {
+            role: 'system',
+            content: `You are a knowledgeable FAQ writer. Write a detailed, helpful article in Chinese about the given topic. Rules:
+- Write 300-600 words of genuine, helpful content
+- Use ## and ### subheadings for good SEO structure
+- Include practical advice and real information
+- Add a "## 常见问题" section at the bottom with 2-3 Q&A pairs using ### for each question
+- Naturally mention the related article: [${originalTitle}](${originalLink})
+- Output only the article body in markdown (no frontmatter, no top-level # heading, no code blocks wrapping)`
+          },
+          { role: 'user', content: keyword }
+        ],
+        temperature: 0.7,
+      }),
+    })
+    if (!res.ok) return ''
+    const data = await res.json() as any
+    return data.choices?.[0]?.message?.content?.trim() || ''
+  } catch { return '' }
+}
+
+// Insert inline keyword links into article body (first occurrence only)
+function insertInlineKeywordLinks(content: string, keywords: { keyword: string; link: string }[]): string {
+  const fmMatch = content.match(/^(---\n[\s\S]*?\n---\n)([\s\S]*)$/)
+  if (!fmMatch) return content
+
+  const frontmatter = fmMatch[1]
+  const lines = fmMatch[2].split('\n')
+  let inCodeBlock = false
+  const inserted = new Set<string>()
+
+  for (let i = 0; i < lines.length; i++) {
+    const line = lines[i]
+    if (line.startsWith('```')) { inCodeBlock = !inCodeBlock; continue }
+    if (inCodeBlock) continue
+    // Skip headings, containers, HTML, RelatedCards, empty lines
+    if (/^#{1,6}\s/.test(line) || /^:::/.test(line) || /^</.test(line) || !line.trim()) continue
+
+    for (const { keyword, link } of keywords) {
+      if (inserted.has(keyword)) continue
+      const idx = line.indexOf(keyword)
+      if (idx === -1) continue
+      // Don't replace if inside existing markdown link
+      const before = line.slice(0, idx)
+      if ((before.match(/\[/g) || []).length > (before.match(/\]/g) || []).length) continue
+      lines[i] = line.slice(0, idx) + `[${keyword}](${link})` + line.slice(idx + keyword.length)
+      inserted.add(keyword)
+      break // One replacement per line
+    }
+  }
+
+  return frontmatter + lines.join('\n')
+}
+
+// Main: generate AI keyword articles for all synced articles
+async function generateAIKeywordArticles() {
+  if (!DEEPSEEK_KEY) {
+    console.log('Skipping AI keyword generation (no DEEPSEEK_API_KEY)')
+    return
+  }
+
+  console.log('\n--- Generating AI Keyword Articles ---\n')
+  mkdirSync(MORE_INFO_DIR, { recursive: true })
+  syncedPaths.add(MORE_INFO_DIR)
+  loadKeywordCache()
+
+  let totalGenerated = 0
+
+  for (const article of allArticles) {
+    if (!hasChinese(article.title)) continue
+
+    const filePath = join(DOCS_DIR, article.link.slice(1) + '.md')
+    if (!existsSync(filePath)) continue
+
+    const fileContent = readFileSync(filePath, 'utf-8')
+    const hash = createHash('md5').update(fileContent).digest('hex')
+    const cacheKey = article.link
+    const cached = keywordCache[cacheKey]
+
+    let keywords: KeywordInfo[]
+
+    if (cached && cached.contentHash === hash) {
+      keywords = cached.keywords
+      console.log(`  Cached: ${article.title} (${keywords.length} keywords)`)
+    } else {
+      const count = keywordCount(fileContent)
+      console.log(`  Extracting ${count} keywords: ${article.title}`)
+      keywords = await extractKeywords(article.title, fileContent, count)
+      if (keywords.length === 0) {
+        console.log(`    No keywords extracted, skipping`)
+        continue
+      }
+      console.log(`    Found: ${keywords.map(k => k.keyword).join(', ')}`)
+      keywordCache[cacheKey] = { contentHash: hash, keywords }
+    }
+
+    // Track keyword articles for this article
+    const kwLinks: { title: string; link: string }[] = []
+
+    for (const kw of keywords) {
+      const kwFilePath = join(MORE_INFO_DIR, `${kw.slug}.md`)
+      syncedPaths.add(kwFilePath)
+      const kwLink = `/more-info/${kw.slug}`
+      kwLinks.push({ title: kw.keyword, link: kwLink })
+      allKeywordArticles.push({ title: kw.keyword, link: kwLink, slug: kw.slug })
+
+      // Skip generation if file exists and content hash matches cache
+      if (existsSync(kwFilePath) && cached && cached.contentHash === hash) continue
+
+      console.log(`    Generating: ${kw.keyword} → ${kw.slug}`)
+      const body = await generateKeywordArticle(kw.keyword, article.title, article.link)
+      if (!body) continue
+
+      const desc = extractDescription(body)
+      const mins = readingTime(body)
+      const kwContent = [
+        '---',
+        `title: "${kw.keyword.replace(/"/g, '\\"')}"`,
+        `description: "${desc.replace(/"/g, '\\"')}"`,
+        `readingTime: ${mins}`,
+        `lastUpdated: ${Date.now()}`,
+        '---',
+        '',
+        `# ${kw.keyword}`,
+        '',
+        body,
+        '',
+        `<RelatedCards :items='${JSON.stringify([{ title: article.title, link: article.link }]).replace(/'/g, '&#39;')}' />`,
+        ''
+      ].join('\n')
+
+      writeFileSync(kwFilePath, kwContent, 'utf-8')
+      totalGenerated++
+    }
+
+    articleKeywordMap.set(article.link, kwLinks)
+
+    // Insert inline keyword links into the original article
+    const updated = insertInlineKeywordLinks(fileContent, kwLinks.map(k => ({ keyword: k.title, link: k.link })))
+    if (updated !== fileContent) {
+      writeFileSync(filePath, updated, 'utf-8')
+      console.log(`    Inserted inline links: ${article.title}`)
+    }
+  }
+
+  saveKeywordCache()
+  console.log(`\nGenerated ${totalGenerated} AI keyword articles`)
+}
+
+// Translate AI keyword articles to English
+async function generateEnglishKeywordArticles() {
+  if (!DEEPSEEK_KEY || allKeywordArticles.length === 0) return
+
+  mkdirSync(MORE_INFO_EN_DIR, { recursive: true })
+  syncedPaths.add(MORE_INFO_EN_DIR)
+
+  console.log('\n  Translating keyword articles to English...')
+  for (const kw of allKeywordArticles) {
+    const zhPath = join(MORE_INFO_DIR, `${kw.slug}.md`)
+    if (!existsSync(zhPath)) continue
+
+    const enPath = join(MORE_INFO_EN_DIR, `${kw.slug}.md`)
+    syncedPaths.add(enPath)
+
+    // Skip if already exists and source hasn't changed
+    if (existsSync(enPath)) continue
+
+    const zhContent = readFileSync(zhPath, 'utf-8')
+    const fmMatch = zhContent.match(/^---\n([\s\S]*?)\n---\n([\s\S]*)$/)
+    if (!fmMatch) continue
+
+    const body = fmMatch[2]
+    const lastUpdatedMatch = fmMatch[1].match(/lastUpdated: (\d+)/)
+    const lastUpdated = lastUpdatedMatch?.[1] || Date.now().toString()
+
+    const enTitle = await translateToEnglish(kw.title)
+    const enBody = await translateToEnglish(body)
+    const enDesc = extractDescription(enBody)
+
+    const enContent = [
+      '---',
+      `title: "${enTitle.replace(/"/g, '\\"')}"`,
+      `description: "${enDesc.replace(/"/g, '\\"')}"`,
+      `lastUpdated: ${lastUpdated}`,
+      '---',
+      '',
+      enBody
+    ].join('\n')
+
+    writeFileSync(enPath, enContent, 'utf-8')
+    console.log(`    Translated: ${kw.slug}`)
+  }
+}
 
 // Generate a /search page listing all articles for Google indexing
 function generateSearchPage() {
@@ -696,7 +973,10 @@ async function main() {
   // Pass 2: Generate markdown with correct internal links
   const sidebar = await generatePages(pageTree)
 
-  // Append related articles to each page
+  // Generate AI keyword articles (before appending related articles)
+  await generateAIKeywordArticles()
+
+  // Append related articles to each page (includes keyword articles)
   appendRelatedArticles()
 
   // Generate search page for Google indexing
@@ -710,6 +990,15 @@ async function main() {
 
   // Generate index.md from top-level categories
   generateHomepage(sidebar)
+
+  // Add "更多信息" sidebar group for AI-generated keyword articles
+  if (allKeywordArticles.length > 0) {
+    sidebar.push({
+      text: '更多信息',
+      collapsed: true,
+      items: allKeywordArticles.map(a => ({ text: a.title, link: a.link }))
+    })
+  }
 
   // Write sidebar.json
   if (sidebar.length > 0) {
@@ -730,7 +1019,10 @@ async function main() {
     await generateEnglishPages(pageTree)
     cleanupDir(EN_DIR)
 
-    // Translate sidebar
+    // Translate AI keyword articles to English
+    await generateEnglishKeywordArticles()
+
+    // Translate sidebar (includes "更多信息" group)
     const enSidebar = await translateSidebar(sidebar, '/en')
     if (enSidebar.length > 0) {
       const enSidebarPath = join(VITEPRESS_DIR, 'sidebar-en.json')
@@ -756,7 +1048,7 @@ async function main() {
 
 // Remove docs content that no longer exists in Notion
 function cleanupDocs() {
-  const keep = new Set(['index.md', '.vitepress', 'public', 'en', 'search'])
+  const keep = new Set(['index.md', '.vitepress', 'public', 'en', 'search', 'more-info'])
 
   const entries = readdirSync(DOCS_DIR)
   for (const entry of entries) {

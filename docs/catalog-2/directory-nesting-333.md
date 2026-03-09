@@ -12,4 +12,4 @@ lastUpdated: 1773068700000
 
 
 
-<RelatedCards :items='[{"title":"测试一下","link":"/catalog-2/directory-nesting-222/test"}]' />
+<RelatedCards :items='[{"title":"测试一下","link":"/catalog-2/directory-nesting-222/test"},{"title":"VPN安全吗","link":"/more-info/vpn-security"},{"title":"VPN推荐","link":"/more-info/vpn-recommendation"}]' />

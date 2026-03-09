@@ -9,4 +9,4 @@ lastUpdated: 1773066780000
 
 
 
-<RelatedCards :items='[{"title":"关于XXXCDN的使用法发","link":"/catalog/how-to-use-xxxcdn"}]' />
+<RelatedCards :items='[{"title":"关于XXXCDN的使用法发","link":"/catalog/how-to-use-xxxcdn"},{"title":"VPN怎么使用","link":"/more-info/how-to-use-vpn"},{"title":"VPN设置教程","link":"/more-info/vpn-setup-tutorial"}]' />

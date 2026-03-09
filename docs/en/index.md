@@ -19,4 +19,8 @@ features:
     details: 2 articles
     link: /en/catalog-2/directory-nesting-333
     linkText: View details
+  - title: More information
+    details: 9 articles
+    link: /en/more-info/how-to-use-vpn
+    linkText: View details
 ---

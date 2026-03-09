@@ -32,5 +32,47 @@
         ]
       }
     ]
+  },
+  {
+    "text": "More information",
+    "collapsed": true,
+    "items": [
+      {
+        "text": "How to use a VPN",
+        "link": "/en/more-info/how-to-use-vpn"
+      },
+      {
+        "text": "VPN Setup Tutorial",
+        "link": "/en/more-info/vpn-setup-tutorial"
+      },
+      {
+        "text": "How to use CDN",
+        "link": "/en/more-info/cdn-how-to-use"
+      },
+      {
+        "text": "CDN Recommendation Tutorial",
+        "link": "/en/more-info/cdn-recommendation-tutorial"
+      },
+      {
+        "text": "Is VPN safe?",
+        "link": "/en/more-info/vpn-security"
+      },
+      {
+        "text": "VPN Recommendations",
+        "link": "/en/more-info/vpn-recommendation"
+      },
+      {
+        "text": "Test it out.",
+        "link": "/en/more-info/test-it-out"
+      },
+      {
+        "text": "Haha",
+        "link": "/en/more-info/haha"
+      },
+      {
+        "text": "Ahahaha",
+        "link": "/en/more-info/ahahaha"
+      }
+    ]
   }
 ]

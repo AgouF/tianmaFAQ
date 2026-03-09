@@ -32,5 +32,47 @@
         ]
       }
     ]
+  },
+  {
+    "text": "更多信息",
+    "collapsed": true,
+    "items": [
+      {
+        "text": "VPN怎么使用",
+        "link": "/more-info/how-to-use-vpn"
+      },
+      {
+        "text": "VPN设置教程",
+        "link": "/more-info/vpn-setup-tutorial"
+      },
+      {
+        "text": "CDN怎么使用",
+        "link": "/more-info/cdn-how-to-use"
+      },
+      {
+        "text": "CDN推荐教程",
+        "link": "/more-info/cdn-recommendation-tutorial"
+      },
+      {
+        "text": "VPN安全吗",
+        "link": "/more-info/vpn-security"
+      },
+      {
+        "text": "VPN推荐",
+        "link": "/more-info/vpn-recommendation"
+      },
+      {
+        "text": "测试一下",
+        "link": "/more-info/test-it-out"
+      },
+      {
+        "text": "哈哈",
+        "link": "/more-info/haha"
+      },
+      {
+        "text": "啊哈哈哈",
+        "link": "/more-info/ahahaha"
+      }
+    ]
   }
 ]
