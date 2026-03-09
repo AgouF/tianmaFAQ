@@ -2,7 +2,7 @@
 layout: home
 
 hero:
-  name: "帮助中心"
+  name: "天马品牌"
   text: "常见问题解答"
   tagline: 快速找到您需要的答案，解决常见问题
   actions:
