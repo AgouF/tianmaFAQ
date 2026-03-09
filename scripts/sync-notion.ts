@@ -231,7 +231,7 @@ async function main() {
     // X/Twitter embed via TweetCard Vue component
     const tweetMatch = url.match(/^https?:\/\/(x\.com|twitter\.com)\/\w+\/status\/(\d+)/)
     if (tweetMatch) {
-      return `<TweetCard url="${url}" />`
+      return `<ClientOnly><TweetCard url="${url}" /></ClientOnly>`
     }
     // YouTube embed
     const ytMatch = url.match(/(?:youtube\.com\/watch\?v=|youtu\.be\/)([\w-]+)/)
@@ -247,7 +247,7 @@ async function main() {
     if (!url) return ''
     const tweetMatch = url.match(/^https?:\/\/(x\.com|twitter\.com)\/\w+\/status\/(\d+)/)
     if (tweetMatch) {
-      return `<TweetCard url="${url}" />`
+      return `<ClientOnly><TweetCard url="${url}" /></ClientOnly>`
     }
     return `[${url}](${url})`
   })
@@ -259,7 +259,7 @@ async function main() {
     const caption = block.bookmark?.caption?.map((t: any) => t.plain_text).join('') || url
     const tweetMatch = url.match(/^https?:\/\/(x\.com|twitter\.com)\/\w+\/status\/(\d+)/)
     if (tweetMatch) {
-      return `<TweetCard url="${url}" />`
+      return `<ClientOnly><TweetCard url="${url}" /></ClientOnly>`
     }
     return `[${caption}](${url})`
   })
