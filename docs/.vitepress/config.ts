@@ -88,6 +88,29 @@ export default defineConfig({
     search: {
       provider: 'local',
       options: {
+        detailedView: true,
+        miniSearch: {
+          options: {
+            tokenize: (text: string) => {
+              // Split by CJK characters individually + standard word boundaries
+              const result: string[] = []
+              const words = text.split(/[\s\-_]+/)
+              for (const word of words) {
+                // Split CJK characters individually
+                const parts = word.split(/([\u4e00-\u9fff\u3400-\u4dbf])/)
+                for (const part of parts) {
+                  if (part.trim()) result.push(part.toLowerCase())
+                }
+              }
+              return result
+            }
+          },
+          searchOptions: {
+            fuzzy: 0.2,
+            prefix: true,
+            boost: { title: 4, text: 2 }
+          }
+        },
         translations: {
           button: { buttonText: '搜索', buttonAriaLabel: '搜索' },
           modal: {

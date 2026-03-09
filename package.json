@@ -10,9 +10,10 @@
     "sync": "tsx scripts/sync-notion.ts"
   },
   "devDependencies": {
-    "vitepress": "^1.6.3",
+    "nodejs-jieba": "^0.0.2",
     "tsx": "^4.19.0",
-    "typescript": "^5.7.0"
+    "typescript": "^5.7.0",
+    "vitepress": "^1.6.3"
   },
   "dependencies": {
     "@notionhq/client": "^2.2.15",
