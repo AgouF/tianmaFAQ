@@ -125,14 +125,15 @@ html {
 }
 
 /* Keyword inline links (/more-info/) — no underline, small search icon */
-.vp-doc a[href^="/more-info/"] {
+/* Only target inline keyword links, NOT RelatedCards */
+.vp-doc a[href^="/more-info/"]:not(.related-card) {
   text-decoration: none;
   color: var(--vp-c-brand-1);
   font-weight: 500;
   border-bottom: none;
 }
 
-.vp-doc a[href^="/more-info/"]:hover {
+.vp-doc a[href^="/more-info/"]:not(.related-card):hover {
   color: var(--vp-c-brand-3);
   background: var(--vp-c-brand-soft);
   border-radius: 4px;
@@ -140,7 +141,7 @@ html {
   margin: -1px -4px;
 }
 
-.vp-doc a[href^="/more-info/"]::after {
+.vp-doc a[href^="/more-info/"]:not(.related-card)::after {
   content: '';
   display: inline-block;
   width: 12px;

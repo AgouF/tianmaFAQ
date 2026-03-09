@@ -51,15 +51,16 @@ const props = defineProps({
 }
 
 .related-card {
-  display: flex;
+  display: flex !important;
   align-items: center;
   gap: 10px;
   padding: 14px 16px;
   border: 1px solid var(--vp-c-divider);
   border-radius: 10px;
   background: var(--vp-c-bg-soft);
-  text-decoration: none;
-  color: var(--vp-c-text-1);
+  text-decoration: none !important;
+  color: var(--vp-c-text-1) !important;
+  font-weight: normal !important;
   transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
 }
 
@@ -67,6 +68,7 @@ const props = defineProps({
   transform: translateY(-2px);
   border-color: var(--vp-c-brand-1);
   box-shadow: 0 6px 16px rgba(91, 108, 240, 0.15);
+  text-decoration: none !important;
 }
 
 .dark .related-card:hover {
