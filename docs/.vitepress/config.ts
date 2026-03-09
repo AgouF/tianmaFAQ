@@ -65,6 +65,13 @@ export default defineConfig({
 
   lastUpdated: true,
 
+  markdown: {
+    // Enable features useful for Notion content
+    image: { lazyLoading: true },
+    math: true,
+    container: undefined, // Keep default tip/warning/danger/info containers
+  },
+
   transformPageData(pageData) {
     // Use frontmatter lastUpdated (from Notion) if available
     if (pageData.frontmatter.lastUpdated) {

@@ -110,6 +110,59 @@ async function main() {
   notion = new Client({ auth: notionToken })
   n2m = new NotionToMarkdown({ notionClient: notion })
 
+  // Custom transformers: Notion blocks → VitePress-friendly markdown
+
+  // Callout → VitePress custom container (tip/warning/danger/info)
+  n2m.setCustomTransformer('callout', async (block: any) => {
+    const callout = block.callout
+    const icon = callout.icon?.emoji || ''
+    const richText = callout.rich_text || []
+    const text = richText.map((t: any) => t.plain_text).join('')
+
+    // Map common icons to VitePress container types
+    let type = 'info'
+    if (['⚠️', '⚠', '🔶'].includes(icon)) type = 'warning'
+    else if (['🚨', '❌', '🔴', '‼️', '⛔'].includes(icon)) type = 'danger'
+    else if (['💡', '✅', '🟢', '👍'].includes(icon)) type = 'tip'
+    else if (['📝', 'ℹ️', '📌', '🔵'].includes(icon)) type = 'info'
+
+    // Get child content
+    const children = await n2m.pageToMarkdown(block.id)
+    const childContent = n2m.toMarkdownString(children).parent || ''
+
+    const content = text ? `${text}\n${childContent}` : childContent
+    return `::: ${type}\n${content.trim()}\n:::`
+  })
+
+  // Bookmark → link
+  n2m.setCustomTransformer('bookmark', async (block: any) => {
+    const url = block.bookmark?.url || ''
+    const caption = block.bookmark?.caption?.map((t: any) => t.plain_text).join('') || url
+    return `[${caption}](${url})`
+  })
+
+  // Equation (block level) → LaTeX
+  n2m.setCustomTransformer('equation', async (block: any) => {
+    const expr = block.equation?.expression || ''
+    return `$$\n${expr}\n$$`
+  })
+
+  // Divider → horizontal rule
+  n2m.setCustomTransformer('divider', async () => {
+    return '---'
+  })
+
+  // Table of contents → empty (VitePress has its own)
+  n2m.setCustomTransformer('table_of_contents', async () => {
+    return '[[toc]]'
+  })
+
+  // Video → embedded
+  n2m.setCustomTransformer('video', async (block: any) => {
+    const url = block.video?.external?.url || block.video?.file?.url || ''
+    return url ? `<video controls src="${url}"></video>` : ''
+  })
+
   // Start recursive traversal from root page
   const sidebar = await traversePages(rootPageId, DOCS_DIR, '', 0)
 
