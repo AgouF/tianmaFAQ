@@ -1,17 +1,11 @@
 [
   {
-    "text": "账户",
+    "text": "测试B",
     "collapsed": true,
     "items": [
       {
-        "text": "爱吃",
-        "collapsed": true,
-        "items": [
-          {
-            "text": "测试",
-            "link": "/账户/爱吃/how-to-register"
-          }
-        ]
+        "text": "测试C",
+        "link": "/测试b/测试c"
       }
     ]
   }

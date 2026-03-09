@@ -6,161 +6,111 @@ import { join, resolve } from 'path'
 const DOCS_DIR = resolve(import.meta.dirname, '..', 'docs')
 const VITEPRESS_DIR = join(DOCS_DIR, '.vitepress')
 
-interface FaqEntry {
-  id: string
-  title: string
-  category: string
-  subcategory: string | null
-  slug: string
-  order: number
+// Convert page title to URL-friendly slug
+function toSlug(title: string): string {
+  return title
+    .toLowerCase()
+    .replace(/[^a-z0-9\u4e00-\u9fff]+/g, '-')
+    .replace(/^-|-$/g, '')
+    || 'untitled'
+}
+
+interface SidebarItem {
+  text: string
+  link?: string
+  collapsed?: boolean
+  items?: SidebarItem[]
 }
 
 async function main() {
   const notionToken = process.env.NOTION_TOKEN
-  const databaseId = process.env.NOTION_DATABASE_ID
+  const rootPageId = process.env.NOTION_ROOT_PAGE_ID
 
-  if (!notionToken || !databaseId) {
-    console.error('Missing NOTION_TOKEN or NOTION_DATABASE_ID environment variables')
+  if (!notionToken || !rootPageId) {
+    console.error('Missing NOTION_TOKEN or NOTION_ROOT_PAGE_ID environment variables')
     process.exit(1)
   }
 
   const notion = new Client({ auth: notionToken })
   const n2m = new NotionToMarkdown({ notionClient: notion })
 
-  // Query database: only published entries, sorted by order
-  const response = await notion.databases.query({
-    database_id: databaseId,
-    filter: {
-      property: 'Published',
-      checkbox: { equals: true }
-    },
-    sorts: [
-      { property: 'Category', direction: 'ascending' },
-      { property: 'Order', direction: 'ascending' }
-    ]
-  })
+  // Get all child pages of root (these are categories)
+  const rootChildren = await notion.blocks.children.list({ block_id: rootPageId, page_size: 100 })
+  const categories = rootChildren.results.filter(
+    (b: any) => b.type === 'child_page'
+  ) as any[]
 
-  const entries: FaqEntry[] = []
-
-  // Track which category directories were created by sync
-  const syncedDirs = new Set<string>()
-
-  for (const page of response.results) {
-    if (!('properties' in page)) continue
-
-    const props = page.properties
-    const title = extractTitle(props['名称'])
-    const category = extractSelect(props.Category)
-    const subcategory = extractSelect(props.Subcategory)
-    const slug = extractRichText(props.Slug)
-    const order = extractNumber(props.Order)
-
-    if (!title || !category || !slug) {
-      console.warn(`Skipping page ${page.id}: missing title, category, or slug`)
-      continue
-    }
-
-    // Build directory path
-    const dirParts = [category]
-    if (subcategory) dirParts.push(subcategory)
-    const relDir = dirParts.join('/')
-    const absDir = join(DOCS_DIR, relDir)
-
-    // Create directory
-    mkdirSync(absDir, { recursive: true })
-    syncedDirs.add(absDir)
-
-    // Convert page content to markdown
-    const mdBlocks = await n2m.pageToMarkdown(page.id)
-    const mdContent = n2m.toMarkdownString(mdBlocks)
-
-    // Build frontmatter + content
-    const fileContent = [
-      '---',
-      `title: "${title.replace(/"/g, '\\"')}"`,
-      `order: ${order}`,
-      '---',
-      '',
-      `# ${title}`,
-      '',
-      mdContent.parent || ''
-    ].join('\n')
-
-    const filePath = join(absDir, `${slug}.md`)
-
-    // Only write if content actually changed, to preserve git timestamps
-    const existing = existsSync(filePath) ? readFileSync(filePath, 'utf-8') : null
-    if (existing !== fileContent) {
-      writeFileSync(filePath, fileContent, 'utf-8')
-      console.log(`Updated: ${relDir}/${slug}.md`)
-    } else {
-      console.log(`Unchanged: ${relDir}/${slug}.md`)
-    }
-
-    entries.push({ id: page.id, title, category, subcategory, slug, order })
+  if (categories.length === 0) {
+    console.log('No categories found under root page')
+    return
   }
 
-  // Generate sidebar.json only if there are entries
-  if (entries.length > 0) {
-    generateSidebar(entries)
-  }
+  const sidebar: SidebarItem[] = []
+  let totalArticles = 0
 
-  console.log(`\nSync complete: ${entries.length} entries`)
-}
+  for (const category of categories) {
+    const catTitle = category.child_page.title
+    const catSlug = toSlug(catTitle)
+    const catDir = join(DOCS_DIR, catSlug)
+    mkdirSync(catDir, { recursive: true })
 
-function generateSidebar(entries: FaqEntry[]) {
-  // Group by category, then subcategory
-  const groups = new Map<string, Map<string | null, FaqEntry[]>>()
+    console.log(`\n[Category] ${catTitle}`)
 
-  for (const entry of entries) {
-    if (!groups.has(entry.category)) {
-      groups.set(entry.category, new Map())
-    }
-    const catGroup = groups.get(entry.category)!
-    const subKey = entry.subcategory
-    if (!catGroup.has(subKey)) {
-      catGroup.set(subKey, [])
-    }
-    catGroup.get(subKey)!.push(entry)
-  }
-
-  const sidebar: Array<{
-    text: string
-    collapsed: boolean
-    items: Array<{ text: string; link: string } | { text: string; collapsed: boolean; items: Array<{ text: string; link: string }> }>
-  }> = []
-
-  for (const [category, subcategories] of groups) {
-    const sidebarGroup: {
-      text: string
-      collapsed: boolean
-      items: Array<{ text: string; link: string } | { text: string; collapsed: boolean; items: Array<{ text: string; link: string }> }>
-    } = {
-      text: category,
+    const sidebarGroup: SidebarItem = {
+      text: catTitle,
       collapsed: true,
       items: []
     }
 
-    for (const [subcategory, items] of subcategories) {
-      const sortedItems = items.sort((a, b) => a.order - b.order)
+    // Get children of this category
+    const catChildren = await notion.blocks.children.list({ block_id: category.id, page_size: 100 })
+    const childPages = catChildren.results.filter(
+      (b: any) => b.type === 'child_page'
+    ) as any[]
 
-      if (subcategory === null) {
-        // Direct items under category
-        for (const item of sortedItems) {
-          sidebarGroup.items.push({
-            text: item.title,
-            link: `/${item.category}/${item.slug}`
+    for (const child of childPages) {
+      const childTitle = child.child_page.title
+
+      // Check if this child has sub-pages (making it a subcategory)
+      const subChildren = await notion.blocks.children.list({ block_id: child.id, page_size: 100 })
+      const subPages = subChildren.results.filter(
+        (b: any) => b.type === 'child_page'
+      ) as any[]
+
+      if (subPages.length > 0) {
+        // This is a subcategory
+        const subSlug = toSlug(childTitle)
+        const subDir = join(catDir, subSlug)
+        mkdirSync(subDir, { recursive: true })
+
+        console.log(`  [Subcategory] ${childTitle}`)
+
+        const subGroup: SidebarItem = {
+          text: childTitle,
+          collapsed: true,
+          items: []
+        }
+
+        for (const article of subPages) {
+          const articleTitle = article.child_page.title
+          const articleSlug = toSlug(articleTitle)
+          const written = await writeArticle(n2m, article.id, articleTitle, subDir, `${catSlug}/${subSlug}`, articleSlug)
+          if (written) totalArticles++
+          subGroup.items!.push({
+            text: articleTitle,
+            link: `/${catSlug}/${subSlug}/${articleSlug}`
           })
         }
+
+        sidebarGroup.items!.push(subGroup)
       } else {
-        // Nested subcategory group
-        sidebarGroup.items.push({
-          text: subcategory,
-          collapsed: true,
-          items: sortedItems.map(item => ({
-            text: item.title,
-            link: `/${item.category}/${item.subcategory}/${item.slug}`
-          }))
+        // This is a direct article
+        const articleSlug = toSlug(childTitle)
+        const written = await writeArticle(n2m, child.id, childTitle, catDir, catSlug, articleSlug)
+        if (written) totalArticles++
+        sidebarGroup.items!.push({
+          text: childTitle,
+          link: `/${catSlug}/${articleSlug}`
         })
       }
     }
@@ -168,38 +118,55 @@ function generateSidebar(entries: FaqEntry[]) {
     sidebar.push(sidebarGroup)
   }
 
-  const sidebarPath = join(VITEPRESS_DIR, 'sidebar.json')
-  writeFileSync(sidebarPath, JSON.stringify(sidebar, null, 2), 'utf-8')
-  console.log('Written: .vitepress/sidebar.json')
+  // Write sidebar.json
+  if (sidebar.length > 0) {
+    const sidebarPath = join(VITEPRESS_DIR, 'sidebar.json')
+    const sidebarContent = JSON.stringify(sidebar, null, 2)
+    const existing = existsSync(sidebarPath) ? readFileSync(sidebarPath, 'utf-8') : null
+    if (existing !== sidebarContent) {
+      writeFileSync(sidebarPath, sidebarContent, 'utf-8')
+      console.log('\nWritten: .vitepress/sidebar.json')
+    } else {
+      console.log('\nUnchanged: .vitepress/sidebar.json')
+    }
+  }
+
+  console.log(`\nSync complete: ${categories.length} categories, ${totalArticles} articles`)
 }
 
-// Property extractors
-function extractTitle(prop: any): string | null {
-  if (prop?.type === 'title' && prop.title?.length > 0) {
-    return prop.title.map((t: any) => t.plain_text).join('')
-  }
-  return null
-}
+async function writeArticle(
+  n2m: NotionToMarkdown,
+  pageId: string,
+  title: string,
+  dir: string,
+  relDir: string,
+  slug: string
+): Promise<boolean> {
+  const mdBlocks = await n2m.pageToMarkdown(pageId)
+  const mdContent = n2m.toMarkdownString(mdBlocks)
 
-function extractSelect(prop: any): string | null {
-  if (prop?.type === 'select' && prop.select) {
-    return prop.select.name
-  }
-  return null
-}
+  const fileContent = [
+    '---',
+    `title: "${title.replace(/"/g, '\\"')}"`,
+    '---',
+    '',
+    `# ${title}`,
+    '',
+    mdContent.parent || ''
+  ].join('\n')
 
-function extractRichText(prop: any): string | null {
-  if (prop?.type === 'rich_text' && prop.rich_text?.length > 0) {
-    return prop.rich_text.map((t: any) => t.plain_text).join('')
-  }
-  return null
-}
+  const filePath = join(dir, `${slug}.md`)
 
-function extractNumber(prop: any): number {
-  if (prop?.type === 'number' && prop.number !== null) {
-    return prop.number
+  // Only write if content changed to preserve git timestamps
+  const existing = existsSync(filePath) ? readFileSync(filePath, 'utf-8') : null
+  if (existing !== fileContent) {
+    writeFileSync(filePath, fileContent, 'utf-8')
+    console.log(`    Updated: ${relDir}/${slug}.md`)
+    return true
+  } else {
+    console.log(`    Unchanged: ${relDir}/${slug}.md`)
+    return false
   }
-  return 0
 }
 
 main().catch(err => {
