@@ -6,6 +6,10 @@ import { join, resolve } from 'path'
 const DOCS_DIR = resolve(import.meta.dirname, '..', 'docs')
 const VITEPRESS_DIR = join(DOCS_DIR, '.vitepress')
 
+let notion: Client
+let n2m: NotionToMarkdown
+let totalArticles = 0
+
 // Convert page title to URL-friendly slug
 function toSlug(title: string): string {
   return title
@@ -22,6 +26,75 @@ interface SidebarItem {
   items?: SidebarItem[]
 }
 
+// Recursively traverse pages: if a page has child pages, it's a folder; otherwise it's an article
+async function traversePages(parentId: string, dir: string, urlPath: string, depth: number): Promise<SidebarItem[]> {
+  const children = await notion.blocks.children.list({ block_id: parentId, page_size: 100 })
+  const childPages = children.results.filter((b: any) => b.type === 'child_page') as any[]
+
+  const items: SidebarItem[] = []
+
+  for (const child of childPages) {
+    const title = child.child_page.title
+    const slug = toSlug(title)
+
+    // Check if this page has sub-pages
+    const subChildren = await notion.blocks.children.list({ block_id: child.id, page_size: 100 })
+    const subPages = subChildren.results.filter((b: any) => b.type === 'child_page') as any[]
+
+    if (subPages.length > 0) {
+      // This is a folder/category - recurse deeper
+      const subDir = join(dir, slug)
+      mkdirSync(subDir, { recursive: true })
+
+      const indent = '  '.repeat(depth)
+      console.log(`${indent}[Folder] ${title}`)
+
+      const subItems = await traversePages(child.id, subDir, `${urlPath}/${slug}`, depth + 1)
+
+      items.push({
+        text: title,
+        collapsed: true,
+        items: subItems
+      })
+    } else {
+      // This is an article - write markdown
+      const pageInfo = await notion.pages.retrieve({ page_id: child.id }) as any
+      const mdBlocks = await n2m.pageToMarkdown(child.id)
+      const mdContent = n2m.toMarkdownString(mdBlocks)
+
+      const fileContent = [
+        '---',
+        `title: "${title.replace(/"/g, '\\"')}"`,
+        `lastUpdated: ${new Date(pageInfo.last_edited_time).getTime()}`,
+        '---',
+        '',
+        `# ${title}`,
+        '',
+        mdContent.parent || ''
+      ].join('\n')
+
+      const filePath = join(dir, `${slug}.md`)
+      const existing = existsSync(filePath) ? readFileSync(filePath, 'utf-8') : null
+
+      const indent = '  '.repeat(depth)
+      if (existing !== fileContent) {
+        writeFileSync(filePath, fileContent, 'utf-8')
+        console.log(`${indent}Updated: ${urlPath}/${slug}.md`)
+      } else {
+        console.log(`${indent}Unchanged: ${urlPath}/${slug}.md`)
+      }
+
+      totalArticles++
+      items.push({
+        text: title,
+        link: `${urlPath}/${slug}`
+      })
+    }
+  }
+
+  return items
+}
+
 async function main() {
   const notionToken = process.env.NOTION_TOKEN
   const rootPageId = process.env.NOTION_ROOT_PAGE_ID
@@ -31,94 +104,11 @@ async function main() {
     process.exit(1)
   }
 
-  const notion = new Client({ auth: notionToken })
-  const n2m = new NotionToMarkdown({ notionClient: notion })
+  notion = new Client({ auth: notionToken })
+  n2m = new NotionToMarkdown({ notionClient: notion })
 
-  // Get all child pages of root (these are categories)
-  const rootChildren = await notion.blocks.children.list({ block_id: rootPageId, page_size: 100 })
-  const categories = rootChildren.results.filter(
-    (b: any) => b.type === 'child_page'
-  ) as any[]
-
-  if (categories.length === 0) {
-    console.log('No categories found under root page')
-    return
-  }
-
-  const sidebar: SidebarItem[] = []
-  let totalArticles = 0
-
-  for (const category of categories) {
-    const catTitle = category.child_page.title
-    const catSlug = toSlug(catTitle)
-    const catDir = join(DOCS_DIR, catSlug)
-    mkdirSync(catDir, { recursive: true })
-
-    console.log(`\n[Category] ${catTitle}`)
-
-    const sidebarGroup: SidebarItem = {
-      text: catTitle,
-      collapsed: true,
-      items: []
-    }
-
-    // Get children of this category
-    const catChildren = await notion.blocks.children.list({ block_id: category.id, page_size: 100 })
-    const childPages = catChildren.results.filter(
-      (b: any) => b.type === 'child_page'
-    ) as any[]
-
-    for (const child of childPages) {
-      const childTitle = child.child_page.title
-
-      // Check if this child has sub-pages (making it a subcategory)
-      const subChildren = await notion.blocks.children.list({ block_id: child.id, page_size: 100 })
-      const subPages = subChildren.results.filter(
-        (b: any) => b.type === 'child_page'
-      ) as any[]
-
-      if (subPages.length > 0) {
-        // This is a subcategory
-        const subSlug = toSlug(childTitle)
-        const subDir = join(catDir, subSlug)
-        mkdirSync(subDir, { recursive: true })
-
-        console.log(`  [Subcategory] ${childTitle}`)
-
-        const subGroup: SidebarItem = {
-          text: childTitle,
-          collapsed: true,
-          items: []
-        }
-
-        for (const article of subPages) {
-          const articleTitle = article.child_page.title
-          const articleSlug = toSlug(articleTitle)
-          const pageInfo = await notion.pages.retrieve({ page_id: article.id }) as any
-          const written = await writeArticle(n2m, article.id, articleTitle, pageInfo.last_edited_time, subDir, `${catSlug}/${subSlug}`, articleSlug)
-          if (written) totalArticles++
-          subGroup.items!.push({
-            text: articleTitle,
-            link: `/${catSlug}/${subSlug}/${articleSlug}`
-          })
-        }
-
-        sidebarGroup.items!.push(subGroup)
-      } else {
-        // This is a direct article
-        const articleSlug = toSlug(childTitle)
-        const pageInfo = await notion.pages.retrieve({ page_id: child.id }) as any
-        const written = await writeArticle(n2m, child.id, childTitle, pageInfo.last_edited_time, catDir, catSlug, articleSlug)
-        if (written) totalArticles++
-        sidebarGroup.items!.push({
-          text: childTitle,
-          link: `/${catSlug}/${articleSlug}`
-        })
-      }
-    }
-
-    sidebar.push(sidebarGroup)
-  }
+  // Start recursive traversal from root page
+  const sidebar = await traversePages(rootPageId, DOCS_DIR, '', 0)
 
   // Write sidebar.json
   if (sidebar.length > 0) {
@@ -133,44 +123,7 @@ async function main() {
     }
   }
 
-  console.log(`\nSync complete: ${categories.length} categories, ${totalArticles} articles`)
-}
-
-async function writeArticle(
-  n2m: NotionToMarkdown,
-  pageId: string,
-  title: string,
-  lastEditedTime: string,
-  dir: string,
-  relDir: string,
-  slug: string
-): Promise<boolean> {
-  const mdBlocks = await n2m.pageToMarkdown(pageId)
-  const mdContent = n2m.toMarkdownString(mdBlocks)
-
-  const fileContent = [
-    '---',
-    `title: "${title.replace(/"/g, '\\"')}"`,
-    `lastUpdated: ${new Date(lastEditedTime).getTime()}`,
-    '---',
-    '',
-    `# ${title}`,
-    '',
-    mdContent.parent || ''
-  ].join('\n')
-
-  const filePath = join(dir, `${slug}.md`)
-
-  // Only write if content changed to preserve git timestamps
-  const existing = existsSync(filePath) ? readFileSync(filePath, 'utf-8') : null
-  if (existing !== fileContent) {
-    writeFileSync(filePath, fileContent, 'utf-8')
-    console.log(`    Updated: ${relDir}/${slug}.md`)
-    return true
-  } else {
-    console.log(`    Unchanged: ${relDir}/${slug}.md`)
-    return false
-  }
+  console.log(`\nSync complete: ${totalArticles} articles`)
 }
 
 main().catch(err => {
