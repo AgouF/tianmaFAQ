@@ -1,0 +1,18 @@
+[
+  {
+    "text": "账户",
+    "collapsed": true,
+    "items": [
+      {
+        "text": "爱吃",
+        "collapsed": true,
+        "items": [
+          {
+            "text": "测试",
+            "link": "/账户/爱吃/how-to-register"
+          }
+        ]
+      }
+    ]
+  }
+]
