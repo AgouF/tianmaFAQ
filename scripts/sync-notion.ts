@@ -228,11 +228,10 @@ async function main() {
   n2m.setCustomTransformer('embed', async (block: any) => {
     const url = block.embed?.url || ''
     if (!url) return ''
-    // X/Twitter embed via publish.twitter.com iframe
+    // X/Twitter embed via TweetCard Vue component
     const tweetMatch = url.match(/^https?:\/\/(x\.com|twitter\.com)\/\w+\/status\/(\d+)/)
     if (tweetMatch) {
-      const tweetUrl = url.replace('x.com', 'twitter.com')
-      return `<iframe src="https://twitframe.com/show?url=${encodeURIComponent(tweetUrl)}" width="100%" height="300" style="border:0;border-radius:12px;" allowfullscreen></iframe>`
+      return `<TweetCard url="${url}" />`
     }
     // YouTube embed
     const ytMatch = url.match(/(?:youtube\.com\/watch\?v=|youtu\.be\/)([\w-]+)/)
@@ -248,8 +247,7 @@ async function main() {
     if (!url) return ''
     const tweetMatch = url.match(/^https?:\/\/(x\.com|twitter\.com)\/\w+\/status\/(\d+)/)
     if (tweetMatch) {
-      const tweetUrl = url.replace('x.com', 'twitter.com')
-      return `<iframe src="https://twitframe.com/show?url=${encodeURIComponent(tweetUrl)}" width="100%" height="300" style="border:0;border-radius:12px;" allowfullscreen></iframe>`
+      return `<TweetCard url="${url}" />`
     }
     return `[${url}](${url})`
   })
@@ -261,8 +259,7 @@ async function main() {
     const caption = block.bookmark?.caption?.map((t: any) => t.plain_text).join('') || url
     const tweetMatch = url.match(/^https?:\/\/(x\.com|twitter\.com)\/\w+\/status\/(\d+)/)
     if (tweetMatch) {
-      const tweetUrl = url.replace('x.com', 'twitter.com')
-      return `<iframe src="https://twitframe.com/show?url=${encodeURIComponent(tweetUrl)}" width="100%" height="300" style="border:0;border-radius:12px;" allowfullscreen></iframe>`
+      return `<TweetCard url="${url}" />`
     }
     return `[${caption}](${url})`
   })
