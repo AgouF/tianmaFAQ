@@ -100,7 +100,7 @@ export default defineConfig({
     ['meta', { property: 'og:type', content: 'website' }],
     ['meta', { property: 'og:site_name', content: '天马品牌 FAQ' }],
     ['meta', { property: 'og:image', content: 'https://tianma.xin/logo.png' }],
-    ['meta', { name: 'twitter:card', content: 'summary' }],
+    ['meta', { name: 'twitter:card', content: 'summary_large_image' }],
     ['meta', { name: 'twitter:image', content: 'https://tianma.xin/logo.png' }],
   ],
 
@@ -120,6 +120,12 @@ export default defineConfig({
     head.push(['meta', { property: 'og:url', content: url }])
     head.push(['meta', { name: 'twitter:title', content: title }])
     head.push(['meta', { name: 'twitter:description', content: description }])
+
+    // Per-page image override (from frontmatter ogImage)
+    if (pageData.frontmatter.ogImage) {
+      head.push(['meta', { property: 'og:image', content: pageData.frontmatter.ogImage }])
+      head.push(['meta', { name: 'twitter:image', content: pageData.frontmatter.ogImage }])
+    }
 
     // Structured data for article pages (not homepage, not en/)
     if (title && pageData.relativePath !== 'index.md' && !pageData.relativePath.endsWith('/index.md')) {

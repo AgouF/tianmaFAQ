@@ -361,16 +361,25 @@ async function generatePages(nodes: PageNode[], categoryName = ''): Promise<Side
       const minutes = readingTime(mdContent)
       const link = `${node.urlPath}/${node.slug}`
 
+      // Extract first image for OG/Twitter card
+      const firstImg = mdContent.match(/!\[[^\]]*\]\(([^)]+)\)/)
+      const ogImage = firstImg?.[1]?.startsWith('/') ? `https://tianma.xin${firstImg[1]}` : firstImg?.[1] || ''
+
       // Collect for related articles
       allArticles.push({ title: node.title, link, category: categoryName })
 
-      const fileContent = [
+      const fmLines = [
         '---',
         `title: "${node.title.replace(/"/g, '\\"')}"`,
         `description: "${description.replace(/"/g, '\\"')}"`,
         `readingTime: ${minutes}`,
         `lastUpdated: ${new Date(pageInfo.last_edited_time).getTime()}`,
-        '---',
+      ]
+      if (ogImage) fmLines.push(`ogImage: "${ogImage}"`)
+      fmLines.push('---')
+
+      const fileContent = [
+        ...fmLines,
         '',
         `# ${node.title}`,
         '',
