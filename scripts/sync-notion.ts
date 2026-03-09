@@ -110,6 +110,9 @@ async function main() {
   // Start recursive traversal from root page
   const sidebar = await traversePages(rootPageId, DOCS_DIR, '', 0)
 
+  // Generate index.md from top-level categories
+  generateHomepage(sidebar)
+
   // Write sidebar.json
   if (sidebar.length > 0) {
     const sidebarPath = join(VITEPRESS_DIR, 'sidebar.json')
@@ -124,6 +127,69 @@ async function main() {
   }
 
   console.log(`\nSync complete: ${totalArticles} articles`)
+}
+
+// Find the first article link in a sidebar tree
+function findFirstLink(item: SidebarItem): string | null {
+  if (item.link) return item.link
+  if (item.items) {
+    for (const sub of item.items) {
+      const link = findFirstLink(sub)
+      if (link) return link
+    }
+  }
+  return null
+}
+
+// Count articles in a sidebar tree
+function countArticles(item: SidebarItem): number {
+  if (item.link) return 1
+  if (item.items) {
+    return item.items.reduce((sum, sub) => sum + countArticles(sub), 0)
+  }
+  return 0
+}
+
+function generateHomepage(sidebar: SidebarItem[]) {
+  const features = sidebar.map(cat => {
+    const link = findFirstLink(cat) || '#'
+    const count = countArticles(cat)
+    return `  - title: ${cat.text}
+    details: 共 ${count} 篇文章
+    link: ${link}
+    linkText: 查看详情`
+  }).join('\n')
+
+  const firstLink = sidebar.length > 0 ? findFirstLink(sidebar[0]) || '#' : '#'
+
+  const content = `---
+layout: home
+
+hero:
+  name: "帮助中心"
+  text: "常见问题解答"
+  tagline: 快速找到您需要的答案，解决常见问题
+  actions:
+    - theme: brand
+      text: 浏览全部问题
+      link: ${firstLink}
+    - theme: alt
+      text: 搜索问题
+      link: #
+
+features:
+${features}
+---
+`
+
+  const indexPath = join(DOCS_DIR, 'index.md')
+  const existing = existsSync(indexPath) ? readFileSync(indexPath, 'utf-8') : null
+  if (existing !== content) {
+    writeFileSync(indexPath, content, 'utf-8')
+    console.log('\nWritten: index.md')
+  } else {
+    console.log('\nUnchanged: index.md')
+  }
 }
 
 main().catch(err => {
