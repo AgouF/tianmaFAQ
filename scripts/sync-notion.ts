@@ -191,10 +191,16 @@ async function main() {
     return '[[toc]]'
   })
 
-  // Video → embedded
+  // Video → embedded (with YouTube detection)
   n2m.setCustomTransformer('video', async (block: any) => {
     const url = block.video?.external?.url || block.video?.file?.url || ''
-    return url ? `<video controls src="${url}"></video>` : ''
+    if (!url) return ''
+    // YouTube
+    const ytMatch = url.match(/(?:youtube\.com\/watch\?v=|youtu\.be\/)([\w-]+)/)
+    if (ytMatch) {
+      return `<iframe src="https://www.youtube.com/embed/${ytMatch[1]}" width="100%" height="400" style="border:0;border-radius:8px;" allowfullscreen></iframe>`
+    }
+    return `<video controls src="${url}" style="width:100%;border-radius:8px;"></video>`
   })
 
   // Toggle → HTML details/summary (collapsible)
