@@ -119,6 +119,11 @@ export default defineConfig({
     docFooter: {
       prev: '上一页',
       next: '下一页'
+    },
+
+    footer: {
+      message: '基于 MIT 许可发布',
+      copyright: '版权所有 © 2026-至今 <a href="https://t.me/tianma" target="_blank">@tianma</a>'
     }
   }
 })

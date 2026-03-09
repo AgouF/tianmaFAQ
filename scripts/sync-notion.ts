@@ -173,9 +173,6 @@ hero:
     - theme: brand
       text: 浏览全部问题
       link: ${firstLink}
-    - theme: alt
-      text: 搜索问题
-      link: #
 
 features:
 ${features}

@@ -9,9 +9,6 @@ hero:
     - theme: brand
       text: 浏览全部问题
       link: /目录/关于xxvpn的使用方法
-    - theme: alt
-      text: 搜索问题
-      link: #
 
 features:
   - title: 目录
