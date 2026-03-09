@@ -1,11 +1,15 @@
 [
   {
-    "text": "测试B",
+    "text": "目录",
     "collapsed": true,
     "items": [
       {
-        "text": "测试C",
-        "link": "/测试b/测试c"
+        "text": "关于XXVPN的使用方法",
+        "link": "/目录/关于xxvpn的使用方法"
+      },
+      {
+        "text": "关于XXXCDN的使用法发",
+        "link": "/目录/关于xxxcdn的使用法发"
       }
     ]
   }
