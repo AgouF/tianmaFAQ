@@ -174,12 +174,6 @@ async function main() {
     return `::: ${type}\n${content.trim()}\n:::`
   })
 
-  // Bookmark → link
-  n2m.setCustomTransformer('bookmark', async (block: any) => {
-    const url = block.bookmark?.url || ''
-    const caption = block.bookmark?.caption?.map((t: any) => t.plain_text).join('') || url
-    return `[${caption}](${url})`
-  })
 
   // Equation (block level) → LaTeX
   n2m.setCustomTransformer('equation', async (block: any) => {
@@ -227,13 +221,38 @@ async function main() {
   // Embed → iframe
   n2m.setCustomTransformer('embed', async (block: any) => {
     const url = block.embed?.url || ''
-    return url ? `<iframe src="${url}" width="100%" height="500" frameborder="0" allowfullscreen></iframe>` : ''
+    if (!url) return ''
+    // X/Twitter embed
+    if (/^https?:\/\/(x\.com|twitter\.com)\/\w+\/status\/\d+/.test(url)) {
+      return `<blockquote class="twitter-tweet"><a href="${url}"></a></blockquote>`
+    }
+    // YouTube embed
+    const ytMatch = url.match(/(?:youtube\.com\/watch\?v=|youtu\.be\/)([\w-]+)/)
+    if (ytMatch) {
+      return `<iframe src="https://www.youtube.com/embed/${ytMatch[1]}" width="100%" height="400" frameborder="0" allowfullscreen></iframe>`
+    }
+    return `<iframe src="${url}" width="100%" height="500" frameborder="0" allowfullscreen></iframe>`
   })
 
-  // Link preview → regular link
+  // Link preview → handle X/Twitter specially
   n2m.setCustomTransformer('link_preview', async (block: any) => {
     const url = block.link_preview?.url || ''
-    return url ? `[${url}](${url})` : ''
+    if (!url) return ''
+    if (/^https?:\/\/(x\.com|twitter\.com)\/\w+\/status\/\d+/.test(url)) {
+      return `<blockquote class="twitter-tweet"><a href="${url}"></a></blockquote>`
+    }
+    return `[${url}](${url})`
+  })
+
+  // Bookmark → also handle X/Twitter
+  n2m.setCustomTransformer('bookmark', async (block: any) => {
+    const url = block.bookmark?.url || ''
+    if (!url) return ''
+    const caption = block.bookmark?.caption?.map((t: any) => t.plain_text).join('') || url
+    if (/^https?:\/\/(x\.com|twitter\.com)\/\w+\/status\/\d+/.test(url)) {
+      return `<blockquote class="twitter-tweet"><a href="${url}"></a></blockquote>`
+    }
+    return `[${caption}](${url})`
   })
 
   // PDF → embedded viewer
