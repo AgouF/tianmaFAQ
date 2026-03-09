@@ -94,7 +94,8 @@ async function main() {
         for (const article of subPages) {
           const articleTitle = article.child_page.title
           const articleSlug = toSlug(articleTitle)
-          const written = await writeArticle(n2m, article.id, articleTitle, subDir, `${catSlug}/${subSlug}`, articleSlug)
+          const pageInfo = await notion.pages.retrieve({ page_id: article.id }) as any
+          const written = await writeArticle(n2m, article.id, articleTitle, pageInfo.last_edited_time, subDir, `${catSlug}/${subSlug}`, articleSlug)
           if (written) totalArticles++
           subGroup.items!.push({
             text: articleTitle,
@@ -106,7 +107,8 @@ async function main() {
       } else {
         // This is a direct article
         const articleSlug = toSlug(childTitle)
-        const written = await writeArticle(n2m, child.id, childTitle, catDir, catSlug, articleSlug)
+        const pageInfo = await notion.pages.retrieve({ page_id: child.id }) as any
+        const written = await writeArticle(n2m, child.id, childTitle, pageInfo.last_edited_time, catDir, catSlug, articleSlug)
         if (written) totalArticles++
         sidebarGroup.items!.push({
           text: childTitle,
@@ -138,6 +140,7 @@ async function writeArticle(
   n2m: NotionToMarkdown,
   pageId: string,
   title: string,
+  lastEditedTime: string,
   dir: string,
   relDir: string,
   slug: string
@@ -148,6 +151,7 @@ async function writeArticle(
   const fileContent = [
     '---',
     `title: "${title.replace(/"/g, '\\"')}"`,
+    `lastUpdated: ${new Date(lastEditedTime).getTime()}`,
     '---',
     '',
     `# ${title}`,

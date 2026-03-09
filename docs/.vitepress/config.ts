@@ -65,6 +65,13 @@ export default defineConfig({
 
   lastUpdated: true,
 
+  transformPageData(pageData) {
+    // Use frontmatter lastUpdated (from Notion) if available
+    if (pageData.frontmatter.lastUpdated) {
+      pageData.lastUpdated = pageData.frontmatter.lastUpdated
+    }
+  },
+
   head: [
     ['link', { rel: 'icon', href: '/logo.svg', type: 'image/svg+xml' }]
   ],
