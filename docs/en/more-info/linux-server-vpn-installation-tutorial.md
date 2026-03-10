@@ -12,20 +12,20 @@ Installing a VPN (Virtual Private Network) on a Linux server serves several impo
 
 ## Mainstream VPN Protocol Choices
 
-Before starting the installation, understanding several mainstream VPN protocols is crucial, as each has its pros and cons:
+Before starting the installation, it's crucial to understand several mainstream VPN protocols, each with its own pros and cons:
 
-1.  **OpenVPN**: Has a long history, is very mature and stable, offers flexible configuration, high security, and is compatible with almost all platforms. Its drawbacks are relatively complex configuration and slightly higher performance overhead.
-2.  **WireGuard**: A next-generation protocol, renowned for its concise code, high speed, modern encryption, and simple configuration. It is built into the Linux kernel version 5.6 and above and is currently the preferred choice for many scenarios.
+1.  **OpenVPN**: Long history, very mature and stable, highly flexible configuration, strong security, and compatible with almost all platforms. Its drawbacks are relatively complex configuration and slightly higher performance overhead.
+2.  **WireGuard**: A next-generation protocol, renowned for its simple codebase, high speed, modern encryption, and easy configuration. It's built into the Linux kernel version 5.6 and above and is currently the preferred choice for many scenarios.
 3.  **IPsec**: A suite of protocols, often used for enterprise-level site-to-site connections, integrated into the operating system's network stack, very efficient, but configuration can be complex.
 
-For most individual users and beginners, **WireGuard** is the recommended first choice in this tutorial due to its minimal configuration and excellent performance.
+For most individual users and beginners, **WireGuard** is the recommended choice for this tutorial due to its minimal configuration and excellent performance.
 
 ## Installing VPN Using WireGuard (Ubuntu/Debian Example)
 
 The following are concise steps for installing WireGuard on systems like Ubuntu 20.04 or Debian 11.
 
 ### Step 1: Install WireGuard
-WireGuard is included in the official repositories of mainstream Linux distributions. First, update the package list and install:
+WireGuard is included in the official repositories of major Linux distributions. First, update the package list and install:
 ```bash
 sudo apt update
 sudo apt install wireguard
@@ -78,7 +78,7 @@ wg genkey | tee client_private.key | wg pubkey > client_public.key
 
 # Add the peer client to the server configuration
 sudo wg set wg0 peer $(cat client_public.key) allowed-ips 10.0.0.2/32
-sudo wg-quick save wg0  # Save configuration
+sudo wg-quick save wg0  # Save the configuration
 
 # Create the client configuration file client.conf
 cat > client.conf << EOF
@@ -98,17 +98,17 @@ Replace `<client private key>`, `<server public key>`, and `<your server public 
 
 ## Common Issues
 
-### Unable to access the internet after connecting to the VPN?
-This is usually because the NAT forwarding rules on the server side did not take effect correctly. Please check:
+### Unable to Access the Internet After Connecting to VPN?
+This is usually because the NAT forwarding rules on the server side are not taking effect correctly. Please check:
 1.  Whether the network interface name (e.g., `eth0`) in the `PostUp` rule of the server configuration file matches the actual public network interface name used by the server for internet access. You can use the `ip addr` command to check.
 2.  Whether you executed `sudo sysctl -p` to enable IP forwarding.
 3.  Whether the server's firewall (like `ufw` or `firewalld`) has allowed UDP port `51820` and forwarding traffic.
 
-### How to add more VPN clients?
+### How to Add More VPN Clients?
 Repeat the operations in "Step 5" for each new client. Key points are:
 1.  Generate an independent key pair for each new client.
 2.  Add a `[Peer]` section for each client in the server's `wg0.conf`, or use the `sudo wg set` command to add them.
 3.  Ensure the `Address` assigned to each client (e.g., `10.0.0.3/32`) is within the same subnet and unique.
-4.  Generate an independent `.conf` configuration file for each client.
+4.  Generate a separate `.conf` configuration file for each client.
 
 <RelatedCards :items='[{"title":"Linux and Server Installation Methods","link":"/catalog-2/directory-nesting-333/linux-server-installation"}]' />

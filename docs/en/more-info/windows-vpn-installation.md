@@ -55,7 +55,7 @@ In addition to using a client, Windows also has built-in VPN configuration capab
    - VPN provider: Select "Windows (built-in)"
    - Connection name: Choose a memorable custom name
    - Server name or address: Obtain this from your VPN provider
-   - VPN type: Usually select "Automatic" or follow the provider's recommendation
+   - VPN type: Usually select "Automatic" or follow your provider's recommendation
    - Type of sign-in info: Username and password
 4. After clicking "Save," you will see and can enable this VPN in your network connections
 
@@ -83,12 +83,12 @@ For more detailed methods on installing software on Windows, you can refer to ou
 ## Frequently Asked Questions
 
 ### Will installing a VPN affect my internet speed?
-Using a VPN typically results in a slight decrease in internet speed because your data needs to be encrypted and routed through a remote server. The extent of the decrease depends on several factors: the distance to the VPN server, server load, your original internet speed, and the VPN protocol. High-quality paid VPNs usually minimize speed impact and may even improve speed in specific scenarios, such as bypassing ISP restrictions.
+Using a VPN typically results in a slight decrease in internet speed because your data needs to be encrypted and routed through a remote server. The extent of the decrease depends on several factors: the distance to the VPN server, server load, your original internet speed, and the VPN protocol. High-quality paid VPNs usually minimize speed impact and may even improve speed in specific scenarios (such as bypassing ISP restrictions).
 
 ### What is the difference between free and paid VPNs?
-Free VPNs often have strict limitations: data caps (e.g., 500MB-10GB per month), fewer server options, slower speeds, and may monetize by selling user data or displaying ads. Paid VPNs offer unlimited data, more global servers, faster speeds, better security, and customer support. For daily use and privacy protection, paid VPNs are a more reliable choice.
+Free VPNs often have strict limitations: data caps (e.g., 500MB–10GB per month), fewer server options, slower speeds, and may monetize by selling user data or displaying ads. Paid VPNs offer unlimited data, more global servers, faster speeds, better security, and customer support. For daily use and privacy protection, paid VPNs are a more reliable choice.
 
 ### What should I do if I cannot connect after installing the VPN?
-First, check if your internet connection is working properly, then try the following steps: 1) Restart the VPN client; 2) Switch to a different VPN server location; 3) Change the VPN protocol (e.g., switch from OpenVPN to IKEv2 in the settings); 4) Temporarily disable the firewall and antivirus software to test if they are blocking the connection; 5) Ensure your VPN subscription has not expired. If the issue persists, contact your VPN provider's customer support.
+First, check if your internet connection is working properly, then try the following steps: 1) Restart the VPN client; 2) Switch to a different VPN server location; 3) Change the VPN protocol (e.g., switch from OpenVPN to IKEv2 in the settings); 4) Temporarily disable your firewall and antivirus software to test if they are blocking the connection; 5) Ensure your VPN subscription has not expired. If the issue persists, contact your VPN provider's customer support.
 
 <RelatedCards :items='[{"title":"Windows Installation Methods","link":"/catalog-2/directory-nesting-333/windows-installation"}]' />

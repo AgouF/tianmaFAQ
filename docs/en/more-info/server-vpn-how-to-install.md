@@ -13,7 +13,7 @@ Installing a VPN on a server is primarily to establish a secure remote access ch
 ## Choosing the Right VPN Protocol
 
 Before starting the installation, you need to choose the appropriate VPN protocol based on your specific scenario:
-*   **OpenVPN**: Long-established, very mature and stable, excellent compatibility, supports both TCP and UDP, can penetrate most network environments, but configuration is relatively complex.
+*   **OpenVPN**: Long history, very mature and stable, excellent compatibility, supports both TCP and UDP, can penetrate most network environments, but configuration is relatively complex.
 *   **WireGuard**: A next-generation protocol, known for its concise code, high speed, and modern encryption. Configuration is much simpler than OpenVPN, making it a popular current choice.
 *   **IPsec**: Often integrated into operating systems or network devices, suitable for site-to-site connections, but client configuration can sometimes be cumbersome.
 
@@ -68,21 +68,21 @@ Regardless of the chosen protocol, the installation process has commonalities. T
 ## Security and Maintenance Recommendations
 
 After installation, security maintenance is crucial:
-*   **Strengthen Firewall**: Only open necessary VPN ports (e.g., WireGuard's UDP 51820), and consider using tools like fail2ban to prevent brute-force attacks.
-*   **Regular Updates**: Keep the operating system and VPN software up-to-date to patch security vulnerabilities.
+*   **Strengthen Firewall**: Only open necessary VPN ports (e.g., UDP 51820 for WireGuard), and consider using tools like fail2ban to prevent brute-force attacks.
+*   **Regular Updates**: Keep the operating system and VPN software up to date to patch security vulnerabilities.
 *   **Key Management**: Private keys are equivalent to passwords and must never be leaked. Consider using encrypted storage or hardware security modules.
 *   **Log Monitoring**: Regularly check VPN service logs (e.g., `journalctl -u wg-quick@wg0`) to promptly detect abnormal connections.
 *   **Backup Configuration**: Backup server and all client configuration files for quick recovery during system migration or failure.
 
 Please note that VPN installation and configuration are closely related to the server's base environment. If you are operating on a new server, ensure the system is correctly initialized. You can refer to our guide on [Linux and Server Installation Methods](/catalog-2/directory-nesting-333/linux-server-installation) to build a stable and reliable foundational platform.
 
-## Frequently Asked Questions
+## Common Questions
 
-### After installing the VPN, the client cannot connect to the server. What could be the reason?
-The four most common reasons are: 1) **Firewall not allowing traffic**: Ensure the server security group (cloud platform) and local firewall (e.g., `ufw` or `iptables`) allow the port used by the VPN protocol (e.g., UDP 51820). 2) **Routing issue**: Check if IP forwarding is enabled on the server (`net.ipv4.ip_forward=1`). 3) **Configuration error**: Carefully verify that the public keys, private keys, IP address ranges, and endpoints (server public IP and port) in the server and client configuration files correspond correctly. 4) **Network issue**: Some public or strict corporate networks may block VPN ports.
+### After installing the VPN, clients cannot connect to the server. What could be the reason?
+The four most common reasons are: 1) **Firewall not allowing traffic**: Ensure the server security group (cloud platform) and local firewall (e.g., `ufw` or `iptables`) allow the port used by the VPN protocol (e.g., UDP 51820). 2) **Routing issue**: Check if IP forwarding is enabled on the server (`net.ipv4.ip_forward=1`). 3) **Configuration error**: Carefully verify that the public keys, private keys, IP address ranges, and endpoints (server public IP and port) in the server and client configuration files correspond correctly. 4) **Network issue**: Some public or strict corporate networks might block VPN ports.
 
 ### Which is better, WireGuard or OpenVPN? How should I choose?
-Both have their advantages. **WireGuard** is more suitable for modern scenarios: it's faster, has lower latency, simpler configuration, and a smaller codebase (thus fewer potential vulnerabilities), making it ideal for mobile devices. **OpenVPN's** strengths lie in its high maturity and compatibility. It is more reliable when TCP protocol (WireGuard primarily uses UDP) is needed to penetrate restrictive networks (like some hotels or corporate networks), and it has rich graphical clients.
+Both have their advantages. **WireGuard** is more suitable for modern scenarios: it's faster, has lower latency, simpler configuration, and a smaller codebase (thus fewer potential vulnerabilities), making it ideal for mobile devices. **OpenVPN**'s strengths lie in its high maturity and compatibility. It is more reliable when TCP protocol (WireGuard primarily uses UDP) is needed to penetrate restrictive networks (like some hotels or corporate networks), and it has rich graphical clients.
 **Selection advice**: For individual users pursuing simplicity and performance, choose **WireGuard**. In complex or restricted network environments, or when compatibility with older systems is needed, choose **OpenVPN**.
 
 ### How do I add a new client to the VPN?
