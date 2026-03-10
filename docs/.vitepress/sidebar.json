@@ -1,19 +1,39 @@
 [
   {
-    "text": "目录2",
+    "text": "网络",
     "collapsed": true,
     "items": [
       {
-        "text": "目录嵌套333",
-        "link": "/catalog-2/directory-nesting-333"
-      },
-      {
-        "text": "目录嵌套222",
+        "text": "VPN篇",
         "collapsed": true,
         "items": [
           {
-            "text": "测试一下",
-            "link": "/catalog-2/directory-nesting-222/test"
+            "text": "如何下载以及安装工具",
+            "link": "/network/vpn/how-to-download-and-install-tools"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "text": "AI",
+    "collapsed": true,
+    "items": [
+      {
+        "text": "OpenClaw安装&进阶教程",
+        "collapsed": true,
+        "items": [
+          {
+            "text": "MAC安装方式",
+            "link": "/catalog-2/directory-nesting-333/mac-installation"
+          },
+          {
+            "text": "Linux以及服务器安装方式",
+            "link": "/catalog-2/directory-nesting-333/linux-server-installation"
+          },
+          {
+            "text": "Windows安装方式",
+            "link": "/catalog-2/directory-nesting-333/windows-installation"
           }
         ]
       }
@@ -24,24 +44,36 @@
     "collapsed": true,
     "items": [
       {
-        "text": "VPN安全吗",
-        "link": "/more-info/vpn-security"
+        "text": "工具下载教程",
+        "link": "/more-info/tool-download-tutorial"
       },
       {
-        "text": "VPN推荐",
-        "link": "/more-info/vpn-recommendation"
+        "text": "安装工具步骤",
+        "link": "/more-info/install-tool-steps"
       },
       {
-        "text": "测试一下",
-        "link": "/more-info/test-it-out"
+        "text": "MAC怎么安装VPN",
+        "link": "/more-info/mac-vpn-installation"
       },
       {
-        "text": "哈哈",
-        "link": "/more-info/haha"
+        "text": "MAC VPN推荐",
+        "link": "/more-info/mac-vpn-recommendation"
       },
       {
-        "text": "啊哈哈哈",
-        "link": "/more-info/ahahaha"
+        "text": "Linux服务器VPN安装教程",
+        "link": "/more-info/linux-server-vpn-installation-tutorial"
+      },
+      {
+        "text": "服务器VPN怎么安装",
+        "link": "/more-info/server-vpn-how-to-install"
+      },
+      {
+        "text": "Windows VPN怎么安装",
+        "link": "/more-info/windows-vpn-installation"
+      },
+      {
+        "text": "VPN安装教程",
+        "link": "/more-info/vpn-installation-tutorial"
       }
     ]
   }

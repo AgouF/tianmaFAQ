@@ -8,15 +8,19 @@ hero:
   actions:
     - theme: brand
       text: Browse All Questions
-      link: /en/catalog-2/directory-nesting-333
+      link: /en/network/vpn/how-to-download-and-install-tools
 
 features:
-  - title: Table of Contents 2
-    details: 2 articles
-    link: /en/catalog-2/directory-nesting-333
+  - title: Network
+    details: 1 articles
+    link: /en/network/vpn/how-to-download-and-install-tools
+    linkText: View details
+  - title: AI
+    details: 3 articles
+    link: /en/catalog-2/directory-nesting-333/mac-installation
     linkText: View details
   - title: More information
-    details: 5 articles
-    link: /en/more-info/vpn-security
+    details: 8 articles
+    link: /en/more-info/tool-download-tutorial
     linkText: View details
 ---

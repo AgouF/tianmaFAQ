@@ -8,11 +8,15 @@ hero:
   actions:
     - theme: brand
       text: 浏览全部问题
-      link: /catalog-2/directory-nesting-333
+      link: /network/vpn/how-to-download-and-install-tools
 
 features:
-  - title: 目录2
-    details: 共 2 篇文章
-    link: /catalog-2/directory-nesting-333
+  - title: 网络
+    details: 共 1 篇文章
+    link: /network/vpn/how-to-download-and-install-tools
+    linkText: 查看详情
+  - title: AI
+    details: 共 3 篇文章
+    link: /catalog-2/directory-nesting-333/mac-installation
     linkText: 查看详情
 ---

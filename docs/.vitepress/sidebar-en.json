@@ -1,19 +1,39 @@
 [
   {
-    "text": "Table of Contents 2",
+    "text": "Network",
     "collapsed": true,
     "items": [
       {
-        "text": "Table of Contents Nested 333",
-        "link": "/en/catalog-2/directory-nesting-333"
-      },
-      {
-        "text": "Nested Directory 222",
+        "text": "VPN Section",
         "collapsed": true,
         "items": [
           {
-            "text": "Test it out.",
-            "link": "/en/catalog-2/directory-nesting-222/test"
+            "text": "How to download and install the tool",
+            "link": "/en/network/vpn/how-to-download-and-install-tools"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "text": "AI",
+    "collapsed": true,
+    "items": [
+      {
+        "text": "OpenClaw Installation & Advanced Tutorial",
+        "collapsed": true,
+        "items": [
+          {
+            "text": "MAC Installation Method",
+            "link": "/en/catalog-2/directory-nesting-333/mac-installation"
+          },
+          {
+            "text": "Linux and server installation methods",
+            "link": "/en/catalog-2/directory-nesting-333/linux-server-installation"
+          },
+          {
+            "text": "Windows Installation Method",
+            "link": "/en/catalog-2/directory-nesting-333/windows-installation"
           }
         ]
       }
@@ -24,24 +44,36 @@
     "collapsed": true,
     "items": [
       {
-        "text": "Is VPN safe?",
-        "link": "/en/more-info/vpn-security"
+        "text": "Tool Download Tutorial",
+        "link": "/en/more-info/tool-download-tutorial"
       },
       {
-        "text": "VPN Recommendations",
-        "link": "/en/more-info/vpn-recommendation"
+        "text": "Steps to install the tool",
+        "link": "/en/more-info/install-tool-steps"
       },
       {
-        "text": "Test it out.",
-        "link": "/en/more-info/test-it-out"
+        "text": "How to Install VPN on Mac",
+        "link": "/en/more-info/mac-vpn-installation"
       },
       {
-        "text": "Haha",
-        "link": "/en/more-info/haha"
+        "text": "MAC VPN Recommendations",
+        "link": "/en/more-info/mac-vpn-recommendation"
       },
       {
-        "text": "Ahahaha",
-        "link": "/en/more-info/ahahaha"
+        "text": "Linux Server VPN Installation Tutorial",
+        "link": "/en/more-info/linux-server-vpn-installation-tutorial"
+      },
+      {
+        "text": "How to install a VPN on a server?",
+        "link": "/en/more-info/server-vpn-how-to-install"
+      },
+      {
+        "text": "How to Install a VPN on Windows",
+        "link": "/en/more-info/windows-vpn-installation"
+      },
+      {
+        "text": "VPN Installation Tutorial",
+        "link": "/en/more-info/vpn-installation-tutorial"
       }
     ]
   }

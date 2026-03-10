@@ -5,9 +5,14 @@ description: "Complete list of all Tianma Brand FAQ articles"
 
 # All Articles
 
-2 articles covering all FAQ categories.
+4 articles covering all FAQ categories.
 
-## 目录2
+## 网络
 
-- [目录嵌套333](/en/catalog-2/directory-nesting-333)
-- [测试一下](/en/catalog-2/directory-nesting-222/test)
+- [如何下载以及安装工具](/en/network/vpn/how-to-download-and-install-tools)
+
+## AI
+
+- [MAC安装方式](/en/catalog-2/directory-nesting-333/mac-installation)
+- [Linux以及服务器安装方式](/en/catalog-2/directory-nesting-333/linux-server-installation)
+- [Windows安装方式](/en/catalog-2/directory-nesting-333/windows-installation)

@@ -1,9 +1,9 @@
 ---
-title: "AI"
-description: "AI - 共 3 篇文章"
+title: "OpenClaw安装&进阶教程"
+description: "OpenClaw安装&进阶教程 - 共 3 篇文章"
 ---
 
-# AI
+# OpenClaw安装&进阶教程
 
 共 3 篇文章
 
