@@ -60,7 +60,7 @@
         "link": "/en/more-info/mac-vpn-installation"
       },
       {
-        "text": "MAC VPN Recommendations",
+        "text": "Recommended VPNs for Mac",
         "link": "/en/more-info/mac-vpn-recommendation"
       },
       {
@@ -80,12 +80,12 @@
         "link": "/en/more-info/vpn-installation-tutorial"
       },
       {
-        "text": "The author is unknown.",
-        "link": "/en/more-info/author-information"
+        "text": "Is VPN safe?",
+        "link": "/en/more-info/vpn-security"
       },
       {
-        "text": "About Page",
-        "link": "/en/more-info/about-page"
+        "text": "VPN Recommendations",
+        "link": "/en/more-info/vpn-recommendation"
       }
     ]
   }

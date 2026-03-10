@@ -1,8 +1,8 @@
 ---
 title: "☀️关于"
-description: "| 作者 | tianma | | -- | ------ |"
+description: "| 作者 | tianma | | -- | ------ | haha  json hello word"
 readingTime: 1
-lastUpdated: 1773145500000
+lastUpdated: 1773154140000
 ---
 
 # ☀️关于
@@ -12,5 +12,13 @@ lastUpdated: 1773145500000
 | -- | ------ |
 
 
+haha 
 
-<RelatedCards :items='[{"title":"作者是谁","link":"/more-info/author-information"},{"title":"关于页面","link":"/more-info/about-page"}]' />
+
+```json
+hello word
+```
+
+
+
+<RelatedCards :items='[{"title":"VPN安全吗","link":"/more-info/vpn-security"},{"title":"VPN推荐","link":"/more-info/vpn-recommendation"}]' />

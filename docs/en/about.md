@@ -1,7 +1,7 @@
 ---
 title: "☀️ About"
-description: "| Author | tianma | | -- | ------ |"
-lastUpdated: 1773145500000
+description: "| Author | tianma | | -- | ------ | haha  json hello word"
+lastUpdated: 1773154140000
 ---
 
 # ☀️About
@@ -11,5 +11,13 @@ lastUpdated: 1773145500000
 | -- | ------ |
 
 
+haha 
 
-<RelatedCards :items='[{"title":"Who is the author","link":"/more-info/author-information"},{"title":"About page","link":"/more-info/about-page"}]' />
+
+```json
+hello word
+```
+
+
+
+<RelatedCards :items='[{"title":"Is VPN Safe","link":"/more-info/vpn-security"},{"title":"VPN Recommendation","link":"/more-info/vpn-recommendation"}]' />
