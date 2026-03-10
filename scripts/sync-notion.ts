@@ -694,6 +694,12 @@ async function generateAIKeywordArticles() {
     }
   }
 
+  // Clean stale entries from keyword cache (articles deleted from Notion)
+  const activeLinks = new Set(allArticles.map(a => a.link))
+  for (const key of Object.keys(keywordCache)) {
+    if (!activeLinks.has(key)) delete keywordCache[key]
+  }
+
   saveKeywordCache()
   console.log(`\nGenerated ${totalGenerated} AI keyword articles`)
 }
@@ -1057,7 +1063,7 @@ async function main() {
 
 // Remove docs content that no longer exists in Notion
 function cleanupDocs() {
-  const keep = new Set(['index.md', '.vitepress', 'public', 'en', 'search', 'more-info'])
+  const keep = new Set(['index.md', '.vitepress', 'public', 'en', 'search'])
 
   const entries = readdirSync(DOCS_DIR)
   for (const entry of entries) {
