@@ -52,19 +52,15 @@
     ]
   },
   "/about": {
-    "contentHash": "a0ab456ebe94369379459972455eb89b",
+    "contentHash": "f862b86ec115710f8ddc115f02d21464",
     "keywords": [
       {
-        "keyword": "作者信息查询",
-        "slug": "author-information-query"
+        "keyword": "作者是谁",
+        "slug": "who-is-the-author"
       },
       {
-        "keyword": "网站关于页面",
-        "slug": "website-about-page"
-      },
-      {
-        "keyword": "内容更新时间",
-        "slug": "content-update-time"
+        "keyword": "关于页面",
+        "slug": "about-page"
       }
     ]
   }
