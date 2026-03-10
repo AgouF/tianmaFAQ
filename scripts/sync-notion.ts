@@ -951,29 +951,41 @@ async function main() {
 
   // Custom transformers: Notion blocks → VitePress-friendly markdown
 
-  // Paragraph → support colors, underline, mentions
+  // Wrap markdown content with block-level color div if present
+  function wrapBlockColor(md: string, blockData: any): string {
+    const color = blockData?.color
+    if (!color || color === 'default') return md
+    return `<div class="notion-block-${color}">\n\n${md}\n\n</div>`
+  }
+
+  // Paragraph → support block color + inline colors
   n2m.setCustomTransformer('paragraph', async (block: any) => {
-    return richTextToMd(block.paragraph.rich_text || [])
+    const md = richTextToMd(block.paragraph.rich_text || [])
+    return wrapBlockColor(md, block.paragraph)
   })
 
-  // Headings → support colors
+  // Headings → support block color + inline colors
   n2m.setCustomTransformer('heading_1', async (block: any) => {
-    return `# ${richTextToMd(block.heading_1.rich_text || [])}`
+    const md = `# ${richTextToMd(block.heading_1.rich_text || [])}`
+    return wrapBlockColor(md, block.heading_1)
   })
   n2m.setCustomTransformer('heading_2', async (block: any) => {
-    return `## ${richTextToMd(block.heading_2.rich_text || [])}`
+    const md = `## ${richTextToMd(block.heading_2.rich_text || [])}`
+    return wrapBlockColor(md, block.heading_2)
   })
   n2m.setCustomTransformer('heading_3', async (block: any) => {
-    return `### ${richTextToMd(block.heading_3.rich_text || [])}`
+    const md = `### ${richTextToMd(block.heading_3.rich_text || [])}`
+    return wrapBlockColor(md, block.heading_3)
   })
 
-  // Quote → support colors
+  // Quote → support block color
   n2m.setCustomTransformer('quote', async (block: any) => {
     const text = richTextToMd(block.quote.rich_text || [])
     const children = await n2m.pageToMarkdown(block.id)
     const childContent = blocksToMd(children)
     const full = text + (childContent ? '\n' + childContent : '')
-    return full.split('\n').map((line: string) => `> ${line}`).join('\n')
+    const quoted = full.split('\n').map((line: string) => `> ${line}`).join('\n')
+    return wrapBlockColor(quoted, block.quote)
   })
 
   // To-do / checkbox list

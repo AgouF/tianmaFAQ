@@ -176,6 +176,28 @@ html {
 .vp-doc .notion-pink_background { background: #FAF1F5; padding: 2px 6px; border-radius: 4px; }
 .vp-doc .notion-red_background { background: #FDEBEC; padding: 2px 6px; border-radius: 4px; }
 
+/* Notion block-level colors (entire paragraph/heading background) */
+.vp-doc .notion-block-gray_background { background: #F1F1EF; padding: 12px 16px; border-radius: 6px; margin: 8px 0; }
+.vp-doc .notion-block-brown_background { background: #F4EEEE; padding: 12px 16px; border-radius: 6px; margin: 8px 0; }
+.vp-doc .notion-block-orange_background { background: #FBECDD; padding: 12px 16px; border-radius: 6px; margin: 8px 0; }
+.vp-doc .notion-block-yellow_background { background: #FBF3DB; padding: 12px 16px; border-radius: 6px; margin: 8px 0; }
+.vp-doc .notion-block-green_background { background: #EDF3EC; padding: 12px 16px; border-radius: 6px; margin: 8px 0; }
+.vp-doc .notion-block-blue_background { background: #E7F3F8; padding: 12px 16px; border-radius: 6px; margin: 8px 0; }
+.vp-doc .notion-block-purple_background { background: #F6F3F9; padding: 12px 16px; border-radius: 6px; margin: 8px 0; }
+.vp-doc .notion-block-pink_background { background: #FAF1F5; padding: 12px 16px; border-radius: 6px; margin: 8px 0; }
+.vp-doc .notion-block-red_background { background: #FDEBEC; padding: 12px 16px; border-radius: 6px; margin: 8px 0; }
+
+/* Block-level text colors (entire paragraph in one color) */
+.vp-doc .notion-block-gray { color: #787774; }
+.vp-doc .notion-block-brown { color: #9F6B53; }
+.vp-doc .notion-block-orange { color: #D9730D; }
+.vp-doc .notion-block-yellow { color: #CB912F; }
+.vp-doc .notion-block-green { color: #448361; }
+.vp-doc .notion-block-blue { color: #337EA9; }
+.vp-doc .notion-block-purple { color: #9065B0; }
+.vp-doc .notion-block-pink { color: #C14C8A; }
+.vp-doc .notion-block-red { color: #D44C47; }
+
 /* Dark mode: brighter text colors, darker backgrounds */
 .dark .vp-doc .notion-gray { color: #9B9A97; }
 .dark .vp-doc .notion-brown { color: #BA856F; }
@@ -196,6 +218,27 @@ html {
 .dark .vp-doc .notion-purple_background { background: #302B3E; }
 .dark .vp-doc .notion-pink_background { background: #3D2835; }
 .dark .vp-doc .notion-red_background { background: #3D2828; }
+
+/* Dark mode block-level backgrounds */
+.dark .vp-doc .notion-block-gray_background { background: #2F2F2F; }
+.dark .vp-doc .notion-block-brown_background { background: #3D2E2A; }
+.dark .vp-doc .notion-block-orange_background { background: #3F2E1E; }
+.dark .vp-doc .notion-block-yellow_background { background: #3E3422; }
+.dark .vp-doc .notion-block-green_background { background: #253329; }
+.dark .vp-doc .notion-block-blue_background { background: #1E2F3D; }
+.dark .vp-doc .notion-block-purple_background { background: #302B3E; }
+.dark .vp-doc .notion-block-pink_background { background: #3D2835; }
+.dark .vp-doc .notion-block-red_background { background: #3D2828; }
+
+.dark .vp-doc .notion-block-gray { color: #9B9A97; }
+.dark .vp-doc .notion-block-brown { color: #BA856F; }
+.dark .vp-doc .notion-block-orange { color: #F0A43A; }
+.dark .vp-doc .notion-block-yellow { color: #E0C561; }
+.dark .vp-doc .notion-block-green { color: #6AB07B; }
+.dark .vp-doc .notion-block-blue { color: #529CCA; }
+.dark .vp-doc .notion-block-purple { color: #B08CDB; }
+.dark .vp-doc .notion-block-pink { color: #E06FA0; }
+.dark .vp-doc .notion-block-red { color: #EB6B6B; }
 
 /* Toggle/details styling */
 .vp-doc details {
