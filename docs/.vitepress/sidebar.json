@@ -1,19 +1,5 @@
 [
   {
-    "text": "目录",
-    "collapsed": true,
-    "items": [
-      {
-        "text": "关于XXVPN的使用方法",
-        "link": "/catalog/how-to-use-xxvpn"
-      },
-      {
-        "text": "关于XXXCDN的使用法发",
-        "link": "/catalog/how-to-use-xxxcdn"
-      }
-    ]
-  },
-  {
     "text": "目录2",
     "collapsed": true,
     "items": [
@@ -37,22 +23,6 @@
     "text": "更多信息",
     "collapsed": true,
     "items": [
-      {
-        "text": "VPN怎么使用",
-        "link": "/more-info/how-to-use-vpn"
-      },
-      {
-        "text": "VPN设置教程",
-        "link": "/more-info/vpn-setup-tutorial"
-      },
-      {
-        "text": "CDN怎么使用",
-        "link": "/more-info/cdn-how-to-use"
-      },
-      {
-        "text": "CDN推荐教程",
-        "link": "/more-info/cdn-recommendation-tutorial"
-      },
       {
         "text": "VPN安全吗",
         "link": "/more-info/vpn-security"

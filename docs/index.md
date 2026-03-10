@@ -8,13 +8,9 @@ hero:
   actions:
     - theme: brand
       text: 浏览全部问题
-      link: /catalog/how-to-use-xxvpn
+      link: /catalog-2/directory-nesting-333
 
 features:
-  - title: 目录
-    details: 共 2 篇文章
-    link: /catalog/how-to-use-xxvpn
-    linkText: 查看详情
   - title: 目录2
     details: 共 2 篇文章
     link: /catalog-2/directory-nesting-333

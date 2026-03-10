@@ -5,12 +5,7 @@ description: "Complete list of all Tianma Brand FAQ articles"
 
 # All Articles
 
-4 articles covering all FAQ categories.
-
-## 目录
-
-- [关于XXVPN的使用方法](/en/catalog/how-to-use-xxvpn)
-- [关于XXXCDN的使用法发](/en/catalog/how-to-use-xxxcdn)
+2 articles covering all FAQ categories.
 
 ## 目录2
 

@@ -1,30 +1,4 @@
 {
-  "/catalog/how-to-use-xxvpn": {
-    "contentHash": "b253ed55df313fa8ca67f9792fb6e1be",
-    "keywords": [
-      {
-        "keyword": "VPN怎么使用",
-        "slug": "how-to-use-vpn"
-      },
-      {
-        "keyword": "VPN设置教程",
-        "slug": "vpn-setup-tutorial"
-      }
-    ]
-  },
-  "/catalog/how-to-use-xxxcdn": {
-    "contentHash": "bb347d32b4689a7283148d297005f728",
-    "keywords": [
-      {
-        "keyword": "CDN怎么使用",
-        "slug": "cdn-how-to-use"
-      },
-      {
-        "keyword": "CDN推荐教程",
-        "slug": "cdn-recommendation-tutorial"
-      }
-    ]
-  },
   "/catalog-2/directory-nesting-333": {
     "contentHash": "7e699dac7fa9855f705ce2fcb2fa1ae8",
     "keywords": [

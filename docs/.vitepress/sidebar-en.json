@@ -1,19 +1,5 @@
 [
   {
-    "text": "Table of Contents",
-    "collapsed": true,
-    "items": [
-      {
-        "text": "Regarding the usage of XXVPN",
-        "link": "/en/catalog/how-to-use-xxvpn"
-      },
-      {
-        "text": "Regarding the usage of XXXCDN",
-        "link": "/en/catalog/how-to-use-xxxcdn"
-      }
-    ]
-  },
-  {
     "text": "Table of Contents 2",
     "collapsed": true,
     "items": [
@@ -37,22 +23,6 @@
     "text": "More information",
     "collapsed": true,
     "items": [
-      {
-        "text": "How to use a VPN",
-        "link": "/en/more-info/how-to-use-vpn"
-      },
-      {
-        "text": "VPN Setup Tutorial",
-        "link": "/en/more-info/vpn-setup-tutorial"
-      },
-      {
-        "text": "How to use a CDN?",
-        "link": "/en/more-info/cdn-how-to-use"
-      },
-      {
-        "text": "CDN Recommendation Tutorial",
-        "link": "/en/more-info/cdn-recommendation-tutorial"
-      },
       {
         "text": "Is VPN safe?",
         "link": "/en/more-info/vpn-security"
