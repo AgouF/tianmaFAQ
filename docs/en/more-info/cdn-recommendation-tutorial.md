@@ -22,9 +22,9 @@ Choosing a CDN isn't about the more expensive, the better; the key is matching y
 
 ## Brief Comparison of Mainstream CDN Providers
 
-*   **Cloud Provider Built-in CDNs**: Such as Alibaba Cloud CDN, Tencent Cloud CDN, AWS CloudFront. **Advantages**: Good integration with their own cloud product ecosystems, easy management, and excellent optimization for domestic (China) access. **Suitable for** users already using the corresponding cloud services.
-*   **Professional CDN Providers**: Such as Cloudflare, Akamai, Fastly. **Advantages**: Extremely large node networks (especially Cloudflare's free plan is very popular), strong security features, and excellent global performance. **Suitable for** websites targeting international users and emphasizing security and cost-effectiveness.
-*   **Niche CDNs**: Such as Qiniu Cloud and Upyun focusing on video live/on-demand streaming; jsDelivr (free) focusing on static resource delivery. **Suitable for** scenarios with specific strong requirements.
+*   **Cloud Provider Built-in CDNs**: Such as Alibaba Cloud CDN, Tencent Cloud CDN, AWS CloudFront. **Advantages**: Good integration with their own cloud product ecosystems, easy management, and excellent optimization for domestic (China) access. **Suitable for**: Users already using the corresponding cloud services.
+*   **Professional CDN Providers**: Such as Cloudflare, Akamai, Fastly. **Advantages**: Extremely large node networks (especially Cloudflare's free plan is widely popular), strong security features, and excellent global performance. **Suitable for**: Websites targeting international users, focusing on security and cost-effectiveness.
+*   **Niche CDNs**: Such as Qiniu Cloud and Upyun focusing on video live/on-demand streaming; jsDelivr (free) focusing on static resource delivery. **Suitable for**: Scenarios with specific strong requirements.
 
 ## Basic Steps for Configuring and Using a CDN
 
@@ -45,7 +45,7 @@ This is a typical cache invalidation issue. You need to log into the CDN console
 ### What are the main differences between free and paid CDNs?
 The main differences lie in **service guarantees, feature limitations, and performance ceilings**. Free CDNs (like Cloudflare's free plan) often have daily traffic or request limits, may not provide or restrict certain advanced features (like custom cache rules, advanced WAF rules, image optimization, etc.), and typically have slower technical support response. Paid CDNs offer higher availability guarantees (SLA), richer customization features, better technical support, and the ability to handle large traffic surges. For commercial websites or critical business, a paid plan is recommended.
 
-### Does configuring a CDN affect website SEO (Search Engine Optimization)?
-A correctly configured CDN not only doesn't harm SEO but can actually **benefit SEO**. Because website loading speed is an important factor in search engine rankings, and CDN significantly improves speed. However, note: ensure the CDN provider allows search engine crawlers to properly access the origin for crawling; set caching correctly to avoid dynamic content being incorrectly cached; maintain the accuracy of the website's IP geolocation (can be set via search engine webmaster tools). As long as handled properly, CDN is a plus for SEO.
+### Does configuring a CDN affect a website's SEO (Search Engine Optimization)?
+A properly configured CDN not only doesn't harm SEO but can actually **benefit SEO**. Because website loading speed is an important factor in search engine rankings, and CDN significantly improves speed. However, note: ensure the CDN provider allows search engine crawlers to properly access the origin for crawling; set caching correctly to avoid dynamic content being incorrectly cached; maintain the accuracy of the website's IP geolocation (can be set via search engine webmaster tools). As long as handled properly, CDN is a plus for SEO.
 
-<RelatedCards :items='[{"title":"About the Usage Method of XXXCDN","link":"/catalog/how-to-use-xxxcdn"}]' />
+<RelatedCards :items='[{"title":"关于XXXCDN的使用法发","link":"/catalog/how-to-use-xxxcdn"}]' />
