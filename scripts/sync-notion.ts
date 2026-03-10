@@ -349,7 +349,7 @@ async function generatePages(nodes: PageNode[], categoryName = ''): Promise<Side
     } else {
       const pageInfo = await notion.pages.retrieve({ page_id: node.id }) as any
       const mdBlocks = await n2m.pageToMarkdown(node.id)
-      let mdContent = n2m.toMarkdownString(mdBlocks).parent || ''
+      let mdContent = blocksToMd(mdBlocks)
 
       // Replace Notion page links with internal VitePress links
       mdContent = replaceNotionLinks(mdContent)
@@ -835,6 +835,26 @@ function generateSearchPage() {
   }
 }
 
+// Custom markdown string builder — replaces notion-to-md's toMarkdownString
+// which silently drops certain block types (toggle, some paragraphs)
+function blocksToMd(blocks: any[]): string {
+  return blocks
+    .map((b: any) => {
+      let content = b.parent?.trim() || ''
+      // Recursively handle children (for list nesting etc.)
+      if (b.children && b.children.length > 0) {
+        const childMd = blocksToMd(b.children)
+        if (childMd) {
+          const indented = childMd.split('\n').map((l: string) => `  ${l}`).join('\n')
+          content += '\n' + indented
+        }
+      }
+      return content
+    })
+    .filter(Boolean)
+    .join('\n\n')
+}
+
 // Convert Notion rich text array to markdown with full annotation support
 // Handles: bold, italic, strikethrough, underline, code, color, background, links, mentions
 function richTextToMd(richTexts: any[]): string {
@@ -931,7 +951,7 @@ async function main() {
   n2m.setCustomTransformer('quote', async (block: any) => {
     const text = richTextToMd(block.quote.rich_text || [])
     const children = await n2m.pageToMarkdown(block.id)
-    const childContent = n2m.toMarkdownString(children).parent || ''
+    const childContent = blocksToMd(children)
     const full = text + (childContent ? '\n' + childContent : '')
     return full.split('\n').map((line: string) => `> ${line}`).join('\n')
   })
@@ -956,7 +976,7 @@ async function main() {
     else if (['📝', 'ℹ️', '📌', '🔵'].includes(icon)) type = 'info'
 
     const children = await n2m.pageToMarkdown(block.id)
-    const childContent = n2m.toMarkdownString(children).parent || ''
+    const childContent = blocksToMd(children)
     const content = text ? `${text}\n${childContent}` : childContent
     return `::: ${type}\n${content.trim()}\n:::`
   })
@@ -992,7 +1012,7 @@ async function main() {
   n2m.setCustomTransformer('toggle', async (block: any) => {
     const text = richTextToMd(block.toggle.rich_text || [])
     const children = await n2m.pageToMarkdown(block.id)
-    const childContent = n2m.toMarkdownString(children).parent || ''
+    const childContent = blocksToMd(children)
     return `\n<details>\n<summary>${text}</summary>\n\n${childContent.trim()}\n\n</details>\n`
   })
 
@@ -1056,19 +1076,19 @@ async function main() {
   // Column list → render children sequentially
   n2m.setCustomTransformer('column_list', async (block: any) => {
     const children = await n2m.pageToMarkdown(block.id)
-    return n2m.toMarkdownString(children).parent || ''
+    return blocksToMd(children)
   })
 
   // Column → render content
   n2m.setCustomTransformer('column', async (block: any) => {
     const children = await n2m.pageToMarkdown(block.id)
-    return n2m.toMarkdownString(children).parent || ''
+    return blocksToMd(children)
   })
 
   // Synced block → render original content
   n2m.setCustomTransformer('synced_block', async (block: any) => {
     const children = await n2m.pageToMarkdown(block.id)
-    return n2m.toMarkdownString(children).parent || ''
+    return blocksToMd(children)
   })
 
   // Pass 1: Scan tree and build page ID → path mapping
