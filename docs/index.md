@@ -19,4 +19,8 @@ features:
     details: 共 3 篇文章
     link: /catalog-2/directory-nesting-333/mac-installation
     linkText: 查看详情
+  - title: ☀️关于
+    details: 共 1 篇文章
+    link: /about
+    linkText: 查看详情
 ---

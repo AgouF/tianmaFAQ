@@ -50,5 +50,18 @@
         "slug": "vpn-installation-tutorial"
       }
     ]
+  },
+  "/about": {
+    "contentHash": "d8a6de82da6990f3a2891c3bf752ebec",
+    "keywords": [
+      {
+        "keyword": "作者是谁",
+        "slug": "author-information"
+      },
+      {
+        "keyword": "关于页面",
+        "slug": "about-page"
+      }
+    ]
   }
 }

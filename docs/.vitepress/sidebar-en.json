@@ -40,6 +40,10 @@
     ]
   },
   {
+    "text": "☀️ About",
+    "link": "/en/about"
+  },
+  {
     "text": "More information",
     "collapsed": true,
     "items": [
@@ -74,6 +78,14 @@
       {
         "text": "VPN Installation Tutorial",
         "link": "/en/more-info/vpn-installation-tutorial"
+      },
+      {
+        "text": "The author is unknown.",
+        "link": "/en/more-info/author-information"
+      },
+      {
+        "text": "About Page",
+        "link": "/en/more-info/about-page"
       }
     ]
   }

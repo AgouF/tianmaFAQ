@@ -40,6 +40,10 @@
     ]
   },
   {
+    "text": "☀️关于",
+    "link": "/about"
+  },
+  {
     "text": "更多信息",
     "collapsed": true,
     "items": [
@@ -74,6 +78,14 @@
       {
         "text": "VPN安装教程",
         "link": "/more-info/vpn-installation-tutorial"
+      },
+      {
+        "text": "作者是谁",
+        "link": "/more-info/author-information"
+      },
+      {
+        "text": "关于页面",
+        "link": "/more-info/about-page"
       }
     ]
   }
