@@ -80,12 +80,16 @@
         "link": "/more-info/vpn-installation-tutorial"
       },
       {
-        "text": "关于作者",
-        "link": "/more-info/about-author"
+        "text": "作者信息查询",
+        "link": "/more-info/author-information-query"
       },
       {
-        "text": "博客介绍",
-        "link": "/more-info/blog-introduction"
+        "text": "网站关于页面",
+        "link": "/more-info/website-about-page"
+      },
+      {
+        "text": "内容更新时间",
+        "link": "/more-info/content-update-time"
       }
     ]
   }

@@ -24,7 +24,7 @@ features:
     link: /en/about
     linkText: View details
   - title: More information
-    details: 10 articles
+    details: 11 articles
     link: /en/more-info/tool-download-tutorial
     linkText: View details
 ---

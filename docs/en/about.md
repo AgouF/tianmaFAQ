@@ -1,6 +1,6 @@
 ---
 title: "☀️ About"
-description: "| Author | tianma | | -- | ------ | nihai  nihao aa aa haha 2331325356 json hello word"
+description: "| Author | tianma | | -- | ------ | nihai  nihao aa aa haha  2331325356 json hello word"
 lastUpdated: 1773155400000
 ---
 
@@ -23,7 +23,11 @@ aa
 
 </details>
 
-haha
+<div class="notion-block-red_background">
+
+haha 
+
+</div>
 
 2331325356
 
@@ -31,4 +35,4 @@ haha
 hello word
 ```
 
-<RelatedCards :items='[{"title":"About the Author","link":"/more-info/about-author"},{"title":"Blog Introduction","link":"/more-info/blog-introduction"}]' />
+<RelatedCards :items='[{"title":"Author Information Query","link":"/more-info/author-information-query"},{"title":"Website About Page","link":"/more-info/website-about-page"},{"title":"Content Update Time","link":"/more-info/content-update-time"}]' />
