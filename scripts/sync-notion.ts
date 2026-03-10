@@ -85,6 +85,26 @@ async function translateSidebar(items: SidebarItem[], prefix: string): Promise<S
   return result
 }
 
+// Retry wrapper for Notion API calls (handles network timeouts)
+async function withRetry<T>(fn: () => Promise<T>, label = '', retries = 3): Promise<T> {
+  for (let i = 0; i < retries; i++) {
+    try {
+      return await fn()
+    } catch (err: any) {
+      const isNetwork = ['ETIMEDOUT', 'ECONNRESET', 'ENOTFOUND', 'EAI_AGAIN'].includes(err.code)
+        || err.status === 502 || err.status === 503 || err.status === 429
+      if (isNetwork && i < retries - 1) {
+        const delay = (i + 1) * 5000
+        console.log(`  Retry ${i + 1}/${retries} for ${label} (${err.code || err.status}), waiting ${delay / 1000}s...`)
+        await new Promise(r => setTimeout(r, delay))
+        continue
+      }
+      throw err
+    }
+  }
+  throw new Error('Unreachable')
+}
+
 let notion: Client
 let n2m: NotionToMarkdown
 let totalArticles = 0
@@ -189,7 +209,7 @@ interface PageNode {
 
 // Pass 1: Scan page tree, build ID→path mapping and tree structure
 async function scanPages(parentId: string, dir: string, urlPath: string, depth: number): Promise<PageNode[]> {
-  const children = await notion.blocks.children.list({ block_id: parentId, page_size: 100 })
+  const children = await withRetry(() => notion.blocks.children.list({ block_id: parentId, page_size: 100 }), `blocks ${parentId}`)
   const childPages = children.results.filter((b: any) => b.type === 'child_page') as any[]
 
   const nodes: PageNode[] = []
@@ -198,7 +218,7 @@ async function scanPages(parentId: string, dir: string, urlPath: string, depth: 
     const title = child.child_page.title
     const slug = await toSlug(child.id, title)
 
-    const subChildren = await notion.blocks.children.list({ block_id: child.id, page_size: 100 })
+    const subChildren = await withRetry(() => notion.blocks.children.list({ block_id: child.id, page_size: 100 }), `blocks ${child.id}`)
     const subPages = subChildren.results.filter((b: any) => b.type === 'child_page') as any[]
 
     if (subPages.length > 0) {
@@ -347,8 +367,8 @@ async function generatePages(nodes: PageNode[], categoryName = ''): Promise<Side
       const subItems = await generatePages(node.children, cat)
       items.push({ text: node.title, collapsed: true, items: subItems })
     } else {
-      const pageInfo = await notion.pages.retrieve({ page_id: node.id }) as any
-      const mdBlocks = await n2m.pageToMarkdown(node.id)
+      const pageInfo = await withRetry(() => notion.pages.retrieve({ page_id: node.id }), `page ${node.title}`) as any
+      const mdBlocks = await withRetry(() => n2m.pageToMarkdown(node.id), `md ${node.title}`)
       let mdContent = blocksToMd(mdBlocks)
 
       // Replace Notion page links with internal VitePress links
