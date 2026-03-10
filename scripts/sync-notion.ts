@@ -1032,10 +1032,12 @@ async function main() {
   if (DEEPSEEK_KEY) {
     console.log('\n--- Translating to English ---\n')
     await generateEnglishPages(pageTree)
-    cleanupDir(EN_DIR)
 
     // Translate AI keyword articles to English
     await generateEnglishKeywordArticles()
+
+    // Cleanup EN after all English content is generated
+    cleanupDir(EN_DIR)
 
     // Translate sidebar (includes "更多信息" group)
     const enSidebar = await translateSidebar(sidebar, '/en')
