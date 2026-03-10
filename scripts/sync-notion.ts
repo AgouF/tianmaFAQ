@@ -719,10 +719,16 @@ async function generateEnglishKeywordArticles() {
     const enPath = join(MORE_INFO_EN_DIR, `${kw.slug}.md`)
     syncedPaths.add(enPath)
 
-    // Skip if already exists and source hasn't changed
-    if (existsSync(enPath)) continue
-
     const zhContent = readFileSync(zhPath, 'utf-8')
+    const zhHash = createHash('md5').update(zhContent).digest('hex')
+    const cacheKey = `kw-${kw.slug}`
+
+    // Skip if source hasn't changed and English file exists
+    if (translationCache[cacheKey] === zhHash && existsSync(enPath)) {
+      console.log(`    Unchanged: en/more-info/${kw.slug}.md`)
+      continue
+    }
+
     const fmMatch = zhContent.match(/^---\n([\s\S]*?)\n---\n([\s\S]*)$/)
     if (!fmMatch) continue
 
@@ -730,6 +736,7 @@ async function generateEnglishKeywordArticles() {
     const lastUpdatedMatch = fmMatch[1].match(/lastUpdated: (\d+)/)
     const lastUpdated = lastUpdatedMatch?.[1] || Date.now().toString()
 
+    console.log(`    Translating: ${kw.slug}`)
     const enTitle = await translateToEnglish(kw.title)
     const enBody = await translateToEnglish(body)
     const enDesc = extractDescription(enBody)
@@ -745,6 +752,7 @@ async function generateEnglishKeywordArticles() {
     ].join('\n')
 
     writeFileSync(enPath, enContent, 'utf-8')
+    translationCache[cacheKey] = zhHash
     console.log(`    Translated: ${kw.slug}`)
   }
 }
@@ -839,8 +847,9 @@ async function main() {
   notion = new Client({ auth: notionToken })
   n2m = new NotionToMarkdown({ notionClient: notion })
 
-  // Load slug cache for stable English URLs
+  // Load caches
   loadSlugCache()
+  loadTranslationCache()
 
   // Custom transformers: Notion blocks → VitePress-friendly markdown
 
@@ -1057,8 +1066,9 @@ async function main() {
     console.log('\nSkipping English translation (no DEEPSEEK_API_KEY)')
   }
 
-  // Save slug cache for next run
+  // Save caches for next run
   saveSlugCache()
+  saveTranslationCache()
 
   console.log(`\nSync complete: ${totalArticles} articles`)
 }
@@ -1173,6 +1183,19 @@ ${features}
   }
 }
 
+// Translation hash cache: tracks Chinese content hash → skip re-translation
+const TRANSLATION_CACHE_PATH = join(VITEPRESS_DIR, 'translation-cache.json')
+let translationCache: Record<string, string> = {} // slug → content hash
+
+function loadTranslationCache() {
+  if (existsSync(TRANSLATION_CACHE_PATH)) {
+    translationCache = JSON.parse(readFileSync(TRANSLATION_CACHE_PATH, 'utf-8'))
+  }
+}
+function saveTranslationCache() {
+  writeFileSync(TRANSLATION_CACHE_PATH, JSON.stringify(translationCache, null, 2), 'utf-8')
+}
+
 // Generate translated English markdown files
 async function generateEnglishPages(nodes: PageNode[]) {
   for (const node of nodes) {
@@ -1187,6 +1210,20 @@ async function generateEnglishPages(nodes: PageNode[]) {
       if (!existsSync(zhPath)) continue
 
       const zhContent = readFileSync(zhPath, 'utf-8')
+      const zhHash = createHash('md5').update(zhContent).digest('hex')
+
+      // Write to en/ directory mirroring the Chinese structure
+      const enDir = node.dir.replace(DOCS_DIR, EN_DIR)
+      mkdirSync(enDir, { recursive: true })
+      const enPath = join(enDir, `${node.slug}.md`)
+      syncedPaths.add(enPath)
+
+      // Skip if Chinese content hasn't changed and English file exists
+      if (translationCache[node.slug] === zhHash && existsSync(enPath)) {
+        const indent = '  '.repeat(node.depth)
+        console.log(`${indent}Unchanged: en/${node.slug}.md`)
+        continue
+      }
 
       // Extract frontmatter and body
       const fmMatch = zhContent.match(/^---\n([\s\S]*?)\n---\n([\s\S]*)$/)
@@ -1214,12 +1251,6 @@ async function generateEnglishPages(nodes: PageNode[]) {
         enBody
       ].join('\n')
 
-      // Write to en/ directory mirroring the Chinese structure
-      const enDir = node.dir.replace(DOCS_DIR, EN_DIR)
-      mkdirSync(enDir, { recursive: true })
-      const enPath = join(enDir, `${node.slug}.md`)
-      syncedPaths.add(enPath)
-
       const existing = existsSync(enPath) ? readFileSync(enPath, 'utf-8') : null
       if (existing !== enContent) {
         writeFileSync(enPath, enContent, 'utf-8')
@@ -1227,6 +1258,8 @@ async function generateEnglishPages(nodes: PageNode[]) {
       } else {
         console.log(`${indent}  Unchanged: en/${node.slug}.md`)
       }
+      // Cache the hash so next run skips translation
+      translationCache[node.slug] = zhHash
     }
   }
 }
