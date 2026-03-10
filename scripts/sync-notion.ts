@@ -835,6 +835,64 @@ function generateSearchPage() {
   }
 }
 
+// Convert Notion rich text array to markdown with full annotation support
+// Handles: bold, italic, strikethrough, underline, code, color, background, links, mentions
+function richTextToMd(richTexts: any[]): string {
+  if (!richTexts || richTexts.length === 0) return ''
+  return richTexts.map((rt: any) => {
+    let text = rt.plain_text || ''
+    if (!text) return ''
+
+    const ann = rt.annotations || {}
+
+    // Inline code (must be first, don't nest other formatting inside code)
+    if (ann.code) return `\`${text}\``
+
+    // Markdown formatting
+    if (ann.bold) text = `**${text}**`
+    if (ann.italic) text = `*${text}*`
+    if (ann.strikethrough) text = `~~${text}~~`
+    if (ann.underline) text = `<u>${text}</u>`
+
+    // Links
+    if (rt.text?.link?.url) {
+      let url = rt.text.link.url
+      // Convert Notion page links to internal paths
+      const notionMatch = url.match(/notion\.so\/(?:[^/]*\/)?(?:[^?]*?)([a-f0-9]{32})/)
+      if (notionMatch) {
+        const path = pageIdToPath.get(notionMatch[1])
+        if (path) url = path
+      }
+      text = `[${text}](${url})`
+    }
+
+    // Page mentions → internal links
+    if (rt.type === 'mention' && rt.mention?.type === 'page') {
+      const pid = rt.mention.page.id
+      const path = pageIdToPath.get(pid) || pageIdToPath.get(pid.replace(/-/g, ''))
+      if (path) text = `[${text}](${path})`
+    }
+
+    // Date mentions
+    if (rt.type === 'mention' && rt.mention?.type === 'date') {
+      text = rt.mention.date?.start || text
+    }
+
+    // Inline equations
+    if (rt.type === 'equation') {
+      text = `$${rt.equation?.expression || text}$`
+    }
+
+    // Colors and backgrounds
+    const color = ann.color
+    if (color && color !== 'default') {
+      text = `<span class="notion-${color}">${text}</span>`
+    }
+
+    return text
+  }).join('')
+}
+
 async function main() {
   const notionToken = process.env.NOTION_TOKEN
   const rootPageId = process.env.NOTION_ROOT_PAGE_ID
@@ -853,28 +911,55 @@ async function main() {
 
   // Custom transformers: Notion blocks → VitePress-friendly markdown
 
+  // Paragraph → support colors, underline, mentions
+  n2m.setCustomTransformer('paragraph', async (block: any) => {
+    return richTextToMd(block.paragraph.rich_text || [])
+  })
+
+  // Headings → support colors
+  n2m.setCustomTransformer('heading_1', async (block: any) => {
+    return `# ${richTextToMd(block.heading_1.rich_text || [])}`
+  })
+  n2m.setCustomTransformer('heading_2', async (block: any) => {
+    return `## ${richTextToMd(block.heading_2.rich_text || [])}`
+  })
+  n2m.setCustomTransformer('heading_3', async (block: any) => {
+    return `### ${richTextToMd(block.heading_3.rich_text || [])}`
+  })
+
+  // Quote → support colors
+  n2m.setCustomTransformer('quote', async (block: any) => {
+    const text = richTextToMd(block.quote.rich_text || [])
+    const children = await n2m.pageToMarkdown(block.id)
+    const childContent = n2m.toMarkdownString(children).parent || ''
+    const full = text + (childContent ? '\n' + childContent : '')
+    return full.split('\n').map((line: string) => `> ${line}`).join('\n')
+  })
+
+  // To-do / checkbox list
+  n2m.setCustomTransformer('to_do', async (block: any) => {
+    const checked = block.to_do.checked ? 'x' : ' '
+    const text = richTextToMd(block.to_do.rich_text || [])
+    return `- [${checked}] ${text}`
+  })
+
   // Callout → VitePress custom container (tip/warning/danger/info)
   n2m.setCustomTransformer('callout', async (block: any) => {
     const callout = block.callout
     const icon = callout.icon?.emoji || ''
-    const richText = callout.rich_text || []
-    const text = richText.map((t: any) => t.plain_text).join('')
+    const text = richTextToMd(callout.rich_text || [])
 
-    // Map common icons to VitePress container types
     let type = 'info'
     if (['⚠️', '⚠', '🔶'].includes(icon)) type = 'warning'
     else if (['🚨', '❌', '🔴', '‼️', '⛔'].includes(icon)) type = 'danger'
     else if (['💡', '✅', '🟢', '👍'].includes(icon)) type = 'tip'
     else if (['📝', 'ℹ️', '📌', '🔵'].includes(icon)) type = 'info'
 
-    // Get child content
     const children = await n2m.pageToMarkdown(block.id)
     const childContent = n2m.toMarkdownString(children).parent || ''
-
     const content = text ? `${text}\n${childContent}` : childContent
     return `::: ${type}\n${content.trim()}\n:::`
   })
-
 
   // Equation (block level) → LaTeX
   n2m.setCustomTransformer('equation', async (block: any) => {
@@ -887,7 +972,7 @@ async function main() {
     return '---'
   })
 
-  // Table of contents → empty (VitePress has its own)
+  // Table of contents
   n2m.setCustomTransformer('table_of_contents', async () => {
     return '[[toc]]'
   })
@@ -896,7 +981,6 @@ async function main() {
   n2m.setCustomTransformer('video', async (block: any) => {
     const url = block.video?.external?.url || block.video?.file?.url || ''
     if (!url) return ''
-    // YouTube
     const ytMatch = url.match(/(?:youtube\.com\/watch\?v=|youtu\.be\/)([\w-]+)/)
     if (ytMatch) {
       return `<iframe src="https://www.youtube.com/embed/${ytMatch[1]}" width="100%" height="400" style="border:0;border-radius:8px;" allowfullscreen></iframe>`
@@ -904,12 +988,12 @@ async function main() {
     return `<video controls src="${url}" style="width:100%;border-radius:8px;"></video>`
   })
 
-  // Toggle → HTML details/summary (collapsible)
+  // Toggle → collapsible details/summary with rich text
   n2m.setCustomTransformer('toggle', async (block: any) => {
-    const text = block.toggle.rich_text?.map((t: any) => t.plain_text).join('') || ''
+    const text = richTextToMd(block.toggle.rich_text || [])
     const children = await n2m.pageToMarkdown(block.id)
     const childContent = n2m.toMarkdownString(children).parent || ''
-    return `<details>\n<summary>${text}</summary>\n\n${childContent.trim()}\n\n</details>`
+    return `\n<details>\n<summary>${text}</summary>\n\n${childContent.trim()}\n\n</details>\n`
   })
 
   // Audio → HTML audio player
@@ -929,12 +1013,10 @@ async function main() {
   n2m.setCustomTransformer('embed', async (block: any) => {
     const url = block.embed?.url || ''
     if (!url) return ''
-    // X/Twitter embed via TweetCard Vue component
     const tweetMatch = url.match(/^https?:\/\/(x\.com|twitter\.com)\/\w+\/status\/(\d+)/)
     if (tweetMatch) {
       return `<ClientOnly><TweetCard url="${url}" /></ClientOnly>`
     }
-    // YouTube embed
     const ytMatch = url.match(/(?:youtube\.com\/watch\?v=|youtu\.be\/)([\w-]+)/)
     if (ytMatch) {
       return `<iframe src="https://www.youtube.com/embed/${ytMatch[1]}" width="100%" height="400" frameborder="0" allowfullscreen></iframe>`
@@ -971,7 +1053,7 @@ async function main() {
     return url ? `<iframe src="${url}" width="100%" height="600" frameborder="0"></iframe>` : ''
   })
 
-  // Column list → render children sequentially (CSS can't replicate columns in MD)
+  // Column list → render children sequentially
   n2m.setCustomTransformer('column_list', async (block: any) => {
     const children = await n2m.pageToMarkdown(block.id)
     return n2m.toMarkdownString(children).parent || ''
