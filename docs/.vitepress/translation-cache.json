@@ -3,7 +3,7 @@
   "mac-installation": "d8fd3a3a38bc2f57e8b0b41748255c33",
   "linux-server-installation": "32b59ebc7933dbad79df57c7480b7dfa",
   "windows-installation": "79f1feca119c4a2337ff30c449e6f387",
-  "about": "20437ee02a9015a84d25a1969896b36c",
+  "about": "38aa3f02def0fea95d58dd8f35daffac",
   "kw-tool-download-tutorial": "ca08430a7275e15428806f91efa868ef",
   "kw-install-tool-steps": "78eb3bd493f8429a4e3c5493fd68f871",
   "kw-mac-vpn-installation": "fea4734faf93623a4b72a90f9ebdaa83",
@@ -13,5 +13,7 @@
   "kw-windows-vpn-installation": "66f072133664dd861443e87659196cd0",
   "kw-vpn-installation-tutorial": "c93745ac7f7353836a7c55d78328a4ee",
   "kw-vpn-security": "1b36dfffd56516a3794405ec58684f0e",
-  "kw-vpn-recommendation": "16b4c75d85a33711f88c93254f42d671"
+  "kw-vpn-recommendation": "16b4c75d85a33711f88c93254f42d671",
+  "kw-about-author": "75e7fb7d05b238e80b4442ea2da4d865",
+  "kw-blog-introduction": "225ac67a988c06c472b0ee2f0cdea769"
 }
