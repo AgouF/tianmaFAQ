@@ -222,12 +222,14 @@ async function scanPages(parentId: string, dir: string, urlPath: string, depth: 
     const subPages = subChildren.results.filter((b: any) => b.type === 'child_page') as any[]
 
     // Register page ID → VitePress path mapping (for both folder and leaf pages)
-    const pageUrl = `${urlPath}/${slug}`
+    // Folder pages need trailing slash so VitePress resolves to index.md
+    const isFolder = subPages.length > 0
+    const pageUrl = isFolder ? `${urlPath}/${slug}/` : `${urlPath}/${slug}`
     const cleanId = child.id.replace(/-/g, '')
     pageIdToPath.set(child.id, pageUrl)
     pageIdToPath.set(cleanId, pageUrl)
 
-    if (subPages.length > 0) {
+    if (isFolder) {
       const subDir = join(dir, slug)
       const subNodes = await scanPages(child.id, subDir, `${urlPath}/${slug}`, depth + 1)
       nodes.push({ id: child.id, title, slug, dir, urlPath, depth, isFolder: true, children: subNodes })
@@ -317,10 +319,7 @@ function replaceNotionLinks(content: string): string {
     /https?:\/\/(?:www\.)?notion\.so\/(?:[^\/\s]*\/)?(?:[^\s)]*?)?([a-f0-9]{32})(?:[?\s)#]|$)/g,
     (match, id) => {
       const path = pageIdToPath.get(id)
-      if (path) {
-        return match.replace(/https?:\/\/(?:www\.)?notion\.so\/[^\s)#]*/, path)
-      }
-      console.log(`  [WARN] replaceNotionLinks: ID not in pageIdToPath: ${id}`)
+      if (path) return match.replace(/https?:\/\/(?:www\.)?notion\.so\/[^\s)#]*/, path)
       return match
     }
   )
@@ -905,11 +904,7 @@ function richTextToMd(richTexts: any[]): string {
       const notionMatch = url.match(/notion\.so\/(?:[^/]*\/)?(?:[^?]*?)([a-f0-9]{32})/)
       if (notionMatch) {
         const path = pageIdToPath.get(notionMatch[1])
-        if (path) {
-          url = path
-        } else {
-          console.log(`  [WARN] Notion link ID not found in pageIdToPath: ${notionMatch[1]} (url: ${url})`)
-        }
+        if (path) url = path
       }
       // Also handle bare Notion ID links (/<32-hex-id> format)
       if (!notionMatch) {
@@ -1238,11 +1233,7 @@ async function main() {
   // Pass 1: Scan tree and build page ID → path mapping
   console.log('Scanning page tree...\n')
   const pageTree = await scanPages(rootPageId, DOCS_DIR, '', 0)
-  console.log(`Mapped ${pageIdToPath.size} pages:`)
-  for (const [id, path] of pageIdToPath.entries()) {
-    if (!id.includes('-')) console.log(`  ${id} → ${path}`)
-  }
-  console.log()
+  console.log(`Mapped ${pageIdToPath.size} pages\n`)
 
   // Pass 2: Generate markdown with correct internal links
   const sidebar = await generatePages(pageTree)
