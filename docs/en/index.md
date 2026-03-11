@@ -24,7 +24,7 @@ features:
     link: /en/about
     linkText: View details
   - title: More information
-    details: 26 articles
-    link: /en/more-info/how-to-use-shadowrocket
+    details: 24 articles
+    link: /en/more-info/shadowrocket-import-subscription-link
     linkText: View details
 ---

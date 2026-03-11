@@ -22,7 +22,7 @@
             ]
           },
           {
-            "text": "How to build a magic system",
+            "text": "How to build a VPN",
             "link": "/en/network/vpn/how-to-build-magic"
           }
         ]
@@ -80,24 +80,16 @@
     "collapsed": true,
     "items": [
       {
-        "text": "How to use Shadowrocket?",
-        "link": "/en/more-info/how-to-use-shadowrocket"
+        "text": "How to import a subscription link in Shadowrocket?",
+        "link": "/en/more-info/shadowrocket-import-subscription-link"
       },
       {
-        "text": "Mac VPN Setup Tutorial",
-        "link": "/en/more-info/mac-vpn-setup-tutorial"
+        "text": "Mac App Store foreign region account login",
+        "link": "/en/more-info/mac-appstore-foreign-account-login"
       },
       {
-        "text": "Registering an iOS Account for a Different Region",
-        "link": "/en/more-info/ios-foreign-appstore-account-registration"
-      },
-      {
-        "text": "Shadowrocket subscription link import",
-        "link": "/en/more-info/shadowrocket-subscription-link-import"
-      },
-      {
-        "text": "Mac App Store switch account",
-        "link": "/en/more-info/mac-appstore-switch-account"
+        "text": "IOS VPN Setup Tutorial",
+        "link": "/en/more-info/ios-vpn-setup-tutorial"
       },
       {
         "text": "How to use Windows VPN",
@@ -124,24 +116,24 @@
         "link": "/en/more-info/gmail-registration-tutorial"
       },
       {
-        "text": "Hong Kong App Store Registration Tutorial",
-        "link": "/en/more-info/hong-kong-appstore-registration-tutorial"
+        "text": "Hong Kong Apple ID Registration Tutorial",
+        "link": "/en/more-info/hong-kong-apple-id-registration-tutorial"
       },
       {
-        "text": "Methods to Top Up US Apple ID",
-        "link": "/en/more-info/us-apple-id-top-up-method"
+        "text": "How to top up on the US App Store",
+        "link": "/en/more-info/us-appstore-how-to-top-up"
       },
       {
-        "text": "How to purchase Hong Kong region gift cards?",
-        "link": "/en/more-info/how-to-buy-hong-kong-gift-card"
+        "text": "Out-of-region App Store gift card purchase",
+        "link": "/en/more-info/foreign-appstore-gift-card-purchase"
       },
       {
-        "text": "Steps to redeem a gift code on the App Store",
-        "link": "/en/more-info/appstore-redeem-gift-code-steps"
+        "text": "How to redeem an App Store gift card",
+        "link": "/en/more-info/how-to-redeem-appstore-gift-code"
       },
       {
-        "text": "Out-of-region ID binding payment method",
-        "link": "/en/more-info/foreign-apple-id-payment-method"
+        "text": "How to Purchase Shadowrocket",
+        "link": "/en/more-info/shadowrocket-purchase-method"
       },
       {
         "text": "Claude Registration Tutorial",
@@ -156,7 +148,7 @@
         "link": "/en/more-info/mac-vpn-installation"
       },
       {
-        "text": "MAC VPN Recommendations",
+        "text": "Recommended VPNs for Mac",
         "link": "/en/more-info/mac-vpn-recommendation"
       },
       {

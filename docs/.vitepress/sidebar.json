@@ -80,24 +80,16 @@
     "collapsed": true,
     "items": [
       {
-        "text": "小火箭怎么用",
-        "link": "/more-info/how-to-use-shadowrocket"
+        "text": "小火箭怎么导入订阅链接",
+        "link": "/more-info/shadowrocket-import-subscription-link"
       },
       {
-        "text": "Mac VPN设置教程",
-        "link": "/more-info/mac-vpn-setup-tutorial"
+        "text": "Mac AppStore外区账号登录",
+        "link": "/more-info/mac-appstore-foreign-account-login"
       },
       {
-        "text": "iOS外区账号注册",
-        "link": "/more-info/ios-foreign-appstore-account-registration"
-      },
-      {
-        "text": "shadowrocket订阅链接导入",
-        "link": "/more-info/shadowrocket-subscription-link-import"
-      },
-      {
-        "text": "Mac AppStore切换账号",
-        "link": "/more-info/mac-appstore-switch-account"
+        "text": "IOS VPN设置教程",
+        "link": "/more-info/ios-vpn-setup-tutorial"
       },
       {
         "text": "Windows VPN怎么用",
@@ -124,24 +116,24 @@
         "link": "/more-info/gmail-registration-tutorial"
       },
       {
-        "text": "港区Appstore注册教程",
-        "link": "/more-info/hong-kong-appstore-registration-tutorial"
+        "text": "港区Apple ID注册教程",
+        "link": "/more-info/hong-kong-apple-id-registration-tutorial"
       },
       {
-        "text": "美区Apple ID充值方法",
-        "link": "/more-info/us-apple-id-top-up-method"
+        "text": "美区Appstore如何充值",
+        "link": "/more-info/us-appstore-how-to-top-up"
       },
       {
-        "text": "如何购买港区礼品卡",
-        "link": "/more-info/how-to-buy-hong-kong-gift-card"
+        "text": "外区Appstore礼品卡购买",
+        "link": "/more-info/foreign-appstore-gift-card-purchase"
       },
       {
-        "text": "Appstore兑换礼品码步骤",
-        "link": "/more-info/appstore-redeem-gift-code-steps"
+        "text": "如何兑换Appstore礼品码",
+        "link": "/more-info/how-to-redeem-appstore-gift-code"
       },
       {
-        "text": "外区ID绑定支付方式",
-        "link": "/more-info/foreign-apple-id-payment-method"
+        "text": "Shadowrocket购买方法",
+        "link": "/more-info/shadowrocket-purchase-method"
       },
       {
         "text": "Claude注册教程",

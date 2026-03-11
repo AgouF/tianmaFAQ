@@ -39,7 +39,7 @@
     ]
   },
   "/about": {
-    "contentHash": "8443296919c61c853f01e669e7f51933",
+    "contentHash": "e0cea9337013f0351ff16834bd805101",
     "keywords": [
       {
         "keyword": "VPN安全吗",
@@ -52,27 +52,19 @@
     ]
   },
   "/network/vpn/how-to-download-and-install-tools/mac-ios-download-usage": {
-    "contentHash": "604cfb0871b8d077801f4ce5e1be51b7",
+    "contentHash": "94b0edfba76046219ba629406bb20e12",
     "keywords": [
       {
-        "keyword": "小火箭怎么用",
-        "slug": "how-to-use-shadowrocket"
+        "keyword": "小火箭怎么导入订阅链接",
+        "slug": "shadowrocket-import-subscription-link"
       },
       {
-        "keyword": "Mac VPN设置教程",
-        "slug": "mac-vpn-setup-tutorial"
+        "keyword": "Mac AppStore外区账号登录",
+        "slug": "mac-appstore-foreign-account-login"
       },
       {
-        "keyword": "iOS外区账号注册",
-        "slug": "ios-foreign-appstore-account-registration"
-      },
-      {
-        "keyword": "shadowrocket订阅链接导入",
-        "slug": "shadowrocket-subscription-link-import"
-      },
-      {
-        "keyword": "Mac AppStore切换账号",
-        "slug": "mac-appstore-switch-account"
+        "keyword": "IOS VPN设置教程",
+        "slug": "ios-vpn-setup-tutorial"
       }
     ]
   },
@@ -116,27 +108,27 @@
     ]
   },
   "/network/account-registration-guide/appstore-registration-and-top-up-methods": {
-    "contentHash": "5c9a936dfaaacf760972ad84bd6d6719",
+    "contentHash": "6d2649c7d7b94f7947695e0417087eca",
     "keywords": [
       {
-        "keyword": "港区Appstore注册教程",
-        "slug": "hong-kong-appstore-registration-tutorial"
+        "keyword": "港区Apple ID注册教程",
+        "slug": "hong-kong-apple-id-registration-tutorial"
       },
       {
-        "keyword": "美区Apple ID充值方法",
-        "slug": "us-apple-id-top-up-method"
+        "keyword": "美区Appstore如何充值",
+        "slug": "us-appstore-how-to-top-up"
       },
       {
-        "keyword": "如何购买港区礼品卡",
-        "slug": "how-to-buy-hong-kong-gift-card"
+        "keyword": "外区Appstore礼品卡购买",
+        "slug": "foreign-appstore-gift-card-purchase"
       },
       {
-        "keyword": "Appstore兑换礼品码步骤",
-        "slug": "appstore-redeem-gift-code-steps"
+        "keyword": "如何兑换Appstore礼品码",
+        "slug": "how-to-redeem-appstore-gift-code"
       },
       {
-        "keyword": "外区ID绑定支付方式",
-        "slug": "foreign-apple-id-payment-method"
+        "keyword": "Shadowrocket购买方法",
+        "slug": "shadowrocket-purchase-method"
       }
     ]
   },
