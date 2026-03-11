@@ -80,16 +80,16 @@
     "collapsed": true,
     "items": [
       {
-        "text": "How to import a subscription in Shadowrocket?",
-        "link": "/en/more-info/shadowrocket-import-subscription"
+        "text": "How to use Shadowrocket?",
+        "link": "/en/more-info/how-to-use-shadowrocket"
       },
       {
-        "text": "Mac App Store foreign region account login",
-        "link": "/en/more-info/mac-appstore-foreign-account-login"
+        "text": "Registering an App Store Account from a Different Region",
+        "link": "/en/more-info/register-foreign-appstore-account"
       },
       {
-        "text": "IOS VPN Setup Tutorial",
-        "link": "/en/more-info/ios-vpn-setup-tutorial"
+        "text": "VPN Subscription Link Import Tutorial",
+        "link": "/en/more-info/vpn-subscription-link-import-tutorial"
       },
       {
         "text": "How to use Windows VPN",
@@ -116,24 +116,24 @@
         "link": "/en/more-info/gmail-registration-tutorial"
       },
       {
-        "text": "Hong Kong App Store Registration Tutorial",
-        "link": "/en/more-info/hong-kong-appstore-registration-tutorial"
+        "text": "How to register for an App Store from another region?",
+        "link": "/en/more-info/how-to-register-for-foreign-appstore"
       },
       {
-        "text": "How to register for a US Apple ID",
-        "link": "/en/more-info/how-to-register-us-apple-id"
+        "text": "Hong Kong and US Apple ID Registration Tutorial",
+        "link": "/en/more-info/hong-kong-us-apple-id-registration-tutorial"
       },
       {
-        "text": "Top-up methods for App Store from other regions",
-        "link": "/en/more-info/foreign-appstore-top-up-methods"
+        "text": "How to top up on the App Store from outside the region?",
+        "link": "/en/more-info/how-to-top-up-foreign-appstore"
       },
       {
-        "text": "How to purchase Hong Kong region gift cards?",
-        "link": "/en/more-info/how-to-buy-hong-kong-gift-cards"
+        "text": "Hong Kong District Gift Card Purchase and Redemption Methods",
+        "link": "/en/more-info/hong-kong-gift-card-purchase-redemption-method"
       },
       {
-        "text": "Steps to redeem a gift code on the App Store:",
-        "link": "/en/more-info/appstore-gift-code-redemption-steps"
+        "text": "Shadowrocket purchase payment methods",
+        "link": "/en/more-info/shadowrocket-purchase-payment-methods"
       },
       {
         "text": "Claude Registration Tutorial",
@@ -160,20 +160,20 @@
         "link": "/en/more-info/mac-device-security-precautions"
       },
       {
+        "text": "ChatGPT Registration and Usage Guide",
+        "link": "/en/more-info/chatgpt-registration-usage-guide"
+      },
+      {
+        "text": "MAC Development Environment Setup",
+        "link": "/en/more-info/mac-development-environment-setup"
+      },
+      {
         "text": "VPN Network Environment Setup",
         "link": "/en/more-info/vpn-network-environment-setup"
       },
       {
-        "text": "ChatGPT Account Registration Method",
-        "link": "/en/more-info/chatgpt-account-registration-method"
-      },
-      {
-        "text": "MAC Development Environment Setup",
-        "link": "/en/more-info/mac-development-environment-configuration"
-      },
-      {
-        "text": "OpenAI Codex Licensing Tutorial",
-        "link": "/en/more-info/openai-codex-authorization-tutorial"
+        "text": "MAC Installation Tutorial for AI Tools",
+        "link": "/en/more-info/mac-install-ai-tools-tutorial"
       },
       {
         "text": "Linux Server VPN Installation Tutorial",
