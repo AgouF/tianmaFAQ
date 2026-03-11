@@ -221,16 +221,17 @@ async function scanPages(parentId: string, dir: string, urlPath: string, depth: 
     const subChildren = await withRetry(() => notion.blocks.children.list({ block_id: child.id, page_size: 100 }), `blocks ${child.id}`)
     const subPages = subChildren.results.filter((b: any) => b.type === 'child_page') as any[]
 
+    // Register page ID → VitePress path mapping (for both folder and leaf pages)
+    const pageUrl = `${urlPath}/${slug}`
+    const cleanId = child.id.replace(/-/g, '')
+    pageIdToPath.set(child.id, pageUrl)
+    pageIdToPath.set(cleanId, pageUrl)
+
     if (subPages.length > 0) {
       const subDir = join(dir, slug)
       const subNodes = await scanPages(child.id, subDir, `${urlPath}/${slug}`, depth + 1)
       nodes.push({ id: child.id, title, slug, dir, urlPath, depth, isFolder: true, children: subNodes })
     } else {
-      // Register page ID → VitePress path mapping
-      const pageUrl = `${urlPath}/${slug}`
-      const cleanId = child.id.replace(/-/g, '')
-      pageIdToPath.set(child.id, pageUrl)
-      pageIdToPath.set(cleanId, pageUrl)
       nodes.push({ id: child.id, title, slug, dir, urlPath, depth, isFolder: false, children: [] })
     }
   }
@@ -903,6 +904,14 @@ function richTextToMd(richTexts: any[]): string {
         const path = pageIdToPath.get(notionMatch[1])
         if (path) url = path
       }
+      // Also handle bare Notion ID links (/<32-hex-id> format)
+      if (!notionMatch) {
+        const bareMatch = url.match(/^\/([a-f0-9]{32})(?:\?|$)/)
+        if (bareMatch) {
+          const path = pageIdToPath.get(bareMatch[1])
+          if (path) url = path
+        }
+      }
       text = `[${text}](${url})`
     }
 
@@ -988,12 +997,107 @@ async function main() {
     return wrapBlockColor(quoted, block.quote)
   })
 
-  // To-do / checkbox list
+  // To-do / checkbox list (with block color)
   n2m.setCustomTransformer('to_do', async (block: any) => {
     const checked = block.to_do.checked ? 'x' : ' '
     const text = richTextToMd(block.to_do.rich_text || [])
-    return `- [${checked}] ${text}`
+    return wrapBlockColor(`- [${checked}] ${text}`, block.to_do)
   })
+
+  // Bulleted list item → support rich text colors + block color
+  n2m.setCustomTransformer('bulleted_list_item', async (block: any) => {
+    const text = richTextToMd(block.bulleted_list_item.rich_text || [])
+    const children = await n2m.pageToMarkdown(block.id)
+    const childContent = blocksToMd(children)
+    let md = `- ${text}`
+    if (childContent) {
+      const indented = childContent.split('\n').map((l: string) => `  ${l}`).join('\n')
+      md += '\n' + indented
+    }
+    return wrapBlockColor(md, block.bulleted_list_item)
+  })
+
+  // Numbered list item → support rich text colors + block color
+  n2m.setCustomTransformer('numbered_list_item', async (block: any) => {
+    const text = richTextToMd(block.numbered_list_item.rich_text || [])
+    const children = await n2m.pageToMarkdown(block.id)
+    const childContent = blocksToMd(children)
+    let md = `1. ${text}`
+    if (childContent) {
+      const indented = childContent.split('\n').map((l: string) => `   ${l}`).join('\n')
+      md += '\n' + indented
+    }
+    return wrapBlockColor(md, block.numbered_list_item)
+  })
+
+  // Code block → support language + caption
+  n2m.setCustomTransformer('code', async (block: any) => {
+    const code = block.code
+    const lang = code.language === 'plain text' ? '' : (code.language || '')
+    const text = code.rich_text?.map((t: any) => t.plain_text).join('') || ''
+    const caption = code.caption?.map((t: any) => t.plain_text).join('') || ''
+    let md = `\`\`\`${lang}\n${text}\n\`\`\``
+    if (caption) {
+      md += `\n<p style="text-align:center;color:var(--vp-c-text-3);font-size:0.85em;margin-top:4px;">${caption}</p>`
+    }
+    return md
+  })
+
+  // Image → support caption with rich text
+  n2m.setCustomTransformer('image', async (block: any) => {
+    const img = block.image
+    const url = img?.external?.url || img?.file?.url || ''
+    if (!url) return ''
+    const caption = img.caption?.map((t: any) => t.plain_text).join('') || ''
+    if (caption) {
+      return `![${caption}](${url})\n<p style="text-align:center;color:var(--vp-c-text-3);font-size:0.85em;margin-top:4px;">${caption}</p>`
+    }
+    return `![](${url})`
+  })
+
+  // Table → full rich text support in cells
+  n2m.setCustomTransformer('table', async (block: any) => {
+    const tableBlock = block.table
+    const hasColumnHeader = tableBlock?.has_column_header || false
+    const hasRowHeader = tableBlock?.has_row_header || false
+
+    // Fetch table rows
+    const rows: any[] = []
+    let cursor: string | undefined
+    do {
+      const resp: any = await withRetry(() => notion.blocks.children.list({
+        block_id: block.id,
+        start_cursor: cursor,
+        page_size: 100
+      }), `table rows ${block.id}`)
+      rows.push(...resp.results)
+      cursor = resp.has_more ? resp.next_cursor : undefined
+    } while (cursor)
+
+    if (rows.length === 0) return ''
+
+    const mdRows: string[] = []
+    for (let i = 0; i < rows.length; i++) {
+      const cells = rows[i].table_row?.cells || []
+      const cellTexts = cells.map((cell: any, j: number) => {
+        let text = richTextToMd(cell)
+        // Bold first column if row header
+        if (hasRowHeader && j === 0 && text) text = `**${text}**`
+        return text || ' '
+      })
+      mdRows.push(`| ${cellTexts.join(' | ')} |`)
+
+      // Add separator after header row
+      if (i === 0) {
+        const sep = cells.map(() => '---').join(' | ')
+        mdRows.push(`| ${sep} |`)
+      }
+    }
+    return mdRows.join('\n')
+  })
+
+  // Table row → handled by table transformer above, skip
+  n2m.setCustomTransformer('table_row', async () => '')
 
   // Callout → VitePress custom container (tip/warning/danger/info)
   n2m.setCustomTransformer('callout', async (block: any) => {
@@ -1040,12 +1144,13 @@ async function main() {
     return `<video controls src="${url}" style="width:100%;border-radius:8px;"></video>`
   })
 
-  // Toggle → collapsible details/summary with rich text
+  // Toggle → collapsible details/summary with rich text (with block color)
   n2m.setCustomTransformer('toggle', async (block: any) => {
     const text = richTextToMd(block.toggle.rich_text || [])
     const children = await n2m.pageToMarkdown(block.id)
     const childContent = blocksToMd(children)
-    return `\n<details>\n<summary>${text}</summary>\n\n${childContent.trim()}\n\n</details>\n`
+    const html = `\n<details>\n<summary>${text}</summary>\n\n${childContent.trim()}\n\n</details>\n`
+    return wrapBlockColor(html, block.toggle)
   })
 
   // Audio → HTML audio player
