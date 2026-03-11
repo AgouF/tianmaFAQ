@@ -22,7 +22,7 @@
             ]
           },
           {
-            "text": "How to build a magic system",
+            "text": "How to build a VPN",
             "link": "/en/network/vpn/how-to-build-magic"
           }
         ]
@@ -36,7 +36,7 @@
             "link": "/en/network/account-registration-guide/google-email-registration"
           },
           {
-            "text": "Registration methods and top-up methods for App Store in other regions.",
+            "text": "Registration and Top-up Methods for App Store in Other Regions",
             "link": "/en/network/account-registration-guide/appstore-registration-and-top-up-methods"
           }
         ]
@@ -80,8 +80,8 @@
     "collapsed": true,
     "items": [
       {
-        "text": "How to import a subscription link in Shadowrocket?",
-        "link": "/en/more-info/shadowrocket-import-subscription-link"
+        "text": "How to import a subscription in Shadowrocket?",
+        "link": "/en/more-info/shadowrocket-import-subscription"
       },
       {
         "text": "Mac App Store foreign region account login",
@@ -116,24 +116,24 @@
         "link": "/en/more-info/gmail-registration-tutorial"
       },
       {
-        "text": "How to register on the Hong Kong App Store?",
-        "link": "/en/more-info/hong-kong-appstore-registration"
+        "text": "Hong Kong App Store Registration Tutorial",
+        "link": "/en/more-info/hong-kong-appstore-registration-tutorial"
       },
       {
-        "text": "Methods to Top Up US Apple ID",
-        "link": "/en/more-info/us-apple-id-top-up-method"
+        "text": "How to register for a US Apple ID",
+        "link": "/en/more-info/how-to-register-us-apple-id"
       },
       {
-        "text": "Out-of-region App Store gift card purchase",
-        "link": "/en/more-info/foreign-appstore-gift-card-purchase"
+        "text": "Top-up methods for App Store from other regions",
+        "link": "/en/more-info/foreign-appstore-top-up-methods"
       },
       {
-        "text": "How to redeem an App Store gift card",
-        "link": "/en/more-info/how-to-redeem-appstore-gift-code"
+        "text": "How to purchase Hong Kong region gift cards?",
+        "link": "/en/more-info/how-to-buy-hong-kong-gift-cards"
       },
       {
-        "text": "Shadowrocket Hong Kong Region Purchase Tutorial",
-        "link": "/en/more-info/shadowrocket-hong-kong-purchase-tutorial"
+        "text": "Steps to redeem a gift code on the App Store:",
+        "link": "/en/more-info/appstore-gift-code-redemption-steps"
       },
       {
         "text": "Claude Registration Tutorial",
@@ -152,7 +152,7 @@
         "link": "/en/more-info/mac-install-nodejs-steps"
       },
       {
-        "text": "How to install OpenClaw",
+        "text": "How to install OpenClaw?",
         "link": "/en/more-info/how-to-install-openclaw"
       },
       {
@@ -160,20 +160,20 @@
         "link": "/en/more-info/mac-device-security-precautions"
       },
       {
-        "text": "Python Environment Setup on MAC",
-        "link": "/en/more-info/python-environment-setup-mac"
+        "text": "VPN Network Environment Setup",
+        "link": "/en/more-info/vpn-network-environment-setup"
       },
       {
-        "text": "NodeJS Mirror Source Switching",
-        "link": "/en/more-info/nodejs-mirror-switch"
+        "text": "ChatGPT Account Registration Method",
+        "link": "/en/more-info/chatgpt-account-registration-method"
       },
       {
-        "text": "MAC Installation of AI Tools",
-        "link": "/en/more-info/mac-install-ai-tools"
+        "text": "MAC Development Environment Setup",
+        "link": "/en/more-info/mac-development-environment-configuration"
       },
       {
-        "text": "OpenClaw Initialization Configuration",
-        "link": "/en/more-info/openclaw-initialization-configuration"
+        "text": "OpenAI Codex Licensing Tutorial",
+        "link": "/en/more-info/openai-codex-authorization-tutorial"
       },
       {
         "text": "Linux Server VPN Installation Tutorial",

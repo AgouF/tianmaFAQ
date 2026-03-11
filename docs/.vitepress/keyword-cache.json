@@ -1,6 +1,6 @@
 {
   "/catalog-2/directory-nesting-333/mac-installation": {
-    "contentHash": "f222ce5a5afbebf6c755dd4546aa3a4c",
+    "contentHash": "574226e44c2cc38bddd13d68841af8d6",
     "keywords": [
       {
         "keyword": "MAC安装Python教程",
@@ -19,20 +19,20 @@
         "slug": "mac-device-security-precautions"
       },
       {
-        "keyword": "Python环境配置MAC",
-        "slug": "python-environment-setup-mac"
+        "keyword": "VPN网络环境设置",
+        "slug": "vpn-network-environment-setup"
       },
       {
-        "keyword": "NodeJS镜像源切换",
-        "slug": "nodejs-mirror-switch"
+        "keyword": "ChatGPT账号注册方法",
+        "slug": "chatgpt-account-registration-method"
       },
       {
-        "keyword": "MAC安装AI工具",
-        "slug": "mac-install-ai-tools"
+        "keyword": "MAC开发环境配置",
+        "slug": "mac-development-environment-configuration"
       },
       {
-        "keyword": "OpenClaw初始化配置",
-        "slug": "openclaw-initialization-configuration"
+        "keyword": "OpenAI Codex授权教程",
+        "slug": "openai-codex-authorization-tutorial"
       }
     ]
   },
@@ -76,11 +76,11 @@
     ]
   },
   "/network/vpn/how-to-download-and-install-tools/mac-ios-download-usage": {
-    "contentHash": "f3fc7a7c471f8bedf6808b17486c930b",
+    "contentHash": "d0cf86e0980ebb2994f7a120e9fe7209",
     "keywords": [
       {
-        "keyword": "小火箭怎么导入订阅链接",
-        "slug": "shadowrocket-import-subscription-link"
+        "keyword": "小火箭怎么导入订阅",
+        "slug": "shadowrocket-import-subscription"
       },
       {
         "keyword": "Mac AppStore外区账号登录",
@@ -132,27 +132,27 @@
     ]
   },
   "/network/account-registration-guide/appstore-registration-and-top-up-methods": {
-    "contentHash": "6364f297498d8d74b6ae43fa772ce575",
+    "contentHash": "28a182c0e1fb2d4013a2b6810fbd04ec",
     "keywords": [
       {
-        "keyword": "港区Appstore怎么注册",
-        "slug": "hong-kong-appstore-registration"
+        "keyword": "港区Appstore注册教程",
+        "slug": "hong-kong-appstore-registration-tutorial"
       },
       {
-        "keyword": "美区Apple ID充值方法",
-        "slug": "us-apple-id-top-up-method"
+        "keyword": "美区Apple ID怎么注册",
+        "slug": "how-to-register-us-apple-id"
       },
       {
-        "keyword": "外区Appstore礼品卡购买",
-        "slug": "foreign-appstore-gift-card-purchase"
+        "keyword": "外区Appstore充值方法",
+        "slug": "foreign-appstore-top-up-methods"
       },
       {
-        "keyword": "如何兑换Appstore礼品码",
-        "slug": "how-to-redeem-appstore-gift-code"
+        "keyword": "如何购买港区礼品卡",
+        "slug": "how-to-buy-hong-kong-gift-cards"
       },
       {
-        "keyword": "Shadowrocket港区购买教程",
-        "slug": "shadowrocket-hong-kong-purchase-tutorial"
+        "keyword": "Appstore兑换礼品码步骤",
+        "slug": "appstore-gift-code-redemption-steps"
       }
     ]
   },

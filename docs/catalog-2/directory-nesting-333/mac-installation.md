@@ -1,9 +1,9 @@
 ---
 title: "MAC安装方式"
 description: "1. 网络环境 VPN篇 1. ChatGPT账号注册 Claude&ChatGPT&Gemini注册使用 1. MAC硬件 MacBook或 Macmini ::: tip 使用的MAC设备，不要存放重要资料以及敏感资料，谨防资料泄露丢失"
-readingTime: 3
-lastUpdated: 1773215760000
-ogImage: "https://tianma.xin/images/281adb04317a.webp"
+readingTime: 4
+lastUpdated: 1773222180000
+ogImage: "https://tianma.xin/images/13ceaed023eb.webp"
 ---
 
 # MAC安装方式
@@ -38,7 +38,7 @@ ogImage: "https://tianma.xin/images/281adb04317a.webp"
 
 1. 选择 Download macOS installer下载
 
-![](/images/281adb04317a.webp)
+![](/images/13ceaed023eb.webp)
 
 1. 下载好后执行
 
@@ -118,7 +118,7 @@ npm config set registry https://registry.npmmirror.com
 
 1. Configure chat channels now?现在配置聊天通道 选择yes就行
 
-## 配置聊天bot
+### 配置聊天bot
 
 ### 飞书
 
@@ -132,8 +132,66 @@ npm config set registry https://registry.npmmirror.com
 
 1. 点击上面创建版本 随便输入对应信息
 
-1. 对外共享点击对勾，确认提交
+1. 不要勾选对外共享
 
-1.
+1. 点击左侧凭证与基础信息看到**App ID和App Secret**
 
-<RelatedCards :items='[{"title":"Claude&ChatGPT&Gemini注册使用","link":"/catalog-2/claude-chatgpt-gemini-registration-usage"},{"title":"Linux以及服务器安装方式","link":"/catalog-2/directory-nesting-333/linux-server-installation"},{"title":"Windows安装方式","link":"/catalog-2/directory-nesting-333/windows-installation"},{"title":"MAC安装Python教程","link":"/more-info/mac-install-python-tutorial"},{"title":"MAC安装NodeJS步骤","link":"/more-info/mac-install-nodejs-steps"},{"title":"OpenClaw怎么安装","link":"/more-info/how-to-install-openclaw"},{"title":"MAC设备安全注意事项","link":"/more-info/mac-device-security-precautions"},{"title":"Python环境配置MAC","link":"/more-info/python-environment-setup-mac"},{"title":"NodeJS镜像源切换","link":"/more-info/nodejs-mirror-switch"},{"title":"MAC安装AI工具","link":"/more-info/mac-install-ai-tools"},{"title":"OpenClaw初始化配置","link":"/more-info/openclaw-initialization-configuration"}]' />
+1. 权限管理 开通权限 把所有关于消息的权限都配置好
+
+1. 这时候可以继续在Openclaw终端里设置
+
+1. 设置完后，点击事件与回调，选择WSS长连接，选择后，添加事件与回调的事件，搜索消息，关于消息的全部添加，回调也一样添加，这样就可以和OPenclaw对话了，记得发布应用
+
+### Telegram
+
+---
+
+1. 选择Feishu/Lark (飞书)
+
+1. Install Feishu plugin?选择Download from npm (@openclaw/feishu)
+
+1. How do you want to provide this App Secret?选择Enter App Secret 输入App Secret 和App ID
+
+1. Feishu connection mode连接方式 选择WebSocket进行长链接不需要公网IP
+
+1. Which Feishu domain? 如果是国内的就选 feihsu.cn 海外的选择larksuite.com
+
+1. Group chat policy 回复方式 按需选择
+
+| 选项 | 意思 |
+| --- | --- |
+| **Allowlist** | 只在指定群里回复 |
+| Open | 所有群都可以回复（必须 @机器人） |
+| Disabled | 群聊完全不回复 |
+
+1. 我选择第一个Group chat allowlist (chat_ids) 在手机端打开APP选择群组，在群组最下面ocxxxx
+
+1. 然后选择Finished (Done)确认配置
+
+1. Configure DM access policies now? (default: pairing) 现在要配置私聊（DM = Direct Message）访问策略吗 选择Yes
+
+1. Feishu DM policy 私聊策略 选择第一个Pairing 只有匹配过后才能私聊
+
+1. Search provider OpenClaw 用哪个搜索引擎来查互联网信息选择跳过就行
+
+1. Configure skills now? (recommended) 安装默认Skills 选择yes就行
+
+1. 很多skill 用空格选择需要的 上下按键按就好 选择完点击回车
+
+1. Preferred node manager for skill installs 安装方式 选择第一个
+
+1. 等待安装完 Install Gateway service (recommended)是否安装网关服务 选择yes 然后选择默认回车
+
+1. How do you want to hatch your bot?选择 Open the Web UI
+
+1. 查看网页，和AI对话
+
+1. 点击左侧 配置>Tools
+
+1. 类似于这种绿色的按钮的选项全部打开 打开后点击右上角的save
+
+1. 这样才能使用全部工具
+
+![](/images/0e0db8d4b9a0.webp)
+
+<RelatedCards :items='[{"title":"Claude&ChatGPT&Gemini注册使用","link":"/catalog-2/claude-chatgpt-gemini-registration-usage"},{"title":"Linux以及服务器安装方式","link":"/catalog-2/directory-nesting-333/linux-server-installation"},{"title":"Windows安装方式","link":"/catalog-2/directory-nesting-333/windows-installation"},{"title":"MAC安装Python教程","link":"/more-info/mac-install-python-tutorial"},{"title":"MAC安装NodeJS步骤","link":"/more-info/mac-install-nodejs-steps"},{"title":"OpenClaw怎么安装","link":"/more-info/how-to-install-openclaw"},{"title":"MAC设备安全注意事项","link":"/more-info/mac-device-security-precautions"},{"title":"VPN网络环境设置","link":"/more-info/vpn-network-environment-setup"},{"title":"ChatGPT账号注册方法","link":"/more-info/chatgpt-account-registration-method"},{"title":"MAC开发环境配置","link":"/more-info/mac-development-environment-configuration"},{"title":"OpenAI Codex授权教程","link":"/more-info/openai-codex-authorization-tutorial"}]' />

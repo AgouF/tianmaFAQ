@@ -80,8 +80,8 @@
     "collapsed": true,
     "items": [
       {
-        "text": "小火箭怎么导入订阅链接",
-        "link": "/more-info/shadowrocket-import-subscription-link"
+        "text": "小火箭怎么导入订阅",
+        "link": "/more-info/shadowrocket-import-subscription"
       },
       {
         "text": "Mac AppStore外区账号登录",
@@ -116,24 +116,24 @@
         "link": "/more-info/gmail-registration-tutorial"
       },
       {
-        "text": "港区Appstore怎么注册",
-        "link": "/more-info/hong-kong-appstore-registration"
+        "text": "港区Appstore注册教程",
+        "link": "/more-info/hong-kong-appstore-registration-tutorial"
       },
       {
-        "text": "美区Apple ID充值方法",
-        "link": "/more-info/us-apple-id-top-up-method"
+        "text": "美区Apple ID怎么注册",
+        "link": "/more-info/how-to-register-us-apple-id"
       },
       {
-        "text": "外区Appstore礼品卡购买",
-        "link": "/more-info/foreign-appstore-gift-card-purchase"
+        "text": "外区Appstore充值方法",
+        "link": "/more-info/foreign-appstore-top-up-methods"
       },
       {
-        "text": "如何兑换Appstore礼品码",
-        "link": "/more-info/how-to-redeem-appstore-gift-code"
+        "text": "如何购买港区礼品卡",
+        "link": "/more-info/how-to-buy-hong-kong-gift-cards"
       },
       {
-        "text": "Shadowrocket港区购买教程",
-        "link": "/more-info/shadowrocket-hong-kong-purchase-tutorial"
+        "text": "Appstore兑换礼品码步骤",
+        "link": "/more-info/appstore-gift-code-redemption-steps"
       },
       {
         "text": "Claude注册教程",
@@ -160,20 +160,20 @@
         "link": "/more-info/mac-device-security-precautions"
       },
       {
-        "text": "Python环境配置MAC",
-        "link": "/more-info/python-environment-setup-mac"
+        "text": "VPN网络环境设置",
+        "link": "/more-info/vpn-network-environment-setup"
       },
       {
-        "text": "NodeJS镜像源切换",
-        "link": "/more-info/nodejs-mirror-switch"
+        "text": "ChatGPT账号注册方法",
+        "link": "/more-info/chatgpt-account-registration-method"
       },
       {
-        "text": "MAC安装AI工具",
-        "link": "/more-info/mac-install-ai-tools"
+        "text": "MAC开发环境配置",
+        "link": "/more-info/mac-development-environment-configuration"
       },
       {
-        "text": "OpenClaw初始化配置",
-        "link": "/more-info/openclaw-initialization-configuration"
+        "text": "OpenAI Codex授权教程",
+        "link": "/more-info/openai-codex-authorization-tutorial"
       },
       {
         "text": "Linux服务器VPN安装教程",

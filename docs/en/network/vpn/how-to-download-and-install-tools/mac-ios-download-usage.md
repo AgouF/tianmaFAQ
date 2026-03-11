@@ -1,6 +1,6 @@
 ---
 title: "MAC & iOS Download and Usage Instructions"
-description: "1. An AppStore account from a different region (register yourself or purchase from platforms like Xianyu). Registration "
+description: "1. An AppStore account for a foreign region (register yourself or purchase on Xianyu). Registration tutorial: Account Re"
 lastUpdated: 1773201840000
 ---
 
@@ -10,25 +10,22 @@ lastUpdated: 1773201840000
 
 ### Preparations
 
-1. An AppStore account from a different region (register yourself or purchase from platforms like Xianyu). Registration tutorial: [Account Registration Guide for Various Platforms](/network/account-registration-guide/)
+1. An AppStore account for a foreign region (register yourself or purchase on Xianyu). Registration tutorial: [Account Registration Guide for Various Platforms](/network/account-registration-guide/)
 2. An iOS or Mac device
 
 ### Steps
 
-1. Log in to your foreign-region AppStore account.  
-   ⚠️ **For Mac**: Go to **System Settings > Apple Account > Media & Purchases** and log out of your current AppStore account before logging in with the new one.
-   - **Important**: Do **not** log the purchased account into iCloud.
+1. Log in with your foreign region account. ⚠️ For Mac's AppStore, you need to log out of your current AppStore account in **System Settings > Apple Account > Media & Purchases**.
+2. **Important:** Do **not** log the purchased account into iCloud.
+3. After logging in, open the AppStore and search for "小火箭" or "Shadowrocket".
+4. Open the webpage where you purchased the VPN service. You will find an import method similar to the image below:
 
-2. Open the AppStore and search for "小火箭" or "Shadowrocket."
+![](/images/d7dad8aa4235.webp)
 
-3. Open the webpage of the VPN service you purchased. Look for an import option similar to the image below:
+5. Select any option, copy the link, then open Shadowrocket. It will automatically read the clipboard and import the configuration. If it doesn't recognize your clipboard, tap the "+" in the top right corner of Shadowrocket and paste your subscription link.
 
-   ![](/images/0d13611fbe57.webp)
+![](/images/1cb4df06a383.webp)
 
-4. Choose any option, copy the link, then open Shadowrocket. It will automatically read the clipboard and import the configuration. If it doesn’t recognize your clipboard, tap the "+" in the top-right corner of Shadowrocket and manually paste the subscription link.
+6. Perform a connectivity test to check the latency of the current node.
 
-   ![](/images/bef820f6e14d.webp)
-
-5. Perform a connectivity test to check the latency of the current node.
-
-<RelatedCards :items='[{"title":"Windows Download and Usage Guide","link":"/network/vpn/how-to-download-and-install-tools/windows-download-and-usage"},{"title":"How to Set Up a VPN","link":"/network/vpn/how-to-build-magic"},{"title":"Google Email Registration","link":"/network/account-registration-guide/google-email-registration"},{"title":"Foreign AppStore Registration and Top-up Methods","link":"/network/account-registration-guide/appstore-registration-and-top-up-methods"},{"title":"How to Import Subscription Links in Shadowrocket","link":"/more-info/shadowrocket-import-subscription-link"},{"title":"Logging into a Foreign Account on Mac AppStore","link":"/more-info/mac-appstore-foreign-account-login"},{"title":"iOS VPN Setup Tutorial","link":"/more-info/ios-vpn-setup-tutorial"}]' />
+<RelatedCards :items='[{"title":"Windows Download and Usage Guide","link":"/network/vpn/how-to-download-and-install-tools/windows-download-and-usage"},{"title":"How to Set Up Magic","link":"/network/vpn/how-to-build-magic"},{"title":"Google Email Registration","link":"/network/account-registration-guide/google-email-registration"},{"title":"Foreign Region AppStore Registration and Top-up Methods","link":"/network/account-registration-guide/appstore-registration-and-top-up-methods"},{"title":"How to Import Subscriptions in Shadowrocket","link":"/more-info/shadowrocket-import-subscription"},{"title":"Logging into a Foreign Account on Mac AppStore","link":"/more-info/mac-appstore-foreign-account-login"},{"title":"iOS VPN Setup Tutorial","link":"/more-info/ios-vpn-setup-tutorial"}]' />
