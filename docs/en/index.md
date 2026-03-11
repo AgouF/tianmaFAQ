@@ -8,23 +8,23 @@ hero:
   actions:
     - theme: brand
       text: Browse All Questions
-      link: /en/network/vpn/how-to-download-and-install-tools
+      link: /en/network/vpn/how-to-download-and-install-tools/mac-ios-download-usage
 
 features:
-  - title: Network
-    details: 1 articles
-    link: /en/network/vpn/how-to-download-and-install-tools
+  - title: Network & Platform Account Registration
+    details: 5 articles
+    link: /en/network/vpn/how-to-download-and-install-tools/mac-ios-download-usage
     linkText: View details
   - title: AI
-    details: 3 articles
-    link: /en/catalog-2/directory-nesting-333/mac-installation
+    details: 4 articles
+    link: /en/catalog-2/claude-chatgpt-gemini-registration-usage
     linkText: View details
   - title: ☀️ About
     details: 1 articles
     link: /en/about
     linkText: View details
   - title: More information
-    details: 10 articles
-    link: /en/more-info/tool-download-tutorial
+    details: 26 articles
+    link: /en/more-info/how-to-use-shadowrocket
     linkText: View details
 ---

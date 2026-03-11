@@ -1,12 +1,12 @@
 ---
 title: "☀️ About"
 description: "| Author | tianma | | -- | ------ |"
-lastUpdated: 1773158100000
+lastUpdated: 1773203280000
 ---
 
-# ☀️About
+# ☀️ About
 
 | Author | tianma |
 | -- | ------ |
 
-<RelatedCards :items='[{"title":"Who is the author","link":"/more-info/who-is-the-author"},{"title":"About page","link":"/more-info/about-page"}]' />
+<RelatedCards :items='[{"title":"Is VPN Safe","link":"/more-info/vpn-security"},{"title":"VPN Recommendations","link":"/more-info/vpn-recommendation"}]' />

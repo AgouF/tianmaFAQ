@@ -1,6 +1,6 @@
 [
   {
-    "text": "Network",
+    "text": "Network & Platform Account Registration",
     "collapsed": true,
     "items": [
       {
@@ -8,8 +8,36 @@
         "collapsed": true,
         "items": [
           {
-            "text": "How to download and install the tool",
-            "link": "/en/network/vpn/how-to-download-and-install-tools"
+            "text": "Download and use a suitable VPN application.",
+            "collapsed": true,
+            "items": [
+              {
+                "text": "MAC & iOS Download and Usage Instructions",
+                "link": "/en/network/vpn/how-to-download-and-install-tools/mac-ios-download-usage"
+              },
+              {
+                "text": "Windows download and usage instructions",
+                "link": "/en/network/vpn/how-to-download-and-install-tools/windows-download-and-usage"
+              }
+            ]
+          },
+          {
+            "text": "How to build a magic system",
+            "link": "/en/network/vpn/how-to-build-magic"
+          }
+        ]
+      },
+      {
+        "text": "Account Registration Guide for Various Platforms",
+        "collapsed": true,
+        "items": [
+          {
+            "text": "Google Email Registration",
+            "link": "/en/network/account-registration-guide/google-email-registration"
+          },
+          {
+            "text": "Registration and Top-up Methods for App Store in Other Regions",
+            "link": "/en/network/account-registration-guide/appstore-registration-and-top-up-methods"
           }
         ]
       }
@@ -19,6 +47,10 @@
     "text": "AI",
     "collapsed": true,
     "items": [
+      {
+        "text": "Claude & ChatGPT & Gemini Registration and Usage",
+        "link": "/en/catalog-2/claude-chatgpt-gemini-registration-usage"
+      },
       {
         "text": "OpenClaw Installation & Advanced Tutorial",
         "collapsed": true,
@@ -48,12 +80,76 @@
     "collapsed": true,
     "items": [
       {
-        "text": "Tool Download Tutorial",
-        "link": "/en/more-info/tool-download-tutorial"
+        "text": "How to use Shadowrocket?",
+        "link": "/en/more-info/how-to-use-shadowrocket"
       },
       {
-        "text": "Steps to install the tool",
-        "link": "/en/more-info/install-tool-steps"
+        "text": "Mac VPN Setup Tutorial",
+        "link": "/en/more-info/mac-vpn-setup-tutorial"
+      },
+      {
+        "text": "Registering an iOS Account for a Different Region",
+        "link": "/en/more-info/ios-foreign-appstore-account-registration"
+      },
+      {
+        "text": "shadowrocket import subscription",
+        "link": "/en/more-info/shadowrocket-import-subscription"
+      },
+      {
+        "text": "VPN node latency test",
+        "link": "/en/more-info/vpn-node-latency-test"
+      },
+      {
+        "text": "How to use Windows VPN",
+        "link": "/en/more-info/windows-vpn-how-to-use"
+      },
+      {
+        "text": "Tianma VPN Download Tutorial",
+        "link": "/en/more-info/tianma-vpn-download-tutorial"
+      },
+      {
+        "text": "How to set up a VPN",
+        "link": "/en/more-info/how-to-set-up-vpn"
+      },
+      {
+        "text": "VPN Setup Tutorial",
+        "link": "/en/more-info/vpn-setup-tutorial"
+      },
+      {
+        "text": "How to register for a Gmail account",
+        "link": "/en/more-info/how-to-register-google-email"
+      },
+      {
+        "text": "Gmail Registration Tutorial",
+        "link": "/en/more-info/gmail-registration-tutorial"
+      },
+      {
+        "text": "Hong Kong App Store Registration Tutorial",
+        "link": "/en/more-info/hong-kong-appstore-registration-tutorial"
+      },
+      {
+        "text": "Methods to Top Up US Apple ID",
+        "link": "/en/more-info/us-apple-id-top-up-method"
+      },
+      {
+        "text": "How to purchase Hong Kong region gift cards?",
+        "link": "/en/more-info/how-to-buy-hong-kong-gift-card"
+      },
+      {
+        "text": "How to use the App Store from other regions?",
+        "link": "/en/more-info/how-to-use-foreign-appstore"
+      },
+      {
+        "text": "App Store gift code redemption steps",
+        "link": "/en/more-info/appstore-gift-code-redemption-steps"
+      },
+      {
+        "text": "Claude Registration Tutorial",
+        "link": "/en/more-info/claude-registration-tutorial"
+      },
+      {
+        "text": "ChatGPT User Guide",
+        "link": "/en/more-info/chatgpt-usage-guide"
       },
       {
         "text": "How to Install VPN on Mac",
@@ -76,16 +172,16 @@
         "link": "/en/more-info/windows-vpn-installation"
       },
       {
-        "text": "VPN Installation Tutorial",
-        "link": "/en/more-info/vpn-installation-tutorial"
+        "text": "VPN Client Download Tutorial",
+        "link": "/en/more-info/vpn-client-download-tutorial"
       },
       {
-        "text": "The author is unknown.",
-        "link": "/en/more-info/who-is-the-author"
+        "text": "Is VPN safe?",
+        "link": "/en/more-info/vpn-security"
       },
       {
-        "text": "About Page",
-        "link": "/en/more-info/about-page"
+        "text": "VPN Recommendations",
+        "link": "/en/more-info/vpn-recommendation"
       }
     ]
   }

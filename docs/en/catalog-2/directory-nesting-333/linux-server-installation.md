@@ -8,4 +8,4 @@ lastUpdated: 1773142920000
 
 
 
-<RelatedCards :items='[{"title":"MAC Installation Method","link":"/catalog-2/directory-nesting-333/mac-installation"},{"title":"Windows Installation Method","link":"/catalog-2/directory-nesting-333/windows-installation"},{"title":"Linux Server VPN Installation Tutorial","link":"/more-info/linux-server-vpn-installation-tutorial"},{"title":"How to Install Server VPN","link":"/more-info/server-vpn-how-to-install"}]' />
+<RelatedCards :items='[{"title":"Claude&ChatGPT&Gemini Registration and Usage","link":"/catalog-2/claude-chatgpt-gemini-registration-usage"},{"title":"MAC Installation Method","link":"/catalog-2/directory-nesting-333/mac-installation"},{"title":"Windows Installation Method","link":"/catalog-2/directory-nesting-333/windows-installation"},{"title":"Linux Server VPN Installation Tutorial","link":"/more-info/linux-server-vpn-installation-tutorial"},{"title":"How to Install Server VPN","link":"/more-info/server-vpn-how-to-install"}]' />

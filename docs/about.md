@@ -2,7 +2,7 @@
 title: "☀️关于"
 description: "| 作者 | tianma | | -- | ------ |"
 readingTime: 1
-lastUpdated: 1773158100000
+lastUpdated: 1773203280000
 ---
 
 # ☀️关于
@@ -10,4 +10,4 @@ lastUpdated: 1773158100000
 | 作者 | tianma |
 | -- | ------ |
 
-<RelatedCards :items='[{"title":"作者是谁","link":"/more-info/who-is-the-author"},{"title":"关于页面","link":"/more-info/about-page"}]' />
+<RelatedCards :items='[{"title":"VPN安全吗","link":"/more-info/vpn-security"},{"title":"VPN推荐","link":"/more-info/vpn-recommendation"}]' />

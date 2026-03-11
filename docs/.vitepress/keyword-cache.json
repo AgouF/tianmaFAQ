@@ -1,17 +1,4 @@
 {
-  "/network/vpn/how-to-download-and-install-tools": {
-    "contentHash": "8d5136115474c74ae59feb8cca97dbf7",
-    "keywords": [
-      {
-        "keyword": "工具下载教程",
-        "slug": "tool-download-tutorial"
-      },
-      {
-        "keyword": "安装工具步骤",
-        "slug": "install-tool-steps"
-      }
-    ]
-  },
   "/catalog-2/directory-nesting-333/mac-installation": {
     "contentHash": "359fd7ee5fdbc14f84fe38c0a76a1bbe",
     "keywords": [
@@ -39,28 +26,130 @@
     ]
   },
   "/catalog-2/directory-nesting-333/windows-installation": {
-    "contentHash": "214be10cca3f68dcd14c5afde8ed7a30",
+    "contentHash": "79fed11d43cc8143b4bf74df9edc1934",
     "keywords": [
       {
         "keyword": "Windows VPN怎么安装",
         "slug": "windows-vpn-installation"
       },
       {
-        "keyword": "VPN安装教程",
-        "slug": "vpn-installation-tutorial"
+        "keyword": "VPN客户端下载教程",
+        "slug": "vpn-client-download-tutorial"
       }
     ]
   },
   "/about": {
-    "contentHash": "f862b86ec115710f8ddc115f02d21464",
+    "contentHash": "8443296919c61c853f01e669e7f51933",
     "keywords": [
       {
-        "keyword": "作者是谁",
-        "slug": "who-is-the-author"
+        "keyword": "VPN安全吗",
+        "slug": "vpn-security"
       },
       {
-        "keyword": "关于页面",
-        "slug": "about-page"
+        "keyword": "VPN推荐",
+        "slug": "vpn-recommendation"
+      }
+    ]
+  },
+  "/network/vpn/how-to-download-and-install-tools/mac-ios-download-usage": {
+    "contentHash": "40ceee7fc1685f3b497b0408bcfd3473",
+    "keywords": [
+      {
+        "keyword": "小火箭怎么用",
+        "slug": "how-to-use-shadowrocket"
+      },
+      {
+        "keyword": "Mac VPN设置教程",
+        "slug": "mac-vpn-setup-tutorial"
+      },
+      {
+        "keyword": "iOS外区账号注册",
+        "slug": "ios-foreign-appstore-account-registration"
+      },
+      {
+        "keyword": "shadowrocket导入订阅",
+        "slug": "shadowrocket-import-subscription"
+      },
+      {
+        "keyword": "VPN节点延迟测试",
+        "slug": "vpn-node-latency-test"
+      }
+    ]
+  },
+  "/network/vpn/how-to-download-and-install-tools/windows-download-and-usage": {
+    "contentHash": "ea312c7fbdeec3f21b73592fe8455411",
+    "keywords": [
+      {
+        "keyword": "Windows VPN怎么用",
+        "slug": "windows-vpn-how-to-use"
+      },
+      {
+        "keyword": "天马VPN下载教程",
+        "slug": "tianma-vpn-download-tutorial"
+      }
+    ]
+  },
+  "/network/vpn/how-to-build-magic": {
+    "contentHash": "e8ee841b91d25b0cda3479cf6c5f35de",
+    "keywords": [
+      {
+        "keyword": "VPN怎么搭建",
+        "slug": "how-to-set-up-vpn"
+      },
+      {
+        "keyword": "VPN搭建教程",
+        "slug": "vpn-setup-tutorial"
+      }
+    ]
+  },
+  "/network/account-registration-guide/google-email-registration": {
+    "contentHash": "298a728c52d5d6e40e23f3ab05149e8f",
+    "keywords": [
+      {
+        "keyword": "如何注册Google邮箱",
+        "slug": "how-to-register-google-email"
+      },
+      {
+        "keyword": "Gmail注册教程",
+        "slug": "gmail-registration-tutorial"
+      }
+    ]
+  },
+  "/network/account-registration-guide/appstore-registration-and-top-up-methods": {
+    "contentHash": "5eb309a835fd4937617a4324b701ebe8",
+    "keywords": [
+      {
+        "keyword": "港区Appstore注册教程",
+        "slug": "hong-kong-appstore-registration-tutorial"
+      },
+      {
+        "keyword": "美区Apple ID充值方法",
+        "slug": "us-apple-id-top-up-method"
+      },
+      {
+        "keyword": "如何购买港区礼品卡",
+        "slug": "how-to-buy-hong-kong-gift-card"
+      },
+      {
+        "keyword": "外区Appstore怎么用",
+        "slug": "how-to-use-foreign-appstore"
+      },
+      {
+        "keyword": "Appstore礼品码兑换步骤",
+        "slug": "appstore-gift-code-redemption-steps"
+      }
+    ]
+  },
+  "/catalog-2/claude-chatgpt-gemini-registration-usage": {
+    "contentHash": "b6151be23dbb810b2f655c06695f037b",
+    "keywords": [
+      {
+        "keyword": "Claude注册教程",
+        "slug": "claude-registration-tutorial"
+      },
+      {
+        "keyword": "ChatGPT使用指南",
+        "slug": "chatgpt-usage-guide"
       }
     ]
   }

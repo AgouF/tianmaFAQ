@@ -9,4 +9,4 @@ lastUpdated: 1773142920000
 
 
 
-<RelatedCards :items='[{"title":"Linux以及服务器安装方式","link":"/catalog-2/directory-nesting-333/linux-server-installation"},{"title":"Windows安装方式","link":"/catalog-2/directory-nesting-333/windows-installation"},{"title":"MAC怎么安装VPN","link":"/more-info/mac-vpn-installation"},{"title":"MAC VPN推荐","link":"/more-info/mac-vpn-recommendation"}]' />
+<RelatedCards :items='[{"title":"Claude&ChatGPT&Gemini注册使用","link":"/catalog-2/claude-chatgpt-gemini-registration-usage"},{"title":"Linux以及服务器安装方式","link":"/catalog-2/directory-nesting-333/linux-server-installation"},{"title":"Windows安装方式","link":"/catalog-2/directory-nesting-333/windows-installation"},{"title":"MAC怎么安装VPN","link":"/more-info/mac-vpn-installation"},{"title":"MAC VPN推荐","link":"/more-info/mac-vpn-recommendation"}]' />

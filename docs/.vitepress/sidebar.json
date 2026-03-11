@@ -1,6 +1,6 @@
 [
   {
-    "text": "网络",
+    "text": "网络&各平台账号注册",
     "collapsed": true,
     "items": [
       {
@@ -8,8 +8,36 @@
         "collapsed": true,
         "items": [
           {
-            "text": "如何下载以及安装工具",
-            "link": "/network/vpn/how-to-download-and-install-tools"
+            "text": "下载使用合适的VPN应用程序",
+            "collapsed": true,
+            "items": [
+              {
+                "text": "MAC&IOS下载以及使用方式",
+                "link": "/network/vpn/how-to-download-and-install-tools/mac-ios-download-usage"
+              },
+              {
+                "text": "Windows下载以及使用方式",
+                "link": "/network/vpn/how-to-download-and-install-tools/windows-download-and-usage"
+              }
+            ]
+          },
+          {
+            "text": "如何搭建魔法",
+            "link": "/network/vpn/how-to-build-magic"
+          }
+        ]
+      },
+      {
+        "text": "各平台账号注册篇",
+        "collapsed": true,
+        "items": [
+          {
+            "text": "Google Email注册",
+            "link": "/network/account-registration-guide/google-email-registration"
+          },
+          {
+            "text": "外区Appstore注册方式以及充值方法",
+            "link": "/network/account-registration-guide/appstore-registration-and-top-up-methods"
           }
         ]
       }
@@ -19,6 +47,10 @@
     "text": "AI",
     "collapsed": true,
     "items": [
+      {
+        "text": "Claude&ChatGPT&Gemini注册使用",
+        "link": "/catalog-2/claude-chatgpt-gemini-registration-usage"
+      },
       {
         "text": "OpenClaw安装&进阶教程",
         "collapsed": true,
@@ -48,12 +80,76 @@
     "collapsed": true,
     "items": [
       {
-        "text": "工具下载教程",
-        "link": "/more-info/tool-download-tutorial"
+        "text": "小火箭怎么用",
+        "link": "/more-info/how-to-use-shadowrocket"
       },
       {
-        "text": "安装工具步骤",
-        "link": "/more-info/install-tool-steps"
+        "text": "Mac VPN设置教程",
+        "link": "/more-info/mac-vpn-setup-tutorial"
+      },
+      {
+        "text": "iOS外区账号注册",
+        "link": "/more-info/ios-foreign-appstore-account-registration"
+      },
+      {
+        "text": "shadowrocket导入订阅",
+        "link": "/more-info/shadowrocket-import-subscription"
+      },
+      {
+        "text": "VPN节点延迟测试",
+        "link": "/more-info/vpn-node-latency-test"
+      },
+      {
+        "text": "Windows VPN怎么用",
+        "link": "/more-info/windows-vpn-how-to-use"
+      },
+      {
+        "text": "天马VPN下载教程",
+        "link": "/more-info/tianma-vpn-download-tutorial"
+      },
+      {
+        "text": "VPN怎么搭建",
+        "link": "/more-info/how-to-set-up-vpn"
+      },
+      {
+        "text": "VPN搭建教程",
+        "link": "/more-info/vpn-setup-tutorial"
+      },
+      {
+        "text": "如何注册Google邮箱",
+        "link": "/more-info/how-to-register-google-email"
+      },
+      {
+        "text": "Gmail注册教程",
+        "link": "/more-info/gmail-registration-tutorial"
+      },
+      {
+        "text": "港区Appstore注册教程",
+        "link": "/more-info/hong-kong-appstore-registration-tutorial"
+      },
+      {
+        "text": "美区Apple ID充值方法",
+        "link": "/more-info/us-apple-id-top-up-method"
+      },
+      {
+        "text": "如何购买港区礼品卡",
+        "link": "/more-info/how-to-buy-hong-kong-gift-card"
+      },
+      {
+        "text": "外区Appstore怎么用",
+        "link": "/more-info/how-to-use-foreign-appstore"
+      },
+      {
+        "text": "Appstore礼品码兑换步骤",
+        "link": "/more-info/appstore-gift-code-redemption-steps"
+      },
+      {
+        "text": "Claude注册教程",
+        "link": "/more-info/claude-registration-tutorial"
+      },
+      {
+        "text": "ChatGPT使用指南",
+        "link": "/more-info/chatgpt-usage-guide"
       },
       {
         "text": "MAC怎么安装VPN",
@@ -76,16 +172,16 @@
         "link": "/more-info/windows-vpn-installation"
       },
       {
-        "text": "VPN安装教程",
-        "link": "/more-info/vpn-installation-tutorial"
+        "text": "VPN客户端下载教程",
+        "link": "/more-info/vpn-client-download-tutorial"
       },
       {
-        "text": "作者是谁",
-        "link": "/more-info/who-is-the-author"
+        "text": "VPN安全吗",
+        "link": "/more-info/vpn-security"
       },
       {
-        "text": "关于页面",
-        "link": "/more-info/about-page"
+        "text": "VPN推荐",
+        "link": "/more-info/vpn-recommendation"
       }
     ]
   }
