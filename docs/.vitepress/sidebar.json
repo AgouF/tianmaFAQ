@@ -80,16 +80,16 @@
     "collapsed": true,
     "items": [
       {
-        "text": "小火箭怎么用",
-        "link": "/more-info/how-to-use-shadowrocket"
+        "text": "小火箭怎么导入订阅链接",
+        "link": "/more-info/shadowrocket-import-subscription-link"
       },
       {
-        "text": "Mac VPN设置教程",
-        "link": "/more-info/mac-vpn-setup-tutorial"
+        "text": "Mac AppStore外区账号登录",
+        "link": "/more-info/mac-appstore-foreign-account-login"
       },
       {
-        "text": "外区AppStore账号注册",
-        "link": "/more-info/foreign-appstore-account-registration"
+        "text": "IOS VPN设置教程",
+        "link": "/more-info/ios-vpn-setup-tutorial"
       },
       {
         "text": "Windows VPN怎么用",
@@ -116,20 +116,20 @@
         "link": "/more-info/gmail-registration-tutorial"
       },
       {
-        "text": "港区Appstore注册教程",
-        "link": "/more-info/hong-kong-appstore-registration-tutorial"
+        "text": "港区Apple ID注册教程",
+        "link": "/more-info/hong-kong-apple-id-registration-tutorial"
       },
       {
-        "text": "美区Apple ID怎么注册",
-        "link": "/more-info/how-to-register-us-apple-id"
-      },
-      {
-        "text": "外区Appstore充值方法",
-        "link": "/more-info/foreign-appstore-top-up-methods"
+        "text": "美区Appstore充值方法",
+        "link": "/more-info/us-appstore-recharge-method"
       },
       {
         "text": "如何购买港区礼品卡",
-        "link": "/more-info/how-to-buy-hong-kong-gift-cards"
+        "link": "/more-info/how-to-buy-hong-kong-gift-card"
+      },
+      {
+        "text": "外区ID怎么绑定支付",
+        "link": "/more-info/how-to-bind-payment-for-foreign-id"
       },
       {
         "text": "Appstore兑换礼品码步骤",
@@ -160,20 +160,20 @@
         "link": "/more-info/mac-device-security-precautions"
       },
       {
-        "text": "MAC安装OpenAI环境",
-        "link": "/more-info/mac-install-openai-environment"
+        "text": "Python环境配置MAC",
+        "link": "/more-info/python-environment-setup-mac"
       },
       {
-        "text": "MAC切换npm镜像源",
-        "link": "/more-info/mac-change-npm-mirror"
+        "text": "NodeJS镜像源切换",
+        "link": "/more-info/nodejs-mirror-switch"
       },
       {
-        "text": "MAC初始化OpenClaw",
-        "link": "/more-info/mac-initialize-openclaw"
+        "text": "OpenClaw初始化配置",
+        "link": "/more-info/openclaw-initialization-setup"
       },
       {
-        "text": "MAC安装AI工具指南",
-        "link": "/more-info/mac-install-ai-tool-guide"
+        "text": "MAC开发环境搭建",
+        "link": "/more-info/mac-development-environment-setup"
       },
       {
         "text": "Linux服务器VPN安装教程",

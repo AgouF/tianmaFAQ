@@ -1,6 +1,6 @@
 ---
 title: "MAC & iOS Download and Usage Instructions"
-description: "Preparation 1.  An App Store account for a foreign region (register yourself or purchase on Xianyu). Registration tutori"
+description: "Preparation 1. An AppStore account for a foreign region (register yourself or purchase from platforms like Xianyu). Regi"
 lastUpdated: 1773201840000
 ---
 
@@ -10,19 +10,25 @@ lastUpdated: 1773201840000
 
 **Preparation**
 
-1.  An App Store account for a foreign region (register yourself or purchase on Xianyu). Registration tutorial: [Account Registration Guide for Various Platforms](/network/account-registration-guide/)
-2.  An iOS or Mac device.
+1. An AppStore account for a foreign region (register yourself or purchase from platforms like Xianyu). Registration tutorial: [Account Registration Guide for Various Platforms](/network/account-registration-guide/)
+2. An iOS or Mac device
 
 **Steps**
 
-1.  Log in with your foreign region account.
-    *   ⚠️ For Mac's App Store, you need to log out of your current App Store account in **System Settings > Apple Account > Media & Purchases**.
-    *   🈲 **Do NOT** log purchased accounts into iCloud.
-2.  After logging in, open the App Store and search for "小火箭" or "Shadowrocket".
-3.  Open the webpage where you purchased your VPN service. You will find an import method similar to the image below.
-    ![](/images/39be0c2b13aa.webp)
-4.  Choose any option, copy the link, then open Shadowrocket. It will automatically read the clipboard and import. If it doesn't recognize your clipboard, click the "+" in the top right corner of Shadowrocket and paste your subscription link.
-    ![](/images/39aeb019814c.webp)
-5.  Perform a connectivity test to check the latency of the current node.
+Log in with your foreign region account. ⚠️ For Mac's AppStore, you need to log out of your current AppStore account in **System Settings > Apple Account > Media & Purchases**.
 
-<RelatedCards :items='[{"title":"Windows Download and Usage Guide","link":"/network/vpn/how-to-download-and-install-tools/windows-download-and-usage"},{"title":"How to Set Up Magic","link":"/network/vpn/how-to-build-magic"},{"title":"Google Email Registration","link":"/network/account-registration-guide/google-email-registration"},{"title":"Foreign AppStore Registration and Top-up Methods","link":"/network/account-registration-guide/appstore-registration-and-top-up-methods"},{"title":"How to Use Shadowrocket","link":"/more-info/how-to-use-shadowrocket"},{"title":"Mac VPN Setup Tutorial","link":"/more-info/mac-vpn-setup-tutorial"},{"title":"Foreign AppStore Account Registration","link":"/more-info/foreign-appstore-account-registration"}]' />
+⚠️ **Do not log purchased accounts into iCloud.**
+
+After logging in, open the AppStore and search for "小火箭" or "shadowrocket".
+
+Open the webpage where you purchased your VPN service. You will find an import method similar to the image below:
+
+![](/images/8696cb2af9ad.webp)
+
+Choose any option, copy the link, then open Shadowrocket. It will automatically read the clipboard and import the configuration. If it doesn't recognize your clipboard, click the "+" in the top right corner of Shadowrocket and paste your subscription link.
+
+![](/images/c0c0548bfe6c.webp)
+
+**Connectivity Test**: Test the latency of the current node.
+
+<RelatedCards :items='[{"title":"Windows Download and Usage Guide","link":"/network/vpn/how-to-download-and-install-tools/windows-download-and-usage"},{"title":"How to Set Up Magic","link":"/network/vpn/how-to-build-magic"},{"title":"Google Email Registration","link":"/network/account-registration-guide/google-email-registration"},{"title":"Foreign Region AppStore Registration and Top-up Methods","link":"/network/account-registration-guide/appstore-registration-and-top-up-methods"},{"title":"How to Import Subscription Links in Shadowrocket","link":"/more-info/shadowrocket-import-subscription-link"},{"title":"Logging into a Foreign Account on Mac AppStore","link":"/more-info/mac-appstore-foreign-account-login"},{"title":"iOS VPN Setup Tutorial","link":"/more-info/ios-vpn-setup-tutorial"}]' />
