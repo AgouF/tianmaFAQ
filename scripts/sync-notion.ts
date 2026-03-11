@@ -317,7 +317,10 @@ function replaceNotionLinks(content: string): string {
     /https?:\/\/(?:www\.)?notion\.so\/(?:[^\/\s]*\/)?(?:[^\s)]*?)?([a-f0-9]{32})(?:[?\s)#]|$)/g,
     (match, id) => {
       const path = pageIdToPath.get(id)
-      if (path) return match.replace(/https?:\/\/(?:www\.)?notion\.so\/[^\s)#]*/, path)
+      if (path) {
+        return match.replace(/https?:\/\/(?:www\.)?notion\.so\/[^\s)#]*/, path)
+      }
+      console.log(`  [WARN] replaceNotionLinks: ID not in pageIdToPath: ${id}`)
       return match
     }
   )
@@ -902,7 +905,11 @@ function richTextToMd(richTexts: any[]): string {
       const notionMatch = url.match(/notion\.so\/(?:[^/]*\/)?(?:[^?]*?)([a-f0-9]{32})/)
       if (notionMatch) {
         const path = pageIdToPath.get(notionMatch[1])
-        if (path) url = path
+        if (path) {
+          url = path
+        } else {
+          console.log(`  [WARN] Notion link ID not found in pageIdToPath: ${notionMatch[1]} (url: ${url})`)
+        }
       }
       // Also handle bare Notion ID links (/<32-hex-id> format)
       if (!notionMatch) {
@@ -1231,7 +1238,11 @@ async function main() {
   // Pass 1: Scan tree and build page ID → path mapping
   console.log('Scanning page tree...\n')
   const pageTree = await scanPages(rootPageId, DOCS_DIR, '', 0)
-  console.log(`Mapped ${pageIdToPath.size} pages\n`)
+  console.log(`Mapped ${pageIdToPath.size} pages:`)
+  for (const [id, path] of pageIdToPath.entries()) {
+    if (!id.includes('-')) console.log(`  ${id} → ${path}`)
+  }
+  console.log()
 
   // Pass 2: Generate markdown with correct internal links
   const sidebar = await generatePages(pageTree)
