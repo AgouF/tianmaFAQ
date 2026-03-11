@@ -52,7 +52,7 @@
     ]
   },
   "/network/vpn/how-to-download-and-install-tools/mac-ios-download-usage": {
-    "contentHash": "40ceee7fc1685f3b497b0408bcfd3473",
+    "contentHash": "604cfb0871b8d077801f4ce5e1be51b7",
     "keywords": [
       {
         "keyword": "小火箭怎么用",
@@ -67,12 +67,12 @@
         "slug": "ios-foreign-appstore-account-registration"
       },
       {
-        "keyword": "shadowrocket导入订阅",
-        "slug": "shadowrocket-import-subscription"
+        "keyword": "shadowrocket订阅链接导入",
+        "slug": "shadowrocket-subscription-link-import"
       },
       {
-        "keyword": "VPN节点延迟测试",
-        "slug": "vpn-node-latency-test"
+        "keyword": "Mac AppStore切换账号",
+        "slug": "mac-appstore-switch-account"
       }
     ]
   },
@@ -116,7 +116,7 @@
     ]
   },
   "/network/account-registration-guide/appstore-registration-and-top-up-methods": {
-    "contentHash": "5eb309a835fd4937617a4324b701ebe8",
+    "contentHash": "5c9a936dfaaacf760972ad84bd6d6719",
     "keywords": [
       {
         "keyword": "港区Appstore注册教程",
@@ -131,12 +131,12 @@
         "slug": "how-to-buy-hong-kong-gift-card"
       },
       {
-        "keyword": "外区Appstore怎么用",
-        "slug": "how-to-use-foreign-appstore"
+        "keyword": "Appstore兑换礼品码步骤",
+        "slug": "appstore-redeem-gift-code-steps"
       },
       {
-        "keyword": "Appstore礼品码兑换步骤",
-        "slug": "appstore-gift-code-redemption-steps"
+        "keyword": "外区ID绑定支付方式",
+        "slug": "foreign-apple-id-payment-method"
       }
     ]
   },

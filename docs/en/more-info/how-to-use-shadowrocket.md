@@ -1,60 +1,65 @@
 ---
 title: "How to use Shadowrocket?"
-description: "Shadowrocket is a widely popular proxy tool application on the iOS platform, primarily used for configuring and using VP"
-lastUpdated: 1773203374036
+description: "Shadowrocket is a widely popular proxy client tool on iOS and macOS platforms. It is not a VPN service itself, but a pow"
+lastUpdated: 1773205354906
 ---
 
 # How to Use Shadowrocket
 
-## Introduction and Core Features of Shadowrocket
+## What is Shadowrocket?
 
-Shadowrocket is a widely popular proxy tool application on the iOS platform, primarily used for configuring and using VPNs, proxy servers, and other network connections to achieve internet access, access international networks, or enhance online privacy. It supports various proxy protocols such as SS/SSR, V2Ray, Trojan, HTTP/Socks5, and is highly favored by users for its flexible configuration and intuitive interface. To use it, you first need to purchase and download the app from a non-China region App Store (e.g., US, Hong Kong accounts).
+Shadowrocket is a widely popular proxy client tool on iOS and macOS platforms. It is not a VPN service itself, but a powerful network debugging tool and proxy client that supports multiple proxy protocols. Users can configure and manage their own proxy servers through it to achieve purposes such as accessing the global internet, protecting privacy, or performing network debugging. Due to its flexible configuration and intuitive interface, it has become the tool of choice for many Apple device users.
 
-## How to Configure and Use Shadowrocket
+## How to Obtain and Install Shadowrocket
 
-After successfully installing the app, using Shadowrocket mainly involves the following steps:
+Due to its functional characteristics, Shadowrocket cannot be directly downloaded from the App Store in mainland China. Typically, users need a non-mainland China Apple ID to access the App Store and download this application.
 
-### 1. Obtain Server Subscription Link or Manual Configuration
-This is the most critical step. You need to obtain server configuration information from a reliable VPN service provider. There are typically two methods:
-*   **Subscription Link (Recommended)**: Most providers offer a subscription URL. You just need to copy this link.
-*   **Manual Configuration**: If the provider provides separate server details like address, port, password, and encryption method, you can enter them manually.
+1.  **Obtain a Non-Mainland Apple ID**: You can register one yourself (e.g., US or Hong Kong account) or obtain one from a trusted source. Registration requires a corresponding payment method and address information.
+2.  **Switch App Store Account**: In the iOS App Store or macOS App Store, log out of your current China region account and log in with your prepared non-mainland account.
+3.  **Search and Download**: Search for "Shadowrocket" in the App Store, and click to purchase/download once found. This is a paid application, usually requiring a small fee.
+4.  **Install and Trust**: After downloading, if a prompt like "Untrusted Enterprise Developer" appears upon first opening, you need to go to your device's "Settings" > "General" > "VPN & Device Management" (or "Profiles & Device Management"), find the corresponding developer certificate, and select "Trust".
 
-### 2. Add Configuration Within the App
-*   Open the Shadowrocket app and tap the "+" icon in the top right corner.
-*   **Using a Subscription Link**: Select the "Type" as `Subscribe`, then paste the copied subscription URL into the "URL" field, and tap "Done" in the top right corner to save.
-*   **Manual Configuration**: Based on the server type (e.g., Shadowsocks), select the corresponding type, then fill in the server, port, password, encryption method, and other details one by one.
+For more detailed steps on downloading, installing, and initial setup, you can refer to our dedicated guide: [MAC&IOS Download and Usage Guide](/network/vpn/how-to-download-and-install-tools/mac-ios-download-usage).
 
-### 3. Connect and Disconnect
-After adding the configuration, you will see the new node in the main server list. Tap the node you want to connect to, and the app will attempt to establish a connection. Once successfully connected, a VPN icon (shaped like a small rocket) will appear at the top of your screen, indicating your device's network traffic is being routed through that proxy server. Tap the large circular switch on the main interface to disconnect.
+## Basic Configuration and Usage
 
-### 4. Advanced Settings and Mode Selection
-Shadowrocket offers powerful rule configuration features. You can set the proxy mode according to your needs:
-*   **Proxy Mode**: All traffic goes through the proxy.
-*   **Configuration Mode (Recommended)**: The most commonly used mode. Only websites or IPs matched by the rule list go through the proxy; other traffic connects directly. This can save international bandwidth and speed up domestic access.
-*   **Direct Mode**: No traffic goes through the proxy.
-You can edit rules under "Config" -> "Proxy" or use rule set links provided by your service provider.
+After successful installation, you need to obtain usable proxy server information (such as node subscription links or manual configuration parameters) to start using it.
 
-## Precautions and Tips for Using Shadowrocket
+**The core usage process is as follows:**
 
-1.  **Ensure Subscription Information is Valid**: Subscription links or server information may expire or become invalid. If you cannot connect, first check the server status.
-2.  **Understand Proxy Rules**: Properly configuring rules is key to a smooth experience. Beginners can start by testing connectivity in "Proxy Mode," then switch to "Configuration Mode" and import mature rule sets.
-3.  **Pay Attention to System Notifications**: In iOS "Settings" > "Shadowrocket," ensure "Notifications" and "VPN" configuration permissions are enabled; otherwise, connections may not work properly.
-4.  **Node Selection**: Typically, choosing a node with close physical proximity and low load results in lower latency and faster speeds.
-5.  **Comparison with Tools like Clash**: Shadowrocket leans more towards being a simple, direct proxy client, while tools like Clash support more complex rules and load balancing. You can choose based on your needs. For download and usage guides for related Mac and iOS platform tools, you can refer to this guide: [MAC&IOS Download and Usage Guide](/network/vpn/how-to-download-and-install-tools/mac-ios-download-usage).
+1.  **Add Proxy Server**:
+    *   **Subscription Link (Recommended)**: This is the most common method. On the Shadowrocket main interface, tap the "+" in the top right corner and select "Subscribe". Paste the subscription link provided by your service provider into the "URL" field, then tap "Done" in the top right corner. Shadowrocket will automatically fetch the server list from that link.
+    *   **Manual Configuration**: If you have detailed parameters for a single server (such as address, port, password, encryption method, etc.), you can choose "Add Manually" to fill them in one by one.
+
+2.  **Connect and Disconnect**:
+    *   After adding servers, you will see available nodes in the server list on the main interface. Tap the node you want to connect to, and a switch will appear on the right. Tap it to turn on and connect.
+    *   After a successful connection, a "VPN" icon will appear at the top of the screen, indicating the proxy is active. Tap the switch again to disconnect.
+
+3.  **Global Routing and Proxy Rules**:
+    *   This is one of Shadowrocket's core features. Select the "Config" tab in the bottom menu to set traffic routing rules.
+    *   **Proxy**: All traffic goes through the proxy server.
+    *   **Config** (Rule Mode): This is the smartest mode. Shadowrocket decides which traffic goes through the proxy (e.g., foreign websites) and which traffic connects directly (e.g., domestic websites) based on built-in or your custom rule lists. This mode is recommended for first-time use.
+    *   **Direct**: All traffic bypasses the proxy.
+    *   **Scene**: Can automatically switch configuration modes based on different network environments (e.g., different Wi-Fi networks).
+
+## Advanced Features and Setup Recommendations
+
+*   **Latency Test**: Long-press a node in the server list to perform a "Connectivity Test" to check its current latency, helping you choose the fastest node.
+*   **View Logs**: In the "Logs" tab, you can view detailed connection and request logs, which is very helpful for troubleshooting network issues.
+*   **HTTPS Decryption**: Advanced users can use this to debug HTTPS traffic; ordinary users do not need to enable it.
+*   **Battery Saving & Background App Refresh**: To ensure the app runs continuously in the background, it is recommended to enable "Wireless Data" and "Background App Refresh" for Shadowrocket in iOS "Settings".
+
+**Usage Recommendation**: For most users, maintaining "Rule" mode and regularly updating the server list via subscription links will provide a stable and intelligent internet experience. Always obtain subscription links from trustworthy service providers to ensure network security and privacy.
 
 ## Frequently Asked Questions
 
-### Where can I download Shadowrocket?
-Shadowrocket is not listed on the Chinese mainland App Store. You need to use a non-China region Apple ID (e.g., US, Hong Kong, Japan, etc.) to log into the App Store, then search for "Shadowrocket" to purchase and download it. Please note, this is a paid application.
+### What should I do if I can't access the internet after connecting with Shadowrocket?
+First, check if your proxy server subscription is valid and if the node information is correct. Try switching to "Direct" mode. If you can access the internet, then the issue is with the proxy server. If you still cannot access the internet in Direct mode, check your local network connection. Additionally, you can check Shadowrocket's "Logs" page, which usually provides specific error messages.
 
-### Why are there no server nodes after adding a subscription?
-First, check if the subscription link was copied completely and is valid. Then, try enabling the "Update on Launch" option in Shadowrocket's "Settings" -> "Server Subscription" and manually pull down the main server list to refresh. If it still doesn't appear, the subscription link may be expired or in an unsupported format; contact your service provider.
+### What's the difference between Shadowrocket and a VPN?
+Shadowrocket is a **proxy client tool** that requires you to configure usable proxy servers yourself (these servers may be provided by third-party VPN services or providers). What is commonly referred to as a VPN (like some well-known brand VPN apps) is a **service that integrates the client and its own server network**; you only need to log in to an account to use it. Shadowrocket offers more flexible protocol support and traffic routing capabilities.
 
-### What should I do if the connection is successful but I can't access the internet?
-Please troubleshoot in order:
-1.  Check if your local network is working (e.g., Wi-Fi or cellular data).
-2.  Try switching to different proxy server nodes.
-3.  Check the rule settings in Shadowrocket's "Config" -> "Proxy." Try temporarily switching to "Proxy Mode" for testing. If you can access the internet in Proxy Mode, it indicates a rule issue; you need to adjust or update the rule set.
-4.  Restart the Shadowrocket app or restart your phone.
+### Why does Shadowrocket frequently disconnect in the background?
+This is usually caused by the iOS system forcibly closing background apps to save battery. Please ensure that "Background App Refresh" permission is enabled for Shadowrocket in the iOS system settings. Also, within Shadowrocket's settings, you can try enabling options like "Compatibility Mode" or "Always Connected" to improve stability. Keeping the app running in the foreground is the most stable method.
 
-<RelatedCards :items='[{"title":"MAC&IOS下载以及使用方式","link":"/network/vpn/how-to-download-and-install-tools/mac-ios-download-usage"}]' />
+<RelatedCards :items='[{"title":"MAC&IOS Download and Usage Guide","link":"/network/vpn/how-to-download-and-install-tools/mac-ios-download-usage"}]' />

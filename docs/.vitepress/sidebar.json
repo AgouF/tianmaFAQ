@@ -92,12 +92,12 @@
         "link": "/more-info/ios-foreign-appstore-account-registration"
       },
       {
-        "text": "shadowrocket导入订阅",
-        "link": "/more-info/shadowrocket-import-subscription"
+        "text": "shadowrocket订阅链接导入",
+        "link": "/more-info/shadowrocket-subscription-link-import"
       },
       {
-        "text": "VPN节点延迟测试",
-        "link": "/more-info/vpn-node-latency-test"
+        "text": "Mac AppStore切换账号",
+        "link": "/more-info/mac-appstore-switch-account"
       },
       {
         "text": "Windows VPN怎么用",
@@ -136,12 +136,12 @@
         "link": "/more-info/how-to-buy-hong-kong-gift-card"
       },
       {
-        "text": "外区Appstore怎么用",
-        "link": "/more-info/how-to-use-foreign-appstore"
+        "text": "Appstore兑换礼品码步骤",
+        "link": "/more-info/appstore-redeem-gift-code-steps"
       },
       {
-        "text": "Appstore礼品码兑换步骤",
-        "link": "/more-info/appstore-gift-code-redemption-steps"
+        "text": "外区ID绑定支付方式",
+        "link": "/more-info/foreign-apple-id-payment-method"
       },
       {
         "text": "Claude注册教程",
