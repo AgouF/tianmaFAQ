@@ -11,7 +11,7 @@ lastUpdated: 1773201840000
 ### Preparations
 
 1. **AppStore Foreign Region Account** (Register yourself or purchase from platforms like Xianyu)  
-   Registration Tutorial: [Account Registration Guide for Various Platforms](/network/account-registration-guide)
+   Registration Tutorial: [Account Registration Guide for Various Platforms](/network/account-registration-guide/)
 
 2. **iOS or Mac Device**
 

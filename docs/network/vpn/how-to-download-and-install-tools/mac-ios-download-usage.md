@@ -12,7 +12,7 @@ ogImage: "https://tianma.xin/images/41f82e406368.webp"
 
 准备工作
 
-1. AppStore外区账号（自己注册或者闲鱼购买）注册教程 [各平台账号注册篇](/network/account-registration-guide)
+1. AppStore外区账号（自己注册或者闲鱼购买）注册教程 [各平台账号注册篇](/network/account-registration-guide/)
 
 1. IOS或Mac设备
 
