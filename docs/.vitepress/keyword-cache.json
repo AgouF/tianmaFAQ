@@ -1,14 +1,38 @@
 {
   "/catalog-2/directory-nesting-333/mac-installation": {
-    "contentHash": "359fd7ee5fdbc14f84fe38c0a76a1bbe",
+    "contentHash": "f222ce5a5afbebf6c755dd4546aa3a4c",
     "keywords": [
       {
-        "keyword": "MAC怎么安装VPN",
-        "slug": "mac-vpn-installation"
+        "keyword": "MAC安装Python教程",
+        "slug": "mac-install-python-tutorial"
       },
       {
-        "keyword": "MAC VPN推荐",
-        "slug": "mac-vpn-recommendation"
+        "keyword": "MAC安装NodeJS步骤",
+        "slug": "mac-install-nodejs-steps"
+      },
+      {
+        "keyword": "OpenClaw怎么安装",
+        "slug": "how-to-install-openclaw"
+      },
+      {
+        "keyword": "MAC设备安全注意事项",
+        "slug": "mac-device-security-precautions"
+      },
+      {
+        "keyword": "Python环境配置MAC",
+        "slug": "python-environment-setup-mac"
+      },
+      {
+        "keyword": "NodeJS镜像源切换",
+        "slug": "nodejs-mirror-switch"
+      },
+      {
+        "keyword": "MAC安装AI工具",
+        "slug": "mac-install-ai-tools"
+      },
+      {
+        "keyword": "OpenClaw初始化配置",
+        "slug": "openclaw-initialization-configuration"
       }
     ]
   },
@@ -52,7 +76,7 @@
     ]
   },
   "/network/vpn/how-to-download-and-install-tools/mac-ios-download-usage": {
-    "contentHash": "94b0edfba76046219ba629406bb20e12",
+    "contentHash": "f3fc7a7c471f8bedf6808b17486c930b",
     "keywords": [
       {
         "keyword": "小火箭怎么导入订阅链接",
@@ -108,15 +132,15 @@
     ]
   },
   "/network/account-registration-guide/appstore-registration-and-top-up-methods": {
-    "contentHash": "6d2649c7d7b94f7947695e0417087eca",
+    "contentHash": "6364f297498d8d74b6ae43fa772ce575",
     "keywords": [
       {
-        "keyword": "港区Apple ID注册教程",
-        "slug": "hong-kong-apple-id-registration-tutorial"
+        "keyword": "港区Appstore怎么注册",
+        "slug": "hong-kong-appstore-registration"
       },
       {
-        "keyword": "美区Appstore如何充值",
-        "slug": "us-appstore-how-to-top-up"
+        "keyword": "美区Apple ID充值方法",
+        "slug": "us-apple-id-top-up-method"
       },
       {
         "keyword": "外区Appstore礼品卡购买",
@@ -127,8 +151,8 @@
         "slug": "how-to-redeem-appstore-gift-code"
       },
       {
-        "keyword": "Shadowrocket购买方法",
-        "slug": "shadowrocket-purchase-method"
+        "keyword": "Shadowrocket港区购买教程",
+        "slug": "shadowrocket-hong-kong-purchase-tutorial"
       }
     ]
   },

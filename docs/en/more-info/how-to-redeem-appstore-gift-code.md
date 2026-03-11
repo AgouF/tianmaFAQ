@@ -1,56 +1,57 @@
 ---
 title: "How to redeem an App Store gift card"
-description: "Redeeming an App Store gift code is a convenient way to add balance to your App Store account, purchase apps, make in-ap"
-lastUpdated: 1773207656011
+description: "App Store gift cards are an excellent choice for gifting to friends and family or treating yourself. They can be used to"
+lastUpdated: 1773216060055
 ---
 
-# How to Redeem App Store Gift Codes
+# How to Redeem an App Store Gift Card
 
-## How to Redeem App Store Gift Cards or Codes
+## How to Redeem an App Store Gift Card
 
-Redeeming an App Store gift code is a convenient way to add balance to your App Store account, purchase apps, make in-app purchases, or subscribe to services. Whether you've received a physical card, a digital code, or a promotional redemption code, the entire process is very simple and quick. Here are the detailed steps and important considerations.
+App Store gift cards are an excellent choice for gifting to friends and family or treating yourself. They can be used to purchase apps, games, subscription services (like Apple Music, iCloud+), and media content. The redemption process is simple and quick, and can be easily completed on an iPhone, iPad, Mac, or Windows computer. Mastering the correct redemption method allows you to immediately enjoy the pleasures of digital consumption.
 
-### Preparations Before Redeeming
+### Key Preparations Before Redemption
 
-Before you begin, ensure you have the following ready:
-1.  **Log in to the Correct Apple ID**: This is the most crucial step. The gift card balance will be added to the currently logged-in Apple ID account and is **tied to the account's region**. For example, a US region gift card can only be redeemed to a US region Apple ID account and cannot be used for a China region account. If you need to register for a foreign region account, you can refer to this guide: [How to Register and Top Up a Foreign Region App Store Account](/network/account-registration-guide/appstore-registration-and-top-up-methods).
-2.  **Check Your Device**: You can redeem on an iPhone, iPad, iPod touch, Mac, or via iTunes on a PC.
-3.  **Have Your Code Ready**: If it's a physical card, scratch off the coating to reveal the code. If it's a digital card or promotional code, make sure you have accurately copied the string of uppercase letters and numbers.
+Before starting the redemption, please be sure to confirm the following two points, as they are the foundation for a successful redemption:
+
+1.  **Confirm the Gift Card Region**: This is the most important step! App Store gift cards are **region-locked**. For example, a US-region gift card can only be redeemed into a US-region Apple ID account and cannot be used with a China-region account. Please check the back of the gift card or the purchase information to confirm its corresponding country or region.
+2.  **Log in to the Corresponding Apple ID**: Ensure you are logged into an Apple ID account on your device that **exactly matches** the gift card's region. If you don't have an account for the corresponding region yet, you can refer to this detailed guide to create one: [How to Register for and Top Up an App Store Account in Other Regions](/network/account-registration-guide/appstore-registration-and-top-up-methods).
 
 ### Redeeming on iPhone or iPad
 
-This is the most common method, with an intuitive process:
+This is the most commonly used redemption method, with intuitive steps:
+
 1.  Open the **App Store** app.
-2.  Tap your **profile picture icon** in the top-right corner to go to your account page.
-3.  Tap **"Redeem Gift Card or Code"**. You might be asked to authenticate with Face ID, Touch ID, or your password.
-4.  You have two ways to enter the code:
-    *   **Scan with Camera**: If you have a physical gift card, simply point your camera at the code area on the back of the card. The system will automatically recognize and fill it in.
-    *   **Enter Manually**: Tap "Enter Code Manually", then carefully type or paste your redemption code. After confirming it's correct, tap "Redeem" in the top-right corner.
-5.  Upon successful redemption, the system will notify you that the balance has been added to your account. You can then use this balance for purchases.
+2.  Tap your **profile picture** in the top-right corner of the screen to enter your account page.
+3.  Tap **"Redeem Gift Card or Code"**. You can also directly tap "Add Funds" to access the redemption interface.
+4.  At this point, you have two options:
+    *   **Use the Camera to Scan**: Directly place the scratched-off code from the back of the gift card within the camera frame, and the system will automatically recognize it.
+    *   **Manual Entry**: Tap "You can also enter the code manually," then carefully enter the redemption code. Please pay attention to case sensitivity and easily confused characters (like 0 and O).
+5.  Tap **"Redeem"** in the top-right corner. Upon success, the balance will be immediately added to your Apple ID account.
 
-### Redeeming on Mac or PC
+### Redeeming on Mac or Windows Computer
 
-If you prefer to operate on a computer:
-*   **On Mac**: Open the **App Store** app, click your name or profile picture at the bottom of the sidebar, select "View Information", and find the "Redeem Gift Card" option on the account settings page.
-*   **In iTunes on PC (Windows)**: Open iTunes, ensure you are logged in. From the menu bar, click "Account" > "Redeem", then enter your code.
+If you prefer to operate on a computer, the process is equally simple:
 
-### Important Notes and Practical Tips
+1.  **On a Mac**: Open the **App Store** app. At the bottom of the left sidebar, find and click your account name, then select **"Redeem Gift Card"**.
+2.  **On a Windows PC**: Open the **iTunes** app (Please note: Apple no longer updates new versions of iTunes for Windows, but the redemption function in older versions is still available). Click **"Account"** in the menu bar, then select **"Redeem"**.
+3.  In the pop-up window, enter your gift card redemption code, then click the **"Redeem"** button.
 
-*   **Region Matching is a Firm Rule**: To reiterate, the gift card must exactly match the country or region of your Apple ID's store. Otherwise, redemption will fail with an "invalid code" prompt.
-*   **Balances Cannot Be Transferred or Combined**: Balances in accounts from different regions are independent and cannot be merged across regions or transferred to others.
-*   **Check Expiry Dates**: Most official gift cards do not expire, but some promotional codes may have a validity period. Redeem them promptly.
-*   **Security Tip**: Only purchase gift cards from Apple-authorized retailers to avoid the risk of buying stolen or fraudulent cards, which could lead to account suspension.
-*   **Uses After Redemption**: The balance can be used to purchase paid apps, in-app purchases, subscribe to services like Apple Music, iCloud+, Apple TV+, and buy movies, music, and books (depending on regional availability).
+### Using and Checking Your Balance After Redemption
+
+After successful redemption, the balance will be automatically deposited into your Apple ID. These funds can be used for any purchase within the App Store. When buying apps or subscriptions, the system will prioritize charging the gift card balance first, with any remaining balance due charged to your linked payment method.
+
+*   **Checking Your Balance**: On iPhone or iPad, go to the App Store -> Tap your profile picture -> Your balance will be visible below your account name. In the Mac App Store, the balance is displayed below the account name in the sidebar.
 
 ## Frequently Asked Questions
 
-### What to do if prompted "This code is invalid" during redemption?
-First, **carefully double-check the code** to ensure no characters are entered incorrectly (e.g., number 0 vs. letter O, number 1 vs. letter I). The most common cause is **region mismatch**. Confirm that your Apple ID's store region matches the gift card's issuing region. If it's confirmed correct and still won't redeem, the code itself might be problematic. Contact the customer service of your purchase channel.
+### What to do if prompted "Code is invalid" or "Cannot be redeemed" during redemption?
+First, **carefully double-check the entered code** to ensure no characters are mistyped. If confirmed correct, the most common reason is a **mismatch between the account region and the gift card region**. Please check if your Apple ID's country/region matches the gift card's requirement. Additionally, ensure the gift card itself has not been used before and was purchased from official or authorized channels.
 
-### Can the gift card balance be refunded or withdrawn after redemption?
-According to Apple's terms, **once an App Store gift card balance is added to an account, it cannot be refunded, cashed out, or transferred to another Apple ID**. The balance can only be used for consumption within the Apple ecosystem, such as the App Store and iTunes Store. Therefore, be sure to confirm the account region and top-up amount before redeeming.
+### Can gift card balances be used across regions or transferred?
+**No**. App Store gift card balances are strictly restricted to use within the corresponding regional store. They cannot be transferred to another region's Apple ID, nor can they be directly used for consumption in other regions. For example, a US balance can only be used in the US App Store.
 
-### Are redemption codes and gift cards the same thing?
-Essentially, both are codes used to obtain balance or content. Typically, "gift card" refers to a prepaid card you can purchase in chosen denominations (e.g., $50, $100), which becomes account balance after redemption. "Redemption code" often refers to a dedicated code for a specific app, in-game item, or media content (like a song or movie), granting that item directly upon redemption, not necessarily converting to a general balance. The redemption entry points and processes for both are basically the same.
+### Can the balance be refunded or withdrawn after redemption?
+According to Apple's terms, **once a gift card balance is added to an account, it cannot be refunded, withdrawn, or exchanged for cash**. The balance also cannot be transferred between different Apple IDs. Please be sure to confirm the region is correct before proceeding with the redemption.
 
 <RelatedCards :items='[{"title":"外区Appstore注册方式以及充值方法","link":"/network/account-registration-guide/appstore-registration-and-top-up-methods"}]' />
