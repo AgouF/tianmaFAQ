@@ -22,7 +22,7 @@
             ]
           },
           {
-            "text": "How to build a VPN",
+            "text": "How to build a magic system",
             "link": "/en/network/vpn/how-to-build-magic"
           }
         ]
@@ -48,7 +48,7 @@
     "collapsed": true,
     "items": [
       {
-        "text": "Claude & ChatGPT & Gemini Registration and Usage",
+        "text": "Claude&ChatGPT&Gemini Registration and Usage",
         "link": "/en/catalog-2/claude-chatgpt-gemini-registration-usage"
       },
       {
@@ -84,12 +84,12 @@
         "link": "/en/more-info/how-to-use-shadowrocket"
       },
       {
-        "text": "Registering an App Store Account from a Different Region",
-        "link": "/en/more-info/register-foreign-appstore-account"
+        "text": "Mac VPN Setup Tutorial",
+        "link": "/en/more-info/mac-vpn-setup-tutorial"
       },
       {
-        "text": "VPN Subscription Link Import Tutorial",
-        "link": "/en/more-info/vpn-subscription-link-import-tutorial"
+        "text": "Registering an App Store Account from a Different Region",
+        "link": "/en/more-info/foreign-appstore-account-registration"
       },
       {
         "text": "How to use Windows VPN",
@@ -116,24 +116,24 @@
         "link": "/en/more-info/gmail-registration-tutorial"
       },
       {
-        "text": "How to register for an App Store from another region?",
-        "link": "/en/more-info/how-to-register-for-foreign-appstore"
+        "text": "Hong Kong Apple ID Registration Tutorial",
+        "link": "/en/more-info/hong-kong-apple-id-registration-tutorial"
       },
       {
-        "text": "Hong Kong and US Apple ID Registration Tutorial",
-        "link": "/en/more-info/hong-kong-us-apple-id-registration-tutorial"
+        "text": "US App Store Top-Up Methods",
+        "link": "/en/more-info/us-appstore-top-up-method"
       },
       {
-        "text": "How to top up on the App Store from outside the region?",
-        "link": "/en/more-info/how-to-top-up-foreign-appstore"
+        "text": "How to purchase Hong Kong region gift cards?",
+        "link": "/en/more-info/how-to-buy-hong-kong-gift-card"
       },
       {
-        "text": "Hong Kong District Gift Card Purchase and Redemption Methods",
-        "link": "/en/more-info/hong-kong-gift-card-purchase-redemption-method"
+        "text": "Steps to redeem a gift code on the App Store:",
+        "link": "/en/more-info/appstore-redeem-gift-code-steps"
       },
       {
-        "text": "Shadowrocket purchase payment methods",
-        "link": "/en/more-info/shadowrocket-purchase-payment-methods"
+        "text": "Precautions for Registering with an Out-of-Region ID",
+        "link": "/en/more-info/foreign-apple-id-registration-notes"
       },
       {
         "text": "Claude Registration Tutorial",
@@ -152,7 +152,7 @@
         "link": "/en/more-info/mac-install-nodejs-steps"
       },
       {
-        "text": "How to install OpenClaw?",
+        "text": "How to install OpenClaw",
         "link": "/en/more-info/how-to-install-openclaw"
       },
       {
@@ -160,20 +160,20 @@
         "link": "/en/more-info/mac-device-security-precautions"
       },
       {
-        "text": "ChatGPT Registration and Usage Guide",
-        "link": "/en/more-info/chatgpt-registration-usage-guide"
+        "text": "VPN network environment configuration",
+        "link": "/en/more-info/vpn-network-environment-setup"
+      },
+      {
+        "text": "ChatGPT Account Registration Method",
+        "link": "/en/more-info/chatgpt-account-registration-method"
       },
       {
         "text": "MAC Development Environment Setup",
         "link": "/en/more-info/mac-development-environment-setup"
       },
       {
-        "text": "VPN Network Environment Setup",
-        "link": "/en/more-info/vpn-network-environment-setup"
-      },
-      {
-        "text": "MAC Installation Tutorial for AI Tools",
-        "link": "/en/more-info/mac-install-ai-tools-tutorial"
+        "text": "OpenAI Codex Configuration Guide",
+        "link": "/en/more-info/openai-codex-configuration-guide"
       },
       {
         "text": "Linux Server VPN Installation Tutorial",

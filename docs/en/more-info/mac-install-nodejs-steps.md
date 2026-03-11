@@ -1,108 +1,65 @@
 ---
 title: "Steps to Install Node.js on macOS"
-description: "Node.js is an indispensable JavaScript runtime environment in modern web development, essential for front-end engineerin"
-lastUpdated: 1773230713636
+description: "Node.js is the core runtime environment for modern web development and JavaScript server-side programming. There are sev"
+lastUpdated: 1773240191825
 ---
 
 # Steps to Install NodeJS on MAC
 
 ## Node.js Installation Guide on macOS
 
-Node.js is an indispensable JavaScript runtime environment in modern web development, essential for front-end engineering, back-end API development, and build toolchains. There are several reliable methods to install Node.js on macOS, each suitable for different scenarios.
+Node.js is the core runtime environment for modern web development and JavaScript server-side programming. There are several reliable methods to install Node.js on macOS, each with its own advantages and disadvantages, suitable for different usage scenarios. Choosing the correct installation method can help you better manage versions and dependencies.
 
-### Recommended Installation Method: Using a Node Version Manager
+### Recommended Installation Method: Using a Version Management Tool
 
-For most developers, we strongly recommend using a Node version manager for installation. This method allows you to easily switch between different Node.js versions, making it ideal for development environments that require maintaining multiple projects simultaneously.
+For most developers, especially professionals who need to handle multiple projects simultaneously, we strongly recommend using a version management tool for installation. This allows you to easily switch between different versions of Node.js to meet the requirements of various projects.
 
-**nvm (Node Version Manager) is currently the most popular choice**:
+Currently, the most popular version management tool is **nvm**. Here are the detailed steps to install Node.js using nvm:
 
-1. **Install Homebrew** (if not already installed):
-   Execute the following command in the terminal:
-   ```bash
-   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-   ```
+1.  **Install nvm**: First, you need to install Node Version Manager. Open your terminal and execute the following command. It is recommended to use the official installation script:
+    ```bash
+    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
+    ```
+    After installation is complete, close and reopen the terminal, or run `source ~/.zshrc` (if you use Zsh) or `source ~/.bash_profile` (if you use Bash) to apply the configuration.
 
-2. **Install nvm via Homebrew**:
-   ```bash
-   brew install nvm
-   ```
+2.  **Install Node.js using nvm**: After installing nvm, you can easily install any version of Node.js.
+    *   Install the latest Long-Term Support version: `nvm install --lts`
+    *   Install the latest current version: `nvm install node`
+    *   Install a specific version: `nvm install 18.12.1`
 
-3. **Configure the nvm environment**:
-   After installation, add the nvm initialization script to your shell configuration file (e.g., `~/.zshrc` or `~/.bash_profile`) as prompted by the terminal.
+3.  **Switch and use versions**: You can list all installed versions (`nvm ls`) and switch the version used in the current terminal session via `nvm use <version>`. You can also set a default version via `nvm alias default <version>`.
 
-4. **Install Node.js using nvm**:
-   ```bash
-   nvm install --lts  # Install the latest LTS (Long-Term Support) version
-   nvm use --lts      # Use the LTS version
-   ```
+### Other Installation Methods
 
-### Direct Download of Installer Package
+Besides nvm, you have other options:
 
-If you prefer a graphical interface, you can directly download the installer package from the Node.js official website:
+*   **Official Installer**: The most direct way is to download the macOS installer from the [Node.js official website](https://nodejs.org). Double-click the `.pkg` file and follow the graphical wizard to complete the installation. This method is simple and fast, suitable for beginners or users who only need a single stable version. The downside is that managing multiple versions is difficult.
+*   **Using Homebrew**: If you are already a Homebrew user, you can install it via the package manager. Run `brew install node` in the terminal. Homebrew is also convenient for installation and updates, but compared to nvm, version switching is less flexible.
 
-1. Visit the [Node.js official website](https://nodejs.org/)
-2. Click the green "LTS" download button (recommended for most users)
-3. After downloading, double-click the `.pkg` file and follow the installation wizard to complete the installation
-4. After installation, open the terminal to verify:
-   ```bash
-   node --version
-   npm --version
-   ```
+Regardless of the method chosen, after installation is complete, please run `node -v` and `npm -v` in the terminal to verify that Node.js and its package manager npm have been successfully installed and display version numbers.
 
-### Installation via Package Manager
+### Post-Installation Configuration Recommendations
 
-If you are already familiar with macOS package managers, you can also choose the following method:
+After successfully installing Node.js, it is recommended to perform the following configurations to optimize the development experience:
 
-**Install Node.js directly using Homebrew**:
-```bash
-brew install node
-```
-
-This method is straightforward but less flexible than nvm, as it does not allow easy switching between multiple Node.js versions.
-
-### Post-Installation Configuration and Verification
-
-Regardless of the installation method chosen, the following verification and configuration should be performed after installation:
-
-1. **Verify the installation**:
-   ```bash
-   node -v  # Display Node.js version
-   npm -v   # Display npm version
-   ```
-
-2. **Configure the npm global installation path** (to avoid using sudo):
-   ```bash
-   mkdir ~/.npm-global
-   npm config set prefix '~/.npm-global'
-   ```
-
-3. **Add the npm global path to the environment variables**:
-   Add the following to `~/.zshrc` or `~/.bash_profile`:
-   ```bash
-   export PATH=~/.npm-global/bin:$PATH
-   ```
-
-4. **Update npm to the latest version**:
-   ```bash
-   npm install -g npm@latest
-   ```
-
-### Choosing the Right Node.js Version
-
-- **LTS Version**: Suitable for production environments and most projects, released every 12 months with 18 months of support
-- **Current Version**: Includes the latest features, suitable for experimentation and testing, released every 6 months
-
-For new projects, it is recommended to start with the latest LTS version. If you need to learn about other software installation methods on macOS, you can refer to our previously introduced article on [MAC Installation Methods](/catalog-2/directory-nesting-333/mac-installation), which includes more tips for macOS environment configuration.
+1.  **Configure npm registry**: To improve package download speeds within mainland China, you can set npm's registry address to a domestic mirror source.
+    ```bash
+    npm config set registry https://registry.npmmirror.com/
+    ```
+2.  **Globally install commonly used tools**: Some development tools like `nodemon` (auto-restarting applications), `yarn`, or `pnpm` (alternative package managers to npm) are very useful and can be considered for global installation.
+    ```bash
+    npm install -g nodemon pnpm
+    ```
 
 ## Common Issues
 
-### What to Do If Commands Are Not Recognized After Installing Node.js?
-This is usually due to incorrect environment variable configuration. First, confirm whether Node.js was successfully installed, then check if your shell configuration file (e.g., `~/.zshrc` or `~/.bash_profile`) has correctly set the PATH. If you are using nvm, ensure that the initialization script has been added to the configuration file as prompted. Restart the terminal or execute `source ~/.zshrc` (or the corresponding configuration file) to apply the changes.
+### I already installed Node.js via the installer. How do I switch to using nvm?
+First, it is recommended that you manually uninstall the previously installed Node.js via the installer from "System Preferences" -> "Users & Groups" on macOS. Then, follow the nvm installation steps above to start over. nvm will install all files in your user directory, avoiding conflicts with system-wide installations and making management clearer.
 
-### How to Completely Uninstall Node.js and Reinstall?
-If you installed using nvm, simply run `nvm uninstall <version>` to remove a specific version. If you installed using the .pkg installer, you need to manually delete related files: 1) Delete the node_modules directory in `/usr/local/lib`; 2) Delete the node and node directories in `/usr/local/lib`; 3) Delete executables like node, npm, and npx in `/usr/local/bin`; 4) Delete man pages in `/usr/local/share`. It is recommended to use nvm for management to avoid complex uninstallation processes.
+### What should I do if I encounter permission errors when installing with nvm?
+Most permission errors are due to leftover files from previous installations or directory ownership issues. Ensure you own the `~/.nvm` directory. You can try running `sudo chown -R $(whoami) ~/.nvm` to fix permissions. Also, make sure your shell configuration file (e.g., `.zshrc`) correctly configures nvm's environment variables.
 
-### Which Node.js Version Manager Should I Choose?
-nvm is currently the most popular and actively maintained Node version manager, especially suitable for developers who need to handle multiple projects simultaneously. If you only need a single Node.js version and prefer simplicity, you can install it directly using Homebrew. For enterprise environments or scenarios requiring finer control, consider alternatives like nvs or fnm, but nvm has the most comprehensive community support and documentation.
+### How do I completely uninstall Node.js on macOS?
+The uninstallation method depends on how you installed it. If installed via nvm, simply delete the `~/.nvm` directory and remove the relevant lines from your shell configuration file. If installed via the official installer, besides removing it from the Applications, you may need to manually delete related node files in `/usr/local/lib` and `/usr/local/include`. For installations via Homebrew, run `brew uninstall node`. For more detailed system-level cleanup steps, you can refer to our general guide on [MAC Installation Methods](/catalog-2/directory-nesting-333/mac-installation).
 
 <RelatedCards :items='[{"title":"MAC Installation Methods","link":"/catalog-2/directory-nesting-333/mac-installation"}]' />

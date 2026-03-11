@@ -1,6 +1,6 @@
 {
   "/catalog-2/directory-nesting-333/mac-installation": {
-    "contentHash": "cba53f2bb40266884986e45fff1eee12",
+    "contentHash": "a24ea534c61defc2d12594ed697a8335",
     "keywords": [
       {
         "keyword": "MAC安装Python教程",
@@ -19,20 +19,20 @@
         "slug": "mac-device-security-precautions"
       },
       {
-        "keyword": "ChatGPT注册使用指南",
-        "slug": "chatgpt-registration-usage-guide"
-      },
-      {
-        "keyword": "MAC开发环境配置",
-        "slug": "mac-development-environment-setup"
-      },
-      {
-        "keyword": "VPN网络环境设置",
+        "keyword": "VPN网络环境配置",
         "slug": "vpn-network-environment-setup"
       },
       {
-        "keyword": "MAC安装AI工具教程",
-        "slug": "mac-install-ai-tools-tutorial"
+        "keyword": "ChatGPT账号注册方法",
+        "slug": "chatgpt-account-registration-method"
+      },
+      {
+        "keyword": "MAC开发环境搭建",
+        "slug": "mac-development-environment-setup"
+      },
+      {
+        "keyword": "OpenAI Codex配置指南",
+        "slug": "openai-codex-configuration-guide"
       }
     ]
   },
@@ -76,19 +76,19 @@
     ]
   },
   "/network/vpn/how-to-download-and-install-tools/mac-ios-download-usage": {
-    "contentHash": "61b7ac264d30e71b4072baf8b5150b7f",
+    "contentHash": "1a2f821ad48f38cd2011c2284b058d8a",
     "keywords": [
       {
         "keyword": "小火箭怎么用",
         "slug": "how-to-use-shadowrocket"
       },
       {
-        "keyword": "外区AppStore账号注册",
-        "slug": "register-foreign-appstore-account"
+        "keyword": "Mac VPN设置教程",
+        "slug": "mac-vpn-setup-tutorial"
       },
       {
-        "keyword": "VPN订阅链接导入教程",
-        "slug": "vpn-subscription-link-import-tutorial"
+        "keyword": "外区AppStore账号注册",
+        "slug": "foreign-appstore-account-registration"
       }
     ]
   },
@@ -132,27 +132,27 @@
     ]
   },
   "/network/account-registration-guide/appstore-registration-and-top-up-methods": {
-    "contentHash": "14bc62fae40e46a63ca66307edb84e17",
+    "contentHash": "d3093f1cdd5089c06928bed970351e43",
     "keywords": [
       {
-        "keyword": "外区Appstore怎么注册",
-        "slug": "how-to-register-for-foreign-appstore"
+        "keyword": "港区Apple ID注册教程",
+        "slug": "hong-kong-apple-id-registration-tutorial"
       },
       {
-        "keyword": "港区美区Apple ID注册教程",
-        "slug": "hong-kong-us-apple-id-registration-tutorial"
+        "keyword": "美区Appstore充值方法",
+        "slug": "us-appstore-top-up-method"
       },
       {
-        "keyword": "外区Appstore如何充值",
-        "slug": "how-to-top-up-foreign-appstore"
+        "keyword": "如何购买港区礼品卡",
+        "slug": "how-to-buy-hong-kong-gift-card"
       },
       {
-        "keyword": "港区礼品卡购买兑换方法",
-        "slug": "hong-kong-gift-card-purchase-redemption-method"
+        "keyword": "Appstore兑换礼品码步骤",
+        "slug": "appstore-redeem-gift-code-steps"
       },
       {
-        "keyword": "Shadowrocket购买支付方式",
-        "slug": "shadowrocket-purchase-payment-methods"
+        "keyword": "外区ID注册注意事项",
+        "slug": "foreign-apple-id-registration-notes"
       }
     ]
   },

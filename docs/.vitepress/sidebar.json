@@ -84,12 +84,12 @@
         "link": "/more-info/how-to-use-shadowrocket"
       },
       {
-        "text": "外区AppStore账号注册",
-        "link": "/more-info/register-foreign-appstore-account"
+        "text": "Mac VPN设置教程",
+        "link": "/more-info/mac-vpn-setup-tutorial"
       },
       {
-        "text": "VPN订阅链接导入教程",
-        "link": "/more-info/vpn-subscription-link-import-tutorial"
+        "text": "外区AppStore账号注册",
+        "link": "/more-info/foreign-appstore-account-registration"
       },
       {
         "text": "Windows VPN怎么用",
@@ -116,24 +116,24 @@
         "link": "/more-info/gmail-registration-tutorial"
       },
       {
-        "text": "外区Appstore怎么注册",
-        "link": "/more-info/how-to-register-for-foreign-appstore"
+        "text": "港区Apple ID注册教程",
+        "link": "/more-info/hong-kong-apple-id-registration-tutorial"
       },
       {
-        "text": "港区美区Apple ID注册教程",
-        "link": "/more-info/hong-kong-us-apple-id-registration-tutorial"
+        "text": "美区Appstore充值方法",
+        "link": "/more-info/us-appstore-top-up-method"
       },
       {
-        "text": "外区Appstore如何充值",
-        "link": "/more-info/how-to-top-up-foreign-appstore"
+        "text": "如何购买港区礼品卡",
+        "link": "/more-info/how-to-buy-hong-kong-gift-card"
       },
       {
-        "text": "港区礼品卡购买兑换方法",
-        "link": "/more-info/hong-kong-gift-card-purchase-redemption-method"
+        "text": "Appstore兑换礼品码步骤",
+        "link": "/more-info/appstore-redeem-gift-code-steps"
       },
       {
-        "text": "Shadowrocket购买支付方式",
-        "link": "/more-info/shadowrocket-purchase-payment-methods"
+        "text": "外区ID注册注意事项",
+        "link": "/more-info/foreign-apple-id-registration-notes"
       },
       {
         "text": "Claude注册教程",
@@ -160,20 +160,20 @@
         "link": "/more-info/mac-device-security-precautions"
       },
       {
-        "text": "ChatGPT注册使用指南",
-        "link": "/more-info/chatgpt-registration-usage-guide"
-      },
-      {
-        "text": "MAC开发环境配置",
-        "link": "/more-info/mac-development-environment-setup"
-      },
-      {
-        "text": "VPN网络环境设置",
+        "text": "VPN网络环境配置",
         "link": "/more-info/vpn-network-environment-setup"
       },
       {
-        "text": "MAC安装AI工具教程",
-        "link": "/more-info/mac-install-ai-tools-tutorial"
+        "text": "ChatGPT账号注册方法",
+        "link": "/more-info/chatgpt-account-registration-method"
+      },
+      {
+        "text": "MAC开发环境搭建",
+        "link": "/more-info/mac-development-environment-setup"
+      },
+      {
+        "text": "OpenAI Codex配置指南",
+        "link": "/more-info/openai-codex-configuration-guide"
       },
       {
         "text": "Linux服务器VPN安装教程",
