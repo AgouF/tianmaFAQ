@@ -1,51 +1,51 @@
 ---
 title: "Registration and Top-up Methods for App Store in Other Regions"
-description: "1. Visit https://www.icloud.com/ - Step 1 Click \"Create Apple ID\" and fill in your information. After successful registr"
+description: "I. Registering for \"Hong Kong\" or \"US\" Region ID 1. Visit https://www.icloud.com/ - Step 1 Click \"Create Apple Account\" "
 lastUpdated: 1773202680000
 ---
 
-# How to Register for an Overseas App Store Account and Top-Up Methods
+# How to Register for an App Store Account in a Foreign Region and Top-Up Methods
 
-## I. Registering for "Hong Kong" or "US" Region Apple ID
+I. Registering for "Hong Kong" or "US" Region ID
 
 1. Visit [https://www.icloud.com/](https://www.icloud.com/) - Step 1
 
-![](/images/bc835253778e.webp)
+![](/images/35f611625fb1.webp)
 
-Click "Create Apple ID" and fill in your information.
+Click "Create Apple Account" and fill in the information.
 
-![](/images/cb3e48831beb.webp)
+![](/images/674ccdcc03a4.webp)
 
-![](/images/c039fe335075.webp)
+![](/images/83389738f723.webp)
 
 After successful registration 👇
 
-![](/images/5c22db55e654.webp)
+![](/images/1789469b8bda.webp)
 
-Go directly to the App Store on your iPhone and log in with your new account. Note: You may need to log in twice to successfully access the App Store. (Downloading free apps does not require binding a payment method.)
+Go directly to the App Store on your phone and log in with your account. Note: You may need to log in twice to successfully access the App Store (downloading free apps does not require binding a payment method).
 
-Since Shadowrocket is a paid app and we haven't set up a payment method yet—which requires a Mastercard or Visa—we will first purchase a Hong Kong region App Store gift card from Taobao or Xianyu.
+Since Shadowrocket requires a purchase and we haven't bound a payment method yet, a Mastercard or Visa card is needed. First, go to Taobao/Xianyu to purchase a Hong Kong region App Store gift card.
 
-Shadowrocket costs 22 HKD, so we only need to buy a gift card with a value of 22 HKD or more.
+The price of Shadowrocket is 22 HKD, so we only need to buy a gift card with a value of 22 HKD or more.
 
-![](/images/dc408a612358.webp)
+![](/images/0a5f4b20fe1b.webp)
 
 Purchasing a 30 HKD card is sufficient.
 
-![](/images/44cae209f9b9.webp)
+![](/images/24feec29de13.webp)
 
-After receiving the gift card code, go to the App Store and redeem it.
+After receiving the card code, go to the App Store and redeem the gift code.
 
-![](/images/003dfa1d7072.webp)
+![](/images/95cb7bbccea2.webp)
 
-Enter your gift card code.
+Enter your gift code.
 
-![](/images/ef97411e99a6.webp)
+![](/images/494a296ed37b.webp)
 
-Simply redeem it. The following screen indicates a successful redemption.
+Simply redeem it. The following interface indicates a successful redemption.
 
-![](/images/590f2d6f2670.webp)
+![](/images/9b1867682b64.webp)
 
-[MAC & iOS Download and Usage Guide](/network/vpn/how-to-download-and-install-tools/mac-ios-download-usage)
+[MAC & IOS Download and Usage Guide](/network/vpn/how-to-download-and-install-tools/mac-ios-download-usage)
 
-<RelatedCards :items='[{"title":"MAC&IOS下载以及使用方式","link":"/network/vpn/how-to-download-and-install-tools/mac-ios-download-usage"},{"title":"Windows下载以及使用方式","link":"/network/vpn/how-to-download-and-install-tools/windows-download-and-usage"},{"title":"如何搭建魔法","link":"/network/vpn/how-to-build-magic"},{"title":"Google Email注册","link":"/network/account-registration-guide/google-email-registration"},{"title":"港区Apple ID注册教程","link":"/more-info/hong-kong-apple-id-registration-tutorial"},{"title":"美区Appstore充值方法","link":"/more-info/us-appstore-recharge-method"},{"title":"如何购买港区礼品卡","link":"/more-info/how-to-buy-hong-kong-gift-card"},{"title":"外区ID怎么绑定支付","link":"/more-info/how-to-bind-payment-for-foreign-id"},{"title":"Appstore兑换礼品码步骤","link":"/more-info/appstore-gift-code-redemption-steps"}]' />
+<RelatedCards :items='[{"title":"MAC&IOS下载以及使用方式","link":"/network/vpn/how-to-download-and-install-tools/mac-ios-download-usage"},{"title":"Windows下载以及使用方式","link":"/network/vpn/how-to-download-and-install-tools/windows-download-and-usage"},{"title":"如何搭建魔法","link":"/network/vpn/how-to-build-magic"},{"title":"Google Email注册","link":"/network/account-registration-guide/google-email-registration"},{"title":"港区Appstore注册教程","link":"/more-info/hong-kong-appstore-registration-tutorial"},{"title":"美区Apple ID如何充值","link":"/more-info/us-apple-id-how-to-top-up"},{"title":"外区礼品卡购买方法","link":"/more-info/foreign-region-gift-card-purchase-method"},{"title":"Appstore兑换礼品码步骤","link":"/more-info/appstore-redeem-gift-code-steps"},{"title":"如何注册海外Apple账户","link":"/more-info/how-to-register-overseas-apple-account"}]' />

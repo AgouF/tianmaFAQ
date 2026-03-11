@@ -1,62 +1,61 @@
 ---
 title: "How to import a subscription link in Shadowrocket?"
-description: "Shadowrocket is a popular proxy tool on iOS devices, and one of its core features is obtaining and updating server node "
-lastUpdated: 1773262956250
+description: "Shadowrocket is a popular proxy tool on iOS devices, and one of its core functions is to obtain and manage proxy server "
+lastUpdated: 1773269622119
 ---
 
 # How to Import Subscription Links in Shadowrocket
 
 ## Complete Guide to Importing Subscription Links in Shadowrocket
 
-Shadowrocket is a popular proxy tool on iOS devices, and one of its core features is obtaining and updating server node information through "subscription links." A subscription link is a URL address provided by a service provider, containing all necessary information such as server configurations and encryption methods. Correctly importing a subscription link is the first step to using Shadowrocket for accessing the internet.
+Shadowrocket is a popular proxy tool on iOS devices, and one of its core functions is to obtain and manage proxy server nodes through subscription links. Importing a subscription link is the first step in using Shadowrocket and is key to connecting to network services. Below are detailed introductions to several mainstream and secure import methods.
 
-### Preparations
-Before starting the import process, ensure you have completed the following two steps:
-1.  **Have a valid subscription link**: You need to purchase a service from a reliable VPN or proxy provider, who will provide a dedicated subscription link (usually a URL starting with `http://` or `https://`).
-2.  **Have the Shadowrocket app installed**: You need to purchase and download the Shadowrocket app from a non-China App Store (such as the US or Hong Kong store). If you haven't installed it yet, you can refer to our other detailed tutorial: [MAC&IOS Download and Usage Guide](/network/vpn/how-to-download-and-install-tools/mac-ios-download-usage), which includes steps for obtaining and installing the app.
+### Method 1: Import via "Scan QR Code" (Most Recommended)
+This is the fastest and least error-prone method, especially suitable for QR codes obtained from service providers or friends.
+1. Open the Shadowrocket app and ensure you are on the "Servers" tab on the homepage.
+2. Tap the "+" button in the upper-right corner of the screen.
+3. In the pop-up menu, select "Scan QR Code."
+4. Point your phone's camera at the QR code containing the subscription link. Shadowrocket will automatically recognize and read the link.
+5. After successful recognition, the app will prompt "Download Successful." At this point, all node information has been automatically added to your server list.
 
-### Detailed Import Steps
-Follow the steps below. The entire process usually takes less than a minute.
+**Advantages**: No manual input required, avoiding link copying errors; efficient and secure.
 
-1.  **Copy the subscription link**:
-    *   Find your subscription link from your service provider's backend, email, or user center.
-    *   Long-press the link and select "Copy" from the pop-up menu to copy the link to your clipboard.
+### Method 2: Manually Add via "Import from URL"
+If you have obtained a text-based subscription link (usually starting with `https://`), you can use this method.
+1. Similarly, on the "Servers" page, tap the "+" button in the upper-right corner.
+2. Select "Import from URL" from the menu.
+3. A text box will pop up. **Long-press the text box**, select "Paste," and paste the subscription link address you copied earlier. **It is strongly recommended to use paste to avoid character errors from manual input.**
+4. Tap "Done" in the upper-right corner. Shadowrocket will begin fetching subscription information from the link address.
+5. After successful retrieval, the node list will update automatically.
 
-2.  **Open Shadowrocket and add a subscription**:
-    *   Open the Shadowrocket app on your iPhone or iPad.
-    *   Tap the "Home" or "Servers" tab in the bottom navigation bar.
-    *   Tap the "+" button in the top-right corner of the screen.
-    *   From the pop-up menu, select "**Import from URL**."
+### Method 3: One-Click Import via Safari Browser
+Many service provider websites offer a "one-click import" feature, which essentially utilizes iOS's URL Scheme.
+1. Open the webpage providing the subscription link using Safari on your iPhone.
+2. Find the "One-Click Import to Shadowrocket" or similar button on the webpage and tap it.
+3. A pop-up will ask, "Open this page in 'Shadowrocket'?" Tap "Open."
+4. The Shadowrocket app will automatically launch and begin processing the subscription link to import nodes.
 
-3.  **Paste and confirm**:
-    *   A window will automatically pop up, and your previously copied subscription link will be pasted into the URL field. If it doesn't paste automatically, long-press the input field and select "Paste."
-    *   After confirming the link is correct, tap "Done" or "OK" in the top-right corner.
+### Important Tips and Follow-Up Settings
+*   **Link Security**: Always obtain subscription links from trusted sources to avoid privacy leaks.
+*   **Update Subscription**: Server nodes may be updated, become invalid, or change. You need to regularly update your subscription to get the latest nodes. On the "Servers" page in Shadowrocket, **swipe down on the screen** to manually refresh the subscription. You can also enable "Auto Update" in "Settings" > "Server Subscriptions."
+*   **Connectivity Test**: After importing nodes, it is recommended to tap a node and select "Test Connectivity" or "Latency Test" to check the current network quality of that node.
+*   **Enable Proxy**: After importing and testing nodes, return to the Shadowrocket homepage, select a node with low latency, and tap the large switch button at the top to enable the proxy connection. When the button turns green and the VPN icon appears in the status bar, the connection is successful.
 
-4.  **Update server nodes**:
-    *   After successful import, you will see a new subscription group (usually named after the service provider).
-    *   Tap this subscription group to enter its details page.
-    *   To fetch the latest server list, tap the "**Update**" button at the bottom of the page. Shadowrocket will retrieve the latest node configuration information from the address specified in the subscription link.
-
-5.  **Select a node and connect**:
-    *   After updating, return to the Shadowrocket home page.
-    *   From the server list, select the node you want to connect to (usually, the lower the latency, the better).
-    *   Finally, tap the large circular "Switch" button at the top of the home page to enable the proxy connection. When the button turns green and displays "Connected," the import and connection are successful.
-
-### Tips and Precautions
-*   **Regular Updates**: Service providers may update node information, so it's recommended to regularly enter the subscription group and tap "Update" to get the latest list.
-*   **Backup Links**: Some providers offer multiple backup subscription links. If one fails, try importing another.
-*   **Security Reminder**: Keep your subscription link secure and do not share it arbitrarily, as it is directly linked to your account and service.
-*   **Troubleshooting Import Failures**: If the import fails, check: 1) Whether your network connection is stable; 2) Whether the subscription link has expired or is invalid; 3) Whether you copied the complete link accurately.
+For Mac users, the configuration process and concepts are similar, but the interface differs. You can refer to our other detailed guide: [MAC&IOS Download and Usage Guide](/network/vpn/how-to-download-and-install-tools/mac-ios-download-usage), which includes steps for configuring Shadowrocket on macOS.
 
 ## Frequently Asked Questions
 
-### What should I do if the node list is empty after importing the subscription link?
-This usually has a few causes: First, check your network connection and try tapping the "**Update**" button at the bottom of the subscription group again. Second, the subscription link itself may be invalid. Contact your service provider to confirm the link's validity. Finally, try completely closing and reopening the Shadowrocket app, then perform the update again.
+### Why is the node list empty or does it show a failure after importing the subscription?
+This usually has several reasons:
+1.  **Subscription link has expired or is invalid**: Contact your service provider to confirm the link's validity.
+2.  **Network issues**: Try switching networks (e.g., from Wi-Fi to cellular data) and then pull down to refresh the subscription again.
+3.  **Incomplete link copy**: Ensure the copied link has no leading or trailing spaces and is complete and accurate. When using "Import from URL," always use the paste function.
+4.  **Unsupported subscription format**: In rare cases, the link may contain a special format incompatible with Shadowrocket.
 
-### Can I import subscription links from multiple different service providers?
-Absolutely. Shadowrocket supports adding multiple subscriptions. Simply repeat the "Add Subscription" steps above to import links from different providers. In the server list on the home page, you can see nodes from all subscriptions and switch between them freely. This is convenient for users who need backup options or need to access resources from different regions.
+### Can I import multiple subscription links simultaneously?
+Yes. Shadowrocket supports adding multiple subscription sources. You simply need to follow the "Import from URL" method described above to add different subscription links multiple times. Nodes from all subscriptions will be merged and displayed in the server list. You can manage (edit or delete) each added subscription in "Settings" > "Server Subscriptions."
 
-### What is the difference between a subscription link and manually adding servers?
-A subscription link is an automated method. You only need to maintain one link. When the service provider updates node information, ports, passwords, etc., you can sync all changes with one tap on "Update," which is very convenient. Manually adding servers requires you to input all parameters such as server address, port, password, and encryption method one by one, and any subsequent changes need to be made manually. For most users, using subscription links is highly recommended.
+### Will importing a subscription leak my password or other information?
+A standard subscription link itself only contains server configuration information and will not directly leak your main account password. However, the subscription link itself is a string of credentials, and **anyone who obtains this link can use the corresponding service**. Therefore, you must keep your subscription link secure as you would a password and never share or leak it publicly.
 
-<RelatedCards :items='[{"title":"MAC&IOS Download and Usage Guide","link":"/network/vpn/how-to-download-and-install-tools/mac-ios-download-usage"}]' />
+<RelatedCards :items='[{"title":"MAC&IOS下载以及使用方式","link":"/network/vpn/how-to-download-and-install-tools/mac-ios-download-usage"}]' />

@@ -3,7 +3,7 @@ title: "MAC安装方式"
 description: "1. 网络环境 VPN篇 1. ChatGPT账号注册 Claude&ChatGPT&Gemini注册使用 1. MAC硬件 MacBook或 Macmini ::: tip 使用的MAC设备，不要存放重要资料以及敏感资料，谨防资料泄露丢失"
 readingTime: 4
 lastUpdated: 1773225000000
-ogImage: "https://tianma.xin/images/6f37be1e3f7a.webp"
+ogImage: "https://tianma.xin/images/d71884fa6e1c.webp"
 ---
 
 # MAC安装方式
@@ -38,7 +38,7 @@ ogImage: "https://tianma.xin/images/6f37be1e3f7a.webp"
 
 1. 选择 Download macOS installer下载
 
-![](/images/6f37be1e3f7a.webp)
+![](/images/d71884fa6e1c.webp)
 
 1. 下载好后执行
 
@@ -192,6 +192,6 @@ npm config set registry https://registry.npmmirror.com
 
 1. 这样才能使用全部工具
 
-![](/images/516ad93ce2a6.webp)
+![](/images/136fe0e87b7f.webp)
 
-<RelatedCards :items='[{"title":"Claude&ChatGPT&Gemini注册使用","link":"/catalog-2/claude-chatgpt-gemini-registration-usage"},{"title":"Linux以及服务器安装方式","link":"/catalog-2/directory-nesting-333/linux-server-installation"},{"title":"Windows安装方式","link":"/catalog-2/directory-nesting-333/windows-installation"},{"title":"MAC安装Python教程","link":"/more-info/mac-install-python-tutorial"},{"title":"MAC安装NodeJS步骤","link":"/more-info/mac-install-nodejs-steps"},{"title":"OpenClaw怎么安装","link":"/more-info/how-to-install-openclaw"},{"title":"MAC设备安全注意事项","link":"/more-info/mac-device-security-precautions"},{"title":"Python环境配置MAC","link":"/more-info/python-environment-setup-mac"},{"title":"NodeJS镜像源切换","link":"/more-info/nodejs-mirror-switch"},{"title":"OpenClaw初始化配置","link":"/more-info/openclaw-initialization-setup"},{"title":"MAC开发环境搭建","link":"/more-info/mac-development-environment-setup"}]' />
+<RelatedCards :items='[{"title":"Claude&ChatGPT&Gemini注册使用","link":"/catalog-2/claude-chatgpt-gemini-registration-usage"},{"title":"Linux以及服务器安装方式","link":"/catalog-2/directory-nesting-333/linux-server-installation"},{"title":"Windows安装方式","link":"/catalog-2/directory-nesting-333/windows-installation"},{"title":"MAC如何安装Python","link":"/more-info/mac-how-to-install-python"},{"title":"MAC安装NodeJS教程","link":"/more-info/mac-install-nodejs-tutorial"},{"title":"MAC设备安全注意事项","link":"/more-info/mac-device-security-precautions"},{"title":"OpenClaw安装步骤","link":"/more-info/openclaw-installation-steps"},{"title":"MAC安装OpenAI环境","link":"/more-info/mac-install-openai-environment"},{"title":"MAC切换npm镜像源","link":"/more-info/mac-switch-npm-mirror"},{"title":"MAC初始化OpenClaw","link":"/more-info/mac-initialize-openclaw"},{"title":"MAC安装AI工具指南","link":"/more-info/mac-install-ai-tool-guide"}]' />

@@ -1,38 +1,38 @@
 {
   "/catalog-2/directory-nesting-333/mac-installation": {
-    "contentHash": "acac7ab1e7361710c48be847c510aa15",
+    "contentHash": "2443074854d823871ecadb5ab4d1e512",
     "keywords": [
       {
-        "keyword": "MAC安装Python教程",
-        "slug": "mac-install-python-tutorial"
+        "keyword": "MAC如何安装Python",
+        "slug": "mac-how-to-install-python"
       },
       {
-        "keyword": "MAC安装NodeJS步骤",
-        "slug": "mac-install-nodejs-steps"
-      },
-      {
-        "keyword": "OpenClaw怎么安装",
-        "slug": "how-to-install-openclaw"
+        "keyword": "MAC安装NodeJS教程",
+        "slug": "mac-install-nodejs-tutorial"
       },
       {
         "keyword": "MAC设备安全注意事项",
         "slug": "mac-device-security-precautions"
       },
       {
-        "keyword": "Python环境配置MAC",
-        "slug": "python-environment-setup-mac"
+        "keyword": "OpenClaw安装步骤",
+        "slug": "openclaw-installation-steps"
       },
       {
-        "keyword": "NodeJS镜像源切换",
-        "slug": "nodejs-mirror-switch"
+        "keyword": "MAC安装OpenAI环境",
+        "slug": "mac-install-openai-environment"
       },
       {
-        "keyword": "OpenClaw初始化配置",
-        "slug": "openclaw-initialization-setup"
+        "keyword": "MAC切换npm镜像源",
+        "slug": "mac-switch-npm-mirror"
       },
       {
-        "keyword": "MAC开发环境搭建",
-        "slug": "mac-development-environment-setup"
+        "keyword": "MAC初始化OpenClaw",
+        "slug": "mac-initialize-openclaw"
+      },
+      {
+        "keyword": "MAC安装AI工具指南",
+        "slug": "mac-install-ai-tool-guide"
       }
     ]
   },
@@ -76,7 +76,7 @@
     ]
   },
   "/network/vpn/how-to-download-and-install-tools/mac-ios-download-usage": {
-    "contentHash": "87f850d6c194b4d721352fe33688f67c",
+    "contentHash": "49a1c1e122eb573c341ed5331208975e",
     "keywords": [
       {
         "keyword": "小火箭怎么导入订阅链接",
@@ -132,27 +132,27 @@
     ]
   },
   "/network/account-registration-guide/appstore-registration-and-top-up-methods": {
-    "contentHash": "cc0b9c5b1d837e981a8c77ef89db6b7e",
+    "contentHash": "b5845abd3dce5a228172d744be24ddc4",
     "keywords": [
       {
-        "keyword": "港区Apple ID注册教程",
-        "slug": "hong-kong-apple-id-registration-tutorial"
+        "keyword": "港区Appstore注册教程",
+        "slug": "hong-kong-appstore-registration-tutorial"
       },
       {
-        "keyword": "美区Appstore充值方法",
-        "slug": "us-appstore-recharge-method"
+        "keyword": "美区Apple ID如何充值",
+        "slug": "us-apple-id-how-to-top-up"
       },
       {
-        "keyword": "如何购买港区礼品卡",
-        "slug": "how-to-buy-hong-kong-gift-card"
-      },
-      {
-        "keyword": "外区ID怎么绑定支付",
-        "slug": "how-to-bind-payment-for-foreign-id"
+        "keyword": "外区礼品卡购买方法",
+        "slug": "foreign-region-gift-card-purchase-method"
       },
       {
         "keyword": "Appstore兑换礼品码步骤",
-        "slug": "appstore-gift-code-redemption-steps"
+        "slug": "appstore-redeem-gift-code-steps"
+      },
+      {
+        "keyword": "如何注册海外Apple账户",
+        "slug": "how-to-register-overseas-apple-account"
       }
     ]
   },
