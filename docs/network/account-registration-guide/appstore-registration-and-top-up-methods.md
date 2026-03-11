@@ -3,7 +3,7 @@ title: "外区Appstore注册方式以及充值方法"
 description: "一.注册“港区”“美区”ID 1.登录 https://www.icloud.com/ 第一步 点击创建Apple账户后填写信息 注册好后👇 直接到 手机App store登录你的账号 注意：可能需要登录两次才能登陆成功Appstore（"
 readingTime: 1
 lastUpdated: 1773202680000
-ogImage: "https://tianma.xin/images/7f00a21f8b65.webp"
+ogImage: "https://tianma.xin/images/696002211e3b.webp"
 ---
 
 # 外区Appstore注册方式以及充值方法
@@ -12,17 +12,17 @@ ogImage: "https://tianma.xin/images/7f00a21f8b65.webp"
 
 1.登录 [https://www.icloud.com/](https://www.icloud.com/) 第一步
 
-![](/images/7f00a21f8b65.webp)
+![](/images/696002211e3b.webp)
 
 点击创建Apple账户后填写信息
 
-![](/images/a72c67c07cf9.webp)
+![](/images/b8bfe8147f4b.webp)
 
-![](/images/b3fb4233b843.webp)
+![](/images/f75f83a0a78a.webp)
 
 注册好后👇
 
-![](/images/8ac735d6d304.webp)
+![](/images/700ab645468b.webp)
 
 直接到 手机App store登录你的账号 注意：可能需要登录两次才能登陆成功Appstore（下载免费的APP是不需要绑定付款方式的）
 
@@ -30,24 +30,24 @@ ogImage: "https://tianma.xin/images/7f00a21f8b65.webp"
 
 Shadowrocket价格为22港币我们只需要买22面值以上的就好
 
-![](/images/3bce45be154b.webp)
+![](/images/58a480b6c4e6.webp)
 
 购买30港币的就OK
 
-![](/images/0d1c611d7d04.webp)
+![](/images/473d56e77713.webp)
 
 收到卡密后 进入 App store 然后兑换礼品码
 
-![](/images/ee5c9601b30d.webp)
+![](/images/3805d4064138.webp)
 
 输入您的礼品码
 
-![](/images/af0f675b6574.webp)
+![](/images/4d5ea184f6b0.webp)
 
 直接兑换就OK，看到下面界面就是兑换成功了
 
-![](/images/c9aa9655b7a5.webp)
+![](/images/56ac57aa0621.webp)
 
 [MAC&IOS下载以及使用方式](/network/vpn/how-to-download-and-install-tools/mac-ios-download-usage)
 
-<RelatedCards :items='[{"title":"MAC&IOS下载以及使用方式","link":"/network/vpn/how-to-download-and-install-tools/mac-ios-download-usage"},{"title":"Windows下载以及使用方式","link":"/network/vpn/how-to-download-and-install-tools/windows-download-and-usage"},{"title":"如何搭建魔法","link":"/network/vpn/how-to-build-magic"},{"title":"Google Email注册","link":"/network/account-registration-guide/google-email-registration"},{"title":"港区Apple ID注册教程","link":"/more-info/hong-kong-apple-id-registration-tutorial"},{"title":"美区Appstore充值方法","link":"/more-info/us-appstore-top-up-method"},{"title":"如何购买港区礼品卡","link":"/more-info/how-to-buy-hong-kong-gift-card"},{"title":"Appstore兑换礼品码步骤","link":"/more-info/appstore-redeem-gift-code-steps"},{"title":"外区ID注册注意事项","link":"/more-info/foreign-apple-id-registration-notes"}]' />
+<RelatedCards :items='[{"title":"MAC&IOS下载以及使用方式","link":"/network/vpn/how-to-download-and-install-tools/mac-ios-download-usage"},{"title":"Windows下载以及使用方式","link":"/network/vpn/how-to-download-and-install-tools/windows-download-and-usage"},{"title":"如何搭建魔法","link":"/network/vpn/how-to-build-magic"},{"title":"Google Email注册","link":"/network/account-registration-guide/google-email-registration"},{"title":"港区Appstore注册教程","link":"/more-info/hong-kong-appstore-registration-tutorial"},{"title":"美区Apple ID怎么注册","link":"/more-info/how-to-register-us-apple-id"},{"title":"外区Appstore充值方法","link":"/more-info/foreign-appstore-recharge-method"},{"title":"Appstore礼品卡怎么兑换","link":"/more-info/how-to-redeem-appstore-gift-card"},{"title":"港区礼品卡购买渠道","link":"/more-info/hong-kong-gift-card-purchase-channels"}]' />

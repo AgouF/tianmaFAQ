@@ -24,7 +24,7 @@ lastUpdated: 1773225000000
 </div>
 :::
 
-# Let's Begin
+# Getting Started
 
 ### Prepare to Install Python & NodeJS
 
@@ -36,7 +36,7 @@ Since Open commonly uses Python and Node as runtime environments, you need to in
 
 1. Select Download macOS installer to download.
 
-![](/images/3732f11a0b97.webp)
+![](/images/43daa30f865e.webp)
 
 1. After downloading, execute:
 
@@ -50,7 +50,7 @@ If you see:
 Python 3.13.12
 /Library/Frameworks/Python.framework/Versions/3.13/bin/python3
 
-Then the installation is successful.
+It means the installation was successful.
 
 ## NodeJs Environment
 
@@ -84,33 +84,33 @@ npm i -g openclaw
 openclaw onboard
 ```
 
-If there is a timeout error, you can execute the following to switch the Node mirror source:
+If there is a connection timeout error, you can execute the following to switch the Node mirror source:
 
 ```bash
 npm config set registry https://registry.npmmirror.com
 ```
 
-1.  I understand this is personal-by-default and shared/multi-user use requires lock-down. Continue? I understand this tool is for personal use by default, and additional security restrictions are required for shared or multi-user environments. Continue? Directly select yes.
+1.  I understand this is personal-by-default and shared/multi-user use requires lock-down. Continue? I understand this tool is for personal use by default, and additional security restrictions are needed for shared or multi-user environments. Continue? Directly select yes.
 
-1. Onboarding mode Initialization mode / First-time configuration method Select Manual so we can configure step by step together.
+1. Onboarding mode Initialization mode / First-time configuration method Select Manual to configure step-by-step together.
 
-1. What do you want to set up? Which gateway to configure We'll choose the default: Local gateway (this machine).
+1. What do you want to set up? Which gateway to configure? We can choose the default Local gateway (this machine).
 
 1. Workspace directory This is the folder where the AI works. Just press Enter.
 
-1. Model/auth provider Start configuring the AI. Use OpenAI. Select OpenAI Codex (ChatGPT OAuth). For specific registration tutorial, see [Claude&ChatGPT&Gemini Registration & Usage](/catalog-2/claude-chatgpt-gemini-registration-usage). Wait for authorization to complete.
+1. Model/auth provider Start configuring the AI. Using OpenAI, select OpenAI Codex (ChatGPT OAuth). For specific registration tutorial, see [Claude&ChatGPT&Gemini Registration & Usage](/catalog-2/claude-chatgpt-gemini-registration-usage). Wait for authorization to complete.
 
 1. After authorization, copy the link from the top of the browser to the terminal, then select the model Default model “openai-codex/gpt-5.3-codex” and press Enter.
 
-1. Gateway port Gateway port. Just use the default by pressing Enter.
+1. Gateway port Gateway port, just use the default by pressing Enter.
 
 1. Gateway bind Default selection is 127.0.0.1.
 
-1.  Gateway auth Gateway authentication method. Default (press Enter) is Token.
+1.  Gateway auth Gateway authentication method, default (press Enter) is Token.
 
 1. Tailscale exposure Whether to expose the OpenClaw gateway via Tailscale. For personal use, directly select off.
 
-1. How do you want to provide the gateway token? How to save the gateway token? Press Enter to choose the default.
+1. How do you want to provide the gateway token? How to save the gateway Token? Directly press Enter to choose the default.
 
 1. Gateway token (blank to generate) Gateway access token. Leave it blank and press Enter.
 
@@ -128,7 +128,7 @@ npm config set registry https://registry.npmmirror.com
 
 1. Application capabilities, select Bot.
 
-1. Click on Create Version above. Enter corresponding information arbitrarily.
+1. Click on Create Version above and enter corresponding information arbitrarily.
 
 1. Do not check "Public Sharing".
 
@@ -158,19 +158,19 @@ npm config set registry https://registry.npmmirror.com
 
 | Option | Meaning |
 | --- | --- |
-| **Allowlist** | Only replies in specified groups. |
-| Open | Replies in all groups (must @ the bot). |
-| Disabled | No replies in group chats at all. |
+| **Allowlist** | Only replies in specified groups |
+| Open | All groups can reply (must @ the bot) |
+| Disabled | No replies in group chats at all |
 
 1. I choose the first one: Group chat allowlist (chat_ids). Open the APP on your phone, select a group, and find ocxxxx at the very bottom of the group.
 
 1. Then select Finished (Done) to confirm the configuration.
 
-1. Configure DM access policies now? (default: pairing) Configure Direct Message (DM) access policies now? Select Yes.
+1. Configure DM access policies now? (default: pairing) Configure private chat (DM = Direct Message) access policies now? Select Yes.
 
-1. Feishu DM policy Direct Message policy. Select the first one: Pairing. Only allows private chat after pairing.
+1. Feishu DM policy Private chat policy. Select the first one: Pairing. Only allows private chat after pairing.
 
-1. Search provider Which search engine should OpenClaw use to search the internet for information? Select to skip.
+1. Search provider Which search engine should OpenClaw use to search the internet for information? Select skip.
 
 1. Configure skills now? (recommended) Install default Skills? Select yes.
 
@@ -190,6 +190,6 @@ npm config set registry https://registry.npmmirror.com
 
 1. This way you can use all the tools.
 
-![](/images/3901cce95f36.webp)
+![](/images/460eb43726fc.webp)
 
-<RelatedCards :items='[{"title":"Claude&ChatGPT&Gemini Registration & Usage","link":"/catalog-2/claude-chatgpt-gemini-registration-usage"},{"title":"Linux and Server Installation Method","link":"/catalog-2/directory-nesting-333/linux-server-installation"},{"title":"Windows Installation Method","link":"/catalog-2/directory-nesting-333/windows-installation"},{"title":"MAC Python Installation Tutorial","link":"/more-info/mac-install-python-tutorial"},{"title":"MAC NodeJS Installation Steps","link":"/more-info/mac-install-nodejs-steps"},{"title":"How to Install OpenClaw","link":"/more-info/how-to-install-openclaw"},{"title":"MAC Device Security Precautions","link":"/more-info/mac-device-security-precautions"},{"title":"VPN Network Environment Setup","link":"/more-info/vpn-network-environment-setup"},{"title":"ChatGPT Account Registration Method","link":"/more-info/chatgpt-account-registration-method"},{"title":"MAC Development Environment Setup","link":"/more-info/mac-development-environment-setup"},{"title":"OpenAI Codex Configuration Guide","link":"/more-info/openai-codex-configuration-guide"}]' />
+<RelatedCards :items='[{"title":"Claude&ChatGPT&Gemini Registration & Usage","link":"/catalog-2/claude-chatgpt-gemini-registration-usage"},{"title":"Linux and Server Installation Method","link":"/catalog-2/directory-nesting-333/linux-server-installation"},{"title":"Windows Installation Method","link":"/catalog-2/directory-nesting-333/windows-installation"},{"title":"MAC Python Installation Tutorial","link":"/more-info/mac-install-python-tutorial"},{"title":"MAC NodeJS Installation Steps","link":"/more-info/mac-install-nodejs-steps"},{"title":"OpenClaw Installation Guide","link":"/more-info/openclaw-installation-guide"},{"title":"MAC Device Security Precautions","link":"/more-info/mac-device-security-precautions"},{"title":"How to Switch npm Mirror Source on MAC","link":"/more-info/how-to-switch-npm-mirror-on-mac"},{"title":"Common Issues with MAC OpenClaw Installation","link":"/more-info/mac-install-openclaw-faq"},{"title":"MAC Development Environment Setup","link":"/more-info/mac-development-environment-setup"},{"title":"MAC AI Tools Installation Tutorial","link":"/more-info/mac-install-ai-tools-tutorial"}]' />
