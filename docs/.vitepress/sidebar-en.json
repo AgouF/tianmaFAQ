@@ -22,7 +22,7 @@
             ]
           },
           {
-            "text": "How to build a VPN",
+            "text": "How to build a magic system",
             "link": "/en/network/vpn/how-to-build-magic"
           }
         ]
@@ -80,16 +80,16 @@
     "collapsed": true,
     "items": [
       {
-        "text": "How to import a subscription link in Shadowrocket?",
-        "link": "/en/more-info/shadowrocket-import-subscription-link"
+        "text": "How to use Shadowrocket?",
+        "link": "/en/more-info/how-to-use-shadowrocket"
       },
       {
-        "text": "Mac App Store foreign region account login",
-        "link": "/en/more-info/mac-appstore-foreign-account-login"
+        "text": "Mac VPN Setup Tutorial",
+        "link": "/en/more-info/mac-vpn-setup-tutorial"
       },
       {
-        "text": "IOS VPN Setup Tutorial",
-        "link": "/en/more-info/ios-vpn-setup-tutorial"
+        "text": "Registering an App Store Account from a Different Region",
+        "link": "/en/more-info/foreign-appstore-account-registration"
       },
       {
         "text": "How to use Windows VPN",
@@ -116,24 +116,24 @@
         "link": "/en/more-info/gmail-registration-tutorial"
       },
       {
-        "text": "Hong Kong App Store Registration Tutorial",
-        "link": "/en/more-info/hong-kong-appstore-registration-tutorial"
+        "text": "Hong Kong Apple ID Registration Tutorial",
+        "link": "/en/more-info/hong-kong-apple-id-registration-tutorial"
       },
       {
-        "text": "How to top up a US Apple ID",
-        "link": "/en/more-info/us-apple-id-how-to-top-up"
+        "text": "How to top up on the US App Store",
+        "link": "/en/more-info/us-app-store-how-to-top-up"
       },
       {
-        "text": "Methods for purchasing gift cards from other regions",
-        "link": "/en/more-info/foreign-region-gift-card-purchase-method"
+        "text": "Out-of-region App Store gift card purchase",
+        "link": "/en/more-info/foreign-app-store-gift-card-purchase"
       },
       {
-        "text": "Steps to redeem a gift code on the App Store:",
-        "link": "/en/more-info/appstore-redeem-gift-code-steps"
+        "text": "How to redeem a Hong Kong App Store gift card?",
+        "link": "/en/more-info/how-to-redeem-hong-kong-app-store-gift-card"
       },
       {
-        "text": "How to Register an Overseas Apple Account",
-        "link": "/en/more-info/how-to-register-overseas-apple-account"
+        "text": "What should I do if I cannot log in after registering with an ID from another region?",
+        "link": "/en/more-info/foreign-id-cannot-login-after-registration"
       },
       {
         "text": "Claude Registration Tutorial",
@@ -144,36 +144,36 @@
         "link": "/en/more-info/chatgpt-usage-guide"
       },
       {
-        "text": "How to Install Python on Mac",
-        "link": "/en/more-info/mac-how-to-install-python"
+        "text": "MAC Installation Python Tutorial",
+        "link": "/en/more-info/mac-install-python-tutorial"
       },
       {
-        "text": "MAC Installation Guide for NodeJS",
-        "link": "/en/more-info/mac-install-nodejs-tutorial"
+        "text": "Steps to Install Node.js on macOS",
+        "link": "/en/more-info/mac-install-nodejs-steps"
+      },
+      {
+        "text": "How to install OpenClaw",
+        "link": "/en/more-info/how-to-install-openclaw"
       },
       {
         "text": "MAC Device Security Precautions",
         "link": "/en/more-info/mac-device-security-precautions"
       },
       {
-        "text": "OpenClaw Installation Steps",
-        "link": "/en/more-info/openclaw-installation-steps"
+        "text": "VPN network environment configuration",
+        "link": "/en/more-info/vpn-network-environment-setup"
       },
       {
-        "text": "Installing OpenAI Environment on macOS",
-        "link": "/en/more-info/mac-install-openai-environment"
+        "text": "ChatGPT Account Registration Method",
+        "link": "/en/more-info/chatgpt-account-registration-method"
       },
       {
-        "text": "Switch npm registry on MAC",
-        "link": "/en/more-info/mac-switch-npm-mirror"
+        "text": "nvm Installation Guide for NodeJS",
+        "link": "/en/more-info/nvm-install-nodejs-guide"
       },
       {
-        "text": "MAC Initialization OpenClaw",
-        "link": "/en/more-info/mac-initialize-openclaw"
-      },
-      {
-        "text": "Guide to Installing AI Tools on Mac",
-        "link": "/en/more-info/mac-install-ai-tool-guide"
+        "text": "MAC Development Environment Setup",
+        "link": "/en/more-info/mac-development-environment-setup"
       },
       {
         "text": "Linux Server VPN Installation Tutorial",

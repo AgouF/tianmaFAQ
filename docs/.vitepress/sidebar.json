@@ -80,16 +80,16 @@
     "collapsed": true,
     "items": [
       {
-        "text": "小火箭怎么导入订阅链接",
-        "link": "/more-info/shadowrocket-import-subscription-link"
+        "text": "小火箭怎么用",
+        "link": "/more-info/how-to-use-shadowrocket"
       },
       {
-        "text": "Mac AppStore外区账号登录",
-        "link": "/more-info/mac-appstore-foreign-account-login"
+        "text": "Mac VPN设置教程",
+        "link": "/more-info/mac-vpn-setup-tutorial"
       },
       {
-        "text": "IOS VPN设置教程",
-        "link": "/more-info/ios-vpn-setup-tutorial"
+        "text": "外区AppStore账号注册",
+        "link": "/more-info/foreign-appstore-account-registration"
       },
       {
         "text": "Windows VPN怎么用",
@@ -116,24 +116,24 @@
         "link": "/more-info/gmail-registration-tutorial"
       },
       {
-        "text": "港区Appstore注册教程",
-        "link": "/more-info/hong-kong-appstore-registration-tutorial"
+        "text": "港区Apple ID注册教程",
+        "link": "/more-info/hong-kong-apple-id-registration-tutorial"
       },
       {
-        "text": "美区Apple ID如何充值",
-        "link": "/more-info/us-apple-id-how-to-top-up"
+        "text": "美区App Store如何充值",
+        "link": "/more-info/us-app-store-how-to-top-up"
       },
       {
-        "text": "外区礼品卡购买方法",
-        "link": "/more-info/foreign-region-gift-card-purchase-method"
+        "text": "外区App Store礼品卡购买",
+        "link": "/more-info/foreign-app-store-gift-card-purchase"
       },
       {
-        "text": "Appstore兑换礼品码步骤",
-        "link": "/more-info/appstore-redeem-gift-code-steps"
+        "text": "如何兑换港区App Store礼品卡",
+        "link": "/more-info/how-to-redeem-hong-kong-app-store-gift-card"
       },
       {
-        "text": "如何注册海外Apple账户",
-        "link": "/more-info/how-to-register-overseas-apple-account"
+        "text": "外区ID注册后无法登录怎么办",
+        "link": "/more-info/foreign-id-cannot-login-after-registration"
       },
       {
         "text": "Claude注册教程",
@@ -144,36 +144,36 @@
         "link": "/more-info/chatgpt-usage-guide"
       },
       {
-        "text": "MAC如何安装Python",
-        "link": "/more-info/mac-how-to-install-python"
+        "text": "MAC安装Python教程",
+        "link": "/more-info/mac-install-python-tutorial"
       },
       {
-        "text": "MAC安装NodeJS教程",
-        "link": "/more-info/mac-install-nodejs-tutorial"
+        "text": "MAC安装NodeJS步骤",
+        "link": "/more-info/mac-install-nodejs-steps"
+      },
+      {
+        "text": "OpenClaw怎么安装",
+        "link": "/more-info/how-to-install-openclaw"
       },
       {
         "text": "MAC设备安全注意事项",
         "link": "/more-info/mac-device-security-precautions"
       },
       {
-        "text": "OpenClaw安装步骤",
-        "link": "/more-info/openclaw-installation-steps"
+        "text": "VPN网络环境配置",
+        "link": "/more-info/vpn-network-environment-setup"
       },
       {
-        "text": "MAC安装OpenAI环境",
-        "link": "/more-info/mac-install-openai-environment"
+        "text": "ChatGPT账号注册方法",
+        "link": "/more-info/chatgpt-account-registration-method"
       },
       {
-        "text": "MAC切换npm镜像源",
-        "link": "/more-info/mac-switch-npm-mirror"
+        "text": "nvm安装NodeJS指南",
+        "link": "/more-info/nvm-install-nodejs-guide"
       },
       {
-        "text": "MAC初始化OpenClaw",
-        "link": "/more-info/mac-initialize-openclaw"
-      },
-      {
-        "text": "MAC安装AI工具指南",
-        "link": "/more-info/mac-install-ai-tool-guide"
+        "text": "MAC开发环境搭建",
+        "link": "/more-info/mac-development-environment-setup"
       },
       {
         "text": "Linux服务器VPN安装教程",

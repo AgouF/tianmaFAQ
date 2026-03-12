@@ -1,38 +1,38 @@
 {
   "/catalog-2/directory-nesting-333/mac-installation": {
-    "contentHash": "2443074854d823871ecadb5ab4d1e512",
+    "contentHash": "7730131b511b657c716fdaa50d2b48d3",
     "keywords": [
       {
-        "keyword": "MAC如何安装Python",
-        "slug": "mac-how-to-install-python"
+        "keyword": "MAC安装Python教程",
+        "slug": "mac-install-python-tutorial"
       },
       {
-        "keyword": "MAC安装NodeJS教程",
-        "slug": "mac-install-nodejs-tutorial"
+        "keyword": "MAC安装NodeJS步骤",
+        "slug": "mac-install-nodejs-steps"
+      },
+      {
+        "keyword": "OpenClaw怎么安装",
+        "slug": "how-to-install-openclaw"
       },
       {
         "keyword": "MAC设备安全注意事项",
         "slug": "mac-device-security-precautions"
       },
       {
-        "keyword": "OpenClaw安装步骤",
-        "slug": "openclaw-installation-steps"
+        "keyword": "VPN网络环境配置",
+        "slug": "vpn-network-environment-setup"
       },
       {
-        "keyword": "MAC安装OpenAI环境",
-        "slug": "mac-install-openai-environment"
+        "keyword": "ChatGPT账号注册方法",
+        "slug": "chatgpt-account-registration-method"
       },
       {
-        "keyword": "MAC切换npm镜像源",
-        "slug": "mac-switch-npm-mirror"
+        "keyword": "nvm安装NodeJS指南",
+        "slug": "nvm-install-nodejs-guide"
       },
       {
-        "keyword": "MAC初始化OpenClaw",
-        "slug": "mac-initialize-openclaw"
-      },
-      {
-        "keyword": "MAC安装AI工具指南",
-        "slug": "mac-install-ai-tool-guide"
+        "keyword": "MAC开发环境搭建",
+        "slug": "mac-development-environment-setup"
       }
     ]
   },
@@ -76,19 +76,19 @@
     ]
   },
   "/network/vpn/how-to-download-and-install-tools/mac-ios-download-usage": {
-    "contentHash": "49a1c1e122eb573c341ed5331208975e",
+    "contentHash": "374742dbbb1a29d21d65fe1f92f716c4",
     "keywords": [
       {
-        "keyword": "小火箭怎么导入订阅链接",
-        "slug": "shadowrocket-import-subscription-link"
+        "keyword": "小火箭怎么用",
+        "slug": "how-to-use-shadowrocket"
       },
       {
-        "keyword": "Mac AppStore外区账号登录",
-        "slug": "mac-appstore-foreign-account-login"
+        "keyword": "Mac VPN设置教程",
+        "slug": "mac-vpn-setup-tutorial"
       },
       {
-        "keyword": "IOS VPN设置教程",
-        "slug": "ios-vpn-setup-tutorial"
+        "keyword": "外区AppStore账号注册",
+        "slug": "foreign-appstore-account-registration"
       }
     ]
   },
@@ -132,27 +132,27 @@
     ]
   },
   "/network/account-registration-guide/appstore-registration-and-top-up-methods": {
-    "contentHash": "b5845abd3dce5a228172d744be24ddc4",
+    "contentHash": "9140712f9df3e9dc7385f00412fa12ba",
     "keywords": [
       {
-        "keyword": "港区Appstore注册教程",
-        "slug": "hong-kong-appstore-registration-tutorial"
+        "keyword": "港区Apple ID注册教程",
+        "slug": "hong-kong-apple-id-registration-tutorial"
       },
       {
-        "keyword": "美区Apple ID如何充值",
-        "slug": "us-apple-id-how-to-top-up"
+        "keyword": "美区App Store如何充值",
+        "slug": "us-app-store-how-to-top-up"
       },
       {
-        "keyword": "外区礼品卡购买方法",
-        "slug": "foreign-region-gift-card-purchase-method"
+        "keyword": "外区App Store礼品卡购买",
+        "slug": "foreign-app-store-gift-card-purchase"
       },
       {
-        "keyword": "Appstore兑换礼品码步骤",
-        "slug": "appstore-redeem-gift-code-steps"
+        "keyword": "如何兑换港区App Store礼品卡",
+        "slug": "how-to-redeem-hong-kong-app-store-gift-card"
       },
       {
-        "keyword": "如何注册海外Apple账户",
-        "slug": "how-to-register-overseas-apple-account"
+        "keyword": "外区ID注册后无法登录怎么办",
+        "slug": "foreign-id-cannot-login-after-registration"
       }
     ]
   },
