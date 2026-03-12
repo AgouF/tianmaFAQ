@@ -1,114 +1,114 @@
 ---
 title: "Linux Server VPN Installation Tutorial"
-description: "Installing a VPN (Virtual Private Network) on a Linux server serves several important purposes. For individual users or "
-lastUpdated: 1773143356968
+description: "Installing a VPN (Virtual Private Network) on a Linux server serves two primary purposes. First, it provides a secure re"
+lastUpdated: 1773327161354
 ---
 
 # Linux Server VPN Installation Tutorial
 
 ## Why Install a VPN on a Linux Server?
 
-Installing a VPN (Virtual Private Network) on a Linux server serves several important purposes. For individual users or system administrators, it primarily provides secure remote access capabilities. For example, when traveling, you can securely connect to your home or company server via VPN to access internal resources as if you were on the same local network. For the server itself, a VPN can encrypt its outgoing or incoming network traffic, protecting data transmission security and preventing sensitive information from being intercepted on the public internet. Furthermore, specific VPN protocols (like WireGuard) can be used to efficiently establish encrypted tunnels between multiple servers, building a private cloud network.
+Installing a VPN (Virtual Private Network) on a Linux server serves two primary purposes. First, it provides a secure remote access channel to the server itself. System administrators can securely connect to the server for maintenance via the VPN, avoiding the risk of exposing management ports like SSH directly to the public internet. Second, the server can act as a VPN gateway or relay node. For example, you can set up an OpenVPN server, allowing distributed client devices (such as employee computers) to connect to the server's internal network via an encrypted tunnel to access protected resources, or to enable all client traffic to access the internet securely and uniformly through the server.
 
-## Mainstream VPN Protocol Choices
+Whether for ensuring management security or building enterprise remote access solutions, deploying a VPN on a Linux server is a practical and important skill. Before starting the installation, ensure you have root privileges on the server and that the system is updated to the latest state (using `sudo apt update && sudo apt upgrade` or the corresponding yum command).
 
-Before starting the installation, it's crucial to understand several mainstream VPN protocols, each with its own pros and cons:
+## Mainstream VPN Protocol Selection and Pre-installation Preparation
 
-1.  **OpenVPN**: Long history, very mature and stable, highly flexible configuration, strong security, and compatible with almost all platforms. Its drawbacks are relatively complex configuration and slightly higher performance overhead.
-2.  **WireGuard**: A next-generation protocol, renowned for its simple codebase, high speed, modern encryption, and easy configuration. It's built into the Linux kernel version 5.6 and above and is currently the preferred choice for many scenarios.
-3.  **IPsec**: A suite of protocols, often used for enterprise-level site-to-site connections, integrated into the operating system's network stack, very efficient, but configuration can be complex.
+On Linux servers, the most common VPN solutions are **OpenVPN** and **WireGuard**.
 
-For most individual users and beginners, **WireGuard** is the recommended choice for this tutorial due to its minimal configuration and excellent performance.
+*   **OpenVPN**: Has a long history, is very mature and stable, offers flexible configuration, and its security has been widely validated. However, its configuration is relatively complex, and it has slightly higher performance overhead.
+*   **WireGuard**: A next-generation VPN protocol with an extremely simple design, kernel-level operation, excellent performance, fast connection speeds, and simpler configuration. It is the preferred choice for modern deployments, especially for scenarios requiring speed and simplicity.
 
-## Installing VPN Using WireGuard (Ubuntu/Debian Example)
+This tutorial will use **WireGuard** as an example because its installation and configuration are quicker, better reflecting Linux's efficiency. Before starting, please confirm:
+1.  The server operating system (e.g., Ubuntu 20.04/22.04, CentOS 7/8, etc.).
+2.  The server has a public IP address, and port 51820 for UDP protocol (WireGuard's default port) is allowed in the firewall (e.g., `ufw` or `firewalld`).
+3.  If you want to learn more about basic system preparation for the server, you can refer to this article about [Linux and Server Installation Methods](/catalog-2/directory-nesting-333/linux-server-installation).
 
-The following are concise steps for installing WireGuard on systems like Ubuntu 20.04 or Debian 11.
+## Step-by-Step Installation and Configuration of WireGuard
+
+The following uses Ubuntu/Debian systems as an example to introduce the installation and basic configuration of WireGuard.
 
 ### Step 1: Install WireGuard
-WireGuard is included in the official repositories of major Linux distributions. First, update the package list and install:
+Use the package manager to install WireGuard and its tools.
 ```bash
 sudo apt update
 sudo apt install wireguard
 ```
-For systems like CentOS/RHEL, you need to enable the EPEL repository first. For detailed installation basics on different Linux distributions, you can refer to this guide: [Linux and Server Installation Methods](/catalog-2/directory-nesting-333/linux-server-installation).
+For CentOS/RHEL 8 and above, you can enable the EPEL repository and then install it.
 
 ### Step 2: Generate Server Key Pair
-WireGuard uses public/private key pairs for authentication. Generate keys for the server:
+WireGuard uses public/private key pairs for authentication.
 ```bash
 cd /etc/wireguard/
-umask 077
-wg genkey | tee server_private.key | wg pubkey > server_public.key
+sudo umask 077 # Set strict permission mask
+sudo wg genkey | sudo tee server_private.key | sudo wg pubkey | sudo tee server_public.key
 ```
-Please securely store the generated `server_private.key` file.
+This will generate `server_private.key` (private key, must be kept strictly confidential) and `server_public.key` (public key) in the `/etc/wireguard/` directory.
 
-### Step 3: Configure the Server
-Create the configuration file `/etc/wireguard/wg0.conf`:
+### Step 3: Configure the Server Side
+Create the configuration file `/etc/wireguard/wg0.conf`.
 ```bash
 sudo nano /etc/wireguard/wg0.conf
 ```
-Enter the following content. Replace `<server private key>` with the content from the `server_private.key` file, and plan a subnet for VPN clients (e.g., `10.0.0.1/24`):
+Paste the following content and modify it according to your actual situation:
 ```ini
 [Interface]
-Address = 10.0.0.1/24
-SaveConfig = true
-ListenPort = 51820
-PrivateKey = <server private key>
+Address = 10.0.0.1/24 # Server's IP in the VPN network, you can customize a private subnet
+ListenPort = 51820    # UDP port to listen on
+PrivateKey = <Paste your server_private.key content here>
 PostUp = iptables -A FORWARD -i wg0 -j ACCEPT; iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
 PostDown = iptables -D FORWARD -i wg0 -j ACCEPT; iptables -t nat -D POSTROUTING -o eth0 -j MASQUERADE
-```
-The `PostUp` and `PostDown` rules are used to set up NAT forwarding, allowing VPN clients to access the internet through the server's public network interface (`eth0`, please modify according to your actual situation).
+# The above two lines configure NAT forwarding, allowing clients to access the internet through the server. Replace eth0 with your server's public network interface name.
 
-### Step 4: Enable IP Forwarding and Start the Service
-Edit system parameters to enable IP forwarding:
-```bash
-echo "net.ipv4.ip_forward=1" | sudo tee -a /etc/sysctl.conf
-sudo sysctl -p
+[Peer] # This is a sample client configuration, to be generated later
+PublicKey = <Paste the client's public key here later>
+AllowedIPs = 10.0.0.2/32 # IP assigned to this client
 ```
-Start the WireGuard interface and set it to start on boot:
+
+### Step 4: Enable IP Forwarding and Configure Firewall
+Enable the system's IP forwarding function:
+```bash
+sudo sysctl -w net.ipv4.ip_forward=1
+```
+To make this setting permanent, edit `/etc/sysctl.conf` and uncomment the line `net.ipv4.ip_forward=1`.
+
+Configure the firewall to allow UDP port 51820 (using UFW as an example):
+```bash
+sudo ufw allow 51820/udp
+sudo ufw reload
+```
+
+### Step 5: Start the WireGuard Service
 ```bash
 sudo systemctl enable wg-quick@wg0
 sudo systemctl start wg-quick@wg0
 ```
+Use the `sudo wg show` command to view the current interface and connected client status.
 
-### Step 5: Generate Configuration for a Client
-Each client needs its own key pair and configuration. Generate configuration for a client (e.g., a laptop) on the server:
-```bash
-# Generate client keys
-wg genkey | tee client_private.key | wg pubkey > client_public.key
+### Step 6: Generate and Configure the Client
+Install WireGuard on the client machine (which can be another Linux, Windows, macOS, or mobile device) and generate a key pair. Copy the client's **public key** to the `[Peer]` section of the server's `wg0.conf` file. Simultaneously, you need to provide the following information for the client's configuration file:
+*   The client's private key
+*   The client's IP (e.g., `10.0.0.2`)
+*   The server's public IP and port
+*   The server's public key
 
-# Add the peer client to the server configuration
-sudo wg set wg0 peer $(cat client_public.key) allowed-ips 10.0.0.2/32
-sudo wg-quick save wg0  # Save the configuration
-
-# Create the client configuration file client.conf
-cat > client.conf << EOF
-[Interface]
-PrivateKey = <client private key>
-Address = 10.0.0.2/24
-DNS = 8.8.8.8
-
-[Peer]
-PublicKey = <server public key>
-Endpoint = <your server public IP>:51820
-AllowedIPs = 0.0.0.0/0
-PersistentKeepalive = 25
-EOF
-```
-Replace `<client private key>`, `<server public key>`, and `<your server public IP>` in the file with actual values. Securely transfer this `client.conf` file to the client device and import it using a WireGuard client application to connect.
+Import the generated client configuration file (usually a `.conf` file) into the client's WireGuard application to connect.
 
 ## Common Issues
 
-### Unable to Access the Internet After Connecting to VPN?
-This is usually because the NAT forwarding rules on the server side are not taking effect correctly. Please check:
-1.  Whether the network interface name (e.g., `eth0`) in the `PostUp` rule of the server configuration file matches the actual public network interface name used by the server for internet access. You can use the `ip addr` command to check.
-2.  Whether you executed `sudo sysctl -p` to enable IP forwarding.
-3.  Whether the server's firewall (like `ufw` or `firewalld`) has allowed UDP port `51820` and forwarding traffic.
+### Which is better, WireGuard or OpenVPN?
+It depends on the requirements. **WireGuard** has significant advantages in performance, speed, and modern encryption, with simple configuration, making it the recommended choice for most new projects. **OpenVPN** has extremely broad compatibility and extremely flexible configuration, making it useful in environments requiring complex routing policies or specific enterprise scenarios. For individual users and teams pursuing simplicity and efficiency, WireGuard is usually the better choice.
 
-### How to Add More VPN Clients?
-Repeat the operations in "Step 5" for each new client. Key points are:
-1.  Generate an independent key pair for each new client.
-2.  Add a `[Peer]` section for each client in the server's `wg0.conf`, or use the `sudo wg set` command to add them.
-3.  Ensure the `Address` assigned to each client (e.g., `10.0.0.3/32`) is within the same subnet and unique.
-4.  Generate a separate `.conf` configuration file for each client.
+### The client connects successfully but cannot access the internet?
+This is usually because the NAT forwarding or firewall rules on the server side are not set correctly.
+1.  Confirm that the iptables rules in `PostUp` and `PostDown` in the server configuration file are correctly added and that the network interface name (e.g., `eth0`) is correct.
+2.  Check if the server's firewall allows forwarded traffic. For example, in UFW, you may need to enable forwarding: `sudo nano /etc/default/ufw`, change `DEFAULT_FORWARD_POLICY` to `"ACCEPT"`.
+3.  Ensure that `AllowedIPs` in the client configuration is set to `0.0.0.0/0` (meaning routing all traffic through the VPN) or the specific subnet you wish to route.
+
+### How to add more VPN clients?
+Add a new `[Peer]` block in the server's `wg0.conf` for each new client. Each client needs:
+1.  A unique client IP (e.g., `10.0.0.3/32`).
+2.  Its own generated **public key**.
+Each time the configuration file is modified, you need to reload the WireGuard interface: `sudo wg syncconf wg0 <(sudo wg-quick strip wg0)`.
 
 <RelatedCards :items='[{"title":"Linux and Server Installation Methods","link":"/catalog-2/directory-nesting-333/linux-server-installation"}]' />

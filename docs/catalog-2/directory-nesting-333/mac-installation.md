@@ -1,18 +1,18 @@
 ---
 title: "MAC安装方式"
-description: "1. 网络环境 VPN篇 1. ChatGPT账号注册 Claude&ChatGPT&Gemini注册使用 1. MAC硬件 MacBook或 Macmini ::: tip 使用的MAC设备，不要存放重要资料以及敏感资料，谨防资料泄露丢失"
+description: "1. 魔法网络环境 1. ChatGPT账号注册 Claude&ChatGPT&Gemini注册使用 1. MAC硬件 MacBook或 Macmini ::: tip 使用的MAC设备，不要存放重要资料以及敏感资料，谨防资料泄露丢失造成不"
 readingTime: 4
-lastUpdated: 1773225000000
-ogImage: "https://tianma.xin/images/97f0e9102137.webp"
+lastUpdated: 1773326220000
+ogImage: "https://tianma.xin/images/155b75b46a47.webp"
 ---
 
 # MAC安装方式
 
 # 准备项目
 
-1. 网络环境 [VPN篇](/network/vpn/)
+1. 魔法网络环境
 
-1. ChatGPT账号注册 [Claude&ChatGPT&Gemini注册使用](/catalog-2/claude-chatgpt-gemini-registration-usage)
+1. ChatGPT账号注册 [Claude&ChatGPT&Gemini注册使用](/claude-chatgpt-gemini-registration-usage)
 
 1. MAC硬件 MacBook或 Macmini
 
@@ -38,7 +38,7 @@ ogImage: "https://tianma.xin/images/97f0e9102137.webp"
 
 1. 选择 Download macOS installer下载
 
-![](/images/97f0e9102137.webp)
+![](/images/155b75b46a47.webp)
 
 1. 下载好后执行
 
@@ -100,7 +100,7 @@ npm config set registry https://registry.npmmirror.com
 
 1. Workspace directory 这是AI工作的文件夹，直接按回车就好
 
-1. Model/auth provider开始配置AI ，使用OpenAI 选择OpenAI Codex (ChatGPT OAuth)就好 ，具体注册教程 [Claude&ChatGPT&Gemini注册使用](/catalog-2/claude-chatgpt-gemini-registration-usage) 等待授权好
+1. Model/auth provider开始配置AI ，使用OpenAI 选择OpenAI Codex (ChatGPT OAuth)就好 ，具体注册教程 [Claude&ChatGPT&Gemini注册使用](/claude-chatgpt-gemini-registration-usage) 等待授权好
 
 1. 授权后，复制浏览器顶部链接到终端里，然后选择模型Default model “openai-codex/gpt-5.3-codex”回车
 
@@ -192,6 +192,6 @@ npm config set registry https://registry.npmmirror.com
 
 1. 这样才能使用全部工具
 
-![](/images/714ebecd17e7.webp)
+![](/images/1b13bb6c067c.webp)
 
-<RelatedCards :items='[{"title":"Claude&ChatGPT&Gemini注册使用","link":"/catalog-2/claude-chatgpt-gemini-registration-usage"},{"title":"Linux以及服务器安装方式","link":"/catalog-2/directory-nesting-333/linux-server-installation"},{"title":"Windows安装方式","link":"/catalog-2/directory-nesting-333/windows-installation"},{"title":"MAC安装Python教程","link":"/more-info/mac-install-python-tutorial"},{"title":"MAC安装NodeJS步骤","link":"/more-info/mac-install-nodejs-steps"},{"title":"OpenClaw安装指南","link":"/more-info/openclaw-installation-guide"},{"title":"MAC设备安全注意事项","link":"/more-info/mac-device-security-precautions"},{"title":"如何配置OpenAI网关","link":"/more-info/how-to-configure-openai-gateway"},{"title":"MAC切换npm镜像源","link":"/more-info/mac-switch-npm-mirror"},{"title":"MAC安装OpenClaw出错","link":"/more-info/mac-install-openclaw-error"},{"title":"MAC多用户环境安全设置","link":"/more-info/mac-multi-user-security-settings"}]' />
+<RelatedCards :items='[{"title":"Linux以及服务器安装方式","link":"/catalog-2/directory-nesting-333/linux-server-installation"},{"title":"Windows安装方式","link":"/catalog-2/directory-nesting-333/windows-installation"},{"title":"MAC安装Python教程","link":"/more-info/mac-install-python-tutorial"},{"title":"MAC安装NodeJS步骤","link":"/more-info/mac-install-nodejs-steps"},{"title":"OpenClaw怎么安装","link":"/more-info/how-to-install-openclaw"},{"title":"MAC开发环境配置","link":"/more-info/mac-development-environment-setup"},{"title":"Python环境配置MAC","link":"/more-info/python-environment-setup-mac"},{"title":"NodeJS镜像源切换","link":"/more-info/nodejs-mirror-switch"},{"title":"MAC设备安全注意事项","link":"/more-info/mac-device-security-precautions"},{"title":"OpenClaw初始化配置","link":"/more-info/openclaw-initialization-configuration"}]' />

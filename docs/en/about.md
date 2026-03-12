@@ -9,4 +9,4 @@ lastUpdated: 1773203280000
 | Author | tianma |
 | --- | --- |
 
-<RelatedCards :items='[{"title":"Is VPN Safe","link":"/more-info/vpn-security"},{"title":"VPN Recommendations","link":"/more-info/vpn-recommendation"}]' />
+<RelatedCards :items='[{"title":"Claude&ChatGPT&Gemini Registration & Usage","link":"/claude-chatgpt-gemini-registration-usage"},{"title":"Is VPN Safe","link":"/more-info/vpn-security"},{"title":"VPN Recommendations","link":"/more-info/vpn-recommendation"}]' />

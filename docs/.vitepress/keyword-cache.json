@@ -1,6 +1,6 @@
 {
   "/catalog-2/directory-nesting-333/mac-installation": {
-    "contentHash": "ca041824122e0e7a4b28c4de768493a2",
+    "contentHash": "9001863b314a3604d053ede3f9cc50d1",
     "keywords": [
       {
         "keyword": "MAC安装Python教程",
@@ -11,54 +11,54 @@
         "slug": "mac-install-nodejs-steps"
       },
       {
-        "keyword": "OpenClaw安装指南",
-        "slug": "openclaw-installation-guide"
+        "keyword": "OpenClaw怎么安装",
+        "slug": "how-to-install-openclaw"
+      },
+      {
+        "keyword": "MAC开发环境配置",
+        "slug": "mac-development-environment-setup"
+      },
+      {
+        "keyword": "Python环境配置MAC",
+        "slug": "python-environment-setup-mac"
+      },
+      {
+        "keyword": "NodeJS镜像源切换",
+        "slug": "nodejs-mirror-switch"
       },
       {
         "keyword": "MAC设备安全注意事项",
         "slug": "mac-device-security-precautions"
       },
       {
-        "keyword": "如何配置OpenAI网关",
-        "slug": "how-to-configure-openai-gateway"
-      },
-      {
-        "keyword": "MAC切换npm镜像源",
-        "slug": "mac-switch-npm-mirror"
-      },
-      {
-        "keyword": "MAC安装OpenClaw出错",
-        "slug": "mac-install-openclaw-error"
-      },
-      {
-        "keyword": "MAC多用户环境安全设置",
-        "slug": "mac-multi-user-security-settings"
+        "keyword": "OpenClaw初始化配置",
+        "slug": "openclaw-initialization-configuration"
       }
     ]
   },
   "/catalog-2/directory-nesting-333/linux-server-installation": {
-    "contentHash": "a843545ada8587ec864b9406ae47dbb4",
+    "contentHash": "1c558a88a82530aa8c88ec72f191213d",
     "keywords": [
       {
         "keyword": "Linux服务器VPN安装教程",
         "slug": "linux-server-vpn-installation-tutorial"
       },
       {
-        "keyword": "服务器VPN怎么安装",
-        "slug": "server-vpn-how-to-install"
+        "keyword": "服务器VPN怎么配置",
+        "slug": "server-vpn-configuration-guide"
       }
     ]
   },
   "/catalog-2/directory-nesting-333/windows-installation": {
-    "contentHash": "79fed11d43cc8143b4bf74df9edc1934",
+    "contentHash": "e5ba9a5afa1bd9fc574a12a52f07857c",
     "keywords": [
       {
         "keyword": "Windows VPN怎么安装",
         "slug": "windows-vpn-installation"
       },
       {
-        "keyword": "VPN客户端下载教程",
-        "slug": "vpn-client-download-tutorial"
+        "keyword": "天马VPN安装教程",
+        "slug": "tianma-vpn-installation-tutorial"
       }
     ]
   },
@@ -75,50 +75,20 @@
       }
     ]
   },
-  "/network/vpn/how-to-download-and-install-tools/mac-ios-download-usage": {
-    "contentHash": "096d8d0cac8419a7ad1747466cceb1c2",
+  "/claude-chatgpt-gemini-registration-usage": {
+    "contentHash": "512c8996676458aff70da83594b4fe80",
     "keywords": [
       {
-        "keyword": "小火箭怎么用",
-        "slug": "shadowrocket-tutorial"
+        "keyword": "Claude注册教程",
+        "slug": "claude-registration-tutorial"
       },
       {
-        "keyword": "外区AppStore账号注册",
-        "slug": "foreign-appstore-account-registration"
-      },
-      {
-        "keyword": "VPN节点延迟测试",
-        "slug": "vpn-node-latency-test"
+        "keyword": "ChatGPT使用指南",
+        "slug": "chatgpt-usage-guide"
       }
     ]
   },
-  "/network/vpn/how-to-download-and-install-tools/windows-download-and-usage": {
-    "contentHash": "ea312c7fbdeec3f21b73592fe8455411",
-    "keywords": [
-      {
-        "keyword": "Windows VPN怎么用",
-        "slug": "windows-vpn-how-to-use"
-      },
-      {
-        "keyword": "天马VPN下载教程",
-        "slug": "tianma-vpn-download-tutorial"
-      }
-    ]
-  },
-  "/network/vpn/how-to-build-magic": {
-    "contentHash": "e8ee841b91d25b0cda3479cf6c5f35de",
-    "keywords": [
-      {
-        "keyword": "VPN怎么搭建",
-        "slug": "how-to-set-up-vpn"
-      },
-      {
-        "keyword": "VPN搭建教程",
-        "slug": "vpn-setup-tutorial"
-      }
-    ]
-  },
-  "/network/account-registration-guide/google-email-registration": {
+  "/account-registration-guide/google-email-registration": {
     "contentHash": "298a728c52d5d6e40e23f3ab05149e8f",
     "keywords": [
       {
@@ -131,41 +101,28 @@
       }
     ]
   },
-  "/network/account-registration-guide/appstore-registration-and-top-up-methods": {
-    "contentHash": "6f36fa5a7aa2a50a4362fa2cf274c1a9",
+  "/account-registration-guide/appstore-registration-and-top-up-methods": {
+    "contentHash": "29b1573e85012aef41a3e0178875bb40",
     "keywords": [
       {
-        "keyword": "港区Appstore注册教程",
-        "slug": "hong-kong-appstore-registration-tutorial"
+        "keyword": "港区Apple ID注册教程",
+        "slug": "hong-kong-apple-id-registration-tutorial"
       },
       {
-        "keyword": "美区Apple ID怎么注册",
-        "slug": "how-to-register-us-apple-id"
+        "keyword": "美区Appstore如何充值",
+        "slug": "us-appstore-how-to-top-up"
       },
       {
-        "keyword": "外区Appstore充值方法",
-        "slug": "foreign-appstore-top-up-methods"
+        "keyword": "Appstore礼品卡怎么兑换",
+        "slug": "appstore-gift-card-how-to-redeem"
       },
       {
-        "keyword": "港区礼品卡怎么兑换",
-        "slug": "how-to-redeem-hong-kong-gift-card"
+        "keyword": "外区ID注册需要什么",
+        "slug": "foreign-apple-id-registration-requirements"
       },
       {
-        "keyword": "Appstore付款方式绑定",
-        "slug": "appstore-payment-method-binding"
-      }
-    ]
-  },
-  "/catalog-2/claude-chatgpt-gemini-registration-usage": {
-    "contentHash": "b6151be23dbb810b2f655c06695f037b",
-    "keywords": [
-      {
-        "keyword": "Claude注册教程",
-        "slug": "claude-registration-tutorial"
-      },
-      {
-        "keyword": "ChatGPT使用指南",
-        "slug": "chatgpt-usage-guide"
+        "keyword": "港区礼品卡购买渠道",
+        "slug": "hong-kong-gift-card-purchase-channels"
       }
     ]
   }

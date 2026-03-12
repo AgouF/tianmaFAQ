@@ -1,45 +1,19 @@
 [
   {
-    "text": "Network & Platform Account Registration",
+    "text": "Claude & ChatGPT & Gemini Registration and Usage",
+    "link": "/en/claude-chatgpt-gemini-registration-usage"
+  },
+  {
+    "text": "Registration of accounts on various overseas platforms.",
     "collapsed": true,
     "items": [
       {
-        "text": "VPN Section",
-        "collapsed": true,
-        "items": [
-          {
-            "text": "Download and use a suitable VPN application.",
-            "collapsed": true,
-            "items": [
-              {
-                "text": "MAC & iOS Download and Usage Instructions",
-                "link": "/en/network/vpn/how-to-download-and-install-tools/mac-ios-download-usage"
-              },
-              {
-                "text": "Windows download and usage instructions",
-                "link": "/en/network/vpn/how-to-download-and-install-tools/windows-download-and-usage"
-              }
-            ]
-          },
-          {
-            "text": "How to build a VPN",
-            "link": "/en/network/vpn/how-to-build-magic"
-          }
-        ]
+        "text": "Google Email Registration",
+        "link": "/en/account-registration-guide/google-email-registration"
       },
       {
-        "text": "Account Registration Guide for Various Platforms",
-        "collapsed": true,
-        "items": [
-          {
-            "text": "Google Email Registration",
-            "link": "/en/network/account-registration-guide/google-email-registration"
-          },
-          {
-            "text": "Registration and Top-up Methods for App Store in Other Regions",
-            "link": "/en/network/account-registration-guide/appstore-registration-and-top-up-methods"
-          }
-        ]
+        "text": "Registration and Top-up Methods for App Store in Other Regions",
+        "link": "/en/account-registration-guide/appstore-registration-and-top-up-methods"
       }
     ]
   },
@@ -47,10 +21,6 @@
     "text": "AI",
     "collapsed": true,
     "items": [
-      {
-        "text": "Claude & ChatGPT & Gemini Registration and Usage",
-        "link": "/en/catalog-2/claude-chatgpt-gemini-registration-usage"
-      },
       {
         "text": "OpenClaw Installation & Advanced Tutorial",
         "collapsed": true,
@@ -80,32 +50,12 @@
     "collapsed": true,
     "items": [
       {
-        "text": "How to use Shadowrocket?",
-        "link": "/en/more-info/shadowrocket-tutorial"
+        "text": "Claude Registration Tutorial",
+        "link": "/en/more-info/claude-registration-tutorial"
       },
       {
-        "text": "Registering an App Store Account from Another Region",
-        "link": "/en/more-info/foreign-appstore-account-registration"
-      },
-      {
-        "text": "VPN node latency test",
-        "link": "/en/more-info/vpn-node-latency-test"
-      },
-      {
-        "text": "How to use Windows VPN",
-        "link": "/en/more-info/windows-vpn-how-to-use"
-      },
-      {
-        "text": "Tianma VPN Download Tutorial",
-        "link": "/en/more-info/tianma-vpn-download-tutorial"
-      },
-      {
-        "text": "How to set up a VPN",
-        "link": "/en/more-info/how-to-set-up-vpn"
-      },
-      {
-        "text": "VPN Setup Tutorial",
-        "link": "/en/more-info/vpn-setup-tutorial"
+        "text": "ChatGPT User Guide",
+        "link": "/en/more-info/chatgpt-usage-guide"
       },
       {
         "text": "How to register for a Gmail account",
@@ -116,32 +66,24 @@
         "link": "/en/more-info/gmail-registration-tutorial"
       },
       {
-        "text": "Hong Kong App Store Registration Tutorial",
-        "link": "/en/more-info/hong-kong-appstore-registration-tutorial"
+        "text": "Hong Kong Apple ID Registration Tutorial",
+        "link": "/en/more-info/hong-kong-apple-id-registration-tutorial"
       },
       {
-        "text": "How to register for a US Apple ID",
-        "link": "/en/more-info/how-to-register-us-apple-id"
+        "text": "How to top up on the US App Store",
+        "link": "/en/more-info/us-appstore-how-to-top-up"
       },
       {
-        "text": "Top-up methods for App Store from other regions",
-        "link": "/en/more-info/foreign-appstore-top-up-methods"
+        "text": "How to redeem an App Store gift card?",
+        "link": "/en/more-info/appstore-gift-card-how-to-redeem"
       },
       {
-        "text": "How to redeem a Hong Kong district gift card?",
-        "link": "/en/more-info/how-to-redeem-hong-kong-gift-card"
+        "text": "What is required for registering an out-of-region ID?",
+        "link": "/en/more-info/foreign-apple-id-registration-requirements"
       },
       {
-        "text": "App Store payment method binding",
-        "link": "/en/more-info/appstore-payment-method-binding"
-      },
-      {
-        "text": "Claude Registration Tutorial",
-        "link": "/en/more-info/claude-registration-tutorial"
-      },
-      {
-        "text": "ChatGPT User Guide",
-        "link": "/en/more-info/chatgpt-usage-guide"
+        "text": "Hong Kong District Gift Card Purchase Channels",
+        "link": "/en/more-info/hong-kong-gift-card-purchase-channels"
       },
       {
         "text": "MAC Installation Python Tutorial",
@@ -152,44 +94,44 @@
         "link": "/en/more-info/mac-install-nodejs-steps"
       },
       {
-        "text": "OpenClaw Installation Guide",
-        "link": "/en/more-info/openclaw-installation-guide"
+        "text": "How to install OpenClaw",
+        "link": "/en/more-info/how-to-install-openclaw"
+      },
+      {
+        "text": "MAC Development Environment Setup",
+        "link": "/en/more-info/mac-development-environment-setup"
+      },
+      {
+        "text": "Python Environment Setup on MAC",
+        "link": "/en/more-info/python-environment-setup-mac"
+      },
+      {
+        "text": "NodeJS Mirror Source Switching",
+        "link": "/en/more-info/nodejs-mirror-switch"
       },
       {
         "text": "MAC Device Security Precautions",
         "link": "/en/more-info/mac-device-security-precautions"
       },
       {
-        "text": "How to configure an OpenAI gateway",
-        "link": "/en/more-info/how-to-configure-openai-gateway"
-      },
-      {
-        "text": "Switch npm registry on MAC",
-        "link": "/en/more-info/mac-switch-npm-mirror"
-      },
-      {
-        "text": "MAC installation of OpenClaw encountered an error.",
-        "link": "/en/more-info/mac-install-openclaw-error"
-      },
-      {
-        "text": "MAC Multi-User Environment Security Settings",
-        "link": "/en/more-info/mac-multi-user-security-settings"
+        "text": "OpenClaw Initialization Configuration",
+        "link": "/en/more-info/openclaw-initialization-configuration"
       },
       {
         "text": "Linux Server VPN Installation Tutorial",
         "link": "/en/more-info/linux-server-vpn-installation-tutorial"
       },
       {
-        "text": "How to install a VPN on a server?",
-        "link": "/en/more-info/server-vpn-how-to-install"
+        "text": "How to configure a server VPN?",
+        "link": "/en/more-info/server-vpn-configuration-guide"
       },
       {
         "text": "How to Install a VPN on Windows",
         "link": "/en/more-info/windows-vpn-installation"
       },
       {
-        "text": "VPN Client Download Tutorial",
-        "link": "/en/more-info/vpn-client-download-tutorial"
+        "text": "Tianma VPN Installation Tutorial",
+        "link": "/en/more-info/tianma-vpn-installation-tutorial"
       },
       {
         "text": "Is VPN safe?",

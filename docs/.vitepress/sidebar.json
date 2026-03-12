@@ -1,45 +1,19 @@
 [
   {
-    "text": "网络&各平台账号注册",
+    "text": "Claude&ChatGPT&Gemini注册使用",
+    "link": "/claude-chatgpt-gemini-registration-usage"
+  },
+  {
+    "text": "各海外平台账号注册",
     "collapsed": true,
     "items": [
       {
-        "text": "VPN篇",
-        "collapsed": true,
-        "items": [
-          {
-            "text": "下载使用合适的VPN应用程序",
-            "collapsed": true,
-            "items": [
-              {
-                "text": "MAC&IOS下载以及使用方式",
-                "link": "/network/vpn/how-to-download-and-install-tools/mac-ios-download-usage"
-              },
-              {
-                "text": "Windows下载以及使用方式",
-                "link": "/network/vpn/how-to-download-and-install-tools/windows-download-and-usage"
-              }
-            ]
-          },
-          {
-            "text": "如何搭建魔法",
-            "link": "/network/vpn/how-to-build-magic"
-          }
-        ]
+        "text": "Google Email注册",
+        "link": "/account-registration-guide/google-email-registration"
       },
       {
-        "text": "各平台账号注册篇",
-        "collapsed": true,
-        "items": [
-          {
-            "text": "Google Email注册",
-            "link": "/network/account-registration-guide/google-email-registration"
-          },
-          {
-            "text": "外区Appstore注册方式以及充值方法",
-            "link": "/network/account-registration-guide/appstore-registration-and-top-up-methods"
-          }
-        ]
+        "text": "外区Appstore注册方式以及充值方法",
+        "link": "/account-registration-guide/appstore-registration-and-top-up-methods"
       }
     ]
   },
@@ -47,10 +21,6 @@
     "text": "AI",
     "collapsed": true,
     "items": [
-      {
-        "text": "Claude&ChatGPT&Gemini注册使用",
-        "link": "/catalog-2/claude-chatgpt-gemini-registration-usage"
-      },
       {
         "text": "OpenClaw安装&进阶教程",
         "collapsed": true,
@@ -80,32 +50,12 @@
     "collapsed": true,
     "items": [
       {
-        "text": "小火箭怎么用",
-        "link": "/more-info/shadowrocket-tutorial"
+        "text": "Claude注册教程",
+        "link": "/more-info/claude-registration-tutorial"
       },
       {
-        "text": "外区AppStore账号注册",
-        "link": "/more-info/foreign-appstore-account-registration"
-      },
-      {
-        "text": "VPN节点延迟测试",
-        "link": "/more-info/vpn-node-latency-test"
-      },
-      {
-        "text": "Windows VPN怎么用",
-        "link": "/more-info/windows-vpn-how-to-use"
-      },
-      {
-        "text": "天马VPN下载教程",
-        "link": "/more-info/tianma-vpn-download-tutorial"
-      },
-      {
-        "text": "VPN怎么搭建",
-        "link": "/more-info/how-to-set-up-vpn"
-      },
-      {
-        "text": "VPN搭建教程",
-        "link": "/more-info/vpn-setup-tutorial"
+        "text": "ChatGPT使用指南",
+        "link": "/more-info/chatgpt-usage-guide"
       },
       {
         "text": "如何注册Google邮箱",
@@ -116,32 +66,24 @@
         "link": "/more-info/gmail-registration-tutorial"
       },
       {
-        "text": "港区Appstore注册教程",
-        "link": "/more-info/hong-kong-appstore-registration-tutorial"
+        "text": "港区Apple ID注册教程",
+        "link": "/more-info/hong-kong-apple-id-registration-tutorial"
       },
       {
-        "text": "美区Apple ID怎么注册",
-        "link": "/more-info/how-to-register-us-apple-id"
+        "text": "美区Appstore如何充值",
+        "link": "/more-info/us-appstore-how-to-top-up"
       },
       {
-        "text": "外区Appstore充值方法",
-        "link": "/more-info/foreign-appstore-top-up-methods"
+        "text": "Appstore礼品卡怎么兑换",
+        "link": "/more-info/appstore-gift-card-how-to-redeem"
       },
       {
-        "text": "港区礼品卡怎么兑换",
-        "link": "/more-info/how-to-redeem-hong-kong-gift-card"
+        "text": "外区ID注册需要什么",
+        "link": "/more-info/foreign-apple-id-registration-requirements"
       },
       {
-        "text": "Appstore付款方式绑定",
-        "link": "/more-info/appstore-payment-method-binding"
-      },
-      {
-        "text": "Claude注册教程",
-        "link": "/more-info/claude-registration-tutorial"
-      },
-      {
-        "text": "ChatGPT使用指南",
-        "link": "/more-info/chatgpt-usage-guide"
+        "text": "港区礼品卡购买渠道",
+        "link": "/more-info/hong-kong-gift-card-purchase-channels"
       },
       {
         "text": "MAC安装Python教程",
@@ -152,44 +94,44 @@
         "link": "/more-info/mac-install-nodejs-steps"
       },
       {
-        "text": "OpenClaw安装指南",
-        "link": "/more-info/openclaw-installation-guide"
+        "text": "OpenClaw怎么安装",
+        "link": "/more-info/how-to-install-openclaw"
+      },
+      {
+        "text": "MAC开发环境配置",
+        "link": "/more-info/mac-development-environment-setup"
+      },
+      {
+        "text": "Python环境配置MAC",
+        "link": "/more-info/python-environment-setup-mac"
+      },
+      {
+        "text": "NodeJS镜像源切换",
+        "link": "/more-info/nodejs-mirror-switch"
       },
       {
         "text": "MAC设备安全注意事项",
         "link": "/more-info/mac-device-security-precautions"
       },
       {
-        "text": "如何配置OpenAI网关",
-        "link": "/more-info/how-to-configure-openai-gateway"
-      },
-      {
-        "text": "MAC切换npm镜像源",
-        "link": "/more-info/mac-switch-npm-mirror"
-      },
-      {
-        "text": "MAC安装OpenClaw出错",
-        "link": "/more-info/mac-install-openclaw-error"
-      },
-      {
-        "text": "MAC多用户环境安全设置",
-        "link": "/more-info/mac-multi-user-security-settings"
+        "text": "OpenClaw初始化配置",
+        "link": "/more-info/openclaw-initialization-configuration"
       },
       {
         "text": "Linux服务器VPN安装教程",
         "link": "/more-info/linux-server-vpn-installation-tutorial"
       },
       {
-        "text": "服务器VPN怎么安装",
-        "link": "/more-info/server-vpn-how-to-install"
+        "text": "服务器VPN怎么配置",
+        "link": "/more-info/server-vpn-configuration-guide"
       },
       {
         "text": "Windows VPN怎么安装",
         "link": "/more-info/windows-vpn-installation"
       },
       {
-        "text": "VPN客户端下载教程",
-        "link": "/more-info/vpn-client-download-tutorial"
+        "text": "天马VPN安装教程",
+        "link": "/more-info/tianma-vpn-installation-tutorial"
       },
       {
         "text": "VPN安全吗",
