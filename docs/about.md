@@ -2,7 +2,7 @@
 title: "☀️关于"
 description: "| 作者 | tianma | | --- | --- |"
 readingTime: 1
-lastUpdated: 1773203280000
+lastUpdated: 1773326340000
 ---
 
 # ☀️关于
@@ -10,4 +10,4 @@ lastUpdated: 1773203280000
 | 作者 | tianma |
 | --- | --- |
 
-<RelatedCards :items='[{"title":"Claude&ChatGPT&Gemini注册使用","link":"/claude-chatgpt-gemini-registration-usage"},{"title":"VPN安全吗","link":"/more-info/vpn-security"},{"title":"VPN推荐","link":"/more-info/vpn-recommendation"}]' />
+<RelatedCards :items='[{"title":"VPN安全吗","link":"/more-info/vpn-security"},{"title":"VPN推荐","link":"/more-info/vpn-recommendation"}]' />

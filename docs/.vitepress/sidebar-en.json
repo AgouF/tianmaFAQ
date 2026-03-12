@@ -1,38 +1,12 @@
 [
   {
-    "text": "Claude & ChatGPT & Gemini Registration and Usage",
-    "link": "/en/claude-chatgpt-gemini-registration-usage"
-  },
-  {
-    "text": "Registration of accounts on various overseas platforms.",
-    "collapsed": true,
-    "items": [
-      {
-        "text": "Google Email Registration",
-        "link": "/en/account-registration-guide/google-email-registration"
-      },
-      {
-        "text": "Registration and Top-up Methods for App Store in Other Regions",
-        "link": "/en/account-registration-guide/appstore-registration-and-top-up-methods"
-      }
-    ]
-  },
-  {
-    "text": "AI",
+    "text": "AI  ",
     "collapsed": true,
     "items": [
       {
         "text": "OpenClaw Installation & Advanced Tutorial",
         "collapsed": true,
         "items": [
-          {
-            "text": "MAC Installation Method",
-            "link": "/en/catalog-2/directory-nesting-333/mac-installation"
-          },
-          {
-            "text": "Linux and server installation methods",
-            "link": "/en/catalog-2/directory-nesting-333/linux-server-installation"
-          },
           {
             "text": "Windows Installation Method",
             "link": "/en/catalog-2/directory-nesting-333/windows-installation"
@@ -50,88 +24,12 @@
     "collapsed": true,
     "items": [
       {
-        "text": "Claude Registration Tutorial",
-        "link": "/en/more-info/claude-registration-tutorial"
-      },
-      {
-        "text": "ChatGPT User Guide",
-        "link": "/en/more-info/chatgpt-usage-guide"
-      },
-      {
-        "text": "How to register for a Gmail account",
-        "link": "/en/more-info/how-to-register-google-email"
-      },
-      {
-        "text": "Gmail Registration Tutorial",
-        "link": "/en/more-info/gmail-registration-tutorial"
-      },
-      {
-        "text": "Hong Kong Apple ID Registration Tutorial",
-        "link": "/en/more-info/hong-kong-apple-id-registration-tutorial"
-      },
-      {
-        "text": "How to top up on the US App Store",
-        "link": "/en/more-info/us-appstore-how-to-top-up"
-      },
-      {
-        "text": "How to redeem an App Store gift card?",
-        "link": "/en/more-info/appstore-gift-card-how-to-redeem"
-      },
-      {
-        "text": "What is required for registering an out-of-region ID?",
-        "link": "/en/more-info/foreign-apple-id-registration-requirements"
-      },
-      {
-        "text": "Hong Kong District Gift Card Purchase Channels",
-        "link": "/en/more-info/hong-kong-gift-card-purchase-channels"
-      },
-      {
-        "text": "MAC Installation Python Tutorial",
-        "link": "/en/more-info/mac-install-python-tutorial"
-      },
-      {
-        "text": "Steps to Install Node.js on macOS",
-        "link": "/en/more-info/mac-install-nodejs-steps"
-      },
-      {
-        "text": "How to install OpenClaw",
-        "link": "/en/more-info/how-to-install-openclaw"
-      },
-      {
-        "text": "MAC Development Environment Setup",
-        "link": "/en/more-info/mac-development-environment-setup"
-      },
-      {
-        "text": "Python Environment Setup on MAC",
-        "link": "/en/more-info/python-environment-setup-mac"
-      },
-      {
-        "text": "NodeJS Mirror Source Switching",
-        "link": "/en/more-info/nodejs-mirror-switch"
-      },
-      {
-        "text": "MAC Device Security Precautions",
-        "link": "/en/more-info/mac-device-security-precautions"
-      },
-      {
-        "text": "OpenClaw Initialization Configuration",
-        "link": "/en/more-info/openclaw-initialization-configuration"
-      },
-      {
-        "text": "Linux Server VPN Installation Tutorial",
-        "link": "/en/more-info/linux-server-vpn-installation-tutorial"
-      },
-      {
-        "text": "How to configure a server VPN?",
-        "link": "/en/more-info/server-vpn-configuration-guide"
-      },
-      {
         "text": "How to Install a VPN on Windows",
         "link": "/en/more-info/windows-vpn-installation"
       },
       {
-        "text": "Tianma VPN Installation Tutorial",
-        "link": "/en/more-info/tianma-vpn-installation-tutorial"
+        "text": "VPN Client Download Tutorial",
+        "link": "/en/more-info/vpn-client-download-tutorial"
       },
       {
         "text": "Is VPN safe?",

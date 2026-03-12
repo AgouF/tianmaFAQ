@@ -1,38 +1,12 @@
 [
   {
-    "text": "Claude&ChatGPT&Gemini注册使用",
-    "link": "/claude-chatgpt-gemini-registration-usage"
-  },
-  {
-    "text": "各海外平台账号注册",
-    "collapsed": true,
-    "items": [
-      {
-        "text": "Google Email注册",
-        "link": "/account-registration-guide/google-email-registration"
-      },
-      {
-        "text": "外区Appstore注册方式以及充值方法",
-        "link": "/account-registration-guide/appstore-registration-and-top-up-methods"
-      }
-    ]
-  },
-  {
-    "text": "AI",
+    "text": "AI  ",
     "collapsed": true,
     "items": [
       {
         "text": "OpenClaw安装&进阶教程",
         "collapsed": true,
         "items": [
-          {
-            "text": "MAC安装方式",
-            "link": "/catalog-2/directory-nesting-333/mac-installation"
-          },
-          {
-            "text": "Linux以及服务器安装方式",
-            "link": "/catalog-2/directory-nesting-333/linux-server-installation"
-          },
           {
             "text": "Windows安装方式",
             "link": "/catalog-2/directory-nesting-333/windows-installation"
@@ -50,88 +24,12 @@
     "collapsed": true,
     "items": [
       {
-        "text": "Claude注册教程",
-        "link": "/more-info/claude-registration-tutorial"
-      },
-      {
-        "text": "ChatGPT使用指南",
-        "link": "/more-info/chatgpt-usage-guide"
-      },
-      {
-        "text": "如何注册Google邮箱",
-        "link": "/more-info/how-to-register-google-email"
-      },
-      {
-        "text": "Gmail注册教程",
-        "link": "/more-info/gmail-registration-tutorial"
-      },
-      {
-        "text": "港区Apple ID注册教程",
-        "link": "/more-info/hong-kong-apple-id-registration-tutorial"
-      },
-      {
-        "text": "美区Appstore如何充值",
-        "link": "/more-info/us-appstore-how-to-top-up"
-      },
-      {
-        "text": "Appstore礼品卡怎么兑换",
-        "link": "/more-info/appstore-gift-card-how-to-redeem"
-      },
-      {
-        "text": "外区ID注册需要什么",
-        "link": "/more-info/foreign-apple-id-registration-requirements"
-      },
-      {
-        "text": "港区礼品卡购买渠道",
-        "link": "/more-info/hong-kong-gift-card-purchase-channels"
-      },
-      {
-        "text": "MAC安装Python教程",
-        "link": "/more-info/mac-install-python-tutorial"
-      },
-      {
-        "text": "MAC安装NodeJS步骤",
-        "link": "/more-info/mac-install-nodejs-steps"
-      },
-      {
-        "text": "OpenClaw怎么安装",
-        "link": "/more-info/how-to-install-openclaw"
-      },
-      {
-        "text": "MAC开发环境配置",
-        "link": "/more-info/mac-development-environment-setup"
-      },
-      {
-        "text": "Python环境配置MAC",
-        "link": "/more-info/python-environment-setup-mac"
-      },
-      {
-        "text": "NodeJS镜像源切换",
-        "link": "/more-info/nodejs-mirror-switch"
-      },
-      {
-        "text": "MAC设备安全注意事项",
-        "link": "/more-info/mac-device-security-precautions"
-      },
-      {
-        "text": "OpenClaw初始化配置",
-        "link": "/more-info/openclaw-initialization-configuration"
-      },
-      {
-        "text": "Linux服务器VPN安装教程",
-        "link": "/more-info/linux-server-vpn-installation-tutorial"
-      },
-      {
-        "text": "服务器VPN怎么配置",
-        "link": "/more-info/server-vpn-configuration-guide"
-      },
-      {
         "text": "Windows VPN怎么安装",
         "link": "/more-info/windows-vpn-installation"
       },
       {
-        "text": "天马VPN安装教程",
-        "link": "/more-info/tianma-vpn-installation-tutorial"
+        "text": "VPN客户端下载教程",
+        "link": "/more-info/vpn-client-download-tutorial"
       },
       {
         "text": "VPN安全吗",
