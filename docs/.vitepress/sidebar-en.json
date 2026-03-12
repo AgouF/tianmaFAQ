@@ -22,7 +22,7 @@
             ]
           },
           {
-            "text": "How to build a magic system",
+            "text": "How to build a VPN",
             "link": "/en/network/vpn/how-to-build-magic"
           }
         ]
@@ -48,7 +48,7 @@
     "collapsed": true,
     "items": [
       {
-        "text": "Claude&ChatGPT&Gemini Registration and Usage",
+        "text": "Claude & ChatGPT & Gemini Registration and Usage",
         "link": "/en/catalog-2/claude-chatgpt-gemini-registration-usage"
       },
       {
@@ -80,16 +80,16 @@
     "collapsed": true,
     "items": [
       {
-        "text": "How to import a subscription link in Shadowrocket?",
-        "link": "/en/more-info/shadowrocket-import-subscription-link"
+        "text": "How to use Shadowrocket?",
+        "link": "/en/more-info/shadowrocket-tutorial"
       },
       {
-        "text": "Mac App Store foreign region account login",
-        "link": "/en/more-info/mac-appstore-foreign-account-login"
+        "text": "Registering an App Store Account from Another Region",
+        "link": "/en/more-info/foreign-appstore-account-registration"
       },
       {
-        "text": "IOS VPN Setup Tutorial",
-        "link": "/en/more-info/ios-vpn-setup-tutorial"
+        "text": "VPN node latency test",
+        "link": "/en/more-info/vpn-node-latency-test"
       },
       {
         "text": "How to use Windows VPN",
@@ -116,24 +116,24 @@
         "link": "/en/more-info/gmail-registration-tutorial"
       },
       {
-        "text": "How to register on the Hong Kong App Store?",
-        "link": "/en/more-info/hong-kong-appstore-registration"
+        "text": "Hong Kong App Store Registration Tutorial",
+        "link": "/en/more-info/hong-kong-appstore-registration-tutorial"
       },
       {
-        "text": "Methods to Top Up US Apple ID",
-        "link": "/en/more-info/us-apple-id-top-up"
+        "text": "How to register for a US Apple ID",
+        "link": "/en/more-info/how-to-register-us-apple-id"
       },
       {
-        "text": "Out-of-region App Store gift card purchase",
-        "link": "/en/more-info/foreign-appstore-gift-card-purchase"
+        "text": "Top-up methods for App Store from other regions",
+        "link": "/en/more-info/foreign-appstore-top-up-methods"
       },
       {
-        "text": "How to redeem an App Store gift card",
-        "link": "/en/more-info/how-to-redeem-appstore-gift-code"
+        "text": "How to redeem a Hong Kong district gift card?",
+        "link": "/en/more-info/how-to-redeem-hong-kong-gift-card"
       },
       {
-        "text": "Hong Kong App Store Payment Methods",
-        "link": "/en/more-info/hong-kong-appstore-payment-methods"
+        "text": "App Store payment method binding",
+        "link": "/en/more-info/appstore-payment-method-binding"
       },
       {
         "text": "Claude Registration Tutorial",
@@ -152,28 +152,28 @@
         "link": "/en/more-info/mac-install-nodejs-steps"
       },
       {
-        "text": "How to install OpenClaw",
-        "link": "/en/more-info/how-to-install-openclaw"
+        "text": "OpenClaw Installation Guide",
+        "link": "/en/more-info/openclaw-installation-guide"
       },
       {
         "text": "MAC Device Security Precautions",
         "link": "/en/more-info/mac-device-security-precautions"
       },
       {
-        "text": "Installing OpenAI Environment on macOS",
-        "link": "/en/more-info/mac-install-openai-environment"
+        "text": "How to configure an OpenAI gateway",
+        "link": "/en/more-info/how-to-configure-openai-gateway"
       },
       {
         "text": "Switch npm registry on MAC",
         "link": "/en/more-info/mac-switch-npm-mirror"
       },
       {
-        "text": "Guide to Installing AI Tools on Mac",
-        "link": "/en/more-info/mac-install-ai-tools-guide"
+        "text": "MAC installation of OpenClaw encountered an error.",
+        "link": "/en/more-info/mac-install-openclaw-error"
       },
       {
-        "text": "MAC Initialization OpenClaw Configuration",
-        "link": "/en/more-info/mac-initialize-openclaw-configuration"
+        "text": "MAC Multi-User Environment Security Settings",
+        "link": "/en/more-info/mac-multi-user-security-settings"
       },
       {
         "text": "Linux Server VPN Installation Tutorial",
