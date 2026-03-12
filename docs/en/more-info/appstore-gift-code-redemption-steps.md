@@ -1,46 +1,52 @@
 ---
-title: "Steps to redeem a gift code on the App Store:"
-description: "App Store gift codes (also known as \"gift cards\") are official Apple-issued top-up vouchers that can be used to purchase"
-lastUpdated: 1773292268548
+title: "Steps to redeem a gift code on the App Store"
+description: "App Store gift codes, often referred to as \"gift cards\" or \"redemption codes,\" are a convenient gifting and payment meth"
+lastUpdated: 1773302641033
 ---
 
 # Steps to Redeem App Store Gift Codes
 
-## How to Redeem App Store Gift Codes
+## How to Redeem an App Store Gift Code?
 
-App Store gift codes (also known as "gift cards") are official Apple-issued top-up vouchers that can be used to purchase apps, games, music, movies, subscription services, etc., on the App Store, iTunes Store, or Apple Books, or for payments toward services like Apple Music and iCloud+. They are a very convenient digital gift or self-top-up method. The redemption process is simple and quick, but it requires ensuring that the account region matches the gift code region.
+App Store gift codes, often referred to as "gift cards" or "redemption codes," are a convenient gifting and payment method provided by Apple. They allow you to add a specific amount of credit to your Apple ID account, which can be used for purchases on the App Store, iTunes Store, Apple Music, iCloud+, and other services. Whether received as a gift from a friend or purchased through official channels, correctly redeeming the gift code is the first step to using it.
 
-## Detailed Redemption Steps
+The redemption process itself is not complicated, but it varies slightly depending on the device you are using (iPhone, iPad, Mac, or PC). Ensure you are logged into the correct Apple ID account, as the redeemed credit will be added directly to that account.
 
-You can complete the redemption via the App Store on iPhone, iPad, Mac, or via iTunes on a PC. Below are the detailed steps using the most common method on an iPhone:
+## Detailed Redemption Steps (Using iPhone/iPad as an Example)
 
-1.  **Open the App Store app**: On your iOS device, locate and tap the red "App Store" icon.
-2.  **Go to your account page**: Tap your profile picture or avatar icon in the top-right corner of the screen to enter your "Account" page.
-3.  **Find the redemption entry**: On the account page, find and tap the "Redeem Gift Card or Code" option. Sometimes it may appear as "Redeem Gift Card."
-4.  **Choose the redemption method**:
-    *   **Manual Entry**: Tap the text box below "You can also enter your code manually" and manually input the password from the gift code. Pay attention to case sensitivity and double-check carefully.
-    *   **Camera Scan**: This method is more recommended. Tap the "Use Camera" option, point your device's camera at the barcode or QR code on the back of the gift card, and the system will automatically recognize and fill in the code.
-5.  **Tap Redeem**: After the code is correctly entered, tap the "Redeem" button in the top-right corner.
-6.  **Completion**: The system will process it immediately. Upon success, your Apple ID account balance will increase by the corresponding amount, and you will receive a confirmation email. You can then use this balance directly for purchases.
+The following is the standard process for redeeming a gift code on an iOS or iPadOS device, which is the most common method:
 
-### Key Precautions Before Redemption
+1.  **Open the App Store App**: Find and tap the blue "App Store" icon on your iPhone or iPad home screen.
+2.  **Go to Your Account Page**: Tap your profile picture or initials icon in the top-right corner of the screen. This will take you to your personal account page.
+3.  **Find the Redemption Option**: Scroll down the page, and you will see the "Redeem Gift Card or Code" option. Tap it.
+4.  **Choose a Redemption Method**:
+    *   **Redeem with Camera**: If you have a physical gift card, you can tap "Use Camera" and point your device's camera at the QR code on the back of the card after scratching off the protective coating.
+    *   **Enter Code Manually**: If you received a digital code (a string of letters and numbers), tap "You can also enter your code manually," then carefully and accurately type the code. Pay attention to capitalization and avoid entering spaces.
+5.  **Confirm and Complete**: After entering the code, tap the "Redeem" button in the top-right corner. The system will verify the code's validity and its corresponding region. Upon successful verification, your account balance will update immediately, and you will receive a confirmation email from Apple.
 
-*   **Region Matching is the Primary Condition**: This is the most important point! Gift codes have strict regional restrictions. For example, a US region gift code **can only** be redeemed under a US region Apple ID account. If your current Apple ID is for the China region, you cannot redeem a US region gift code. When purchasing or receiving a gift code, be sure to confirm its region.
-*   **Check Code Status**: Ensure the gift code has not been used before and is within its validity period (usually printed on the card).
-*   **Internet Connection**: The redemption process requires a stable internet connection.
-*   **Account Security**: Always redeem through the official path within the App Store app. Never enter your gift code on unknown websites or through links provided by others to prevent fraud.
+### Redeeming on Other Devices
 
-If you need to top up an App Store account for a new region (e.g., US, Japan), besides using a gift code from the corresponding region, it's helpful to know other top-up methods. For example, you can refer to this guide about **[Registration Methods for Foreign App Stores and Top-Up Methods](/network/account-registration-guide/appstore-registration-and-top-up-methods)**, which details how to obtain and use payment methods for the corresponding regions.
+*   **On a Mac**: Open the **App Store** app, click on your account name in the bottom-left corner, and you will find the "Redeem Gift Card" option in the pop-up window.
+*   **On a Windows PC**: If you have iTunes installed, you can log in with your Apple ID in iTunes and find the "Redeem" function under the "Account" option in the menu bar.
+*   **On the Web**: You can also visit Apple's official redemption website (apple.com/redeem), log in with your Apple ID, and redeem the code there.
+
+## Important Notes and Practical Tips
+
+*   **Region Matching is Key**: Gift codes are region-locked. For example, a US gift code can **only** be redeemed on a US Apple ID account. If your current Apple ID is for the China region, you cannot redeem a US gift code. Before redeeming, make sure the gift code's issuing region matches your Apple ID account's store region. If you need to manage accounts for different regions, you can refer to this guide on [How to Register and Top Up an App Store Account for Other Regions](/network/account-registration-guide/appstore-registration-and-top-up-methods).
+*   **Check Code Validity**: Ensure the gift code is from a reliable source and has not been used before. If the system prompts "This code is not valid" or "This code has already been redeemed," please verify with the purchaser or sender.
+*   **Balance is Non-Transferable**: Once redeemed, the credit is bound to your Apple ID and cannot be transferred to another Apple ID or cashed out.
+*   **Family Sharing**: If you have set up "Family Sharing," you, as the family organizer, can use your account balance to pay for purchases for family members.
+*   **Balance is Used First**: When making purchases within the Apple ecosystem, the system will first deduct from your gift card balance. Any remaining amount will be charged to your linked payment method.
 
 ## Frequently Asked Questions
 
-### What to do if prompted "This code is invalid" or "Unable to redeem" during redemption?
-First, carefully check the entered code to ensure no characters are mistyped (e.g., confusing the number 0 with the letter O). If confirmed correct, the most common reason is **account region mismatch with the gift code region**. Check your Apple ID's country/region (Path: Settings > [Your Name] > Media & Purchases > View Account > Country/Region). You need to switch to an account in the region corresponding to the gift code to redeem successfully. Additionally, the code may have already been used or expired.
+### What should I do if I get an error like "Code is invalid" or "Not valid in this store" during redemption?
+This usually means **the gift code's region does not match your Apple ID account's region**. First, confirm which country or region's store (e.g., USA, Japan, Hong Kong) your received gift code is for. Then, check the store region of the Apple ID you are currently logged into. You need to switch to an Apple ID corresponding to that region to redeem successfully. Do not attempt to bypass regional restrictions using methods like VPNs, as this may cause issues with your account.
 
-### After successful redemption, can the balance be used across regions or transferred?
-**No**. The Apple ID account balance is strictly tied to the account region. For example, the balance in your US region account can only be used in the US App Store, iTunes Store, etc., and cannot be used after switching to a China region account. Similarly, balances cannot be transferred or merged between accounts of different regions. If you switch your Apple ID's country/region, any remaining balance in the account may be cleared, so be sure to use up the balance before switching.
+### Where can I use the balance after successful redemption?
+After successful redemption, your account balance acts like a virtual wallet and can be used across all Apple's official stores and services linked to your Apple ID. This mainly includes: purchasing paid apps and games, making in-app purchases, subscribing to services like Apple Music, iCloud+, Apple TV+, Apple Arcade, buying music, movies, and TV shows on the iTunes Store, and purchasing e-books. It covers almost all scenarios for digital content consumption on Apple platforms.
 
-### Are gift codes and App Store top-up cards the same thing?
-Yes, they typically refer to the same thing. Physical cards are often called "gift cards," while a string of electronic code is often called a "gift code" or "top-up code." Their essence is to add credit to your Apple ID account. Whether it's the scratch-off password on a physical card or a digital code received via email, the redemption process is the same.
+### Does the gift card balance expire?
+According to Apple's official policy, the account credit corresponding to gift cards (gift codes) purchased through official channels **does not have an expiration date** and will not expire. You can use it anytime until the balance is depleted. However, please note that codes from specific promotional activities may have an expiration date, so pay attention to the relevant terms when redeeming.
 
 <RelatedCards :items='[{"title":"外区Appstore注册方式以及充值方法","link":"/network/account-registration-guide/appstore-registration-and-top-up-methods"}]' />

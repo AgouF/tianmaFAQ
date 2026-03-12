@@ -152,7 +152,7 @@
         "link": "/en/more-info/mac-install-nodejs-steps"
       },
       {
-        "text": "How to install OpenClaw?",
+        "text": "How to install OpenClaw",
         "link": "/en/more-info/how-to-install-openclaw"
       },
       {
@@ -160,20 +160,20 @@
         "link": "/en/more-info/mac-device-security-precautions"
       },
       {
-        "text": "Python Environment Setup on MAC",
-        "link": "/en/more-info/python-environment-setup-mac"
+        "text": "Installing OpenAI Environment on macOS",
+        "link": "/en/more-info/mac-install-openai-environment"
       },
       {
-        "text": "NodeJS Mirror Source Switching",
-        "link": "/en/more-info/nodejs-mirror-switch"
+        "text": "Switch npm registry on MAC",
+        "link": "/en/more-info/mac-switch-npm-mirror"
       },
       {
-        "text": "OpenClaw Initialization Configuration",
-        "link": "/en/more-info/openclaw-initialization-setup"
+        "text": "MAC installation of OpenClaw encountered an error.",
+        "link": "/en/more-info/mac-install-openclaw-error"
       },
       {
-        "text": "Guide to Installing AI Tools on Mac",
-        "link": "/en/more-info/mac-install-ai-tools-guide"
+        "text": "MAC Multi-User Environment Security Settings",
+        "link": "/en/more-info/mac-multi-user-security-settings"
       },
       {
         "text": "Linux Server VPN Installation Tutorial",

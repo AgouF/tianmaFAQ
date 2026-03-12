@@ -1,6 +1,6 @@
 {
   "/catalog-2/directory-nesting-333/mac-installation": {
-    "contentHash": "f9bb2d9f385e1c823f0626d967c84e8b",
+    "contentHash": "1e5f80593782fbf1ff22b22bbe266c99",
     "keywords": [
       {
         "keyword": "MAC安装Python教程",
@@ -19,20 +19,20 @@
         "slug": "mac-device-security-precautions"
       },
       {
-        "keyword": "Python环境配置MAC",
-        "slug": "python-environment-setup-mac"
+        "keyword": "MAC安装OpenAI环境",
+        "slug": "mac-install-openai-environment"
       },
       {
-        "keyword": "NodeJS镜像源切换",
-        "slug": "nodejs-mirror-switch"
+        "keyword": "MAC切换npm镜像源",
+        "slug": "mac-switch-npm-mirror"
       },
       {
-        "keyword": "OpenClaw初始化配置",
-        "slug": "openclaw-initialization-setup"
+        "keyword": "MAC安装OpenClaw出错",
+        "slug": "mac-install-openclaw-error"
       },
       {
-        "keyword": "MAC安装AI工具指南",
-        "slug": "mac-install-ai-tools-guide"
+        "keyword": "MAC多用户环境安全设置",
+        "slug": "mac-multi-user-security-settings"
       }
     ]
   },
@@ -76,7 +76,7 @@
     ]
   },
   "/network/vpn/how-to-download-and-install-tools/mac-ios-download-usage": {
-    "contentHash": "09de1faf57596e550e74a761d79b939c",
+    "contentHash": "bd7659e69224e09db6c58f66ad5c52c3",
     "keywords": [
       {
         "keyword": "小火箭怎么用",
@@ -132,7 +132,7 @@
     ]
   },
   "/network/account-registration-guide/appstore-registration-and-top-up-methods": {
-    "contentHash": "614d134dea0a7705ce9ba460dcba12dd",
+    "contentHash": "febddb4e93b3c252719f8b29591aa7d8",
     "keywords": [
       {
         "keyword": "港区Appstore注册教程",

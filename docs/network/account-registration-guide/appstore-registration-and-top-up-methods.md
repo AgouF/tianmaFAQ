@@ -3,7 +3,7 @@ title: "外区Appstore注册方式以及充值方法"
 description: "一.注册“港区”“美区”ID 1.登录 https://www.icloud.com/ 第一步 点击创建Apple账户后填写信息 注册好后👇 直接到 手机App store登录你的账号 注意：可能需要登录两次才能登陆成功Appstore（"
 readingTime: 1
 lastUpdated: 1773202680000
-ogImage: "https://tianma.xin/images/1bec838ec493.webp"
+ogImage: "https://tianma.xin/images/2d9a87639812.webp"
 ---
 
 # 外区Appstore注册方式以及充值方法
@@ -12,17 +12,17 @@ ogImage: "https://tianma.xin/images/1bec838ec493.webp"
 
 1.登录 [https://www.icloud.com/](https://www.icloud.com/) 第一步
 
-![](/images/1bec838ec493.webp)
+![](/images/2d9a87639812.webp)
 
 点击创建Apple账户后填写信息
 
-![](/images/f09dc4d3ee73.webp)
+![](/images/dc4e8c49f473.webp)
 
-![](/images/2efa10012f1a.webp)
+![](/images/e512344659b2.webp)
 
 注册好后👇
 
-![](/images/6c419c54ee9d.webp)
+![](/images/73e36baf75ba.webp)
 
 直接到 手机App store登录你的账号 注意：可能需要登录两次才能登陆成功Appstore（下载免费的APP是不需要绑定付款方式的）
 
@@ -30,23 +30,23 @@ ogImage: "https://tianma.xin/images/1bec838ec493.webp"
 
 Shadowrocket价格为22港币我们只需要买22面值以上的就好
 
-![](/images/dc26017e94d2.webp)
+![](/images/2b0e5b72ef2e.webp)
 
 购买30港币的就OK
 
-![](/images/359a4a42e7fb.webp)
+![](/images/d93380a8b9d9.webp)
 
 收到卡密后 进入 App store 然后兑换礼品码
 
-![](/images/39e6a079314c.webp)
+![](/images/61e90ca41962.webp)
 
 输入您的礼品码
 
-![](/images/8fe0a73b3b4e.webp)
+![](/images/ca6193ea53e7.webp)
 
 直接兑换就OK，看到下面界面就是兑换成功了
 
-![](/images/6d88c322a5b3.webp)
+![](/images/33c9d04843ba.webp)
 
 [MAC&IOS下载以及使用方式](/network/vpn/how-to-download-and-install-tools/mac-ios-download-usage)
 

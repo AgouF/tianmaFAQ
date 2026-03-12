@@ -160,20 +160,20 @@
         "link": "/more-info/mac-device-security-precautions"
       },
       {
-        "text": "Python环境配置MAC",
-        "link": "/more-info/python-environment-setup-mac"
+        "text": "MAC安装OpenAI环境",
+        "link": "/more-info/mac-install-openai-environment"
       },
       {
-        "text": "NodeJS镜像源切换",
-        "link": "/more-info/nodejs-mirror-switch"
+        "text": "MAC切换npm镜像源",
+        "link": "/more-info/mac-switch-npm-mirror"
       },
       {
-        "text": "OpenClaw初始化配置",
-        "link": "/more-info/openclaw-initialization-setup"
+        "text": "MAC安装OpenClaw出错",
+        "link": "/more-info/mac-install-openclaw-error"
       },
       {
-        "text": "MAC安装AI工具指南",
-        "link": "/more-info/mac-install-ai-tools-guide"
+        "text": "MAC多用户环境安全设置",
+        "link": "/more-info/mac-multi-user-security-settings"
       },
       {
         "text": "Linux服务器VPN安装教程",

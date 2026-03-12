@@ -1,95 +1,99 @@
 ---
 title: "How to install OpenClaw"
-description: "OpenClaw is a powerful open-source software, commonly used for data scraping, web crawling, or automation tasks. The ins"
-lastUpdated: 1773292359781
+description: "OpenClaw is a powerful open-source software commonly used for data scraping, automated testing, or web crawling tasks. T"
+lastUpdated: 1773302748996
 ---
 
 # How to Install OpenClaw
 
 ## OpenClaw Installation Guide
 
-OpenClaw is a powerful open-source software, commonly used for data scraping, web crawling, or automation tasks. The installation process varies depending on your operating system, but the general steps are clear and straightforward. This article provides a detailed guide on installing OpenClaw on mainstream operating systems.
+OpenClaw is a powerful open-source software commonly used for data scraping, automated testing, or web crawling tasks. The installation process varies depending on your operating system and specific needs. Below are detailed installation steps and considerations for different platforms.
 
-### Pre-installation Preparations
+### Pre-installation Preparation
 
-Before starting the installation, ensure your system meets the following basic requirements:
-1.  **Python Environment**: OpenClaw is typically a Python package, so Python needs to be installed on your computer. Python 3.7 or a higher version is recommended. You can check your version by entering `python --version` or `python3 --version` in the terminal or command prompt.
-2.  **Package Management Tool**: The most common tool for installing Python packages is `pip`. Ensure it is updated to the latest version using the command `pip install --upgrade pip`.
-3.  **Internet Connection**: The installation process requires downloading necessary files from the Python Package Index (PyPI).
+Before starting the installation of OpenClaw, ensure your system meets the following basic requirements:
+- **Python Environment**: OpenClaw is typically developed based on Python, so Python 3.7 or higher is required. You can check your current version by entering `python --version` or `python3 --version` in the command line.
+- **Package Management Tool**: It is recommended to use `pip` (Python's package installation tool) for installation. Ensure `pip` is updated to the latest version by running `pip install --upgrade pip`.
+- **System Dependencies**: In some cases, additional system libraries (such as development tools or SSL libraries) may be required, especially on Linux systems.
 
-### General Installation Method (via pip)
+### Installing OpenClaw via Pip
 
-For most users, especially those on Windows and Linux, the most direct method is to install using the `pip` command. This is the officially recommended installation method.
+This is the most common installation method, suitable for most users:
+1. Open a terminal (Windows users can use Command Prompt or PowerShell; macOS/Linux users can use the system terminal).
+2. Enter the following command to install OpenClaw:
+   ```bash
+   pip install openclaw
+   ```
+   If you are using Python 3 and have multiple Python versions on your system, you may need to use `pip3`:
+   ```bash
+   pip3 install openclaw
+   ```
+3. Wait for the installation to complete. During installation, `pip` will automatically handle dependencies.
+4. After installation, verify the installation by running `openclaw --version` or `python -m openclaw --version`.
 
-1.  **Open the Command Line Tool**:
-    *   **Windows**: Search for and open "Command Prompt" or "PowerShell".
-    *   **macOS**: Open the "Terminal" application (You can also learn more about managing command-line tools on Mac via [MAC Installation Method](/catalog-2/directory-nesting-333/mac-installation)).
-    *   **Linux**: Open the terminal.
+### Installing from Source Code
 
-2.  **Execute the Installation Command**:
-    In the command line, enter the following command and press Enter:
-    ```bash
-    pip install openclaw
-    ```
-    If you have multiple Python versions on your system, you might need to use `pip3` to ensure installation for Python 3:
-    ```bash
-    pip3 install openclaw
-    ```
+If you want to use the latest development version or make custom modifications, you can install from source code:
+1. Visit OpenClaw's official GitHub repository or code hosting page, download the source code archive, or clone the repository using `git`:
+   ```bash
+   git clone https://github.com/username/openclaw.git
+   cd openclaw
+   ```
+2. In the source code directory, run the installation command:
+   ```bash
+   pip install -e .
+   ```
+   This will install it in "editable" mode, making future updates easier.
 
-3.  **Wait for Installation to Complete**: `pip` will automatically download OpenClaw and all its dependencies from PyPI. You will see the download and installation progress on the screen.
+### Using a Virtual Environment (Recommended)
 
-4.  **Verify Installation**: After installation is complete, verify it was successful by entering the following command in the command line:
-    ```bash
-    python -c "import openclaw; print(openclaw.__version__)"
-    ```
-    If a version number is successfully printed, the installation is complete.
+To avoid conflicts with other Python packages on your system, it is recommended to use a virtual environment:
+1. Install the `virtualenv` tool (if not already installed):
+   ```bash
+   pip install virtualenv
+   ```
+2. Create a new virtual environment:
+   ```bash
+   virtualenv openclaw_env
+   ```
+3. Activate the virtual environment:
+   - On Windows: `openclaw_env\Scripts\activate`
+   - On macOS/Linux: `source openclaw_env/bin/activate`
+4. In the activated virtual environment, install OpenClaw using `pip install openclaw`.
 
-### Advanced Installation and Dependency Management
+### Platform-Specific Instructions
 
-For development purposes or users requiring specific versions, consider the following methods:
+- **Windows**: Ensure Python is installed and added to the system PATH environment variable. If you encounter permission errors, try running the terminal as an administrator or add the `--user` option to the command (e.g., `pip install --user openclaw`).
+- **macOS**: Generally similar to the Linux steps. If you use Homebrew for software management, you can first install Python via `brew install python`, then install OpenClaw using `pip`. For detailed installation methods on Mac computers, refer to this guide: [MAC Installation Method](/catalog-2/directory-nesting-333/mac-installation).
+- **Linux**: You may need to install Python development packages. For example, on Ubuntu/Debian, you can use `sudo apt install python3-dev` to ensure compilation dependencies.
 
-*   **Install from Source**: If you want to use the latest development version or contribute to the project, you can clone the source code repository from GitHub and install it.
-    ```bash
-    git clone https://github.com/open-source-repo-address/openclaw.git
-    cd openclaw
-    pip install -e .
-    ```
+### Post-Installation Configuration
 
-*   **Use a Virtual Environment**: It is highly recommended to use `venv` or `conda` to create an isolated Python virtual environment for installing OpenClaw. This prevents conflicts with package versions from other system projects.
-    ```bash
-    # Create a virtual environment
-    python -m venv openclaw_env
-    # Activate the environment (Windows)
-    openclaw_env\Scripts\activate
-    # Activate the environment (macOS/Linux)
-    source openclaw_env/bin/activate
-    # Then install using pip within the activated environment
-    pip install openclaw
-    ```
+After installation, it is recommended to perform basic configuration:
+1. Check OpenClaw's help documentation to understand basic commands and options:
+   ```bash
+   openclaw --help
+   ```
+2. Depending on your use case, you may need to set up configuration files (e.g., API keys, proxy settings). Configuration files are typically located in the `.openclaw` folder in the user's home directory.
+3. Run a simple test to ensure functionality. For example, try scraping a public webpage to verify the installation.
 
-### Potential Issues and Solutions
+## Common Issues
 
-*   **Permission Errors**: On Linux or macOS, if you encounter a permission denied error, you can try adding `sudo` before the command (use with caution), or better yet, use the `--user` option for a local user installation:
-    ```bash
-    pip install --user openclaw
-    ```
-*   **Dependency Installation Failure**: Some underlying dependencies (like cryptographic libraries) might fail to compile on certain systems. Ensure you have the corresponding development tools installed for your system (e.g., Visual C++ Build Tools for Windows, or `build-essential`, `python3-dev` for Linux).
-*   **Network Timeout**: Due to network issues, you can use domestic mirror sources (like Tsinghua or Alibaba Cloud mirrors) to speed up downloads:
-    ```bash
-    pip install openclaw -i https://pypi.tuna.tsinghua.edu.cn/simple
-    ```
+### What to Do If You Encounter a "Permission Denied" Error During Installation?
+This is usually due to insufficient permissions to write files to system directories. Solutions include:
+- Using a virtual environment (as described above) to install packages in the user directory.
+- Adding the `--user` flag to the `pip install` command to install the package in the current user's directory.
+- On Linux/macOS, you can use `sudo pip install openclaw`, but this is not best practice as it may affect system stability.
 
-## Frequently Asked Questions
+### Unable to Run the `openclaw` Command After Installation?
+This may be because the executable file is not added to the system PATH. Try:
+- Checking if Python's Scripts directory (e.g., `~/.local/bin` or `C:\Users\Username\AppData\Roaming\Python\PythonXX\Scripts`) is in the PATH.
+- Running directly using the module method: `python -m openclaw [parameters]`.
+- Ensuring the virtual environment is activated if using one.
 
-### ### What to do if the installation prompts "Could not find a version that satisfies the requirement openclaw"?
-This usually means a package named `openclaw` does not exist on PyPI. First, confirm the software package name is correct. Sometimes the PyPI package name for a project might differ from its common name. It's recommended to visit the project's official GitHub page or documentation to find its exact installation command. It's also possible the software is currently primarily installed via source code.
-
-### ### How to resolve errors when importing (import) in Python after successful installation?
-Import errors are typically caused by two reasons:
-1.  **Environment Not Activated or Path Issues**: If you used a virtual environment, ensure it is activated before running your Python code. In the command line, the name of the activated environment is usually displayed before the prompt.
-2.  **Missing or Conflicting Dependencies**: Although `pip` installs dependencies, conflicts can still occur. Try upgrading `pip` and `setuptools`, or reinstalling in a clean, new virtual environment. Check the error message to see if it points to a specific missing module.
-
-### ### How to manage these development environments more smoothly on macOS?
-The terminal that comes with macOS is powerful, but managing multiple Python versions and project environments might require some techniques. You can refer to our other detailed guide [MAC Installation Method](/catalog-2/directory-nesting-333/mac-installation), which introduces the complete process of using tools like Homebrew and pyenv to efficiently configure and manage macOS development environments. This can make installing and running software like OpenClaw much smoother.
+### How to Update or Uninstall OpenClaw?
+- Update: Use `pip install --upgrade openclaw`.
+- Uninstall: Use `pip uninstall openclaw` and select "Yes" when prompted for confirmation.
 
 <RelatedCards :items='[{"title":"MAC Installation Method","link":"/catalog-2/directory-nesting-333/mac-installation"}]' />

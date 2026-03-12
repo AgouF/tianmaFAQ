@@ -1,53 +1,56 @@
 ---
 title: "How to use Shadowrocket?"
-description: "Shadowrocket is a popular proxy tool on the iOS platform. It supports multiple proxy protocols, helping users access the"
-lastUpdated: 1773292084644
+description: "Shadowrocket is a popular proxy client on the iOS platform. It supports various proxy protocols such as SS/SSR, V2Ray, a"
+lastUpdated: 1773302410285
 ---
 
 # How to Use Shadowrocket
 
-## Shadowrocket Beginner's Guide
+## Introduction to Shadowrocket
 
-Shadowrocket is a popular proxy tool on the iOS platform. It supports multiple proxy protocols, helping users access the global internet and protect their privacy. For first-time users, mastering its basic usage is essential.
+Shadowrocket is a popular proxy client on the iOS platform. It supports various proxy protocols such as SS/SSR, V2Ray, and Trojan, helping users access the internet freely, visit restricted websites, or protect their online privacy. It features a clean interface and powerful functionality but requires users to configure node information themselves. For first-time users, understanding its basic usage is essential.
 
-### Core Features and Configuration Principles
-The core function of Shadowrocket is to securely forward your network traffic to a target server by configuring a proxy server. It supports mainstream protocols like SS/SSR, Vmess (V2Ray), and Trojan. Before use, you need to obtain a usable server subscription link or manual configuration information, typically provided by your VPN service provider.
+## How to Obtain and Install Shadowrocket
 
-The configuration process mainly involves two steps: first, obtaining and importing the server configuration; second, enabling the connection in global or rule mode. Shadowrocket's "Rule" feature is very intelligent, automatically determining which websites go through the proxy and which connect directly, enabling an efficient and data-saving internet experience.
+Since Shadowrocket is not directly available on the App Store in mainland China, users typically need to log into the App Store with a non-mainland Apple ID (e.g., US or Hong Kong account) to purchase and download it. It is a one-time paid application. After downloading, you can find its icon on the home screen of your iPhone or iPad.
 
-## Detailed Usage Steps
+For more detailed acquisition methods, account registration, and installation steps, you can refer to our dedicated guide: [MAC & IOS Download and Usage Guide](/network/vpn/how-to-download-and-install-tools/mac-ios-download-usage), which includes general download and initial setup methods for Apple devices.
 
-### 1. Acquisition and Installation
-First, you need a non-China region Apple ID. Search for "Shadowrocket" in the App Store to purchase and download it. After installation, open the app.
+## Basic Configuration and Usage Steps
 
-### 2. Adding Server Configuration
-This is the most crucial step. You typically have two ways to add a server:
-*   **Adding via Subscription Link (Recommended)**: Tap the "+" in the top right corner of the app's home page, select "Type" as "Subscribe". Paste the subscription link provided by your service provider into the "URL" field, then tap "Done" in the top right corner. Shadowrocket will automatically fetch and update the server list from this link.
-*   **Manual Configuration**: Similarly, tap the "+" and manually fill in the server address, port, password, encryption method, etc., based on the single-node information provided by your service provider. This method is suitable for users with only a single server node.
+After installation, the core of using Shadowrocket is to add available proxy server (node) information.
 
-### 3. Connection and Usage
-After adding a server, you will see the server list on the home page. Tap the server you want to connect to, then tap the large switch button at the top to enable the proxy connection. Once successfully connected, the switch will turn green, and a Shadowrocket VPN icon will appear in the status bar.
+1.  **Obtain Node Subscription Link or Configuration Information**: You need to get a subscription link (Subscription URL) or specific configuration parameters for individual servers (such as address, port, password, encryption method, etc.) from a reliable proxy service provider.
 
-*   **Mode Selection**:
-    *   **Configuration Mode**: The default and most commonly used mode. It intelligently routes traffic based on the rules you set (e.g., bypassing Mainland China addresses, ad blocking, etc.).
-    *   **Proxy Mode**: All traffic goes through the proxy server.
-    *   **Direct Mode**: Proxy is off; all traffic connects directly.
-    You can switch between these modes in the "Global Routing" section on the home page.
+2.  **Add Node Configuration**:
+    *   **Adding via Subscription Link (Recommended)**: This is the most convenient method. Open Shadowrocket, tap the "Settings" (gear icon) in the bottom navigation bar, and select "Server Subscriptions". Tap the "+" in the top right corner, paste the subscription link provided by your service provider into the "URL" field, then tap "Done" in the top right corner. Return to the main interface, tap the "Connections" tab at the bottom, and then tap the "Update" button in the top right corner to fetch and list all nodes.
+    *   **Manually Adding a Single Node**: On the main interface, tap the "+" in the top right corner. Based on the protocol provided by your service provider (e.g., SS, V2Ray), manually fill in all the details like server, port, password, encryption method, etc., and then save.
 
-### 4. Advanced Features and Optimization
-*   **Rule Settings**: In the "Config" tab, you can manage rule lists. Tapping "Download Configuration from URL" allows you to import more powerful rule sets (like ConnersHua's rules) for more precise traffic routing and ad blocking.
-*   **Testing and Switching**: Long-press a server node to select "Test URL" to check the latency and speed of that node, helping you choose the optimal route.
-*   **Viewing Logs**: If you encounter connection issues, you can view detailed connection information in the "Logs" tab to help troubleshoot.
+3.  **Connect and Disconnect**: On the "Connections" page, select a node you want to use from the list. Then tap the large circular switch button at the top. Shadowrocket will attempt to connect. Once successfully connected, the switch will turn green, and a VPN icon will appear in the status bar. At this point, your device's network traffic is routed through that proxy server. To disconnect, tap the switch button again.
+
+4.  **Mode Selection**: Shadowrocket offers flexible traffic routing rules.
+    *   **Configuration Mode**: The default mode. It decides which traffic goes through the proxy based on user-set rules (e.g., bypassing IPs in mainland China).
+    *   **Proxy Mode**: All traffic goes through the proxy.
+    *   **Direct Mode**: No traffic goes through the proxy.
+    You can switch between these modes above the node list on the connection page. Usually, "Configuration Mode" meets most needs.
+
+## Tips and Precautions
+
+*   **Rule Configuration**: On the "Configuration" page, you can manage routing rules. The default rule group (e.g., "GFW List") is usually sufficient. It automatically determines and proxies access to blocked websites while allowing direct connections to domestic sites for faster speeds.
+*   **Test Connection**: After connecting, you can open a browser and visit `google.com` or `youtube.com` to test if it's successful.
+*   **Background App Refresh**: To ensure subscription nodes update automatically, it's recommended to enable "Background App Refresh" for Shadowrocket in iOS Settings > General > Background App Refresh.
+*   **Security**: Always obtain nodes from trustworthy service providers to avoid privacy leaks. Regularly update your subscription to get fresh, available nodes.
+*   **Battery and Network**: Keeping the proxy on for extended periods may slightly increase battery consumption. If certain apps cannot connect to the internet, try switching to "Direct Mode" to check if it's a proxy rule issue.
 
 ## Frequently Asked Questions
 
-### What to do if Shadowrocket fails to connect?
-First, check if your network is working normally. Second, confirm that the server configuration information (such as address, port, password) is accurate, correct, and not expired. If using a subscription link, try "Update Subscription". If the problem persists, you can try switching to a different proxy protocol (e.g., from V2Ray to Trojan) or contact your service provider to confirm the server status.
+### What to do if Shadowrocket connects successfully but cannot access the internet?
+First, ensure your device's cellular data or Wi-Fi network is functioning. Second, the issue might be with the node: try switching to other nodes in the list. Finally, check the routing rules. You can temporarily switch to "Proxy Mode" for testing. If you can access the internet in this mode, it indicates a rule configuration problem, and you may need to update the rules or check their accuracy.
 
-### What's the difference between Shadowrocket and Clash? Which one should I use?
-Shadowrocket and Clash are both excellent proxy tools, but they have different architectures. Shadowrocket leans more towards being a powerful, intuitively configured client suitable for most users, especially on iOS. Clash (and its derivatives like ClashX for Mac) focuses on its powerful rule engine and "configuration" files, offering more geek-oriented features and supporting more complex proxy strategies. For Mac and iOS users, you can choose based on your needs. If you want more comprehensive platform usage guidance, you can refer to this article about [Mac & iOS Download and Usage Methods](/network/vpn/how-to-download-and-install-tools/mac-ios-download-usage), which covers the selection and basic configuration of different tools.
+### How to update node subscriptions?
+Go to Shadowrocket's "Settings" > "Server Subscriptions", find your added subscription entry, swipe left on it, and an "Update" option will appear. Tap it to update manually. You can also enable the "Auto Update" feature to let Shadowrocket fetch the latest nodes periodically.
 
-### Does Shadowrocket affect phone battery life?
-Enabling a proxy connection continuously uses network and some computational resources, so it will slightly increase battery consumption compared to having it off, but this is within a normal, acceptable range. To save battery, it's recommended to turn off the top proxy switch when not needed. Using "Configuration Mode" with good rules, allowing domestic apps to connect directly, can also effectively reduce unnecessary proxy traffic and battery consumption.
+### Is there a difference in using Shadowrocket on iPhone and iPad?
+The basic operations and features are identical. Thanks to the unified iOS and iPadOS systems, one purchase allows use on all your iOS/iPadOS devices under the same Apple ID. Configuration information can be synced via iCloud or added separately on each device.
 
-<RelatedCards :items='[{"title":"MAC&IOS Download and Usage Methods","link":"/network/vpn/how-to-download-and-install-tools/mac-ios-download-usage"}]' />
+<RelatedCards :items='[{"title":"MAC&IOS下载以及使用方式","link":"/network/vpn/how-to-download-and-install-tools/mac-ios-download-usage"}]' />

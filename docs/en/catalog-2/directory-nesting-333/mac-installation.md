@@ -19,7 +19,7 @@ lastUpdated: 1773225000000
 
 <div class="notion-block-red">
 
-**The MAC device used should not store important or sensitive data to prevent irreversible losses from data leaks or loss.**
+**The MAC device used should not store important or sensitive data. Be cautious to prevent data leaks or loss that could lead to irreparable damage.**
 
 </div>
 :::
@@ -36,7 +36,7 @@ Since Open commonly uses Python and Node as runtime environments, you need to in
 
 1. Select Download macOS installer to download.
 
-![](/images/c39b772e8d61.webp)
+![](/images/fb0af18c3b39.webp)
 
 1. After downloading, execute:
 
@@ -60,7 +60,7 @@ Visit [https://nodejs.org/zh-cn/download](https://nodejs.org/zh-cn/download) to 
 # Download and install nvm:
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
 
-# Instead of restarting the shell
+# Alternative to restarting the shell
 \. "$HOME/.nvm/nvm.sh"
 
 # Download and install Node.js:
@@ -84,7 +84,7 @@ npm i -g openclaw
 openclaw onboard
 ```
 
-If there is a timeout error, you can execute the following to switch the Node mirror source:
+If there is a connection timeout error, you can execute the following to switch the Node mirror source:
 
 ```bash
 npm config set registry https://registry.npmmirror.com
@@ -94,7 +94,7 @@ npm config set registry https://registry.npmmirror.com
 
 1. Onboarding mode Initialization mode / First-time configuration method Select Manual to configure step by step together.
 
-1. What do you want to set up? Which gateway to configure? We can choose the default Local gateway (this machine).
+1. What do you want to set up? Which gateway to configure? We'll choose the default: Local gateway (this machine).
 
 1. Workspace directory This is the folder where the AI works. Just press Enter.
 
@@ -106,13 +106,13 @@ npm config set registry https://registry.npmmirror.com
 
 1. Gateway bind Default selection is 127.0.0.1.
 
-1.  Gateway auth Gateway authentication method, default is fine, press Enter for Token.
+1.  Gateway auth Gateway authentication method, default (press Enter) is Token.
 
 1. Tailscale exposure Whether to expose the OpenClaw gateway via Tailscale. For personal use, directly select off.
 
-1. How do you want to provide the gateway token? How to save the gateway Token? Just press Enter to select the default.
+1. How do you want to provide the gateway token? How to save the gateway Token? Press Enter to select the default.
 
-1. Gateway token (blank to generate) Gateway access token, leave it blank and press Enter.
+1. Gateway token (blank to generate) Gateway access token, leave blank and press Enter.
 
 1. Configure chat channels now? Configure chat channels now? Select yes.
 
@@ -128,17 +128,17 @@ npm config set registry https://registry.npmmirror.com
 
 1. Application capabilities, select Bot.
 
-1. Click on Create Version above and enter the corresponding information arbitrarily.
+1. Click on Create Version above. Enter corresponding information arbitrarily.
 
-1. Do not check External Sharing.
+1. Do not check "Public Sharing".
 
-1. Click on Credentials & Basic Information on the left to see **App ID and App Secret**.
+1. Click on Credentials & Basic Info on the left to see **App ID and App Secret**.
 
-1. Permission Management, open permissions, configure all permissions related to messages.
+1. Permission Management Open permissions. Configure all permissions related to messages.
 
 1. At this point, you can continue setting up in the Openclaw terminal.
 
-1. After setting up, click on Events & Callbacks, select WSS long connection. After selecting, add events and callback events, search for messages, add all related to messages, and do the same for callbacks. This way, you can converse with OPenclaw. Remember to publish the application.
+1. After setting up, click on Events & Callbacks, select WSS long connection. After selecting, add events and callback events. Search for "message", add all related to messages. Do the same for callbacks. This way you can converse with OPenclaw. Remember to publish the application.
 
 ### Telegram
 
@@ -148,35 +148,35 @@ npm config set registry https://registry.npmmirror.com
 
 1. Install Feishu plugin? Select Download from npm (@openclaw/feishu).
 
-1. How do you want to provide this App Secret? Select Enter App Secret and input the App Secret and App ID.
+1. How do you want to provide this App Secret? Select Enter App Secret. Enter the App Secret and App ID.
 
-1. Feishu connection mode Connection method, select WebSocket for long connection without needing a public IP.
+1. Feishu connection mode Connection method. Select WebSocket for long connection (no public IP needed).
 
-1. Which Feishu domain? If it's for China, select feihsu.cn; for overseas, select larksuite.com.
+1. Which Feishu domain? If it's for China, select feihsu.cn. For overseas, select larksuite.com.
 
-1. Group chat policy Reply method, choose as needed.
+1. Group chat policy Reply method. Choose as needed.
 
 | Option | Meaning |
 | --- | --- |
-| **Allowlist** | Only replies in specified groups |
-| Open | Replies in all groups (must @ the bot) |
-| Disabled | No replies in group chats at all |
+| **Allowlist** | Only replies in specified groups. |
+| Open | Replies in all groups (must @ the bot). |
+| Disabled | No replies in group chats at all. |
 
-1. I choose the first one, Group chat allowlist (chat_ids). Open the APP on the mobile phone, select the group, and find ocxxxx at the very bottom of the group.
+1. I select the first one: Group chat allowlist (chat_ids). Open the APP on the mobile phone, select the group, and find ocxxxx at the very bottom of the group.
 
 1. Then select Finished (Done) to confirm the configuration.
 
 1. Configure DM access policies now? (default: pairing) Configure private chat (DM = Direct Message) access policies now? Select Yes.
 
-1. Feishu DM policy Private chat policy, select the first one, Pairing, meaning only after pairing can private chat occur.
+1. Feishu DM policy Private chat policy. Select the first one: Pairing (only private chat after pairing).
 
-1. Search provider Which search engine does OpenClaw use to search the internet for information? Just skip this.
+1. Search provider Which search engine should OpenClaw use to search the internet for information? Select skip.
 
 1. Configure skills now? (recommended) Install default Skills? Select yes.
 
-1. Many skills, use the spacebar to select the ones you need, navigate with the up/down keys. After selecting, press Enter.
+1. Many skills. Use the spacebar to select the ones you need. Use the up/down arrow keys. After selecting, press Enter.
 
-1. Preferred node manager for skill installs Installation method, select the first one.
+1. Preferred node manager for skill installs Installation method. Select the first one.
 
 1. Wait for the installation to finish. Install Gateway service (recommended) Install the gateway service? Select yes, then select the default by pressing Enter.
 
@@ -184,12 +184,12 @@ npm config set registry https://registry.npmmirror.com
 
 1. View the webpage and converse with the AI.
 
-1. Click on Configuration > Tools on the left.
+1. Click on the left side: Configuration > Tools.
 
 1. Turn on all options that look like green buttons. After turning them on, click Save in the top right corner.
 
-1. This way, you can use all the tools.
+1. This way you can use all the tools.
 
-![](/images/c0102526963c.webp)
+![](/images/af52b52e785e.webp)
 
-<RelatedCards :items='[{"title":"Claude&ChatGPT&Gemini注册使用","link":"/catalog-2/claude-chatgpt-gemini-registration-usage"},{"title":"Linux以及服务器安装方式","link":"/catalog-2/directory-nesting-333/linux-server-installation"},{"title":"Windows安装方式","link":"/catalog-2/directory-nesting-333/windows-installation"},{"title":"MAC安装Python教程","link":"/more-info/mac-install-python-tutorial"},{"title":"MAC安装NodeJS步骤","link":"/more-info/mac-install-nodejs-steps"},{"title":"OpenClaw怎么安装","link":"/more-info/how-to-install-openclaw"},{"title":"MAC设备安全注意事项","link":"/more-info/mac-device-security-precautions"},{"title":"Python环境配置MAC","link":"/more-info/python-environment-setup-mac"},{"title":"NodeJS镜像源切换","link":"/more-info/nodejs-mirror-switch"},{"title":"OpenClaw初始化配置","link":"/more-info/openclaw-initialization-setup"},{"title":"MAC安装AI工具指南","link":"/more-info/mac-install-ai-tools-guide"}]' />
+<RelatedCards :items='[{"title":"Claude&ChatGPT&Gemini Registration & Usage","link":"/catalog-2/claude-chatgpt-gemini-registration-usage"},{"title":"Linux and Server Installation Method","link":"/catalog-2/directory-nesting-333/linux-server-installation"},{"title":"Windows Installation Method","link":"/catalog-2/directory-nesting-333/windows-installation"},{"title":"MAC Install Python Tutorial","link":"/more-info/mac-install-python-tutorial"},{"title":"MAC Install NodeJS Steps","link":"/more-info/mac-install-nodejs-steps"},{"title":"How to Install OpenClaw","link":"/more-info/how-to-install-openclaw"},{"title":"MAC Device Security Precautions","link":"/more-info/mac-device-security-precautions"},{"title":"MAC Install OpenAI Environment","link":"/more-info/mac-install-openai-environment"},{"title":"MAC Switch npm Mirror Source","link":"/more-info/mac-switch-npm-mirror"},{"title":"MAC Install OpenClaw Error","link":"/more-info/mac-install-openclaw-error"},{"title":"MAC Multi-User Environment Security Settings","link":"/more-info/mac-multi-user-security-settings"}]' />
