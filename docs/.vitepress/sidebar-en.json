@@ -48,7 +48,7 @@
     "collapsed": true,
     "items": [
       {
-        "text": "Claude & ChatGPT & Gemini Registration and Usage",
+        "text": "Claude&ChatGPT&Gemini Registration and Usage",
         "link": "/en/catalog-2/claude-chatgpt-gemini-registration-usage"
       },
       {
@@ -80,16 +80,16 @@
     "collapsed": true,
     "items": [
       {
-        "text": "How to use Shadowrocket?",
-        "link": "/en/more-info/how-to-use-shadowrocket"
+        "text": "How to import a subscription link in Shadowrocket?",
+        "link": "/en/more-info/shadowrocket-import-subscription-link"
       },
       {
-        "text": "Mac VPN Setup Tutorial",
-        "link": "/en/more-info/mac-vpn-setup-tutorial"
+        "text": "Mac App Store foreign region account login",
+        "link": "/en/more-info/mac-appstore-foreign-account-login"
       },
       {
-        "text": "Registering an App Store Account from a Different Region",
-        "link": "/en/more-info/foreign-appstore-account-registration"
+        "text": "IOS VPN Setup Tutorial",
+        "link": "/en/more-info/ios-vpn-setup-tutorial"
       },
       {
         "text": "How to use Windows VPN",
@@ -116,24 +116,24 @@
         "link": "/en/more-info/gmail-registration-tutorial"
       },
       {
-        "text": "Hong Kong App Store Registration Tutorial",
-        "link": "/en/more-info/hong-kong-appstore-registration-tutorial"
+        "text": "How to register on the Hong Kong App Store?",
+        "link": "/en/more-info/hong-kong-appstore-registration"
       },
       {
-        "text": "How to register for a US Apple ID",
-        "link": "/en/more-info/how-to-register-us-apple-id"
+        "text": "Methods to Top Up US Apple ID",
+        "link": "/en/more-info/us-apple-id-top-up"
       },
       {
-        "text": "Top-up methods for App Store from other regions",
-        "link": "/en/more-info/foreign-appstore-top-up-methods"
+        "text": "Out-of-region App Store gift card purchase",
+        "link": "/en/more-info/foreign-appstore-gift-card-purchase"
       },
       {
-        "text": "How to purchase Hong Kong region gift cards?",
-        "link": "/en/more-info/how-to-buy-hong-kong-gift-cards"
+        "text": "How to redeem an App Store gift card",
+        "link": "/en/more-info/how-to-redeem-appstore-gift-code"
       },
       {
-        "text": "Steps to redeem a gift code on the App Store",
-        "link": "/en/more-info/appstore-gift-code-redemption-steps"
+        "text": "Hong Kong App Store Payment Methods",
+        "link": "/en/more-info/hong-kong-appstore-payment-methods"
       },
       {
         "text": "Claude Registration Tutorial",
@@ -168,12 +168,12 @@
         "link": "/en/more-info/mac-switch-npm-mirror"
       },
       {
-        "text": "MAC installation of OpenClaw encountered an error.",
-        "link": "/en/more-info/mac-install-openclaw-error"
+        "text": "Guide to Installing AI Tools on Mac",
+        "link": "/en/more-info/mac-install-ai-tools-guide"
       },
       {
-        "text": "MAC Multi-User Environment Security Settings",
-        "link": "/en/more-info/mac-multi-user-security-settings"
+        "text": "MAC Initialization OpenClaw Configuration",
+        "link": "/en/more-info/mac-initialize-openclaw-configuration"
       },
       {
         "text": "Linux Server VPN Installation Tutorial",

@@ -80,16 +80,16 @@
     "collapsed": true,
     "items": [
       {
-        "text": "小火箭怎么用",
-        "link": "/more-info/how-to-use-shadowrocket"
+        "text": "小火箭怎么导入订阅链接",
+        "link": "/more-info/shadowrocket-import-subscription-link"
       },
       {
-        "text": "Mac VPN设置教程",
-        "link": "/more-info/mac-vpn-setup-tutorial"
+        "text": "Mac AppStore外区账号登录",
+        "link": "/more-info/mac-appstore-foreign-account-login"
       },
       {
-        "text": "外区AppStore账号注册",
-        "link": "/more-info/foreign-appstore-account-registration"
+        "text": "IOS VPN设置教程",
+        "link": "/more-info/ios-vpn-setup-tutorial"
       },
       {
         "text": "Windows VPN怎么用",
@@ -116,24 +116,24 @@
         "link": "/more-info/gmail-registration-tutorial"
       },
       {
-        "text": "港区Appstore注册教程",
-        "link": "/more-info/hong-kong-appstore-registration-tutorial"
+        "text": "港区Appstore怎么注册",
+        "link": "/more-info/hong-kong-appstore-registration"
       },
       {
-        "text": "美区Apple ID怎么注册",
-        "link": "/more-info/how-to-register-us-apple-id"
+        "text": "美区Apple ID充值方法",
+        "link": "/more-info/us-apple-id-top-up"
       },
       {
-        "text": "外区Appstore充值方法",
-        "link": "/more-info/foreign-appstore-top-up-methods"
+        "text": "外区Appstore礼品卡购买",
+        "link": "/more-info/foreign-appstore-gift-card-purchase"
       },
       {
-        "text": "如何购买港区礼品卡",
-        "link": "/more-info/how-to-buy-hong-kong-gift-cards"
+        "text": "如何兑换Appstore礼品码",
+        "link": "/more-info/how-to-redeem-appstore-gift-code"
       },
       {
-        "text": "Appstore兑换礼品码步骤",
-        "link": "/more-info/appstore-gift-code-redemption-steps"
+        "text": "港区Appstore支付方式",
+        "link": "/more-info/hong-kong-appstore-payment-methods"
       },
       {
         "text": "Claude注册教程",
@@ -168,12 +168,12 @@
         "link": "/more-info/mac-switch-npm-mirror"
       },
       {
-        "text": "MAC安装OpenClaw出错",
-        "link": "/more-info/mac-install-openclaw-error"
+        "text": "MAC安装AI工具指南",
+        "link": "/more-info/mac-install-ai-tools-guide"
       },
       {
-        "text": "MAC多用户环境安全设置",
-        "link": "/more-info/mac-multi-user-security-settings"
+        "text": "MAC初始化OpenClaw配置",
+        "link": "/more-info/mac-initialize-openclaw-configuration"
       },
       {
         "text": "Linux服务器VPN安装教程",
