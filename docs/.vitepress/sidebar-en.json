@@ -116,24 +116,24 @@
         "link": "/en/more-info/gmail-registration-tutorial"
       },
       {
-        "text": "Hong Kong Apple ID Registration Tutorial",
-        "link": "/en/more-info/hong-kong-apple-id-registration-tutorial"
+        "text": "Hong Kong App Store Registration Tutorial",
+        "link": "/en/more-info/hong-kong-appstore-registration-tutorial"
       },
       {
-        "text": "How to top up on the US App Store",
-        "link": "/en/more-info/us-app-store-how-to-top-up"
+        "text": "How to register for a US Apple ID",
+        "link": "/en/more-info/how-to-register-us-apple-id"
       },
       {
-        "text": "Out-of-region App Store gift card purchase",
-        "link": "/en/more-info/foreign-app-store-gift-card-purchase"
+        "text": "Top-up methods for App Store from other regions",
+        "link": "/en/more-info/foreign-appstore-top-up-methods"
       },
       {
-        "text": "How to redeem a Hong Kong App Store gift card?",
-        "link": "/en/more-info/how-to-redeem-hong-kong-app-store-gift-card"
+        "text": "How to purchase Hong Kong region gift cards?",
+        "link": "/en/more-info/how-to-buy-hong-kong-gift-cards"
       },
       {
-        "text": "What should I do if I cannot log in after registering with an ID from another region?",
-        "link": "/en/more-info/foreign-id-cannot-login-after-registration"
+        "text": "Steps to redeem a gift code on the App Store",
+        "link": "/en/more-info/appstore-gift-code-redemption-steps"
       },
       {
         "text": "Claude Registration Tutorial",
@@ -152,7 +152,7 @@
         "link": "/en/more-info/mac-install-nodejs-steps"
       },
       {
-        "text": "How to install OpenClaw",
+        "text": "How to install OpenClaw?",
         "link": "/en/more-info/how-to-install-openclaw"
       },
       {
@@ -160,20 +160,20 @@
         "link": "/en/more-info/mac-device-security-precautions"
       },
       {
-        "text": "VPN network environment configuration",
-        "link": "/en/more-info/vpn-network-environment-setup"
+        "text": "Python Environment Setup on MAC",
+        "link": "/en/more-info/python-environment-setup-mac"
       },
       {
-        "text": "ChatGPT Account Registration Method",
-        "link": "/en/more-info/chatgpt-account-registration-method"
+        "text": "NodeJS Mirror Source Switching",
+        "link": "/en/more-info/nodejs-mirror-switch"
       },
       {
-        "text": "nvm Installation Guide for NodeJS",
-        "link": "/en/more-info/nvm-install-nodejs-guide"
+        "text": "OpenClaw Initialization Configuration",
+        "link": "/en/more-info/openclaw-initialization-setup"
       },
       {
-        "text": "MAC Development Environment Setup",
-        "link": "/en/more-info/mac-development-environment-setup"
+        "text": "Guide to Installing AI Tools on Mac",
+        "link": "/en/more-info/mac-install-ai-tools-guide"
       },
       {
         "text": "Linux Server VPN Installation Tutorial",

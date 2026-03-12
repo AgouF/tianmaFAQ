@@ -3,7 +3,7 @@ title: "MAC&IOS下载以及使用方式"
 description: "准备工作 1. AppStore外区账号（自己注册或者闲鱼购买）注册教程 各平台账号注册篇 1. IOS或Mac设备 登录您的外区账号 ⚠️ Mac的 AppStore需要在 系统设置Apple账户媒体与购买项目  中退出登录你现在所登录的"
 readingTime: 1
 lastUpdated: 1773201840000
-ogImage: "https://tianma.xin/images/9a9e7cab46f5.webp"
+ogImage: "https://tianma.xin/images/6085da6e51eb.webp"
 ---
 
 # MAC&IOS下载以及使用方式
@@ -24,11 +24,11 @@ ogImage: "https://tianma.xin/images/9a9e7cab46f5.webp"
 
 打开你购买VPN的网页，会找到类似于图片样式的导入方式
 
-![](/images/9a9e7cab46f5.webp)
+![](/images/6085da6e51eb.webp)
 
 随便选择一个，复制好链接后，打开shadowrocket，默认读取剪切板直接导入即可，若无法识别您的剪贴板，点击shadowrocket右上角”+“输入您复制的订阅链接即可
 
-![](/images/837c23e25db5.webp)
+![](/images/84ff2292913f.webp)
 
 连通性测试测试出当前节点延迟
 

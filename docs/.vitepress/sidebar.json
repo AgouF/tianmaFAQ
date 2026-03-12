@@ -116,24 +116,24 @@
         "link": "/more-info/gmail-registration-tutorial"
       },
       {
-        "text": "港区Apple ID注册教程",
-        "link": "/more-info/hong-kong-apple-id-registration-tutorial"
+        "text": "港区Appstore注册教程",
+        "link": "/more-info/hong-kong-appstore-registration-tutorial"
       },
       {
-        "text": "美区App Store如何充值",
-        "link": "/more-info/us-app-store-how-to-top-up"
+        "text": "美区Apple ID怎么注册",
+        "link": "/more-info/how-to-register-us-apple-id"
       },
       {
-        "text": "外区App Store礼品卡购买",
-        "link": "/more-info/foreign-app-store-gift-card-purchase"
+        "text": "外区Appstore充值方法",
+        "link": "/more-info/foreign-appstore-top-up-methods"
       },
       {
-        "text": "如何兑换港区App Store礼品卡",
-        "link": "/more-info/how-to-redeem-hong-kong-app-store-gift-card"
+        "text": "如何购买港区礼品卡",
+        "link": "/more-info/how-to-buy-hong-kong-gift-cards"
       },
       {
-        "text": "外区ID注册后无法登录怎么办",
-        "link": "/more-info/foreign-id-cannot-login-after-registration"
+        "text": "Appstore兑换礼品码步骤",
+        "link": "/more-info/appstore-gift-code-redemption-steps"
       },
       {
         "text": "Claude注册教程",
@@ -160,20 +160,20 @@
         "link": "/more-info/mac-device-security-precautions"
       },
       {
-        "text": "VPN网络环境配置",
-        "link": "/more-info/vpn-network-environment-setup"
+        "text": "Python环境配置MAC",
+        "link": "/more-info/python-environment-setup-mac"
       },
       {
-        "text": "ChatGPT账号注册方法",
-        "link": "/more-info/chatgpt-account-registration-method"
+        "text": "NodeJS镜像源切换",
+        "link": "/more-info/nodejs-mirror-switch"
       },
       {
-        "text": "nvm安装NodeJS指南",
-        "link": "/more-info/nvm-install-nodejs-guide"
+        "text": "OpenClaw初始化配置",
+        "link": "/more-info/openclaw-initialization-setup"
       },
       {
-        "text": "MAC开发环境搭建",
-        "link": "/more-info/mac-development-environment-setup"
+        "text": "MAC安装AI工具指南",
+        "link": "/more-info/mac-install-ai-tools-guide"
       },
       {
         "text": "Linux服务器VPN安装教程",
