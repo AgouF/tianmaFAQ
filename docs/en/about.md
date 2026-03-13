@@ -9,4 +9,4 @@ lastUpdated: 1773326340000
 | Author | tianma |
 | --- | --- |
 
-<RelatedCards :items='[{"title":"Is VPN Safe","link":"/more-info/vpn-security"},{"title":"VPN Recommendations","link":"/more-info/vpn-recommendation"}]' />
+<RelatedCards :items='[{"title":"","link":"/how-to-translate-chinese-to-english"},{"title":"Is VPN Safe","link":"/more-info/vpn-security"},{"title":"VPN Recommendation","link":"/more-info/vpn-recommendation"}]' />

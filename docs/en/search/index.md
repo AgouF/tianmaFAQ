@@ -5,7 +5,7 @@ description: "Complete list of all Tianma Brand FAQ articles"
 
 # All Articles
 
-2 articles covering all FAQ categories.
+3 articles covering all FAQ categories.
 
 ## AI  
 
@@ -14,3 +14,4 @@ description: "Complete list of all Tianma Brand FAQ articles"
 ## 其他
 
 - [☀️关于](/en/about)
+- [](/en/how-to-translate-chinese-to-english)

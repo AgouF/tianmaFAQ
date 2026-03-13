@@ -19,6 +19,10 @@ features:
     details: 1 articles
     link: /en/about
     linkText: View details
+  - title: 
+    details: 1 articles
+    link: /en/how-to-translate-chinese-to-english
+    linkText: View details
   - title: More information
     details: 4 articles
     link: /en/more-info/windows-vpn-installation

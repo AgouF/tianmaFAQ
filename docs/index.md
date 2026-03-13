@@ -19,4 +19,8 @@ features:
     details: 共 1 篇文章
     link: /about
     linkText: 查看详情
+  - title: 
+    details: 共 1 篇文章
+    link: /how-to-translate-chinese-to-english
+    linkText: 查看详情
 ---

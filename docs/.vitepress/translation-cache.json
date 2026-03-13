@@ -3,7 +3,7 @@
   "mac-installation": "a7b9f4e8dbbb1c15c09c35bf7bfcac16",
   "linux-server-installation": "58ffb24cf7af5aa7ca81f9e7edad6788",
   "windows-installation": "2c4d82b327860aec6e486a55a18fb1a4",
-  "about": "25400f87fe1bed7bb7be9fffb0c810d9",
+  "about": "8f37e4eee8cff0512ef032c5850b669c",
   "kw-tool-download-tutorial": "ca08430a7275e15428806f91efa868ef",
   "kw-install-tool-steps": "78eb3bd493f8429a4e3c5493fd68f871",
   "kw-mac-vpn-installation": "fea4734faf93623a4b72a90f9ebdaa83",
@@ -128,5 +128,6 @@
   "kw-appstore-gift-card-how-to-redeem": "3c594bccc9f60a05ee41b4c1eddbe07d",
   "kw-foreign-apple-id-registration-requirements": "0d9bcd7bbcea90742af7d3d85d7cddfa",
   "kw-server-vpn-configuration-guide": "90ecaef1b82edf95660218a0148c54fd",
-  "kw-tianma-vpn-installation-tutorial": "d112c0084d9c664a97d834aa96405671"
+  "kw-tianma-vpn-installation-tutorial": "d112c0084d9c664a97d834aa96405671",
+  "how-to-translate-chinese-to-english": "bc7a4cc21a1255a53660235e45ff8004"
 }

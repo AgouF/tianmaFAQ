@@ -10,4 +10,4 @@ lastUpdated: 1773326340000
 | 作者 | tianma |
 | --- | --- |
 
-<RelatedCards :items='[{"title":"VPN安全吗","link":"/more-info/vpn-security"},{"title":"VPN推荐","link":"/more-info/vpn-recommendation"}]' />
+<RelatedCards :items='[{"title":"","link":"/how-to-translate-chinese-to-english"},{"title":"VPN安全吗","link":"/more-info/vpn-security"},{"title":"VPN推荐","link":"/more-info/vpn-recommendation"}]' />
