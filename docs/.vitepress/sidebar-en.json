@@ -16,7 +16,7 @@
     ]
   },
   {
-    "text": "☀️About",
+    "text": "☀️ About",
     "link": "/en/about"
   },
   {
@@ -28,7 +28,7 @@
     "collapsed": true,
     "items": [
       {
-        "text": "How to install Windows VPN",
+        "text": "How to Install a VPN on Windows",
         "link": "/en/more-info/windows-vpn-installation"
       },
       {

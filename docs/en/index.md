@@ -15,7 +15,7 @@ features:
     details: 1 articles
     link: /en/catalog-2/directory-nesting-333/windows-installation
     linkText: View details
-  - title: ☀️About
+  - title: ☀️ About
     details: 1 articles
     link: /en/about
     linkText: View details
