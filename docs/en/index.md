@@ -15,7 +15,7 @@ features:
     details: 1 articles
     link: /en/catalog-2/directory-nesting-333/windows-installation
     linkText: View details
-  - title: ☀️关于
+  - title: ☀️About
     details: 1 articles
     link: /en/about
     linkText: View details
@@ -23,7 +23,7 @@ features:
     details: 1 articles
     link: /en/how-to-translate-chinese-to-english
     linkText: View details
-  - title: 更多信息
+  - title: More information
     details: 4 articles
     link: /en/more-info/windows-vpn-installation
     linkText: View details
